@@ -19,6 +19,10 @@ function Splash() {
         {" "}
         Login{" "}
       </a>
+      <a href="/Gene" className="btn btn-primary">
+        {" "}
+        genepagetest{" "}
+      </a>
     </div>
   );
 }
