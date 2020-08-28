@@ -2,7 +2,7 @@
 // "seed": "node scripts/seedDB.js"
 
 let mongoose = require("mongoose");
-let recipesModel = require("../client/src/models/recipesModel");
+let recipesModel = require("../models/recipesModel");
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/recipes_DB", {
     useNewUrlParser: true,
