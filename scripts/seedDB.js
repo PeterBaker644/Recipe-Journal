@@ -1,10 +1,13 @@
+//change package json to the below code to go back to the seedDB.js
+// "seed": "node scripts/seedDB.js"
+
 // const mongoose = require("mongoose");
 // const db = require("../models");
 
 // // This file empties the Books collection and inserts the books below
 
 // mongoose.connect(
-//   process.env.MONGODB_URI || "mongodb://localhost/reactrecipes"
+//   process.env.MONGODB_URI || "mongodb://localhost/recipes_DB"
 // );
 
 const recipeSeed = [
