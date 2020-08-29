@@ -1,28 +1,31 @@
 import React from "react";
+import {Link} from 'react-router-dom';
+import box from "../../images/box5.png";
+import "./splash.css";
 
 function Splash() {
   return (
     <div className="container">
-      <h1>Recipe Box</h1>
+      <h1 className="splashName">Recipe Box</h1>
 
       <section className="aboutGif">
-        <h2>About</h2>
-        <p>Picure here???</p>
+        <h2>curate your recipes</h2>
+        <img src={box} alt="recipe box" />
       </section>
-
-      <a href="/signup" className="btn btn-primary">
+      <Link to ="/signup" className="btn btn-primary">
         {" "}
         Signup
-      </a>
+      </Link>
       {"  "}
-      <a href="/login" className="btn btn-primary">
+      <Link to="/login" className="btn btn-primary">
         {" "}
-        Login{" "}
-      </a>
-      <a href="/Gene" className="btn btn-primary">
+        Login
+      </Link>
+      {" "}
+      <Link to="/Gene" className="btn btn-primary">
         {" "}
         genepagetest{" "}
-      </a>
+      </Link>
     </div>
   );
 }

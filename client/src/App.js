@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import Splash from "./component/pages/Splash";
 import Signup from "./component/pages/Signup";
 import Login from "./component/pages/Login";
@@ -10,14 +10,12 @@ import Gene from "./component/pages/Gene";
 function App() {
   return (
     <Router>
-      <Switch>
-        <Route exact path="/gene" exact component={Gene} />
+      <div>
         <Route path="/" exact component={Splash} />
-        <Route exact path="/signup" exact component={Signup} />
-        <Route exact Path="/login" exact component={Login} />
-
-
-      </Switch>
+        <Route path="/signup" component={Signup} />
+        {/* <Route Path="/login" component={Login} /> */}
+        <Route path="/gene" component={Gene} />
+      </div>
     </Router>
   );
 }
