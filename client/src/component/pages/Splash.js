@@ -7,7 +7,6 @@ function Splash() {
   return (
     <div className="container">
       <h1 className="splashName">Recipe Box</h1>
-
       <section className="aboutGif">
         <h2>curate your recipes</h2>
         <img src={box} alt="recipe box" />
