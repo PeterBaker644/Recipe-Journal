@@ -15,8 +15,6 @@ function App() {
         <Route path="/" exact component={Splash} />
         <Route exact path="/signup" exact component={Signup} />
         <Route exact Path="/login" exact component={Login} />
-
-
       </Switch>
     </Router>
   );
