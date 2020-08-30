@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Splash from "./component/pages/Splash";
-import Signup from "./component/pages/Signup";
-import Login from "./component/pages/Login";
+import Splash from "./component/pages/Splash/Splash";
+import Signup from "./component/pages/Signup/Signup";
+import Login from "./component/pages/Login/Login";
 import Gene from "./component/pages/Gene";
 
 
