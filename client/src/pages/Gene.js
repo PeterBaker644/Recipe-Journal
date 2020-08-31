@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import API from "../../utils/API";
+import API from "../utils/API";
 
-import { RecipeList, RecipeListItem } from "../RecipeList";
+import { RecipeList, RecipeListItem } from "../component/RecipeList/index";
 
 function genepagetest() {
 
