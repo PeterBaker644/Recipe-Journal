@@ -5,8 +5,6 @@ import Signup from "./component/pages/Signup";
 import Login from "./component/pages/Login";
 import Gene from "./component/pages/Gene";
 
-
-
 function App() {
   return (
     <Router>
@@ -15,8 +13,6 @@ function App() {
         <Route path="/" exact component={Splash} />
         <Route exact path="/signup" exact component={Signup} />
         <Route exact Path="/login" exact component={Login} />
-
-
       </Switch>
     </Router>
   );

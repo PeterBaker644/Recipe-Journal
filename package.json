@@ -1,7 +1,7 @@
 {
-  "name": "mern",
+  "name": "recipe-box",
   "version": "1.0.0",
-  "description": "",
+  "description": "A recipe saving web application for cooking and baking",
   "main": "server.js",
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
@@ -16,12 +16,12 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "concurrently": "^4.1.0",
-    "nodemon": "^1.18.7"
+    "concurrently": "^5.3.0",
+    "nodemon": "^2.0.4"
   },
   "dependencies": {
     "express": "^4.16.3",
     "if-env": "^1.0.4",
-    "mongoose": "^5.8.11"
+    "mongoose": "^5.10.2"
   }
 }
