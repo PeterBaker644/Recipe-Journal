@@ -4,7 +4,7 @@ import app from "../../base";
 function Login (){
     return(
 
-        <h1>I'm login page!</h1>
+        <h1>Login PAGE!</h1>
 
     );
 }
