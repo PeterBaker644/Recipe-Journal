@@ -3,7 +3,7 @@ import API from "../utils/API";
 
 import { RecipeList, RecipeListItem } from "../component/RecipeList/index";
 
-function genepagetest() {
+function Genepagetest() {
 
     const [recipes, setRecipes] = useState([]);
 
@@ -42,4 +42,4 @@ function genepagetest() {
     );
 }
 
-export default genepagetest;
+export default Genepagetest;

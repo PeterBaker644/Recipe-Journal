@@ -6,16 +6,16 @@ import Login from "./pages/login/Login";
 import Gene from "./pages/Gene";
 
 function App() {
-  return (
-    <Router>
-      <Switch>
-        <Route exact path="/gene" exact component={Gene} />
-        <Route path="/" exact component={Splash} />
-        <Route exact path="/signup" exact component={Signup} />
-        <Route exact Path="/login" exact component={Login} />
-      </Switch>
-    </Router>
-  );
+    return (
+        <Router>
+            <Switch>
+                <Route exact path="/gene" exact component={Gene} />
+                <Route path="/" exact component={Splash} />
+                <Route exact path="/signup" exact component={Signup} />
+                <Route exact Path="/login" exact component={Login} />
+            </Switch>
+        </Router>
+    );
 }
 
 export default App;
