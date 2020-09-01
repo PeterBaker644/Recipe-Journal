@@ -5,8 +5,6 @@ import Signup from "./pages/signup/Signup";
 import Login from "./pages/login/Login";
 import Gene from "./pages/Gene";
 
-
-
 function App() {
   return (
     <Router>
