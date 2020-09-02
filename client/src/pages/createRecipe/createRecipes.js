@@ -2,6 +2,11 @@ import React, { Component } from "react";
 import axios from 'axios';
 import './create.css';
 
+
+//hard code array of categories until we have collection
+//we may need to add more items...?
+let categories = ['appetizer', 'soup', 'salad', 'entree', 'side', 'dessert'];
+
 class CreateRecipes extends Component {
 
   constructor(props) {
@@ -9,25 +14,28 @@ class CreateRecipes extends Component {
 
     this.onChangeName = this.onChangeName.bind(this);
     this.onChangeDescription = this.onChangeDescription.bind(this);
+    this.onChangeCategories = this.onChangeCategories.bind(this);
     this.onChangeTags = this.onChangeTags.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
 
     this.state = {
       name: "",
       description: "",
+      categories: "",
       tags: ""
     };
   }
 
-  componentDidMount() {
-  //When we start, do we want to call a function??? 
 
-    // axios.get('http://localhost:5000/users/')
+  componentDidMount() {
+  //When we start, need API call to category collection...
+
+    // axios.get('http://localhost:5000/categories/')
     // .then(res => {
     //   if (res.data.length > 0){
     //     this.setState({
-    //       users: res.data.map(user => user.username),
-    //       username: res.data[0].username
+    //       categories: res.data.map(category => category.categories),
+    //       categories: res.data[0].categories
     //     })
     //   }
     // })
@@ -45,6 +53,12 @@ class CreateRecipes extends Component {
     });
   }
 
+  onChangeCategories(e) {
+    this.setState({
+      categories: e.target.value,
+    });
+  }
+
   onChangeTags(e) {
     this.setState({
       tags: e.target.value,
@@ -55,14 +69,15 @@ class CreateRecipes extends Component {
     e.preventDefault();
 
     const recipe = {
-      name: this.state.username,
+      name: this.state.name,
       description: this.state.description,
+      categories: this.state.categories,
       tags: this.state.tags,
     };
     console.log(recipe);
 
-    axios.post('http://localhost:5000/create/', recipe)// HOW EXACTLY DO WE WANT TO SET ROUTE?  
-    .then(res => console.log(res.data));  //OR HOW DO WE TO OTHER PAGES AND SEND AS ONE ENTRY TO BACKEND
+    axios.post('http://localhost:5000/create/', recipe)// HOW DO WE SEND ARRAY TO NEXT INGREDIENTS PAGE, TO ADD STEPS?
+    .then(res => console.log(res.data));               //So we just send one final API call to backend 
 
     window.location = "/";
   }
@@ -99,16 +114,16 @@ class CreateRecipes extends Component {
               ref="userInput"
               required
               className="form-control"
-              value={this.state.name}
-              onChange={this.onChangeName}
+              value={this.state.categories}
+              onChange={this.onChangeCategories}
             >
-              {/* {this.state.users.map(function (user) {
-                // return (
-                //   <option key={user} value={user}>
-                //     {user}
-                //   </option>
-                // );
-              })} */}
+              {categories.map(function (category) {
+                return (
+                  <option key={category} value={category}>
+                    {category}
+                  </option>
+                );
+              })}
             </select>
           </div>
           <div className="form-group">
@@ -123,10 +138,11 @@ class CreateRecipes extends Component {
           </div>
           <div className="form-group">
             <input
+
               type="submit"
               value="Let's Go!"
               className="btn btn-primary"
-            />
+             /> 
           </div>
         </form>
       </div>
