@@ -4,7 +4,7 @@ import Splash from "./pages/splash/Splash";
 import Signup from "./pages/signup/Signup";
 import Login from "./pages/login/Login";
 import CreateRecipe from "./pages/createRecipe/createRecipes";
-import Gene from "./pages/Gene";
+import Gene from "./pages/gene/Gene";
 
 function App() {
   return (

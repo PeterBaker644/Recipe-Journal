@@ -25,7 +25,7 @@ function Splash() {
         {" "}
         Create{" "}
       </Link>
-      <Link to="/Gene" className="btn btn-primary">
+      <Link to="/gene" className="btn btn-primary">
         {" "}
         genepagetest{" "}
       </Link>
