@@ -1,32 +1,24 @@
 import React from "react";
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import box from "../../images/box5.png";
 import "./splash.css";
+import TestCard from "../../component/TestCard"
 
 function Splash() {
-  return (
-    <div className="container">
-      <h1 className="splashName">Recipe Box</h1>
-      <section className="aboutGif">
-        <h2>curate your recipes</h2>
-        <img src={box} alt="recipe box" />
-      </section>
-      <Link to ="/signup" className="btn btn-primary">
-        {" "}
-        Signup
-      </Link>
-      {"  "}
-      <Link to="/login" className="btn btn-primary">
-        {" "}
-        Login
-      </Link>
-      {" "}
-      <Link to="/Gene" className="btn btn-primary">
-        {" "}
-        genepagetest{" "}
-      </Link>
-    </div>
-  );
+    return (
+        <TestCard>
+            <section className="text-center">
+                <h1 className="font-brand">Recipe Box.</h1>
+                <p className="divider font-script">make something better</p>
+                <img className="img-fluid mb-3" src={box} alt="recipe box" />
+            </section>
+            <section className="d-flex justify-content-center my-2">
+                <Link to="/login" className="btn-secondary rb-btn">Sign In</Link>
+                <Link to="/signup" className="btn-secondary rb-btn mx-4">Sign Up</Link>
+                <Link to="/Gene" className="btn-secondary rb-btn">Gene's Page</Link>
+            </section>
+        </TestCard>
+    );
 }
 
 export default Splash;

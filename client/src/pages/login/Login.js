@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import test from '../../firebase';
+import TestCard from "../../component/TestCard"
+import SignUpForm from "../../component/SignUpForm"
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 import './firebaseui-styling.css';
 
@@ -29,25 +32,34 @@ function Login() {
         })
     }, [])
 
+    const emailPassword = (e) => {
+        e.preventDefault();
+        const { email, password } = e.target.elements;
+        
+        console.log('you clicked the button', email.value, password.value);
+    }
+
     return (
-        <div className="container justify-content-center row g-0 mt-4">
-            <div className="card col-6">
-                <h5 className="card-header text-center">Authentication Test Page</h5>
-                <div class="card-body">
-                    {authState.signedIn ? (
-                        <div className="card-text">
-                            <div className="lead py-2 mb-3">You are signed in.🎉</div>
-                            <button className="btn btn-primary" onClick={() => app.auth().signOut()}>Sign Out</button>
-                        </div>
-                    ) : (
-                        <StyledFirebaseAuth
-                            uiConfig={uiConfig}
-                            firebaseAuth={app.auth()}
-                        />
-                    )}
+        <TestCard>
+            {authState.signedIn ? (
+                <div className="card-text text-center">
+                    <div className="font-book py-2 mb-3">You are signed in. 🎉</div>
+                    <Link to="/Gene" className="custom-button btn-primary">
+                        genepagetest
+                                </Link>
+                    <button className="custom-button btn-primary" onClick={() => app.auth().signOut()}>Sign Out</button>
                 </div>
-            </div>            
-        </div>
+            ) : (
+                <>
+                    <SignUpForm emailPassword={emailPassword}/>
+                    <div className="divider font-book-italic">Or</div>
+                    <StyledFirebaseAuth
+                        uiConfig={uiConfig}
+                        firebaseAuth={app.auth()}
+                    />
+                </>
+            )}
+        </TestCard>
     );
 }
 
