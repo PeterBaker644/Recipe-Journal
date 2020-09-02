@@ -7,7 +7,6 @@ import TestCard from "../../component/TestCard"
 import { AuthContext } from "../../component/Auth";
 
 function Splash() {
-<<<<<<< HEAD
     const app = test.firebase_;
     const { currentUser } = useContext(AuthContext);
     
@@ -26,35 +25,6 @@ function Splash() {
             </section>
         </TestCard>
     );
-=======
-  return (
-    <div className="container">
-      <h1 className="splashName">Recipe Box</h1>
-      <section className="aboutGif">
-        <h2>curate your recipes</h2>
-        <img src={box} alt="recipe box" />
-      </section>
-      <Link to ="/signup" className="btn btn-primary">
-        {" "}
-        Signup
-      </Link>
-      {"  "}
-      <Link to="/login" className="btn btn-primary">
-        {" "}
-        Login
-      </Link>
-      {" "}
-      <Link to="/create" className="btn btn-primary">
-        {" "}
-        Create{" "}
-      </Link>
-      <Link to="/gene" className="btn btn-primary">
-        {" "}
-        genepagetest{" "}
-      </Link>
-    </div>
-  );
->>>>>>> origin
 }
 
 export default Splash;
