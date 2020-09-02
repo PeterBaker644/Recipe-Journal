@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Great+Vibes&family=Homemade+Apple&family=Open+Sans:ital@1&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Great+Vibes&family=Homemade+Apple&family=Open+Sans:ital@1&display=swap"); */
 
 .container {
     position: absolute;
@@ -7,7 +7,7 @@
 }
 
 .splashName {
-  font-family: "Homemade Apple", cursive;
+  /* font-family: "Homemade Apple", cursive; */
   font-size: 100px;
 }
 
@@ -17,7 +17,7 @@ img{
 }
 
 h2 {
-  font-family: "Homemade Apple", cursive;
+  /* font-family: "Homemade Apple", cursive; */
   font-size: auto;
 }
 

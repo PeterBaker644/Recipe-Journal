@@ -11,10 +11,12 @@ function App() {
     <Router>
       <Switch>
         <Route exact path="/gene" exact component={Gene} />
-        <Route exact Path="/create" exact component={CreateRecipe}/>
         <Route path="/" exact component={Splash} />
         <Route exact path="/signup" exact component={Signup} />
+        <Route exact Path="/create" exact component={CreateRecipe}/>
+        
         <Route exact Path="/login" exact component={Login} />
+        
         
       </Switch>
     </Router>
