@@ -14,16 +14,41 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/recipes_hybrid_
 let recipesSeed = [
     {
         recipeName: "pancakes",
+        recipeDescription:"this is a recipe description field",
+        recipeCategory:"baked recipes",
+        recipeTags: [
+            "dessert", "breakfast"
+        ],
+        ingredients: [
+            {
+                ingredientName: "flour",
+                quantity: 2,
+                units: "cups"
+            }
+        ],
         cookingActions: [
             {
                 action: "mix",
             }
         ]
-    }, {
+    }, 
+    {
         recipeName: "pancakes Alt recipe",
+        ingredients: [
+            {
+                ingredientName: "flour",
+                quantity: 2,
+                units: "cups"
+            },
+            {
+                ingredientName: "eggs",
+                quantity: 2,
+                units: "Grade A"
+            }
+        ],
         cookingActions: [
             {
-                action: "mix",
+                action: "mix2",
             }
         ]
     }
@@ -31,24 +56,26 @@ let recipesSeed = [
 //ingredients seed
 let ingredientsSeed = [
     {
-        name: "flour",
-        quantity: 2,
-        units: "cups"
-    }, {
-        name: "2flour",
-        quantity: 2,
-        units: "cups"
-    }
+        ingredientName: "flour",
+        userUsedCount: 1,
+        ingredientsCategory: "baked goods"
+    },
+    {
+        ingredientName: "eggs",
+    },
+    {
+        ingredientName: "milk",
+    },
 ];
 async function seedAsyncFunction() {
     try {
         await recipesModel.deleteMany();
-        await recipesModel.insertMany(recipesSeed);
         await ingredientsModel.deleteMany();
+        await recipesModel.insertMany(recipesSeed);
         await ingredientsModel.insertMany(ingredientsSeed);
         process.exit(0);
     } catch (err) {
         console.log(err);
-    }    
+    }
 }
 seedAsyncFunction();
