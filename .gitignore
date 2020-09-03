@@ -108,3 +108,6 @@ dist
 
 # Stupid Files Added by Windows
 desktop.ini
+
+# Oops
+serviceAccountKey.json

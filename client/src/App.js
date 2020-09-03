@@ -17,7 +17,7 @@ function App() {
                     <PrivateRoute exact path="/gene" component={Gene} />
                     <Route exact path="/" component={Splash} />
                     <Route exact path="/login" component={Login} />
-                    <Route exact path="/create" component={CreateRecipe} />
+                    <PrivateRoute exact path="/create" component={CreateRecipe} />
                     <Route exact path="/signup" component={Signup} />
                 </Switch>
             </Router>
