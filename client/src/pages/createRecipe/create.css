@@ -1,0 +1,29 @@
+.sectionContainer {
+    margin-top: 60px;
+    margin-left: 60px;
+    margin-right: 60px;
+    padding: 20px;
+    border: 1px solid black;
+  }
+  
+  .recipeTitle{
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .form-control{
+  margin-top: 1px;
+  }
+  
+  .btn {
+    display: block;
+    margin-top: 7px;
+    margin-right: 0;
+    margin-left: auto;
+  }
+  
+  .recipeContainer{
+    border: 1px solid black;
+    padding: 2px;
+  }
+  

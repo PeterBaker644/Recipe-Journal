@@ -1,25 +1,28 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Splash from "./component/pages/Splash";
-import Signup from "./component/pages/Signup";
-import Login from "./component/pages/Login";
-import Gene from "./component/pages/Gene";
-
-
+import Splash from "./pages/splash/Splash";
+import Signup from "./pages/signup/Signup";
+import Login from "./pages/login/Login";
+import CreateRecipe from "./pages/createRecipe/createRecipes";
+import { AuthProvider } from "./component/Auth";
+import PrivateRoute from "./component/PrivateRoute";
+import Gene from "./pages/gene/Gene";
 
 function App() {
-  return (
-    <Router>
-      <Switch>
-        <Route exact path="/gene" exact component={Gene} />
-        <Route path="/" exact component={Splash} />
-        <Route exact path="/signup" exact component={Signup} />
-        <Route exact Path="/login" exact component={Login} />
 
-
-      </Switch>
-    </Router>
-  );
+    return (
+        <AuthProvider>
+            <Router>
+                <Switch>
+                    <Route exact path="/gene" component={Gene} />
+                    <Route exact path="/" component={Splash} />
+                    <Route exact path="/login" component={Login} />
+                    <Route exact path="/create" component={CreateRecipe} />
+                    <Route exact path="/signup" component={Signup} />
+                </Switch>
+            </Router>
+        </AuthProvider>
+    );
 }
 
 export default App;
