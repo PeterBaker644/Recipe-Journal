@@ -14,7 +14,7 @@ function App() {
         <AuthProvider>
             <Router>
                 <Switch>
-                    <PrivateRoute exact path="/gene" component={Gene} />
+                    <Route exact path="/gene" component={Gene} />
                     <Route exact path="/" component={Splash} />
                     <Route exact path="/login" component={Login} />
                     <Route exact path="/create" component={CreateRecipe} />

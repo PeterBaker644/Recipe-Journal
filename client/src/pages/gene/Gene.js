@@ -1,6 +1,6 @@
 import React, { useState } from "../../../node_modules/react";
 import API from "../../utils/API";
-import { UlList, RecipeListItem, IngredientsListItem } from "../../component/RecipeList/index";
+import { UlList, RecipeListItem, IngredientsListItem, NestedIngredientsList, NestedTagsList, } from "../../component/RecipeList/index";
 
 function Genepagetest() {
 
@@ -17,26 +17,59 @@ function Genepagetest() {
     const ingredientsSubmit = event => {
         event.preventDefault();
         API.getIngredients()
-        .then(res => setIngredients(res.data))
-        .catch(err => console.log(err));
+            .then(res => setIngredients(res.data))
+            .catch(err => console.log(err));
     };
 
     return (
         <div>
+
             <h1>Genes testing page</h1>
             <button onClick={recipeSubmit} className="btn btn-primary">
                 {" "}RecipeList{" "}
             </button>
             <UlList>
                 {recipes.map(recipe => {
-                    return (
+                    return (<div>
                         <RecipeListItem
                             key={recipe._id}
                             recipeName={recipe.recipeName}
+                            recipeDescription={recipe.recipeDescription}
+                            recipeCategory={recipe.recipeCategory}
                             cookingAction={recipe.cookingActions[0].action}
                         />
+                        <h2>recipeTags UL list</h2>
+                        <UlList>
+                            {recipe.recipeTags.map(tags => {
+                                return (
+                                    <NestedTagsList
+                                        key={tags._id}
+                                        recipeTags={tags}
+                                    />
+
+                                );
+                            })}
+
+                        </UlList>
+                        <h2>ingredients UL list</h2>
+                        <UlList>
+                            {recipe.ingredients.map(ingredients => {
+                                return (
+                                    <NestedIngredientsList
+                                        key={ingredients._id}
+                                        ingredientName={ingredients.ingredientName}
+                                        quantity={ingredients.quantity}
+                                        units={ingredients.units}
+                                    />
+
+                                );
+                            })}
+
+                        </UlList>
+                    </div>
                     );
                 })}
+
             </UlList>
 
             <button onClick={ingredientsSubmit} className="btn btn-primary">
@@ -47,9 +80,10 @@ function Genepagetest() {
                     return (
                         <IngredientsListItem
                             key={ingredient._id}
-                            name={ingredient.name}
-                            quantity={ingredient.quantity}
-                            units={ingredient.units}
+                            ingredientName={ingredient.ingredientName}
+                            userUsedCount={ingredient.userUsedCount}
+                            ingredientsCategory={ingredient.ingredientsCategory}
+
                         />
                     );
                 })}
