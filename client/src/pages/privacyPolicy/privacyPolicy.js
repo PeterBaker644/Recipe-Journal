@@ -1,9 +1,10 @@
 import React from "react";
+import ".privacyPolicy.css";
 
 function PrivacyPolicy() {
   return (
     <div>
-      <h1>Privacy Policy</h1>
+      <h1 className="font-brand">Privacy Policy</h1>
       <p>Last updated: September 03, 2020</p>
       <p>
         This Privacy Policy describes Our policies and procedures on the
