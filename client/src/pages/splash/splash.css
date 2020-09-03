@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Great+Vibes&family=Homemade+Apple&family=Open+Sans:ital@1&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Great+Vibes&family=Homemade+Apple&family=Open+Sans:ital@1&display=swap"); */
 
 /* Seriffed Fonts: */
 
@@ -37,6 +37,11 @@
     font-style: italic;
 }
 
+.splashName {
+  /* font-family: "Homemade Apple", cursive; */
+  font-size: 100px;
+}
+
 .font-script {
     font-family: var(--script);
     font-size: 1.5rem;
@@ -45,6 +50,11 @@
 .font-sans {
     font-family: var(--sans);
     font-weight: 300;
+}
+
+h2 {
+  /* font-family: "Homemade Apple", cursive; */
+  font-size: auto;
 }
 
 .font-sans-500 {
