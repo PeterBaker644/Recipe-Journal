@@ -8,20 +8,24 @@ const ingredientsSchema = new Schema({
         unique: true,
         lowercase: true,
     },
-    ingredientsCategory: {
+    ingredientIconLink: {
+        type: String,
+        required: false,
+    },
+    ingredientCategory: {
         type: String,
         required: false,
         unique: true,
         lowercase: true,
     },
-
-    //how many times the ingredient has been used total
-    userUsedCount: {
+    ingredientCategoryIconLink: {
+        type: String,
+        required: false,
+    },
+    totalUsedCount: {
         type: Number,
         "minimum": 0
-    },   
-    //TODO add individual user used count
-    //TODO add category icon?
+    },
 });
 
 const ingredientsModel = mongoose.model("ingredientsTable", ingredientsSchema);

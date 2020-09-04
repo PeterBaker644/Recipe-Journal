@@ -35,8 +35,11 @@ function Genepagetest() {
                             key={recipe._id}
                             recipeName={recipe.recipeName}
                             recipeDescription={recipe.recipeDescription}
+                            ingredientPictureLink={recipe.ingredientPictureLink}
                             recipeCategory={recipe.recipeCategory}
-                            cookingAction={recipe.cookingActions[0].action}
+                            ingredientCategoryIconLink={recipe.ingredientCategoryIconLink}
+                            cookingActionTitle={recipe.cookingActions[0].cookingActionTitle}
+                            cookingActionText={recipe.cookingActions[0].cookingActionText}
                         />
                         <h2>recipeTags UL list</h2>
                         <UlList>
@@ -80,9 +83,11 @@ function Genepagetest() {
                     return (
                         <IngredientsListItem
                             key={ingredient._id}
-                            ingredientName={ingredient.ingredientName}
-                            userUsedCount={ingredient.userUsedCount}
-                            ingredientsCategory={ingredient.ingredientsCategory}
+                            ingredientName={ingredient.ingredientName}                            
+                            ingredientIconLink={ingredient.ingredientIconLink}
+                            ingredientCategory={ingredient.ingredientCategory}
+                            ingredientCategoryIconLink={ingredient.ingredientCategoryIconLink}
+                            totalUsedCount={ingredient.totalUsedCount}
 
                         />
                     );
