@@ -53,25 +53,42 @@ export function NestedIngredientsList({
   );
 }
 
+
 // RecipeListItem renders a bootstrap list item containing data from the recipe api call
 export function RecipeListItem({
   recipeName,
-  cookingAction,
+  recipeDescription,
+  ingredientPictureLink,
   recipeCategory,
-  recipeDescription
+  ingredientCategoryIconLink,
+  cookingActionTitle,
+  cookingActionText
 }) {
   return (
     <li className="list-group-item">
       <div>
         <div>
           <div className="xs-8 sm-9">
+            <h6>recipeName</h6>
             <h1>{recipeName}</h1>
-            <h6>cookingAction</h6>
-            <h6>{cookingAction}</h6>
-            <h6>recipeCategory</h6>
-            <h3>{recipeCategory}</h3>
+
             <h6>recipeDescription</h6>
-            <p>{recipeDescription}</p>
+            <h1>{recipeDescription}</h1>
+
+            <h6>ingredientPictureLink</h6>
+            <h1>{ingredientPictureLink}</h1>
+
+            <h6>recipeCategory</h6>
+            <h1>{recipeCategory}</h1>
+
+            <h6>ingredientCategoryIconLink</h6>
+            <h1>{ingredientCategoryIconLink}</h1>
+
+            <h6>cookingActionTitle</h6>
+            <h1>{cookingActionTitle}</h1>
+
+            <h6>cookingActionText</h6>
+            <h1>{cookingActionText}</h1>
           </div>
         </div>
       </div>
@@ -81,8 +98,10 @@ export function RecipeListItem({
 
 export function IngredientsListItem({
   ingredientName,
-  userUsedCount,
-  ingredientsCategory
+  ingredientIconLink,
+  ingredientCategory,
+  ingredientCategoryIconLink,
+  totalUsedCount
 }) {
   return (
     <li className="list-group-item">
@@ -91,10 +110,18 @@ export function IngredientsListItem({
           <div className="xs-8 sm-9">
             <p>ingredient name</p>
             <h3>{ingredientName}</h3>
-            <p>userUsedCount</p>
-            <h3>{userUsedCount}</h3>
-            <p>ingredientsCategory</p>
-            <h3>{ingredientsCategory}</h3>
+            
+            <p>ingredientIconLink</p>
+            <h3>{ingredientIconLink}</h3>
+
+            <p>ingredientCategory</p>
+            <h3>{ingredientCategory}</h3>
+
+            <p>ingredientCategoryIconLink</p>
+            <h3>{ingredientCategoryIconLink}</h3>
+
+            <p>totalUsedCount</p>
+            <h3>{totalUsedCount}</h3>
           </div>
         </div>
       </div>

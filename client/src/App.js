@@ -8,6 +8,7 @@ import { AuthProvider } from "./component/Auth";
 import PrivateRoute from "./component/PrivateRoute";
 import Gene from "./pages/gene/Gene";
 import Privacy from "./pages/privacyPolicy/privacyPolicy";
+import RecipeBox from "./pages/recipeBox/RecipeBox";
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
         <AuthProvider>
             <Router>
                 <Switch>
+                    <Route exact path="/recipeBox" component={RecipeBox} />
                     <Route exact path="/gene" component={Gene} />
                     <Route exact path="/" component={Splash} />
                     <Route exact path="/login" component={Login} />
