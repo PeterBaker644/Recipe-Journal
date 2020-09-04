@@ -9,14 +9,14 @@ function Genepagetest() {
 
     const recipeSubmit = event => {
         event.preventDefault();
-        API.getRecipes()
-            .then(res => setRecipes(res.data))
-            .catch(err => console.log(err));
+        API.getAllrecipes()
+        .then(res => setRecipes(res.data))
+        .catch(err => console.log(err));
     };
 
     const ingredientsSubmit = event => {
         event.preventDefault();
-        API.getIngredients()
+        API.getAllingredients()
             .then(res => setIngredients(res.data))
             .catch(err => console.log(err));
     };
