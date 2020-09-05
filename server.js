@@ -52,6 +52,7 @@ function checkAuth(req, res, next) {
     }
 }
 
+// Comment out for testing the api routes without authentication.
 app.use("/api", checkAuth);
 app.use("/api", apiRoutes);
 
