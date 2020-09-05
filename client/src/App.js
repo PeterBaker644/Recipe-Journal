@@ -20,12 +20,8 @@ function App() {
                     <Route exact path="/gene" component={Gene} />
                     <Route exact path="/" component={Splash} />
                     <Route exact path="/login" component={Login} />
-<<<<<<< HEAD
-                    <PrivateRoute exact path="/create" component={CreateRecipe} />
-=======
                     <Route exact path="/create" component={CreateRecipe} />
                     <Route exact path="/privacy" component={Privacy} />
->>>>>>> origin
                     <Route exact path="/signup" component={Signup} />
                 </Switch>
             </Router>
