@@ -1,5 +1,4 @@
 import React from "react";
-import app from "../../firebase";
 
 function Signup (){
     return(

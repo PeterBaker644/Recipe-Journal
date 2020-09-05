@@ -29,7 +29,6 @@ class CreateRecipes extends Component {
 
   componentDidMount() {
   //When we start, need API call to category collection...
-
     // axios.get('http://localhost:5000/categories/')
     // .then(res => {
     //   if (res.data.length > 0){
@@ -45,24 +44,28 @@ class CreateRecipes extends Component {
     this.setState({
       name: e.target.value,
     });
+    console.log("Name:", this.state.name);
   }
 
   onChangeDescription(e) {
     this.setState({
       description: e.target.value,
     });
+    console.log("Description:", this.state.description);
   }
 
   onChangeCategories(e) {
     this.setState({
       categories: e.target.value,
     });
+    console.log("Category:", this.state.categories);
   }
 
   onChangeTags(e) {
     this.setState({
       tags: e.target.value,
     });
+    console.log("Tags:", this.state.tags);
   }
 
   onSubmit(e) {
@@ -74,7 +77,7 @@ class CreateRecipes extends Component {
       categories: this.state.categories,
       tags: this.state.tags,
     };
-    console.log(recipe);
+    console.log("This is the recipe:", recipe);
 
     axios.post('http://localhost:5000/create/', recipe)// HOW DO WE SEND ARRAY TO NEXT INGREDIENTS PAGE, TO ADD STEPS?
     .then(res => console.log(res.data));               //So we just send one final API call to backend 
