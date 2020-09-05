@@ -2,9 +2,17 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const recipesSchema = new Schema({
+    //for future goal, this userID can be set to PUBLIC ? and that will
+    // determine that this is a public recipe that cant be edited, but can be up/down voted
+    //TODO add upvote field?
+    userID: {
+        type: String,
+        required: true,
+        unique: true,
+    },
     recipeName: {
         type: String,
-        required: false,
+        required: true,
         unique: true,
         lowercase: true,
     },
@@ -12,10 +20,18 @@ const recipesSchema = new Schema({
         type: String,
         required: false,
     },
+    ingredientPictureLink: {
+        type: String,
+        required: false,
+    },
     recipeCategory: {
         type: String,
         required: false,
         lowercase: true,
+    },
+    ingredientCategoryIconLink: {
+        type: String,
+        required: false,
     },
     recipeTags: [
         {
@@ -40,10 +56,13 @@ const recipesSchema = new Schema({
             units: String
         }
     ],
-    //TODO add cooking action icon?
     cookingActions: [
         {
-            action: {
+            cookingActionTitle: {
+                type: String,
+                required: true
+            },
+            cookingActionText: {
                 type: String,
                 required: true
             },
@@ -51,7 +70,6 @@ const recipesSchema = new Schema({
     ]
 }
 );
-
 const recipesModel = mongoose.model("recipesTable", recipesSchema);
 
 module.exports = recipesModel;

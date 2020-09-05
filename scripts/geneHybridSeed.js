@@ -10,12 +10,14 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/recipes_hybrid_
     useFindAndModify: false,
     useUnifiedTopology: true
 });
-//recipe seed
 let recipesSeed = [
     {
+        userID:"usernumber1",
         recipeName: "pancakes",
         recipeDescription:"this is a recipe description field",
+        ingredientPictureLink:"ingredientPictureLink goes here",
         recipeCategory:"baked recipes",
+        ingredientCategoryIconLink: "ingredientCategoryIconLink goes here",
         recipeTags: [
             "dessert", "breakfast"
         ],
@@ -24,15 +26,27 @@ let recipesSeed = [
                 ingredientName: "flour",
                 quantity: 2,
                 units: "cups"
+            },
+            {
+                ingredientName: "eggs",
+                quantity: 2,
+                units: "Grade A"
+            },
+            {
+                ingredientName: "Sugar",
+                quantity: 3,
+                units: "gallons"
             }
         ],
         cookingActions: [
             {
-                action: "mix",
+                cookingActionTitle: "mix",
+                cookingActionText: "mix and blah blah blah",
             }
         ]
     }, 
     {
+        userID:"usernumber2",
         recipeName: "pancakes Alt recipe",
         ingredients: [
             {
@@ -48,7 +62,8 @@ let recipesSeed = [
         ],
         cookingActions: [
             {
-                action: "mix2",
+                cookingActionTitle: "mix1",
+                cookingActionText: "mix1 and blah blah blah",
             }
         ]
     }
@@ -56,9 +71,16 @@ let recipesSeed = [
 //ingredients seed
 let ingredientsSeed = [
     {
+        ingredientName:"pasta",
+        ingredientIconLink: "pasta icon link example here",
+        ingredientCategory: "pasta ingredient category here",
+        ingredientCategoryIconLink:"ingredient category icon link here",
+        totalUsedCount:15,
+    },
+    {
         ingredientName: "flour",
-        userUsedCount: 1,
-        ingredientsCategory: "baked goods"
+        totalUsedCount: 1,
+        ingredientCategory: "baked goods"
     },
     {
         ingredientName: "eggs",

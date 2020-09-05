@@ -32,6 +32,10 @@ export default {
     getIngredients: function () {
         return authorize.get("/api/Ingredients");
     }
+<<<<<<< HEAD
 
     
 };
+=======
+};
+>>>>>>> origin
