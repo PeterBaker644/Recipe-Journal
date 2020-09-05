@@ -1,7 +1,3 @@
-.container {
-    text-align: center;
-}
-
 /* Customizable Modal */
 .overlay {
     position: fixed;
@@ -19,7 +15,7 @@
 }
 
 .content {
-    margin: 15% auto;
+    margin: 5% auto;
     background-color: white;
     border-radius: 0.25rem;
     width: 50vw;

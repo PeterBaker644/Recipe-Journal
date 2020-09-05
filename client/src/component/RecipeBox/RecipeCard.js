@@ -3,7 +3,7 @@ import Modal from "./Modal";
 import API from "../../utils/API";
 import './RecipeBox.css';
 
-function Card() {
+function RecipeCard() {
     const [status, setStatus] = useState(false);
     // Setting component intial state
     const [recipes, setRecipes] = useState([])
@@ -16,7 +16,7 @@ function Card() {
 
     // Loads recipes and set them to recipes
     function loadRecipes() {
-      API.getRecipes()
+      API.getAllRecipes()
         .then(res =>
           setRecipes(res.data)
           )
@@ -54,4 +54,4 @@ function Card() {
     );
 }
 
-export default Card;
+export default RecipeCard;
