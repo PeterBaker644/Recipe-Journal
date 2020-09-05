@@ -26,10 +26,10 @@ firebase.auth().onAuthStateChanged(function (user) {
 
 // The getRecipes method retrieves recipes from the server
 export default {
-    getRecipes: function () {
+    getAllRecipes: function () {
         return authorize.get("/api/recipes");
     },
-    getIngredients: function () {
+    getAllIngredients: function () {
         return authorize.get("/api/Ingredients");
     }
 };
