@@ -19,9 +19,7 @@ function RecipeCard() {
         .then(res => {
             setRecipes(res.data);
             console.log(res.data);
-            
         })
-        .then(console.log(recipes))
         .catch(err => console.log(err));
     };
 
@@ -35,7 +33,7 @@ function RecipeCard() {
                             {recipes.map(recipe => {
                                 return (
                                     <div key={recipe._id}>
-                                        <h5 className="card-title">{recipes.recipeName}</h5>
+                                        <h5 className="card-title">{recipe.recipeName}</h5>
                                         <p className="card-text">{recipe.ingredients}</p>
                                         <p className="card-text">{recipe.instructions}</p>
                                     </div>

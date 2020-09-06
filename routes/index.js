@@ -30,7 +30,7 @@ function checkAuth(req, res, next) {
 
 // API Routes
 // router.use("/api", checkAuth);
-console.log("This is a test");
+console.log("[SERVER-ROUTES] API Routes hit");
 router.use("/api", apiRoutes);
 
 // If no API routes are hit, send the React app
