@@ -8,12 +8,12 @@ const recipesSchema = new Schema({
     userID: {
         type: String,
         required: true,
-        unique: true,
+        // unique: true,
     },
     recipeName: {
         type: String,
         required: true,
-        unique: true,
+        // unique: true,
         lowercase: true,
     },
     recipeDescription: {
@@ -37,7 +37,7 @@ const recipesSchema = new Schema({
         {
             type: String,
             required: false,
-            unique: true,
+            // unique: true,
             lowercase: true,
         }
     ],
