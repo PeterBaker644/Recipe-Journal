@@ -31,5 +31,11 @@ export default {
     },
     getAllIngredients: function () {
         return authorize.get("/api/Ingredients");
+    },
+    createRecipe: function (newRecipe) {
+        console.log('[api]newRecipe');
+        console.log(newRecipe);
+        
+        return authorize.post("/api/recipes", newRecipe);
     }
 };
