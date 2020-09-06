@@ -16,7 +16,7 @@ firebase.auth().onAuthStateChanged(function (user) {
             authorize.interceptors.request.use(function (config) {
                 config.headers.authorization = idToken;
                 return config;
-            });  
+            });
         }).catch(function (error) {
             console.log("[API] Error:", error);
         });
@@ -30,11 +30,20 @@ export default {
     getAllRecipes: function () {
         return authorize.get("/api/recipes");
     },
+
+    createRecipe: function (newRecipe) {
+        console.log("[API] newRecipe", newRecipe);
+        return authorize.post("/api/recipes", newRecipe);
+    },
+    getOneRecipe: function (_id) {
+        return axios.get("/api/recipes/" + _id);
+    },
+    deleteRecipe: function (_id) {
+        console.log("[API] deleteRecipe", _id);
+        return authorize.delete("/api/recipes/" + _id);
+    },
+
     getAllIngredients: function () {
         return authorize.get("/api/Ingredients");
     },
-    createRecipe: function (newRecipe) {
-        console.log("[API] newRecipe", newRecipe);       
-        return authorize.post("/api/recipes", newRecipe);
-    }
 };
