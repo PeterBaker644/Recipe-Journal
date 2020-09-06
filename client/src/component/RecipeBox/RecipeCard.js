@@ -6,21 +6,23 @@ import './RecipeBox.css';
 function RecipeCard() {
     const [status, setStatus] = useState(false);
     // Setting component intial state
-    const [recipes, setRecipes] = useState([])
-    const [formObject, setFormObject] = useState({})
+    const [recipes, setRecipes] = useState([]);
 
     // Load all recipes and store with setRecipes
     useEffect(() => {
-      loadRecipes()
+        loadRecipes()
     }, [])
 
     // Loads recipes and set them to recipes
     function loadRecipes() {
-      API.getAllRecipes()
-        .then(res =>
-          setRecipes(res.data)
-          )
-          .catch(err => console.log(err));
+        API.getAllRecipes()
+        .then(res => {
+            setRecipes(res.data);
+            console.log(res.data);
+            
+        })
+        .then(console.log(recipes))
+        .catch(err => console.log(err));
     };
 
     return (
@@ -30,24 +32,24 @@ function RecipeCard() {
                 <div className="card-body">
                     {recipes.length ? (
                         <div>
-                        {recipes.map(recipe => {
-                            return (
-                                <>
-                                <h5 className="card-title">{recipe.title}</h5>
-                                <p className="card-text">{recipe.ingredients}</p>
-                                <p className="card-text">{recipe.instructions}</p>
-                                </>
-                            );
-                        })}
+                            {recipes.map(recipe => {
+                                return (
+                                    <div key={recipe._id}>
+                                        <h5 className="card-title">{recipes.recipeName}</h5>
+                                        <p className="card-text">{recipe.ingredients}</p>
+                                        <p className="card-text">{recipe.instructions}</p>
+                                    </div>
+                                );
+                            })}
                         </div>
                     ) : (
-                        <h3>No Recipes to Display</h3>
-                    )}
+                            <h3>No Recipes to Display</h3>
+                        )}
                 </div>
             </div>
 
             {/* This will have more descriptive recipe content */}
-            { status && (<Modal closeModal={() => setStatus(false)}>
+            {status && (<Modal closeModal={() => setStatus(false)}>
                 <p>This is where the modal content will go...</p>
             </Modal>)}
         </>

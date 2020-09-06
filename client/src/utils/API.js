@@ -12,6 +12,7 @@ firebase.auth().onAuthStateChanged(function (user) {
         // Getting an authorization token from Fireback to send to the backend.
         firebase.auth().currentUser.getIdToken(true).then(function (idToken) {
             // Intercepting any request and appending token to the header.
+            // This somehow doesn't work.
             authorize.interceptors.request.use(function (config) {
                 config.headers.authorization = idToken;
                 return config;
@@ -30,6 +31,6 @@ export default {
         return authorize.get("/api/recipes");
     },
     getAllIngredients: function () {
-        return authorize.get("/api/Ingredients");
+        return authorize.get("/api/ingredients");
     }
 };

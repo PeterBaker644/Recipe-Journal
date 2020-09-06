@@ -24,7 +24,7 @@ function PrivacyPolicy() {
             </a>
             .
             </p>
-            <h2 className="font-weight-bold">Interpretation and Definitions</h2>
+            <h2 className="text-uppercase">Interpretation and Definitions</h2>
             <h3>Interpretation</h3>
             <p>
                 The words of which the initial letter is capitalized have meanings
@@ -122,7 +122,7 @@ function PrivacyPolicy() {
                     </p>
                 </li>
             </ul>
-            <h2 className="font-weight-bold">Collecting and Using Your Personal Data</h2>
+            <h2 className="text-uppercase">Collecting and Using Your Personal Data</h2>
             <h3>Types of Data Collected</h3>
             <h4>Personal Data</h4>
             <p>
@@ -387,7 +387,7 @@ function PrivacyPolicy() {
                 means to protect Your Personal Data, We cannot guarantee its absolute
                 security.
             </p>
-            <h2 className="font-weight-bold">Your California Privacy Rights (California's Shine the Light law)</h2>
+            <h2 className="text-uppercase">Your California Privacy Rights (California's Shine the Light law)</h2>
             <p>
                 Under California Civil Code Section 1798 (California's Shine the Light
                 law), California residents with an established business relationship
@@ -400,7 +400,7 @@ function PrivacyPolicy() {
                 Light law, and if you are a California resident, You can contact Us
                 using the contact information provided below.
             </p>
-            <h2 className="font-weight-bold">
+            <h2 className="text-uppercase">
                 California Privacy Rights for Minor Users (California Business and
                 Professions Code Section 22581)
             </h2>
@@ -420,7 +420,7 @@ function PrivacyPolicy() {
                 removal of content or information posted online and that the law may not
                 permit or require removal in certain circumstances.
             </p>
-            <h2 className="font-weight-bold">Links to Other Websites</h2>
+            <h2 className="text-uppercase">Links to Other Websites</h2>
             <p>
                 Our Service may contain links to other websites that are not operated by
                 Us. If You click on a third party link, You will be directed to that
@@ -431,7 +431,7 @@ function PrivacyPolicy() {
                 We have no control over and assume no responsibility for the content,
                 privacy policies or practices of any third party sites or services.
             </p>
-            <h2 className="font-weight-bold">Changes to this Privacy Policy</h2>
+            <h2 className="text-uppercase">Changes to this Privacy Policy</h2>
             <p>
                 We may update our Privacy Policy from time to time. We will notify You
                 of any changes by posting the new Privacy Policy on this page.

@@ -23,7 +23,7 @@ function Genepagetest() {
 
     return (
         <div>
-
+            
             <h1>Genes testing page</h1>
             <button onClick={recipeSubmit} className="btn btn-primary">
                 {" "}RecipeList{" "}
