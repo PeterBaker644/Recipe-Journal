@@ -23,6 +23,10 @@
     --fashion: 'Beth Ellen', cursive;
 }
 
+body {
+    font-family: var(--sans);
+}
+
 .font-brand {
     font-family: "Prata";
     font-size: 4rem;
@@ -103,4 +107,8 @@ h2 {
 
 *, ::after, ::before {
     box-sizing: border-box;
+}
+
+.privacy {
+    font-size: smaller;
 }

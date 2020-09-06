@@ -1,4 +1,4 @@
-import React, { useState } from "../../../node_modules/react";
+import React, { useState } from "react";
 import API from "../../utils/API";
 import { UlList, RecipeListItem, IngredientsListItem, NestedIngredientsList, NestedTagsList, } from "../../component/RecipeList/index";
 
@@ -25,12 +25,6 @@ function Genepagetest() {
             .then(res => setIngredients(res.data))
             .catch(err => console.log(err));
     };
-
-
-
-
-
-
 
     const createRecipeSubmit = event => {
         event.preventDefault();
@@ -78,18 +72,10 @@ function Genepagetest() {
         console.log('newRecipe');
         console.log(newRecipe);
 
-
         API.createRecipe(newRecipe)
             // .then(() => setNewRecipe({}))
             .catch(err => console.log(err));
     };
-
-
-
-
-
-
-
 
     const createRecipeUpdateSubmit = event => {
         event.preventDefault();
@@ -100,7 +86,7 @@ function Genepagetest() {
 
     return (
         <div>
-
+            
             <h1>Genes testing page</h1>
 
             <button onClick={createRecipeSubmit} className="btn btn-primary">

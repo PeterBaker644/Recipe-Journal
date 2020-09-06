@@ -1,48 +1,32 @@
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import Modal from "./Modal";
 import API from "../../utils/API";
-import './RecipeBox.css';
+import "./RecipeBox.css";
 
-function Card() {
+function Card(props) {
     const [status, setStatus] = useState(false);
     // Setting component intial state
-    const [recipes, setRecipes] = useState([])
-    const [formObject, setFormObject] = useState({})
+    const [recipe, setRecipe] = useState([])
 
     // Load all recipes and store with setRecipes
+    // const {id} = useParams()
     useEffect(() => {
-      loadRecipes()
+      API.getAllRecipes()
+        .then(res => setRecipe(res.data))
+        .catch(err => console.log(err));
     }, [])
 
-    // Loads recipes and set them to recipes
-    function loadRecipes() {
-      API.getRecipes()
-        .then(res =>
-          setRecipes(res.data)
-          )
-          .catch(err => console.log(err));
-    };
+    console.log(recipe.recipeName);
 
     return (
         <>
             {/* Example Card... needs data to be added from DB */}
             <div className="card" onClick={() => setStatus(true)}>
                 <div className="card-body">
-                    {recipes.length ? (
-                        <div>
-                        {recipes.map(recipe => {
-                            return (
-                                <>
-                                <h5 className="card-title">{recipe.title}</h5>
-                                <p className="card-text">{recipe.ingredients}</p>
-                                <p className="card-text">{recipe.instructions}</p>
-                                </>
-                            );
-                        })}
-                        </div>
-                    ) : (
-                        <h3>No Recipes to Display</h3>
-                    )}
+                    <h5 className="card-title">{recipe.recipeName}</h5>
+                    <p className="card-text">{recipe.ingredients}</p>
+                    <p className="card-text">{recipe.cookingAction}</p>
                 </div>
             </div>
 

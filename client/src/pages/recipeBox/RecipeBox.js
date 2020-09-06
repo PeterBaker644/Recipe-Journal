@@ -1,5 +1,5 @@
 import React from "react";
-import Card from "../../component/RecipeBox/Card";
+import RecipeCard from "../../component/RecipeBox/RecipeCard";
 import '../../component/RecipeBox/RecipeBox.css';
 import AddRecipe from "../../component/RecipeBox/AddRecipe";
 
@@ -15,7 +15,7 @@ function RecipeBox() {
             </div>
             <div className="col-sm-6 col-md-4 col-lg-3">
                 {/* Cards should fill page based on number of recipes users have */}
-                <Card />
+                <RecipeCard />
             </div>
         </section>
 
