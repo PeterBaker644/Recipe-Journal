@@ -1,104 +1,76 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
+import {Link, useHistory} from 'react-router-dom';
+import API from "../../utils/API";
 import axios from 'axios';
 import './create.css';
 
 
 //hard code array of categories until we have collection
 //we may need to add more items...?
-let categories = ['appetizer', 'soup', 'salad', 'entree', 'side', 'dessert'];
+//let categories = ['appetizer', 'soup', 'salad', 'entree', 'side', 'dessert'];
+let categories= ['appetizer', 'soup', 'salad', 'entree', 'side', 'dessert'];
 
-class CreateRecipes extends Component {
+function CreateRecipes () {
 
-  constructor(props) {
-    super(props);
-
-    this.onChangeName = this.onChangeName.bind(this);
-    this.onChangeDescription = this.onChangeDescription.bind(this);
-    this.onChangeCategories = this.onChangeCategories.bind(this);
-    this.onChangeTags = this.onChangeTags.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
-
-    this.state = {
-      name: "",
-      description: "",
-      categories: "",
-      tags: ""
-    };
-  }
+  const history = useHistory();
+  
+  const [createRecipe, setCreateRecipe] =useState({
+    name: "",
+    description: "",
+    category:"",
+    tags: "",
+  });
 
 
-  componentDidMount() {
-  //When we start, need API call to category collection...
-    // axios.get('http://localhost:5000/categories/')
-    // .then(res => {
-    //   if (res.data.length > 0){
-    //     this.setState({
-    //       categories: res.data.map(category => category.categories),
-    //       categories: res.data[0].categories
-    //     })
-    //   }
-    // })
-  }
+  const {name, description, tags, category} = createRecipe;
+   
+  //do we need to get categories or tags?
+  useEffect(()=> {
+    
+    // API.getAllRecipes()
+    //     .then(res => (res.data))
+    //     .catch(err => console.log(err));
 
-  onChangeName(e) {
-    this.setState({
-      name: e.target.value,
+    // might be useful: https://www.carlrippon.com/drop-down-data-binding-with-react-hooks/
+
+  },[]); 
+
+  const onChange =(e)=> {
+    setCreateRecipe({
+      ...createRecipe, [e.target.name]: e.target.value
     });
-    console.log("Name:", this.state.name);
+    console.log("Create recipe is:", createRecipe);
   }
 
-  onChangeDescription(e) {
-    this.setState({
-      description: e.target.value,
-    });
-    console.log("Description:", this.state.description);
-  }
-
-  onChangeCategories(e) {
-    this.setState({
-      categories: e.target.value,
-    });
-    console.log("Category:", this.state.categories);
-  }
-
-  onChangeTags(e) {
-    this.setState({
-      tags: e.target.value,
-    });
-    console.log("Tags:", this.state.tags);
-  }
-
-  onSubmit(e) {
+  
+  const onSubmit = (e)=>  {
     e.preventDefault();
 
-    const recipe = {
-      name: this.state.name,
-      description: this.state.description,
-      categories: this.state.categories,
-      tags: this.state.tags,
-    };
+    const recipe = {...createRecipe}; 
+
     console.log("This is the recipe:", recipe);
 
-    axios.post('http://localhost:5000/create/', recipe)// HOW DO WE SEND ARRAY TO NEXT INGREDIENTS PAGE, TO ADD STEPS?
-    .then(res => console.log(res.data));               //So we just send one final API call to backend 
-
-    window.location = "/";
+    if (recipe) {
+      history.push({
+        pathname : '/screen',
+        state: {recipe}
+        });
+    }
   }
 
-  render() {
-    return (
-
+  return (
       <div className="sectionContainer">
         <h1 className="recipeTitle">Create recipe</h1>
-        <form onSubmit={this.onSubmit}>
+        <form onSubmit={e => onSubmit(e)}>
           <div className="form-group">
             <label>Name:</label>
             <input
               type="text"
               required
               className="form-control"
-              value={this.state.name}
-              onChange={this.onChangeName}
+              name="name"
+              value={name}
+              onChange={e=> onChange(e)}
             />
           </div>
           <div className="form-group">
@@ -107,26 +79,29 @@ class CreateRecipes extends Component {
               type="text"
               required
               className="form-control"
-              value={this.state.description}
-              onChange={this.onChangeDescription}
+              name="description"
+              value={description}
+              onChange={e => onChange(e)}
             />
           </div>
           <div className="form-group">
             <label>Category:</label>
             <select
-              ref="userInput"
+              // ref="userInput"  not valid for functional component
               required
               className="form-control"
-              value={this.state.categories}
-              onChange={this.onChangeCategories}
+              name="category"
+              value={category} //avalue of select was a string  array
+              //new property of category
+              //dispaly what categoryso user can see it
+              //where are info coming from API
+              onChange={e => onChange(e)}
             >
-              {categories.map(function (category) {
-                return (
-                  <option key={category} value={category}>
-                    {category}
-                  </option>
-                );
-              })}
+              {categories.map(category => {
+                return(
+                <option value={category}>{category}</option>
+                )
+                })}
             </select>
           </div>
           <div className="form-group">
@@ -135,22 +110,21 @@ class CreateRecipes extends Component {
               type="text"
               required
               className="form-control"
-              value={this.state.tags}
-              onChange={this.onChangeTags}
+              name="tags"
+              value={tags}
+              onChange={e=> onChange(e)}
             />
           </div>
           <div className="form-group">
-            <input
-
+             <input
               type="submit"
-              value="Let's Go!"
+              value="recipe"
               className="btn btn-primary"
-             /> 
+            />
           </div>
         </form>
       </div>
-    );
-  }
+  );  
 }
 
 export default CreateRecipes;
