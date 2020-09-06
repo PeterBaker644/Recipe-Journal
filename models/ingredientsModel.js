@@ -5,7 +5,6 @@ const ingredientsSchema = new Schema({
     ingredientName: {
         type: String,
         required: true,
-        unique: true,
         lowercase: true,
     },
     ingredientIconLink: {
@@ -15,7 +14,6 @@ const ingredientsSchema = new Schema({
     ingredientCategory: {
         type: String,
         required: false,
-        unique: true,
         lowercase: true,
     },
     ingredientCategoryIconLink: {

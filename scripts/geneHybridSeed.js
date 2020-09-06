@@ -15,9 +15,12 @@ let recipesSeed = [
         userID:"usernumber1",
         recipeName: "pancakes",
         recipeDescription:"this is a recipe description field",
-        ingredientPictureLink:"ingredientPictureLink goes here",
+        recipePicLinks:
+        [
+            "recipePicLink goes here",
+            "recipePicLink2 goes here",
+        ],
         recipeCategory:"baked recipes",
-        ingredientCategoryIconLink: "ingredientCategoryIconLink goes here",
         recipeTags: [
             "dessert", "breakfast"
         ],
@@ -38,35 +41,13 @@ let recipesSeed = [
                 units: "gallons"
             }
         ],
-        cookingActions: [
+        Actions: [
             {
-                cookingActionTitle: "mix",
-                cookingActionText: "mix and blah blah blah",
+                ActionTitle: "mix",
+                ActionText: "mix and blah blah blah",
             }
         ]
     }, 
-    {
-        userID:"usernumber2",
-        recipeName: "pancakes Alt recipe",
-        ingredients: [
-            {
-                ingredientName: "flour",
-                quantity: 2,
-                units: "cups"
-            },
-            {
-                ingredientName: "eggs",
-                quantity: 2,
-                units: "Grade A"
-            }
-        ],
-        cookingActions: [
-            {
-                cookingActionTitle: "mix1",
-                cookingActionText: "mix1 and blah blah blah",
-            }
-        ]
-    }
 ];
 //ingredients seed
 let ingredientsSeed = [
