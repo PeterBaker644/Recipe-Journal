@@ -33,12 +33,15 @@ function Genepagetest() {
 
         function setDummyObject() {
             setNewRecipe({
-                userID: "usernumber2",
-                recipeName: "NEW pancakes",
-                recipeDescription: "this is a recipe description field",
-                ingredientPictureLink: "ingredientPictureLink goes here",
-                recipeCategory: "baked recipes",
-                ingredientCategoryIconLink: "ingredientCategoryIconLink goes here",
+                userID:"usernumber1",
+                recipeName: "asdfasdfasdf pancakes",
+                recipeDescription:"this is a recipe description field",
+                recipePicLinks:
+                [
+                    "recipePicLink goes here",
+                    "recipePicLink2 goes here",
+                ],
+                recipeCategory:"baked recipes",
                 recipeTags: [
                     "dessert", "breakfast"
                 ],
@@ -59,13 +62,13 @@ function Genepagetest() {
                         units: "gallons"
                     }
                 ],
-                cookingActions: [
+                Actions: [
                     {
-                        cookingActionTitle: "mix",
-                        cookingActionText: "mix and blah blah blah",
+                        ActionTitle: "mix",
+                        ActionText: "mix and blah blah blah",
                     }
                 ]
-            })
+            }, )
         };
 
         setDummyObject();
@@ -110,9 +113,9 @@ function Genepagetest() {
                             recipeDescription={recipe.recipeDescription}
                             ingredientPictureLink={recipe.ingredientPictureLink}
                             recipeCategory={recipe.recipeCategory}
-                            ingredientCategoryIconLink={recipe.ingredientCategoryIconLink}
-                            cookingActionTitle={recipe.cookingActions[0].cookingActionTitle}
-                            cookingActionText={recipe.cookingActions[0].cookingActionText}
+                            recipePicLinks={recipe.recipePicLinks[0]}
+                            ActionTitle={recipe.Actions[0].ActionTitle}
+                            ActionText={recipe.Actions[0].ActionText}
                         />
                         <h2>recipeTags UL list</h2>
                         <UlList>

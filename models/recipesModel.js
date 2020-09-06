@@ -8,36 +8,31 @@ const recipesSchema = new Schema({
     userID: {
         type: String,
         required: true,
-        // unique: true,
     },
     recipeName: {
         type: String,
         required: true,
-        // unique: true,
         lowercase: true,
     },
     recipeDescription: {
         type: String,
         required: false,
     },
-    ingredientPictureLink: {
-        type: String,
-        required: false,
-    },
+    recipePicLinks: [
+        {
+            type: String,
+            required: false,
+        }
+    ],
     recipeCategory: {
         type: String,
         required: false,
         lowercase: true,
     },
-    ingredientCategoryIconLink: {
-        type: String,
-        required: false,
-    },
     recipeTags: [
         {
             type: String,
             required: false,
-            // unique: true,
             lowercase: true,
         }
     ],
@@ -56,13 +51,13 @@ const recipesSchema = new Schema({
             units: String
         }
     ],
-    cookingActions: [
+    Actions: [
         {
-            cookingActionTitle: {
+            ActionTitle: {
                 type: String,
                 required: true
             },
-            cookingActionText: {
+            ActionText: {
                 type: String,
                 required: true
             },
