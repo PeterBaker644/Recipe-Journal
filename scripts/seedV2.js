@@ -13,7 +13,7 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/recipes_hybrid_
 
 let recipesSeed = [
     {
-        userID:"",
+        userID:"", //DO NOT NEED TO ANYINPUT ANYTHING?
         recipeName: "Chicken Adobo",
         recipeDescription:"This classic adobo recipe is simple to make and famous with all who have tasted it. It is delicious served over rice.",
         ingredientPictureLink:"ingredientPictureLink goes here",
@@ -26,42 +26,42 @@ let recipesSeed = [
             {
                 ingredientName: "chicken thigh or drumsticks",
                 quantity: 2,
-                units: "lb",
+                units: "lb"
             },
             {
                 ingredientName: "soy sauce",
-                quantity: 0.5,
-                units: "cup",
+                quantity: .5,
+                units: "cup"
             },
             {
                 ingredientName: "apple cider vinegar",
                 quantity: .66,
-                units: "cup",
+                units: "cup"
             },
             {
                 ingredientName: "garlic",
                 quantity: 2,
-                units: "cloves",
+                units: "cloves"
             },
             {
                 ingredientName: "bay leaves",
                 quantity: 2,
-                units: "", 
+                units: "" 
             },
             {
                 ingredientName: "onion",
                 quantity: 1,
-                units: "",
+                units: ""
             },
             {
                 ingredientName: "salt",
                 quantity: 0,
-                units: "to taste",
+                units: "to taste"
             },
             {
                 ingredientName: "pepper",
                 quantity: 0,
-                units: "to taste",
+                units: "to taste"
             }
         ],
         cookingActions: [
@@ -71,7 +71,7 @@ let recipesSeed = [
             },
             {
                 cookingActionTitle: "Step 2",  
-                cookingActionText: "Cover with lid and simmer for 40 minutes, turning have way through.",
+                cookingActionText: "Cover with lid and simmer for 40 minutes, turning have way through."
             }
         ]
     }, 
@@ -83,34 +83,34 @@ let recipesSeed = [
         recipeCategory:"entree", 
         ingredientCategoryIconLink: "ingredientCategoryIconLink goes here",
         recipeTags: [
-            "egg", "lunch", "easy", "sandwich",
+            "egg", "lunch", "easy",
         ],
         ingredients: [
             {
                 ingredientName: "eggs",
                 quantity: 3,
-                units: "",  
+                units: ""  
             },
             {
                 ingredientName: "mayo",
                 quantity: 1,
-                units: "tbspn",
+                units: "tbspn"
             },
             {
                 ingredientName: "salt",
                 quantity: 0,
-                units: "to taste",
+                units: "to taste"
             },
             {
                 ingredientName: "pepper",
                 quantity: 0,
-                units: "to taste",
+                units: "to taste"
             }
         ],
         cookingActions: [
             {
                 cookingActionTitle:"Step 1",
-                cookingActionText:"Boil eggs for 7-9 minutes. Remove from stove, drain water and fill pan with cold water.",
+                cookingActionText: "Boil eggs for 7-9 minutes. Remove from stove, drain water and fill pan with cold water.",
             },
             {
                 cookingActionTitle: "Step 2", 
@@ -121,43 +121,43 @@ let recipesSeed = [
     {
         userID:"", 
         recipeName: "Peter's Mom's Soup",
-        recipeDescription:"Easy to make soup. Brings back memories of home!",
+        recipeDescription:"Easy to make soup. Sure makes you think of home!",
         ingredientPictureLink:"ingredientPictureLink goes here",
         recipeCategory:"soup", 
         ingredientCategoryIconLink: "ingredientCategoryIconLink goes here",
         recipeTags: [
-            "soup", "chicken", "potato", "slow-cook",
+            "soup", "chicken", "potato", "slow-cook"
         ],
         ingredients: [
             {
                 ingredientName: "chicken broth",
                 quantity: 40,
-                units: "oz",  
+                units: "oz"  
             },
             {
                 ingredientName: "cream of chicken soup",
                 quantity: 1,
-                units: "can",
+                units: "can"
             },
             {
                 ingredientName: "potatoes, cubed (Yukon)",
                 quantity: 6,
-                units: "", 
+                units: "" 
             },
             {
                 ingredientName: "cream cheese",
                 quantity: 1,
-                units: "package",
+                units: "package"
             },
             {
                 ingredientName: "bacon bits",
                 quantity: 1,
-                units: "to taste", 
+                units: "to taste" 
             },
             {
                 ingredientName: "black pepper",
                 quantity: 0,
-                units: "to taste",
+                units: "to taste"
             }
         ],
         cookingActions: [
@@ -176,7 +176,7 @@ let recipesSeed = [
         ]
     },
     {
-        userID:"", 
+        userID:"", //auto generate?
         recipeName: "Sugar Cookie",
         recipeDescription:"The best cookies to enjoy anytime of the year!",
         ingredientPictureLink:"ingredientPictureLink goes here",
@@ -189,47 +189,47 @@ let recipesSeed = [
             {
                 ingredientName: "sugar",
                 quantity: 1,
-                units: "cup",  
+                units: "cup"  
             },
             {
                 ingredientName: "brown sugar",
                 quantity: 1,
-                units: "cup",
+                units: "cup"
             },
             {
                 ingredientName: "butter",
                 quantity: 2,
-                units: "cup",
+                units: "cup"
             },
             {
                 ingredientName: "eggs",
                 quantity: 2,
-                units: "",
+                units: ""
             },
             {
                 ingredientName: "vanilla extract",
                 quantity: 2,
-                units: "tspn",
+                units: "tspn"
             },
             {
                 ingredientName: "flour",
                 quantity: 4,
-                units: "cup",
+                units: "cup"
             },
             {
                 ingredientName: "salt",
                 quantity: 1,
-                units: "tspn",
+                units: "tspn"
             },
             {
                 ingredientName: "baking soda",
                 quantity: 1,
-                units: "tspn",
+                units: "tspn"
             },
             {
                 ingredientName: "cream of tartar",
                 quantity: 2,
-                units: "tspn",
+                units: "tspn"
             }
         ],
         cookingActions: [
@@ -245,6 +245,7 @@ let recipesSeed = [
                 cookingActionTitle: "Step 3", 
                 cookingActionText: "Stir in dry ingredients. Coat in sugar.",
             },
+            ,
             {
                 cookingActionTitle: "Step 4", 
                 cookingActionText: "Bake for 10 minutes.",
@@ -259,28 +260,28 @@ let recipesSeed = [
         recipeCategory:"entree", 
         ingredientCategoryIconLink: "ingredientCategoryIconLink goes here",
         recipeTags: [
-            "breakfast", "treat", "weekend", "pancake",
+            "breakfast", "treat", "weekend", "pancake"
         ],
         ingredients: [
             {
                 ingredientName: "flour",
                 quantity: 1,
-                units: "cup",  
+                units: "cup"  
             },
             {
                 ingredientName: "baking powder",
                 quantity: 1,
-                units: "tspn",
+                units: "tspn"
             },
             {
                 ingredientName: "baking soda",
                 quantity: .5,
-                units: "tspn",
+                units: "tspn"
             },
             {
                 ingredientName: "salt",
                 quantity: .25,
-                units: "tspn",
+                units: "tspn"
             },
             {
                 ingredientName: "sugar",
@@ -290,17 +291,17 @@ let recipesSeed = [
             {
                 ingredientName: "eggs, lightly beaten",
                 quantity: 1,
-                units: "",
+                units: ""
             },
             {
                 ingredientName: "buttermilk",
                 quantity: 1.5,
-                units: "cup",
+                units: "cup"
             },
             {
                 ingredientName: "butter, unsalted",
                 quantity: 2,
-                units: "tbspn",
+                units: "tbspn"
             }
         ],
         cookingActions: [
@@ -309,11 +310,11 @@ let recipesSeed = [
                 cookingActionText: "Whisk flour, baking soda, baking powder, salt, sugar.",
             },
             {
-                cookingActionTitle: "Step 2",
+                cookingActionTitle: "Step 2",//WHAT TO PUT HERE?
                 cookingActionText: "Add eggs, buttermilk, butter and whisk to combine. Batter should be lummpy.",
             },
             {
-                cookingActionTitle: "Step 3",
+                cookingActionTitle: "Step 3",//WHAT TO PUT HERE?
                 cookingActionText: "Heat a lightly oiled frying pan over medium high heat. Pour the batter onto pan, using approximately 1/4 cup for each pancake. Brown on both sides and serve hot.",
             }
         ]
@@ -321,7 +322,7 @@ let recipesSeed = [
     {
         userID:"", 
         recipeName: "Pork ribs",
-        recipeDescription:"A versatile dish to be enjoyed with salad, on a sandwich, or with vegetables and potatoes or rice.",
+        recipeDescription:"A versatile dish to be enjoyed with salad, on a sandwich, or with vegetables and potatoes or rice. ",
         ingredientPictureLink:"ingredientPictureLink goes here",
         recipeCategory:"entree", 
         ingredientCategoryIconLink: "ingredientCategoryIconLink goes here",
@@ -332,17 +333,17 @@ let recipesSeed = [
             {
                 ingredientName: "smoky pork seasoning (Lund's brand)",
                 quantity: 1,
-                units: "package",  
+                units: "package"  
             },
             {
                 ingredientName: "BBQ sauce",
                 quantity: 0,
-                units: "to taste",
+                units: "to taste"
             },
             {
                 ingredientName: "pork ribs",
                 quantity: 1,
-                units: "rack", 
+                units: "rack" 
             }
         ],
         cookingActions: [
@@ -361,10 +362,12 @@ let recipesSeed = [
             {
                 cookingActionTitle: "Step 4",
                 cookingActionText: "Bake for 2 hours.  Unwrap and bake for another 1-1.5 hours.",
+
             },
             {
                 cookingActionTitle: "Step 5",
                 cookingActionText: "Turn oven heat to 500F. Baste with sauce on both sides.",
+
             },
             {
                 cookingActionTitle: "Step 6",
@@ -380,86 +383,87 @@ let recipesSeed = [
         recipeCategory:"entree", 
         ingredientCategoryIconLink: "ingredientCategoryIconLink goes here",
         recipeTags: [
-            "pasta", "italian", "sausage", "cheese",
+            "pasta", "italian", "sausage", "cheese"
         ],
         ingredients: [
             {
                 ingredientName: "Italian sausage, casing removed",
                 quantity: 1,
-                units: "lb",  
+                units: "lb"  
             },
             {
                 ingredientName: "garlic, minced",
                 quantity: 3,
-                units: "cloves",
+                units: "cloves"
             },
             {
                 ingredientName: "onion, diced",
                 quantity: 1,
-                units: "",
+                units: ""
             },
             {
                 ingredientName: "chicken stock",
                 quantity: 2,
-                units: "cups",
+                units: "cup"
             },
             {
                 ingredientName: "crushed tomato",
                 quantity: 28,
-                units: "oz",
+                units: "oz"
             },
             {
                 ingredientName: "dried basil",
                 quantity: .5,
-                units: "tspn",
+                units: "tspn"
             },
             {
                 ingredientName: "dried oregano",
-                quantity: 0.5,
-                units: "tspn",
+                quantity: .5,
+                units: "tspn"
             },
             {
                 ingredientName: "red pepper flakes",
-                quantity: 0.5,
-                units: "tspn",
+                quantity: .5,
+                units: "tspn"
             },
             {
                 ingredientName: "cheese tortellini",
                 quantity: 9,
-                units: "oz",
+                units: "oz"
             },
             {
                 ingredientName: "half and half",
                 quantity: .33,
-                units: "cup",
+                units: "cup"
             },
             {
                 ingredientName: "parmesan, grated",
-                quantity: 0.25,
-                units: "cup",
+                quantity: .25,
+                units: "cup"
             }
         ],
         cookingActions: [
             {
                 cookingActionTitle:"Step 1", 
                 cookingActionText:"Heat olive oil in big pot and brown sausage. Crumble sausage as it cooks, remove excess fat. Add garlic and onion until brown.",
+
             },
             {
-                cookingActionTitle: "Step 2",
+                cookingActionTitle: "",//WHAT TO PUT HERE?
                 cookingActionText: "Add stock, tomatoes, spices and 1 cup water. Season with salt and pepper.",
             },
             {
-                cookingActionTitle: "Step 3",
+                cookingActionTitle: "",//WHAT TO PUT HERE?
                 cookingActionText: "Bring to boil and stir in tortellini, reduce heat and simmer for 5-6 minutes.",
             },
             {
-                cookingActionTitle: "Step 4",
-                cookingActionText: "Add cream and parmesan.  Simmer for 4 minutes.",
+                cookingActionTitle: "",//WHAT TO PUT HERE?
+                cookingActionText: "Add cream and parmesan.  Simmer for 4 minutes."
             }
         ]
     },
     {
-        userID:"", 
+        userID:"", //auto generate?
         recipeName: "Peach Cobbler",
         recipeDescription:"A summer delight, pairs perfectly with ice cream!",
         ingredientPictureLink:"ingredientPictureLink goes here",
@@ -471,87 +475,87 @@ let recipesSeed = [
         ingredients: [
             {
                 ingredientName: "butter, melted",
-                quantity: 0.5,
-                units: "cup",  
+                quantity: 1/2,
+                units: "cup"  
             },
             {
                 ingredientName: "flour",
                 quantity: 1,
-                units: "cup",
+                units: "cup"
             },
             {
                 ingredientName: "sugar",
                 quantity: 1,
-                units: "cup",
+                units: "cup"
             },
             {
                 ingredientName: "baking powder",
                 quantity: 2,
-                units: "tspn",
+                units: "tspn"
             },
             {
                 ingredientName: "salt",
-                quantity: 0.5,
-                units: "tspn",
+                quantity: 1/2,
+                units: "tspn"
             },
             {
                 ingredientName: "milk, room temp",
-                quantity: 0.66,
-                units: "cup",
+                quantity: 2/3,
+                units: "cup"
             },
             {
                 ingredientName: "egg, room temp",
                 quantity: 1,
-                units: "", 
+                units: "" 
             },
             {
                 ingredientName: "peaches, sliced",
                 quantity: 28,
-                units: "oz",
+                units: "oz"
             },
             {
                 ingredientName: "sugar",
                 quantity: 1,
-                units: "cup",
+                units: "cup"
             },
             {
                 ingredientName: "cinnamon, ground",
                 quantity: 1,
-                units: "tspn",
+                units: "tspn"
             },
             {
                 ingredientName: "nutmeg, ground",
-                quantity: 0.5,
-                units: "tspn",
+                quantity: 1/2,
+                units: "tspn"
             }
         ],
         cookingActions: [
             {
-                cookingActionTitle:"Step 1", 
+                cookingActionTitle:"", //WHAT TO PUT HERE?
                 cookingActionText: "Preheat oven to 350F.",
             },
             {
-                cookingActionTitle: "Step 2",
+                cookingActionTitle: "",//WHAT TO PUT HERE?
                 cookingActionText: "Melt butter in pan.",
             },
             {
-                cookingActionTitle: "Step 3",
+                cookingActionTitle: "",//WHAT TO PUT HERE?
                 cookingActionText: "Mix dry ingredients. Stir in milk and egg. Pour over melted butter.",
             },
             {
-                cookingActionTitle: "Step 4",
+                cookingActionTitle: "",//WHAT TO PUT HERE?
                 cookingActionText: "Combine filling and spread over batter - don't stir.",
             },
             {
-                cookingActionTitle: "Step 5",
-                cookingActionText: "Bake for 35-45 minutes.",
+                cookingActionTitle: "",//WHAT TO PUT HERE?
+                cookingActionText: "Bake 35-45 minutes.",
             },
         ]
     },
     {
-        userID:"", 
+        userID:"", //auto generate?
         recipeName: "Zucchini bread",
-        recipeDescription:"Perfect for breakfast or as a snack!",
+        recipeDescription:"",
         ingredientPictureLink:"ingredientPictureLink goes here",
         recipeCategory:"dessert", 
         ingredientCategoryIconLink: "ingredientCategoryIconLink goes here",
@@ -562,79 +566,79 @@ let recipesSeed = [
             {
                 ingredientName: "flour",
                 quantity: 3,
-                units: "cups",  
+                units: "cups"  
             },
             {
                 ingredientName: "baking powder",
                 quantity: 1,
-                units: "tspn",
+                units: "tspn"
             },
             {
                 ingredientName: "baking soda",
                 quantity: 1,
-                units: "tspn",
+                units: "tspn"
             },
             {
                 ingredientName: "cinnamon",
                 quantity: 1,
-                units: "tspn",
+                units: "tspn"
             },
             {
                 ingredientName: "salt",
                 quantity: 1,
-                units: "tspn",
+                units: "tspn"
             },
             {
                 ingredientName: "sugar",
                 quantity: 1.5,
-                units: "cups",
+                units: "cups"
             },
             {
                 ingredientName: "zuchini, grated",
                 quantity: 2,
-                units: "cups",
+                units: "cups"
             },
             {
                 ingredientName: "vanilla extract",
                 quantity: 1,
-                units: "tspn",
+                units: "tspn"
             },
             {
                 ingredientName: "vegetable oil",
                 quantity: 1,
-                units: "cup",
+                units: "cup"
             },
             {
                 ingredientName: "eggs, beaten",
                 quantity: 1,
-                units: "",
+                units: ""
             }
         ],
         cookingActions: [
             {
-                cookingActionTitle:"Step 1", 
+                cookingActionTitle:"", //WHAT TO PUT HERE?
                 cookingActionText: "Preheat the oven to 350F.",
             },
             {
-                cookingActionTitle: "Step 2",
+                cookingActionTitle: "",//WHAT TO PUT HERE?
                 cookingActionText: "Sift flour, baking powder, baking soda, cinnamon, salt and sugar.",
             },
             {
-                cookingActionTitle: "Step 3",
+                cookingActionTitle: "",//WHAT TO PUT HERE?
                 cookingActionText: "In a separate bowl, combine vanilla, oil, and eggs.",
             },
             {
-                cookingActionTitle: "Step 4",
+                cookingActionTitle: "",//WHAT TO PUT HERE?
                 cookingActionText: "Add the dry and wet ingredients together and fold in the zucchini.",
             },
             {
-                cookingActionTitle: "Step 5",
+                cookingActionTitle: "",//WHAT TO PUT HERE?
                 cookingActionText: "Pour into bread loaf container and bake for 1 hour.",
             }
         ]
     },
     {
-        userID:"", 
+        userID:"", //auto generate?
         recipeName: "Homemade Italian Turkey Sausage",
         recipeDescription:"",
         ingredientPictureLink:"ingredientPictureLink goes here",
@@ -647,60 +651,61 @@ let recipesSeed = [
             {
                 ingredientName: "dried oregano",
                 quantity: 1,
-                units: "tspn",  
+                units: "tspn"  
             },
             {
                 ingredientName: "fennel seed, crushed",
                 quantity: 1.5,
-                units: "tspn",
+                units: "tspn"
             },
             {
                 ingredientName: "garlic powder",
                 quantity: 2,
-                units: "tspn",
+                units: "tspn"
             },
             {
                 ingredientName: "lean ground turkey",
                 quantity: 1,
-                units: "lb",
+                units: "lb"
             },
             {
                 ingredientName: "black pepper",
-                quantity: 0.5,
-                units: "tspn",
+                quantity: 1/2,
+                units: "tspn"
             },
             {
                 ingredientName: "salt",
                 quantity: 1,
-                units: "tspn",
+                units: "tspn"
             },
             {
                 ingredientName: "sugar",
                 quantity: 1.5,
-                units: "tspn",
+                units: "tspn"
             }
         ],
         cookingActions: [
             {
-                cookingActionTitle:"Step 1", 
+                cookingActionTitle:"", //WHAT TO PUT HERE?
                 cookingActionText: "In a bowl, combine the turkey, garlic powder, fennel seed, sugar, salt, oregano and pepper.",
             },
             {
-                cookingActionTitle: "Step 2",
+                cookingActionTitle: "",//WHAT TO PUT HERE?
                 cookingActionText: "Cover and refrigerate for at least 8 hours or overnight.",
             },
             {
-                cookingActionTitle: "Step 3",
+                cookingActionTitle: "",//WHAT TO PUT HERE?
                 cookingActionText: "Shape into eight patties.",
             },
+            ,
             {
-                cookingActionTitle: "Step 4",
-                cookingActionText:  "Coat nonstick pan with cooking spray and cook for 3 minutes on each side or until meat thermometer reads 165F.",
+                cookingActionTitle: "",//WHAT TO PUT HERE?
+                cookingActionText:  "Coated nonstick pan with cooking spray and cook for 3 minutes on each side or until meat thermometer reads 165F.",
             },
         ]
     },
     {
-        userID:"", 
+        userID:"", //auto generate?
         recipeName: "Country Potato Pancake",
         recipeDescription:"",
         ingredientPictureLink:"ingredientPictureLink goes here",
@@ -713,32 +718,32 @@ let recipesSeed = [
             {
                 ingredientName: "baking powder",
                 quantity: 1,
-                units: "tspn",  
+                units: "tspn"  
             },
             {
                 ingredientName: "eggs, lightly beaten",
                 quantity: 2,
-                units: "",
+                units: ""
             },
             {
                 ingredientName: "all-purpose flour",
                 quantity: 2,
-                units: "tbspn",
+                units: "tbspn"
             },
             {
                 ingredientName: "onion, grated",
                 quantity: 1,
-                units: "tbspn",
+                units: "tbspn"
             },
             {
                 ingredientName: "larg potatoes, peeled",
                 quantity: 3,
-                units: "",
+                units: ""
             },
             {
                 ingredientName: "salt",
                 quantity: 1,
-                units: "tspn",
+                units: "tspn"
             },
             {
                 ingredientName: "vegetable oil",
@@ -748,95 +753,115 @@ let recipesSeed = [
         ],
         cookingActions: [
             {
-                cookingActionTitle:"Step 1", 
-                cookingActionText: "Finely grate potatoes. Drain any liquid. Add eggs, onion, flour, salt and baking powder.",
+                cookingActionTitle:"", //WHAT TO PUT HERE?
+                cookingActionText: "Finely grate potatoes. Drain any liquid.",
             },
             {
-                cookingActionTitle: "Step 2",
-                cookingActionText:"In a frying pan, add oil to the depth of 1/8 in. Heat over medium-high (375F).",
+                cookingActionTitle: "",//WHAT TO PUT HERE?
+                cookingActionText: "Add eggs, onion, flour, salt and baking powder.",
             },
             {
-                cookingActionTitle: "Step 3",
-                cookingActionText: "Drop batter by heaping tablespoonfuls in hot oil. Flatten to form patties.",
+                cookingActionTitle: "",//WHAT TO PUT HERE?
+                cookingActionText:"In a frying pan, add oil to the depth of 1/8 in.",
             },
             {
-                cookingActionTitle: "Step 4",
-                cookingActionText:  "Fry until golden brown then turn and cook the other side.",
+                cookingActionTitle: "",//WHAT TO PUT HERE?
+                cookingActionText: "Heat over medium-high (375F).",
+            },
+            {
+                cookingActionTitle: "",//WHAT TO PUT HERE?
+                cookingActionText: "Drop batter by heaping tablespoonfuls in hot oil. ",
+            },
+            {
+                cookingActionTitle: "",//WHAT TO PUT HERE?
+                cookingActionText: "Flatten to form patties. ",
+            },
+            {
+                cookingActionTitle: "",//WHAT TO PUT HERE?
+                cookingActionText:  "Fry until golden brown then turn and cook other side."
             },
         ]
     },
     {
-        userID:"",
+        userID:"", //auto generate?
         recipeName: "Chicken Tacos - the Tahiti Way",
         recipeDescription:"",
         ingredientPictureLink:"ingredientPictureLink goes here",
         recipeCategory:"entree", 
         ingredientCategoryIconLink: "ingredientCategoryIconLink goes here",
         recipeTags: [
-            "tacos", "chicken", "Tahiti", "slow-cook",
+            "tacos", "chicken", "Tahiti"
         ],
         ingredients: [
             {
                 ingredientName: "black pepper",
                 quantity: 0,
-                units: "to taste",  
+                units: "to taste"  
             },
             {
                 ingredientName: "chicken breast, boneless",
                 quantity: 6,
-                units: "",
+                units: ""
             },
             {
                 ingredientName: "cilantro, chopped",
                 quantity: 1,
-                units: "tbspn",
+                units: "handful"
             },
             {
                 ingredientName: "corn tortillas",
                 quantity: 10,
-                units: "",
+                units: ""
             },
             {
                 ingredientName: "garlic, diced",
                 quantity: 2,
-                units: "cloves",
+                units: "cloves"
             },
             {
                 ingredientName: "large onion, sliced",
-                quantity: 0.5,
-                units: "",
+                quantity: 1/2,
+                units: ""
             },
             {
                 ingredientName: "pepperoncini pepper",
                 quantity: 16,
-                units: "oz",
+                units: "oz"
             }
         ],
         cookingActions: [
             {
-                cookingActionTitle:"Step 1", 
+                cookingActionTitle:"", //WHAT TO PUT HERE?
                 cookingActionText: "Combine everything including the ENTIRE jar of peppers, juice and all, but the tortillas into a slow cooker.",
             },
             {
-                cookingActionTitle: "Step 2",
+                cookingActionTitle: "",//WHAT TO PUT HERE?
                 cookingActionText: "Cook on low 5 hours.",
             },
             {
-                cookingActionTitle: "Step 3",
-                cookingActionText:  "Shred chicken with 2 forks. Mix well with everything in the pot.",
+                cookingActionTitle: "",//WHAT TO PUT HERE?
+                cookingActionText:  "Shred chicken with 2 forks.",
             },
             {
-                cookingActionTitle: "Step 4",
-                cookingActionText: "Heat tortillas till soft. Served the chicken on the tortilla. Enjoy!",
-            }
+                cookingActionTitle: "",//WHAT TO PUT HERE?
+                cookingActionText: "Mix well with everything in the pot.",
+            },
+            {
+                cookingActionTitle: "",//WHAT TO PUT HERE?
+                cookingActionText: "Heat tortillas till soft.",
+            },
+            {
+                cookingActionTitle: "",//WHAT TO PUT HERE?
+                cookingActionText: "Served warm.",
+            },
         ]
     },
     {
-        userID:"", 
+        userID:"", //auto generate?
         recipeName: "Tomato-Mint Quinoa Salad",
         recipeDescription:"A delicious summer delight using fresh ingredients from the farmer's markets.",
         ingredientPictureLink:"ingredientPictureLink goes here",
-        recipeCategory:"entree", 
+        recipeCategory:"", 
         ingredientCategoryIconLink: "ingredientCategoryIconLink goes here",
         recipeTags: [
             "salad", "tomato", "quinoa",
@@ -845,132 +870,195 @@ let recipesSeed = [
             {
                 ingredientName: "water",
                 quantity: 2.5,
-                units: "cups",  
+                units: "cups"  
             },
             {
                 ingredientName: "quinoa",
                 quantity: 1.25,
-                units: "cups",
+                units: "cups"
             },
             {
                 ingredientName: "raisins",
                 quantity: .75,
-                units: "cups",
+                units: "cups"
             },
             {
                 ingredientName: "salt",
                 quantity: 1,
-                units: "pinch",
+                units: "pinch"
             },
             {
                 ingredientName: "medium tomato, diced",
                 quantity: 2,
-                units: "",
+                units: ""
             },
             {
                 ingredientName: "medium onion, minced",
                 quantity: 1,
-                units: "",
+                units: ""
             },
             {
                 ingredientName: "radish, quartered",
                 quantity: 10,
-                units: "",
+                units: ""
             },
             {
                 ingredientName: "cucumber, diced",
                 quantity: .5,
-                units: "",
+                units: ""
             },
             {
                 ingredientName: "sliced almonds, toasted",
                 quantity: 2,
-                units: "tbspn",
+                units: "tbspn"
             },
             {
                 ingredientName: "fresh parsley, chopped",
                 quantity: 2,
-                units: "tbspn",
+                units: "tbspn"
             },
             {
                 ingredientName: "ground cumin",
                 quantity: 1,
-                units: "tspn",
+                units: "tspn"
             },
             {
                 ingredientName: "lime juice",
-                quantity: .25,
-                units: "cup",
+                quantity: 1/4,
+                units: "cup"
             },
             {
-                ingredientName: "sesame oil",
+                ingredientName: "same oil",
                 quantity: 2,
-                units: "tbspn",
+                units: "tbspn"
             },
             {
                 ingredientName: "salt",
-                quantity: .25,
-                units: "tspn to taste",
+                quantity: 1/4,
+                units: "tspn to taste"
             }
         ],
         cookingActions: [
             {
-                cookingActionTitle:"Step 1", 
+                cookingActionTitle:"", //WHAT TO PUT HERE?
                 cookingActionText: "Bring water to boil in a small saucepan. Pour in quinoa, raisins, and a pinch of salt. Cover, and let simmer for 12 to 15 minutes, then remove from heat, and allow to cool to room temperature.",
             },
             {
-                cookingActionTitle: "Step 2",
+                cookingActionTitle: "",//WHAT TO PUT HERE?
                 cookingActionText: "Toss together the tomatoes, onion, radish, cucumber, and almonds in a large bowl. Stir in the cooled quinoa, then season with mint, parsley, cumin, lime juice, sesame oil, and salt. Chill 1 to 2 hours before serving.",
             }
         ]
     },
     {
-        userID:"",
-        recipeName: "Mapo Tofu",
-        recipeDescription:"A go-to staple for the days when when you don't have anything in the fridge except for tofu and green onions. Goes well with rice!",
+        userID:"", //auto generate?
+        recipeName: "",
+        recipeDescription:"",
         ingredientPictureLink:"ingredientPictureLink goes here",
-        recipeCategory:"entree", 
+        recipeCategory:"", 
         ingredientCategoryIconLink: "ingredientCategoryIconLink goes here",
         recipeTags: [
-            "tofu", "vegetarian", "sichuan", "easy",
+            "", "", "",
         ],
         ingredients: [
             {
-                ingredientName: "tofu - medium firm, cubed",
-                quantity: 16,
-                units: "oz",  
+                ingredientName: "",
+                quantity: ,
+                units: ""  
             },
             {
-                ingredientName:  "mapo bean curd seasoning",
-                quantity: 1,
-                units: "pack of 150gm",
+                ingredientName: "",
+                quantity: ,
+                units: ""
             },
             {
-                ingredientName: "green onion, chopped",
-                quantity: 2,
-                units: "",
+                ingredientName: "",
+                quantity: ,
+                units: ""
             },
             {
-                ingredientName: "vegetable oil",
-                quantity: 1,
-                units: "tspn",
+                ingredientName: "",
+                quantity: ,
+                units: ""
             }
         ],
         cookingActions: [
             {
-                cookingActionTitle:"Step 1",
-                cookingActionText: "Heat vegetable oil in medium heat pan. Add seasoning, tofu, and green onions to the pan.",
+                cookingActionTitle:"", //WHAT TO PUT HERE?
+                cookingActionText: "",
             },
             {
-                cookingActionTitle: "Step 2",
-                cookingActionText: "Mix all ingredients and when throughly heated, served with rice.",
+                cookingActionTitle: "",//WHAT TO PUT HERE?
+                cookingActionText: "",
+            },
+            {
+                cookingActionTitle: "",//WHAT TO PUT HERE?
+                cookingActionText: "",
+            },
+            {
+                cookingActionTitle: "",//WHAT TO PUT HERE?
+                cookingActionText: ""
+            },
+        ]
+    },
+    /////THIS IS THE LAST SAMPLE ONE ==================
+    {
+        userID:"", //auto generate?
+        recipeName: "",
+        recipeDescription:"",
+        ingredientPictureLink:"ingredientPictureLink goes here",
+        recipeCategory:"", 
+        ingredientCategoryIconLink: "ingredientCategoryIconLink goes here",
+        recipeTags: [
+            "", "", "",
+        ],
+        ingredients: [
+            {
+                ingredientName: "",
+                quantity: ,
+                units: ""  
+            },
+            {
+                ingredientName: "",
+                quantity: ,
+                units: ""
+            },
+            {
+                ingredientName: "",
+                quantity: ,
+                units: ""
+            },
+            {
+                ingredientName: "",
+                quantity: ,
+                units: ""
             }
+        ],
+        cookingActions: [
+            {
+                cookingActionTitle:"", //WHAT TO PUT HERE?
+                cookingActionText: "",
+            },
+            {
+                cookingActionTitle: "",//WHAT TO PUT HERE?
+                cookingActionText: "",
+            },
+            {
+                cookingActionTitle: "",//WHAT TO PUT HERE?
+                cookingActionText: "",
+            },
+            {
+                cookingActionTitle: "",//WHAT TO PUT HERE?
+                cookingActionText: ""
+            },
         ]
     }
 ];
 
+
+
 //Is there anything we need to do for the following below?
 //Only thing that I see different is the totalUseCount...?
+
 //ingredients seed
 let ingredientsSeed = [
     {
@@ -992,6 +1080,34 @@ let ingredientsSeed = [
         ingredientName: "milk",
     },
 ];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 async function seedAsyncFunction() {
