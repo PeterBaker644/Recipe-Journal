@@ -65,12 +65,12 @@ let recipesSeed = [
         ],
         Actions: [
             {
-                ActionTitle: "Step 1", 
-                ActionText: "Put all ingredients in a pot and cover. Bring pot to boil.",
+                Title: "Step 1", 
+                Text: "Put all ingredients in a pot and cover. Bring pot to boil.",
             },
             {
-                ActionTitle: "Step 2",  
-                ActionText: "Cover with lid and simmer for 40 minutes, turning have way through.",
+                Title: "Step 2",  
+                Text: "Cover with lid and simmer for 40 minutes, turning have way through.",
             }
         ]
     }, 
@@ -107,12 +107,12 @@ let recipesSeed = [
         ],
         Actions: [
             {
-                ActionTitle:"Step 1",
-                ActionText:"Boil eggs for 7-9 minutes. Remove from stove, drain water and fill pan with cold water.",
+                Title:"Step 1",
+                Text:"Boil eggs for 7-9 minutes. Remove from stove, drain water and fill pan with cold water.",
             },
             {
-                ActionTitle: "Step 2", 
-                ActionText: "Let sit and then peel eggs and crushed. Mix the mayo and eggs. Add salt and pepper to taste.",
+                Title: "Step 2", 
+                Text: "Let sit and then peel eggs and crushed. Mix the mayo and eggs. Add salt and pepper to taste.",
             }
         ]
     },
@@ -159,16 +159,16 @@ let recipesSeed = [
         ],
         Actions: [
             {
-                ActionTitle:"Step 1",
-                ActionText: "Melt cream cheese in a pot.",
+                Title:"Step 1",
+                Text: "Melt cream cheese in a pot.",
             },
             {
-                ActionTitle: "Step 2", 
-                ActionText: "Stir in cream of chicken, add broth, potatoes, bacon, pepper, and stir.",
+                Title: "Step 2", 
+                Text: "Stir in cream of chicken, add broth, potatoes, bacon, pepper, and stir.",
             },
             {
-                ActionTitle: "Step 3",
-                ActionText: "Cover with lid and simmer for 3 hours or until potatoes are soft.",
+                Title: "Step 3",
+                Text: "Cover with lid and simmer for 3 hours or until potatoes are soft.",
             }
         ]
     },
@@ -230,20 +230,20 @@ let recipesSeed = [
         ],
         Actions: [
             {
-                ActionTitle: "Step 1", 
-                ActionText: "Preheat oven to 360F.",
+                Title: "Step 1", 
+                Text: "Preheat oven to 360F.",
             },
             {
-                ActionTitle: "Step 2",
-                ActionText: "Cream butter, sugars. Beat in eggs and vanilla.",
+                Title: "Step 2",
+                Text: "Cream butter, sugars. Beat in eggs and vanilla.",
             },
             {
-                ActionTitle: "Step 3", 
-                ActionText: "Stir in dry ingredients. Coat in sugar.",
+                Title: "Step 3", 
+                Text: "Stir in dry ingredients. Coat in sugar.",
             },
             {
-                ActionTitle: "Step 4", 
-                ActionText: "Bake for 10 minutes.",
+                Title: "Step 4", 
+                Text: "Bake for 10 minutes.",
             },
         ]
     },
@@ -300,16 +300,16 @@ let recipesSeed = [
         ],
         Actions: [
             {
-                ActionTitle:"Step 1", 
-                ActionText: "Whisk flour, baking soda, baking powder, salt, sugar.",
+                Title:"Step 1", 
+                Text: "Whisk flour, baking soda, baking powder, salt, sugar.",
             },
             {
-                ActionTitle: "Step 2",
-                ActionText: "Add eggs, buttermilk, butter and whisk to combine. Batter should be lummpy.",
+                Title: "Step 2",
+                Text: "Add eggs, buttermilk, butter and whisk to combine. Batter should be lummpy.",
             },
             {
-                ActionTitle: "Step 3",
-                ActionText: "Heat a lightly oiled frying pan over medium high heat. Pour the batter onto pan, using approximately 1/4 cup for each pancake. Brown on both sides and serve hot.",
+                Title: "Step 3",
+                Text: "Heat a lightly oiled frying pan over medium high heat. Pour the batter onto pan, using approximately 1/4 cup for each pancake. Brown on both sides and serve hot.",
             }
         ]
     },
@@ -341,28 +341,28 @@ let recipesSeed = [
         ],
         Actions: [
             {
-                ActionTitle:"Step 1", 
-                ActionText:"Preheat oven to 250F.",
+                Title:"Step 1", 
+                Text:"Preheat oven to 250F.",
             },
             {
-                ActionTitle: "Step 2",
-                ActionText: "Rub ribs with seasoning.",
+                Title: "Step 2",
+                Text: "Rub ribs with seasoning.",
             },
             {
-                ActionTitle: "Step 3",
-                ActionText:"Put wire rack in baking sheet. Wrap ribs in foil pack, meat side up on rack.",
+                Title: "Step 3",
+                Text:"Put wire rack in baking sheet. Wrap ribs in foil pack, meat side up on rack.",
             },
             {
-                ActionTitle: "Step 4",
-                ActionText: "Bake for 2 hours.  Unwrap and bake for another 1-1.5 hours.",
+                Title: "Step 4",
+                Text: "Bake for 2 hours.  Unwrap and bake for another 1-1.5 hours.",
             },
             {
-                ActionTitle: "Step 5",
-                ActionText: "Turn oven heat to 500F. Baste with sauce on both sides.",
+                Title: "Step 5",
+                Text: "Turn oven heat to 500F. Baste with sauce on both sides.",
             },
             {
-                ActionTitle: "Step 6",
-                ActionText: "Bake for 10 minutes and let rest.",
+                Title: "Step 6",
+                Text: "Bake for 10 minutes and let rest.",
             }
         ]
     },
@@ -434,20 +434,20 @@ let recipesSeed = [
         ],
         Actions: [
             {
-                ActionTitle:"Step 1", 
-                ActionText:"Heat olive oil in big pot and brown sausage. Crumble sausage as it cooks, remove excess fat. Add garlic and onion until brown.",
+                Title:"Step 1", 
+                Text:"Heat olive oil in big pot and brown sausage. Crumble sausage as it cooks, remove excess fat. Add garlic and onion until brown.",
             },
             {
-                ActionTitle: "Step 2",
-                ActionText: "Add stock, tomatoes, spices and 1 cup water. Season with salt and pepper.",
+                Title: "Step 2",
+                Text: "Add stock, tomatoes, spices and 1 cup water. Season with salt and pepper.",
             },
             {
-                ActionTitle: "Step 3",
-                ActionText: "Bring to boil and stir in tortellini, reduce heat and simmer for 5-6 minutes.",
+                Title: "Step 3",
+                Text: "Bring to boil and stir in tortellini, reduce heat and simmer for 5-6 minutes.",
             },
             {
-                ActionTitle: "Step 4",
-                ActionText: "Add cream and parmesan.  Simmer for 4 minutes.",
+                Title: "Step 4",
+                Text: "Add cream and parmesan.  Simmer for 4 minutes.",
             }
         ]
     },
@@ -519,24 +519,24 @@ let recipesSeed = [
         ],
         Actions: [
             {
-                ActionTitle:"Step 1", 
-                ActionText: "Preheat oven to 350F.",
+                Title:"Step 1", 
+                Text: "Preheat oven to 350F.",
             },
             {
-                ActionTitle: "Step 2",
-                ActionText: "Melt butter in pan.",
+                Title: "Step 2",
+                Text: "Melt butter in pan.",
             },
             {
-                ActionTitle: "Step 3",
-                ActionText: "Mix dry ingredients. Stir in milk and egg. Pour over melted butter.",
+                Title: "Step 3",
+                Text: "Mix dry ingredients. Stir in milk and egg. Pour over melted butter.",
             },
             {
-                ActionTitle: "Step 4",
-                ActionText: "Combine filling and spread over batter - don't stir.",
+                Title: "Step 4",
+                Text: "Combine filling and spread over batter - don't stir.",
             },
             {
-                ActionTitle: "Step 5",
-                ActionText: "Bake for 35-45 minutes.",
+                Title: "Step 5",
+                Text: "Bake for 35-45 minutes.",
             },
         ]
     },
@@ -603,24 +603,24 @@ let recipesSeed = [
         ],
         Actions: [
             {
-                ActionTitle:"Step 1", 
-                ActionText: "Preheat the oven to 350F.",
+                Title:"Step 1", 
+                Text: "Preheat the oven to 350F.",
             },
             {
-                ActionTitle: "Step 2",
-                ActionText: "Sift flour, baking powder, baking soda, cinnamon, salt and sugar.",
+                Title: "Step 2",
+                Text: "Sift flour, baking powder, baking soda, cinnamon, salt and sugar.",
             },
             {
-                ActionTitle: "Step 3",
-                ActionText: "In a separate bowl, combine vanilla, oil, and eggs.",
+                Title: "Step 3",
+                Text: "In a separate bowl, combine vanilla, oil, and eggs.",
             },
             {
-                ActionTitle: "Step 4",
-                ActionText: "Add the dry and wet ingredients together and fold in the zucchini.",
+                Title: "Step 4",
+                Text: "Add the dry and wet ingredients together and fold in the zucchini.",
             },
             {
-                ActionTitle: "Step 5",
-                ActionText: "Pour into bread loaf container and bake for 1 hour.",
+                Title: "Step 5",
+                Text: "Pour into bread loaf container and bake for 1 hour.",
             }
         ]
     },
@@ -672,20 +672,20 @@ let recipesSeed = [
         ],
         Actions: [
             {
-                ActionTitle:"Step 1", 
-                ActionText: "In a bowl, combine the turkey, garlic powder, fennel seed, sugar, salt, oregano and pepper.",
+                Title:"Step 1", 
+                Text: "In a bowl, combine the turkey, garlic powder, fennel seed, sugar, salt, oregano and pepper.",
             },
             {
-                ActionTitle: "Step 2",
-                ActionText: "Cover and refrigerate for at least 8 hours or overnight.",
+                Title: "Step 2",
+                Text: "Cover and refrigerate for at least 8 hours or overnight.",
             },
             {
-                ActionTitle: "Step 3",
-                ActionText: "Shape into eight patties.",
+                Title: "Step 3",
+                Text: "Shape into eight patties.",
             },
             {
-                ActionTitle: "Step 4",
-                ActionText:  "Coat nonstick pan with cooking spray and cook for 3 minutes on each side or until meat thermometer reads 165F.",
+                Title: "Step 4",
+                Text:  "Coat nonstick pan with cooking spray and cook for 3 minutes on each side or until meat thermometer reads 165F.",
             },
         ]
     },
@@ -737,20 +737,20 @@ let recipesSeed = [
         ],
         Actions: [
             {
-                ActionTitle:"Step 1", 
-                ActionText: "Finely grate potatoes. Drain any liquid. Add eggs, onion, flour, salt and baking powder.",
+                Title:"Step 1", 
+                Text: "Finely grate potatoes. Drain any liquid. Add eggs, onion, flour, salt and baking powder.",
             },
             {
-                ActionTitle: "Step 2",
-                ActionText:"In a frying pan, add oil to the depth of 1/8 in. Heat over medium-high (375F).",
+                Title: "Step 2",
+                Text:"In a frying pan, add oil to the depth of 1/8 in. Heat over medium-high (375F).",
             },
             {
-                ActionTitle: "Step 3",
-                ActionText: "Drop batter by heaping tablespoonfuls in hot oil. Flatten to form patties.",
+                Title: "Step 3",
+                Text: "Drop batter by heaping tablespoonfuls in hot oil. Flatten to form patties.",
             },
             {
-                ActionTitle: "Step 4",
-                ActionText:  "Fry until golden brown then turn and cook the other side.",
+                Title: "Step 4",
+                Text:  "Fry until golden brown then turn and cook the other side.",
             },
         ]
     },
@@ -802,20 +802,20 @@ let recipesSeed = [
         ],
         Actions: [
             {
-                ActionTitle:"Step 1", 
-                ActionText: "Combine everything including the ENTIRE jar of peppers, juice and all, but the tortillas into a slow cooker.",
+                Title:"Step 1", 
+                Text: "Combine everything including the ENTIRE jar of peppers, juice and all, but the tortillas into a slow cooker.",
             },
             {
-                ActionTitle: "Step 2",
-                ActionText: "Cook on low 5 hours.",
+                Title: "Step 2",
+                Text: "Cook on low 5 hours.",
             },
             {
-                ActionTitle: "Step 3",
-                ActionText:  "Shred chicken with 2 forks. Mix well with everything in the pot.",
+                Title: "Step 3",
+                Text:  "Shred chicken with 2 forks. Mix well with everything in the pot.",
             },
             {
-                ActionTitle: "Step 4",
-                ActionText: "Heat tortillas till soft. Served the chicken on the tortilla. Enjoy!",
+                Title: "Step 4",
+                Text: "Heat tortillas till soft. Served the chicken on the tortilla. Enjoy!",
             }
         ]
     },
@@ -902,12 +902,12 @@ let recipesSeed = [
         ],
         Actions: [
             {
-                ActionTitle:"Step 1", 
-                ActionText: "Bring water to boil in a small saucepan. Pour in quinoa, raisins, and a pinch of salt. Cover, and let simmer for 12 to 15 minutes, then remove from heat, and allow to cool to room temperature.",
+                Title:"Step 1", 
+                Text: "Bring water to boil in a small saucepan. Pour in quinoa, raisins, and a pinch of salt. Cover, and let simmer for 12 to 15 minutes, then remove from heat, and allow to cool to room temperature.",
             },
             {
-                ActionTitle: "Step 2",
-                ActionText: "Toss together the tomatoes, onion, radish, cucumber, and almonds in a large bowl. Stir in the cooled quinoa, then season with mint, parsley, cumin, lime juice, sesame oil, and salt. Chill 1 to 2 hours before serving.",
+                Title: "Step 2",
+                Text: "Toss together the tomatoes, onion, radish, cucumber, and almonds in a large bowl. Stir in the cooled quinoa, then season with mint, parsley, cumin, lime juice, sesame oil, and salt. Chill 1 to 2 hours before serving.",
             }
         ]
     },
@@ -944,12 +944,12 @@ let recipesSeed = [
         ],
         Actions: [
             {
-                ActionTitle:"Step 1",
-                ActionText: "Heat vegetable oil in medium heat pan. Add seasoning, tofu, and green onions to the pan.",
+                Title:"Step 1",
+                Text: "Heat vegetable oil in medium heat pan. Add seasoning, tofu, and green onions to the pan.",
             },
             {
-                ActionTitle: "Step 2",
-                ActionText: "Mix all ingredients and when throughly heated, served with rice.",
+                Title: "Step 2",
+                Text: "Mix all ingredients and when throughly heated, served with rice.",
             }
         ]
     }
