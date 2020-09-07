@@ -6,9 +6,9 @@ router.route("/")
     .get(recipesController.findAll)
     .post(recipesController.create);
 
-// Matches with "/api/recipes/:id"
+// Matches with "/api/recipes/:_id"
 router
-    .route("/:id")
+    .route("/:_id")
     .get(recipesController.findById)
     .put(recipesController.update)
     .delete(recipesController.remove);

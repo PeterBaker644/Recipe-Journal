@@ -33,12 +33,15 @@ function Genepagetest() {
 
         function setDummyObject() {
             setNewRecipe({
-                userID: "usernumber2",
-                recipeName: "NEW pancakes",
+                userID: "usernumber1",
+                recipeName: "asdfasdfasdf pancakes",
                 recipeDescription: "this is a recipe description field",
-                ingredientPictureLink: "ingredientPictureLink goes here",
+                recipePicLinks:
+                    [
+                        "recipePicLink goes here",
+                        "recipePicLink2 goes here",
+                    ],
                 recipeCategory: "baked recipes",
-                ingredientCategoryIconLink: "ingredientCategoryIconLink goes here",
                 recipeTags: [
                     "dessert", "breakfast"
                 ],
@@ -59,21 +62,18 @@ function Genepagetest() {
                         units: "gallons"
                     }
                 ],
-                cookingActions: [
+                Actions: [
                     {
-                        cookingActionTitle: "mix",
-                        cookingActionText: "mix and blah blah blah",
+                        ActionTitle: "mix",
+                        ActionText: "mix and blah blah blah",
                     }
                 ]
             })
         };
 
         setDummyObject();
-        console.log('newRecipe');
-        console.log(newRecipe);
 
         API.createRecipe(newRecipe)
-            // .then(() => setNewRecipe({}))
             .catch(err => console.log(err));
     };
 
@@ -83,11 +83,27 @@ function Genepagetest() {
             .then(res => setNewRecipe(res.data))
             .catch(err => console.log(err));
     };
+    const deleteRecipe = event => {
+        event.preventDefault();
+        // manually put the recipe id here to verify this works 
+        API.deleteRecipe("5f5550b4ea82aa49a4f93a84")
+        .catch(err => console.log(err));
+    };
+    
+    const oneRecipe = event => {
+        event.preventDefault();
+        API.getOneRecipe("5f5550b4ea82aa49a4f93a84")
+            .then(res => console.log(res.data))
+            .catch(err => console.log(err));
+    };
 
     return (
         <div>
-            
+
             <h1>Genes testing page</h1>
+            <button onClick={deleteRecipe} className="btn btn-primary">
+                {" "}deleteRecipe Test{" "}
+            </button>
 
             <button onClick={createRecipeSubmit} className="btn btn-primary">
                 {" "}create Test{" "}
@@ -97,7 +113,9 @@ function Genepagetest() {
                 {" "}Update Test{" "}
             </button>
 
-
+            <button onClick={oneRecipe} className="btn btn-primary">
+                {" "}One recipe{" "}
+            </button>
             <button onClick={recipeSubmit} className="btn btn-primary">
                 {" "}RecipeList{" "}
             </button>
@@ -110,9 +128,9 @@ function Genepagetest() {
                             recipeDescription={recipe.recipeDescription}
                             ingredientPictureLink={recipe.ingredientPictureLink}
                             recipeCategory={recipe.recipeCategory}
-                            ingredientCategoryIconLink={recipe.ingredientCategoryIconLink}
-                            cookingActionTitle={recipe.cookingActions[0].cookingActionTitle}
-                            cookingActionText={recipe.cookingActions[0].cookingActionText}
+                            recipePicLinks={recipe.recipePicLinks[0]}
+                            ActionTitle={recipe.Actions[0].ActionTitle}
+                            ActionText={recipe.Actions[0].ActionText}
                         />
                         <h2>recipeTags UL list</h2>
                         <UlList>
