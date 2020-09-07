@@ -16,9 +16,8 @@ let recipesSeed = [
         userID:"",
         recipeName: "Chicken Adobo",
         recipeDescription:"This classic adobo recipe is simple to make and famous with all who have tasted it. It is delicious served over rice.",
-        ingredientPictureLink:"ingredientPictureLink goes here",
-        recipeCategory:"entree", 
-        ingredientCategoryIconLink: "ingredientCategoryIconLink goes here",
+        recipePicLinks:["recipePicLinks goes here", "recipePicLink2 goes here"],
+        recipeCategory: "entree",  
         recipeTags: [
             "chicken", "dinner", "easy",
         ],
@@ -64,7 +63,7 @@ let recipesSeed = [
                 units: "to taste",
             }
         ],
-        cookingActions: [
+        Actions: [
             {
                 cookingActionTitle: "Step 1", 
                 cookingActionText: "Put all ingredients in a pot and cover. Bring pot to boil.",
@@ -79,9 +78,8 @@ let recipesSeed = [
         userID:"", 
         recipeName: "Egg Salad Sandwich",
         recipeDescription:"This sandwich is so easy to make, you'd wish you've made it earlier.",
-        ingredientPictureLink:"ingredientPictureLink goes here",
+        recipePicLinks:["recipePicLinks goes here"],
         recipeCategory:"entree", 
-        ingredientCategoryIconLink: "ingredientCategoryIconLink goes here",
         recipeTags: [
             "egg", "lunch", "easy", "sandwich",
         ],
@@ -107,7 +105,7 @@ let recipesSeed = [
                 units: "to taste",
             }
         ],
-        cookingActions: [
+        Actions: [
             {
                 cookingActionTitle:"Step 1",
                 cookingActionText:"Boil eggs for 7-9 minutes. Remove from stove, drain water and fill pan with cold water.",
@@ -122,9 +120,8 @@ let recipesSeed = [
         userID:"", 
         recipeName: "Peter's Mom's Soup",
         recipeDescription:"Easy to make soup. Brings back memories of home!",
-        ingredientPictureLink:"ingredientPictureLink goes here",
+        recipePicLinks:["recipePicLinks goes here"],
         recipeCategory:"soup", 
-        ingredientCategoryIconLink: "ingredientCategoryIconLink goes here",
         recipeTags: [
             "soup", "chicken", "potato", "slow-cook",
         ],
@@ -160,7 +157,7 @@ let recipesSeed = [
                 units: "to taste",
             }
         ],
-        cookingActions: [
+        Actions: [
             {
                 cookingActionTitle:"Step 1",
                 cookingActionText: "Melt cream cheese in a pot.",
@@ -179,9 +176,8 @@ let recipesSeed = [
         userID:"", 
         recipeName: "Sugar Cookie",
         recipeDescription:"The best cookies to enjoy anytime of the year!",
-        ingredientPictureLink:"ingredientPictureLink goes here",
+        recipePicLinks:["recipePicLinks goes here"],
         recipeCategory:"dessert", 
-        ingredientCategoryIconLink: "ingredientCategoryIconLink goes here",
         recipeTags: [
             "Aunt Betty's", "cookies", "sweets", "holiday", "treats"
         ],
@@ -232,7 +228,7 @@ let recipesSeed = [
                 units: "tspn",
             }
         ],
-        cookingActions: [
+        Actions: [
             {
                 cookingActionTitle: "Step 1", 
                 cookingActionText: "Preheat oven to 360F.",
@@ -255,9 +251,8 @@ let recipesSeed = [
         userID:"", 
         recipeName: "Buttermilk Pancakes",
         recipeDescription:"A decadent weekend breakfast for when you want to treat yourself.",
-        ingredientPictureLink:"ingredientPictureLink goes here",
+        recipePicLinks:["recipePicLinks goes here"],
         recipeCategory:"entree", 
-        ingredientCategoryIconLink: "ingredientCategoryIconLink goes here",
         recipeTags: [
             "breakfast", "treat", "weekend", "pancake",
         ],
@@ -303,7 +298,7 @@ let recipesSeed = [
                 units: "tbspn",
             }
         ],
-        cookingActions: [
+        Actions: [
             {
                 cookingActionTitle:"Step 1", 
                 cookingActionText: "Whisk flour, baking soda, baking powder, salt, sugar.",
@@ -322,9 +317,8 @@ let recipesSeed = [
         userID:"", 
         recipeName: "Pork ribs",
         recipeDescription:"A versatile dish to be enjoyed with salad, on a sandwich, or with vegetables and potatoes or rice.",
-        ingredientPictureLink:"ingredientPictureLink goes here",
+        recipePicLinks:["recipePicLinks goes here"],
         recipeCategory:"entree", 
-        ingredientCategoryIconLink: "ingredientCategoryIconLink goes here",
         recipeTags: [
             "pork", "ribs", "BBQ", 
         ],
@@ -345,7 +339,7 @@ let recipesSeed = [
                 units: "rack", 
             }
         ],
-        cookingActions: [
+        Actions: [
             {
                 cookingActionTitle:"Step 1", 
                 cookingActionText:"Preheat oven to 250F.",
@@ -376,9 +370,8 @@ let recipesSeed = [
         userID:"",
         recipeName: "Tortellini",
         recipeDescription:"A cheese, meaty, Italian pasta dish that is sure to remind  you of your trip to Italy!",
-        ingredientPictureLink:"ingredientPictureLink goes here",
+        recipePicLinks:["recipePicLinks goes here"],
         recipeCategory:"entree", 
-        ingredientCategoryIconLink: "ingredientCategoryIconLink goes here",
         recipeTags: [
             "pasta", "italian", "sausage", "cheese",
         ],
@@ -439,7 +432,7 @@ let recipesSeed = [
                 units: "cup",
             }
         ],
-        cookingActions: [
+        Actions: [
             {
                 cookingActionTitle:"Step 1", 
                 cookingActionText:"Heat olive oil in big pot and brown sausage. Crumble sausage as it cooks, remove excess fat. Add garlic and onion until brown.",
@@ -462,9 +455,8 @@ let recipesSeed = [
         userID:"", 
         recipeName: "Peach Cobbler",
         recipeDescription:"A summer delight, pairs perfectly with ice cream!",
-        ingredientPictureLink:"ingredientPictureLink goes here",
+        recipePicLinks:["recipePicLinks goes here"],
         recipeCategory:"dessert", 
-        ingredientCategoryIconLink: "ingredientCategoryIconLink goes here",
         recipeTags: [
             "peach", "dessert", "treat",
         ],
@@ -525,7 +517,7 @@ let recipesSeed = [
                 units: "tspn",
             }
         ],
-        cookingActions: [
+        Actions: [
             {
                 cookingActionTitle:"Step 1", 
                 cookingActionText: "Preheat oven to 350F.",
@@ -552,9 +544,8 @@ let recipesSeed = [
         userID:"", 
         recipeName: "Zucchini bread",
         recipeDescription:"Perfect for breakfast or as a snack!",
-        ingredientPictureLink:"ingredientPictureLink goes here",
+        recipePicLinks:["recipePicLinks goes here"],
         recipeCategory:"dessert", 
-        ingredientCategoryIconLink: "ingredientCategoryIconLink goes here",
         recipeTags: [
             "bread", "snack", "treat",
         ],
@@ -610,7 +601,7 @@ let recipesSeed = [
                 units: "",
             }
         ],
-        cookingActions: [
+        Actions: [
             {
                 cookingActionTitle:"Step 1", 
                 cookingActionText: "Preheat the oven to 350F.",
@@ -637,9 +628,8 @@ let recipesSeed = [
         userID:"", 
         recipeName: "Homemade Italian Turkey Sausage",
         recipeDescription:"",
-        ingredientPictureLink:"ingredientPictureLink goes here",
+        recipePicLinks:["recipePicLinks goes here"],
         recipeCategory:"entree", 
-        ingredientCategoryIconLink: "ingredientCategoryIconLink goes here",
         recipeTags: [
             "Italian", "sausage",
         ],
@@ -680,7 +670,7 @@ let recipesSeed = [
                 units: "tspn",
             }
         ],
-        cookingActions: [
+        Actions: [
             {
                 cookingActionTitle:"Step 1", 
                 cookingActionText: "In a bowl, combine the turkey, garlic powder, fennel seed, sugar, salt, oregano and pepper.",
@@ -703,9 +693,8 @@ let recipesSeed = [
         userID:"", 
         recipeName: "Country Potato Pancake",
         recipeDescription:"",
-        ingredientPictureLink:"ingredientPictureLink goes here",
+        recipePicLinks:["recipePicLinks goes here"],
         recipeCategory:"entree", 
-        ingredientCategoryIconLink: "ingredientCategoryIconLink goes here",
         recipeTags: [
             "pancake", "potato", "breakfast", "savory",
         ],
@@ -746,7 +735,7 @@ let recipesSeed = [
                 units: "tspn"
             }
         ],
-        cookingActions: [
+        Actions: [
             {
                 cookingActionTitle:"Step 1", 
                 cookingActionText: "Finely grate potatoes. Drain any liquid. Add eggs, onion, flour, salt and baking powder.",
@@ -769,9 +758,8 @@ let recipesSeed = [
         userID:"",
         recipeName: "Chicken Tacos - the Tahiti Way",
         recipeDescription:"",
-        ingredientPictureLink:"ingredientPictureLink goes here",
+        recipePicLinks:["recipePicLinks goes here"],
         recipeCategory:"entree", 
-        ingredientCategoryIconLink: "ingredientCategoryIconLink goes here",
         recipeTags: [
             "tacos", "chicken", "Tahiti", "slow-cook",
         ],
@@ -812,7 +800,7 @@ let recipesSeed = [
                 units: "oz",
             }
         ],
-        cookingActions: [
+        Actions: [
             {
                 cookingActionTitle:"Step 1", 
                 cookingActionText: "Combine everything including the ENTIRE jar of peppers, juice and all, but the tortillas into a slow cooker.",
@@ -835,9 +823,8 @@ let recipesSeed = [
         userID:"", 
         recipeName: "Tomato-Mint Quinoa Salad",
         recipeDescription:"A delicious summer delight using fresh ingredients from the farmer's markets.",
-        ingredientPictureLink:"ingredientPictureLink goes here",
+        recipePicLinks:["recipePicLinks goes here"],
         recipeCategory:"entree", 
-        ingredientCategoryIconLink: "ingredientCategoryIconLink goes here",
         recipeTags: [
             "salad", "tomato", "quinoa",
         ],
@@ -913,7 +900,7 @@ let recipesSeed = [
                 units: "tspn to taste",
             }
         ],
-        cookingActions: [
+        Actions: [
             {
                 cookingActionTitle:"Step 1", 
                 cookingActionText: "Bring water to boil in a small saucepan. Pour in quinoa, raisins, and a pinch of salt. Cover, and let simmer for 12 to 15 minutes, then remove from heat, and allow to cool to room temperature.",
@@ -928,9 +915,8 @@ let recipesSeed = [
         userID:"",
         recipeName: "Mapo Tofu",
         recipeDescription:"A go-to staple for the days when when you don't have anything in the fridge except for tofu and green onions. Goes well with rice!",
-        ingredientPictureLink:"ingredientPictureLink goes here",
+        recipePicLinks:["recipePicLinks goes here"],
         recipeCategory:"entree", 
-        ingredientCategoryIconLink: "ingredientCategoryIconLink goes here",
         recipeTags: [
             "tofu", "vegetarian", "sichuan", "easy",
         ],
@@ -956,7 +942,7 @@ let recipesSeed = [
                 units: "tspn",
             }
         ],
-        cookingActions: [
+        Actions: [
             {
                 cookingActionTitle:"Step 1",
                 cookingActionText: "Heat vegetable oil in medium heat pan. Add seasoning, tofu, and green onions to the pan.",
