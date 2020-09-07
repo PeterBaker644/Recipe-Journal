@@ -83,10 +83,25 @@ h2 {
     text-transform: uppercase;
 }
 
+.rb-btn-icon {
+    background: white;
+    color: #ced4da;
+    border: none;
+    cursor: pointer;
+    font: 600 1rem/1.5 var(--sans);
+    letter-spacing: var(--measurement);
+    text-transform: uppercase;
+}
+
+.rb-btn-icon :hover {
+    background: white;
+    color: black;
+}
+
 .divider {
     display: flex;
     align-items: center;
-    color: #8b95a5;
+    /* color: #8b95a5; */
     margin: 1.2rem;
 }
 
@@ -111,4 +126,9 @@ h2 {
 
 .privacy {
     font-size: smaller;
+}
+
+::placeholder {
+    font-family: var(--book);
+    font-style: italic;
 }

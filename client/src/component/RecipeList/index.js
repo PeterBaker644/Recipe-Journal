@@ -30,7 +30,7 @@ export function NestedTagsList({
 }
 
 export function NestedIngredientsList({
-  ingredientName,
+  name,
   quantity,
   units
 
@@ -41,7 +41,7 @@ export function NestedIngredientsList({
         <div>
           <div className="xs-8 sm-9">
             <p>ingredient name</p>
-            <h3>{ingredientName}</h3>
+            <h3>{name}</h3>
             <p>quantity</p>
             <h3>{quantity}</h3>
             <p>units</p>
@@ -58,11 +58,11 @@ export function NestedIngredientsList({
 export function RecipeListItem({
   recipeName,
   recipeDescription,
-  recipePicLinks,
+  recipeImageUrls,
   recipeCategory,
   ingredientCategoryIconLink,
-  ActionTitle,
-  ActionText
+  title,
+  text
 }) {
   return (
     <li className="list-group-item">
@@ -75,8 +75,8 @@ export function RecipeListItem({
             <h6>recipeDescription</h6>
             <h1>{recipeDescription}</h1>
 
-            <h6>recipePicLinks</h6>
-            <h1>{recipePicLinks}</h1>
+            <h6>recipeImageUrls</h6>
+            <h1>{recipeImageUrls}</h1>
 
             <h6>recipeCategory</h6>
             <h1>{recipeCategory}</h1>
@@ -84,11 +84,11 @@ export function RecipeListItem({
             <h6>ingredientCategoryIconLink</h6>
             <h1>{ingredientCategoryIconLink}</h1>
 
-            <h6>ActionTitle</h6>
-            <h1>{ActionTitle}</h1>
+            <h6>title</h6>
+            <h1>{title}</h1>
 
-            <h6>ActionText</h6>
-            <h1>{ActionText}</h1>
+            <h6>text</h6>
+            <h1>{text}</h1>
           </div>
         </div>
       </div>
@@ -97,7 +97,7 @@ export function RecipeListItem({
 }
 
 export function IngredientsListItem({
-  ingredientName,
+  name,
   ingredientIconLink,
   ingredientCategory,
   ingredientCategoryIconLink,
@@ -109,7 +109,7 @@ export function IngredientsListItem({
         <div>
           <div className="xs-8 sm-9">
             <p>ingredient name</p>
-            <h3>{ingredientName}</h3>
+            <h3>{name}</h3>
             
             <p>ingredientIconLink</p>
             <h3>{ingredientIconLink}</h3>

@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const ingredientsSchema = new Schema({
-    ingredientName: {
+    name: {
         type: String,
         required: true,
         lowercase: true,

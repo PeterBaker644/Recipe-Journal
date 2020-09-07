@@ -19,6 +19,7 @@ function PrivacyPolicy() {
                 <a
                     href="https://www.freeprivacypolicy.com/free-privacy-policy-generator/"
                     target="_blank"
+                    rel="noopener noreferrer"
                 >
                     Privacy Policy Generator
             </a>
@@ -107,7 +108,7 @@ function PrivacyPolicy() {
                         <strong>Website</strong> refers to Recipe Box , accessible from{" "}
                         <a
                             href="http://www.recipebox.com"
-                            rel="external nofollow noopener"
+                            rel="external nofollow noopener noreferrer"
                             target="_blank"
                         >
                             http://www.recipebox.com
@@ -181,6 +182,7 @@ function PrivacyPolicy() {
                 <a
                     href="https://www.freeprivacypolicy.com/blog/cookies/"
                     target="_blank"
+                    rel="noopener noreferrer"
                 >
                     Cookies: What Do They Do?
                 </a>
@@ -455,7 +457,7 @@ function PrivacyPolicy() {
                     By visiting this page on our website:{" "}
                     <a
                         href="http://www.receipebox.com/contact"
-                        rel="external nofollow noopener"
+                        rel="external nofollow noopener noreferrer"
                         target="_blank"
                     >
                         http://www.receipebox.com/contact
