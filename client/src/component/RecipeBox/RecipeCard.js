@@ -24,7 +24,8 @@ function RecipeCard() {
             .catch(err => console.log(err));
     };
 
-    function deleteRecipe(id) {
+    function deleteRecipe(event, id) {
+        event.stopPropagation()
         API.deleteRecipe(id)
             .then(res => loadRecipes())
             .catch(err => console.log(err));
@@ -44,7 +45,7 @@ function RecipeCard() {
                                         {/* The following don't do anything...
                                         <p className="card-text">{recipe.ingredientName}</p>
                                         <p className="card-text">{recipe.instructions}</p>*/}
-                                        <DeleteBtn onClick={() => deleteRecipe(recipe._id)} />
+                                        <DeleteBtn onClick={(e) => deleteRecipe(e, recipe._id)} />
                                     </div>
                                 </div>
                             </div>
