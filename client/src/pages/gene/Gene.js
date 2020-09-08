@@ -129,8 +129,8 @@ function Genepagetest() {
                             ingredientPictureLink={recipe.ingredientPictureLink}
                             recipeCategory={recipe.recipeCategory}
                             recipeImageUrls={recipe.recipeImageUrls[0]}
-                            title={recipe.Actions[0].title}
-                            text={recipe.Actions[0].text}
+                            title={recipe.actions[0].title}
+                            text={recipe.actions[0].text}
                         />
                         <h2>recipeTags UL list</h2>
                         <UlList>
