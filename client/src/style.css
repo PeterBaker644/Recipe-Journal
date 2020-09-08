@@ -132,3 +132,29 @@ h2 {
     font-family: var(--book);
     font-style: italic;
 }
+
+.nounderline {
+    text-decoration: none !important
+}
+
+.btn-delete:hover {
+    color: #EF2D56 !important;
+}
+
+.recipe-border-1 {
+    border: var(--measurement) solid black;
+    border-radius: 1rem;
+    margin-top: 1.5rem;
+}
+
+.recipe-border-2 {
+    border: thin solid black;
+    border-radius: 0.8rem;
+    margin: 0.2rem;
+    padding: 1rem
+}
+
+.recipe-card:hover {
+    box-shadow: -2px 4px 16px 0px rgba(0,0,0,0.15);
+    cursor: pointer;
+}

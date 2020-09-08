@@ -15,6 +15,7 @@ function RecipeInfo() {
 
     const onSubmit = (e) => {
         e.preventDefault();
+        console.log(recipe);
         history.push('/create/ingredients');
     }
 

@@ -44,7 +44,7 @@ const recipesSchema = new Schema({
                 lowercase: true,
             },
             quantity: {
-                type: Number,
+                type: String,
                 required: true,
                 minimum: 0,
             },
