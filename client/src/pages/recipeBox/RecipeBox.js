@@ -13,7 +13,7 @@ const firebase = test.firebase_;
 
 function RecipeBox() {
 
-    // const user = firebase.auth().currentUser.uid
+    const user = firebase.auth().currentUser.uid
     const [status, setStatus] = useState(false);
     // Setting component intial state
     const [recipes, setRecipes] = useState([]);
@@ -32,7 +32,7 @@ function RecipeBox() {
 
     // Loads recipes and set them to recipes
     function loadRecipes() {
-        API.getAllRecipes()
+        API.getAllRecipes(user)
             .then(res => {
                 setRecipes(res.data);
                 // console.log(res.data);
@@ -102,8 +102,8 @@ function RecipeBox() {
 
     return (
         <Box>
-            <header className="row justify-content-between align-items-center">
-                <h1 className="font-brand mt-2 pb-3 text-center">My Recipe Box</h1>
+            <header className="d-flex align-items-center">
+                <h1 className="font-brand">My Recipe Box</h1>
                 <Header 
                     firebase={firebase}
                     formInput={form.input}
