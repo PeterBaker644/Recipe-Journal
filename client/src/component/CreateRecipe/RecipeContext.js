@@ -1,11 +1,15 @@
 import React, { createContext, useState, useContext} from 'react';
+import test from '../../firebase';
 
 const RecipeContext = createContext();
+const firebase = test.firebase_;
 
 // consider useMethods instead.
 export const RecipeProvider = ({children}) => {
+    const user = firebase.auth().currentUser.uid
+
     const [recipe, setRecipe] = useState({
-        userID: "",
+        userID: user,
         recipeName: "",
         recipeDescription: "",
         recipeImageUrls: [],

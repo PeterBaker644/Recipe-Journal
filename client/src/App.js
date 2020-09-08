@@ -9,6 +9,7 @@ import { AuthProvider } from "./component/Auth";
 import Gene from "./pages/gene/Gene";
 import Privacy from "./pages/privacyPolicy/privacyPolicy";
 import RecipeBox from "./pages/recipeBox/RecipeBox";
+import "./style.css";
 
 function App() {
 
