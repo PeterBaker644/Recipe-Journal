@@ -76,7 +76,7 @@ function RecipeInfo() {
                         // ref="userInput"  not valid for functional component
                         required
                         className="form-select"
-                        name="category"
+                        name="recipeCategory"
                         defaultValue="default"
                         //avalue of select was a string  array
                         //new property of category
