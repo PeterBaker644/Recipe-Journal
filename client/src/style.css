@@ -191,7 +191,30 @@ h2 {
     background-color: lightgray;
     border: thin solid lightgray;
 }
+
+.tags {
+    color: white;
+    background-color: darkgray;
+    border: thin solid darkgray;
+    border-radius: 0.4rem;
+    padding: 0.1rem 0.2rem;
+    margin-left: 0.1rem;
+    text-transform: lowercase;
+}
+
 .background-tiny-stripes {
     background-image: linear-gradient(90deg, transparent 50%, currentColor 50%);
     background-size: 10px 10px;
+}
+
+.delete {
+    border-width: 0px;
+    line-height: 0px;
+    box-shadow: none;
+    color: inherit;
+    background-color: inherit;
+}
+
+.delete:hover {
+    color: lightgray;
 }
