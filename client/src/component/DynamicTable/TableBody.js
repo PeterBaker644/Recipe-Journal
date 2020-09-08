@@ -7,7 +7,7 @@ function TableBody({ tableContents }) {
     try {
         if (Object.keys(tableContents[arrayStart]._id)) {
             arrayStart = 1;
-            console.log('AHHHHH');
+            // console.log('AHHHHH');
         }
     } catch {
         // Nothing happens if the recipe hasn't been pulled from the database yet.

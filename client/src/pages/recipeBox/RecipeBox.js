@@ -13,6 +13,7 @@ const firebase = test.firebase_;
 
 function RecipeBox() {
 
+    const user = firebase.auth().currentUser.uid
     const [status, setStatus] = useState(false);
     // Setting component intial state
     const [recipes, setRecipes] = useState([]);
@@ -31,7 +32,7 @@ function RecipeBox() {
 
     // Loads recipes and set them to recipes
     function loadRecipes() {
-        API.getAllRecipes()
+        API.getAllRecipes(user)
             .then(res => {
                 setRecipes(res.data);
                 // console.log(res.data);
@@ -41,7 +42,7 @@ function RecipeBox() {
 
     function onClick (e) {
         const index = e.currentTarget.dataset.index;
-        console.log("this is a test", index)
+        // console.log("this is a test", index)
         setSelected({index: index})
         setStatus(true);
     }
