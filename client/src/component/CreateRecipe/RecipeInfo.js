@@ -46,7 +46,7 @@ function RecipeInfo() {
 
     return (
         <TestCard>
-            <h2 className="font-brand">new recipe:</h2>
+            <h2 className="font-brand text-center">New Recipe</h2>
             <form onSubmit={e => onSubmit(e)}>
                 <div className="form-group">
                     <label className="font-book-italic mt-2">Name:</label>

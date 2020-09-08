@@ -102,8 +102,8 @@ function RecipeBox() {
 
     return (
         <Box>
-            <header className="d-flex align-items-center">
-                <h1 className="font-brand">My Recipe Box</h1>
+            <header className="row justify-content-between align-items-center">
+                <h1 className="font-brand mt-2 pb-3 text-center">My Recipe Box</h1>
                 <Header 
                     firebase={firebase}
                     formInput={form.input}
