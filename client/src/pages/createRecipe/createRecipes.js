@@ -28,7 +28,7 @@ function CreateRecipes () {
   useEffect(()=> {
     
     // API.getAllRecipes()
-    //     .then(res => (res.data))
+    //     .then(res => console.log("This is the response", res.data))
     //     .catch(err => console.log(err));
 
     // might be useful: https://www.carlrippon.com/drop-down-data-binding-with-react-hooks/
