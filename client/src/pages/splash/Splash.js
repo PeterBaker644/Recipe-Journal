@@ -27,7 +27,7 @@ function Splash() {
                     <Link to="/Gene" className="btn-secondary rb-btn">Gene's Page</Link>
                     <Link to="/recipeBox" className="btn-secondary rb-btn">Jacob's</Link>
                     <Link to="/screen" className="btn-secondary rb-btn">Test Recipe</Link>
-                    <Link to="/create" className="btn-secondary rb-btn">Create Recipe</Link>
+                    <Link to="/create/info" className="btn-secondary rb-btn">Create Recipe</Link>
                     {!!currentUser ? <button className="rb-btn btn-primary ml-4" onClick={() => app.auth().signOut()}>Sign Out</button> : ""}
                 </section>
             </TestCard>

@@ -36,7 +36,7 @@ function Genepagetest() {
                 userID: "usernumber1",
                 recipeName: "asdfasdfasdf pancakes",
                 recipeDescription: "this is a recipe description field",
-                recipePicLinks:
+                recipeImageUrls:
                     [
                         "recipePicLink goes here",
                         "recipePicLink2 goes here",
@@ -47,25 +47,25 @@ function Genepagetest() {
                 ],
                 ingredients: [
                     {
-                        ingredientName: "flour",
+                        name: "flour",
                         quantity: 2,
                         units: "cups"
                     },
                     {
-                        ingredientName: "eggs",
+                        name: "eggs",
                         quantity: 2,
                         units: "Grade A"
                     },
                     {
-                        ingredientName: "Sugar",
+                        name: "Sugar",
                         quantity: 3,
                         units: "gallons"
                     }
                 ],
-                Actions: [
+                actions: [
                     {
-                        ActionTitle: "mix",
-                        ActionText: "mix and blah blah blah",
+                        title: "mix",
+                        text: "mix and blah blah blah",
                     }
                 ]
             })
@@ -128,9 +128,9 @@ function Genepagetest() {
                             recipeDescription={recipe.recipeDescription}
                             ingredientPictureLink={recipe.ingredientPictureLink}
                             recipeCategory={recipe.recipeCategory}
-                            recipePicLinks={recipe.recipePicLinks[0]}
-                            ActionTitle={recipe.Actions[0].ActionTitle}
-                            ActionText={recipe.Actions[0].ActionText}
+                            recipeImageUrls={recipe.recipeImageUrls[0]}
+                            title={recipe.Actions[0].title}
+                            text={recipe.Actions[0].text}
                         />
                         <h2>recipeTags UL list</h2>
                         <UlList>
@@ -151,7 +151,7 @@ function Genepagetest() {
                                 return (
                                     <NestedIngredientsList
                                         key={ingredients._id}
-                                        ingredientName={ingredients.ingredientName}
+                                        name={ingredients.name}
                                         quantity={ingredients.quantity}
                                         units={ingredients.units}
                                     />
@@ -174,7 +174,7 @@ function Genepagetest() {
                     return (
                         <IngredientsListItem
                             key={ingredient._id}
-                            ingredientName={ingredient.ingredientName}
+                            name={ingredient.name}
                             ingredientIconLink={ingredient.ingredientIconLink}
                             ingredientCategory={ingredient.ingredientCategory}
                             ingredientCategoryIconLink={ingredient.ingredientCategoryIconLink}

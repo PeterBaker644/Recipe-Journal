@@ -15,7 +15,7 @@ let recipesSeed = [
         userID:"usernumber1",
         recipeName: "pancakes",
         recipeDescription:"this is a recipe description field",
-        recipePicLinks:
+        recipeImageUrls:
         [
             "recipePicLink goes here",
             "recipePicLink2 goes here",
@@ -26,25 +26,25 @@ let recipesSeed = [
         ],
         ingredients: [
             {
-                ingredientName: "flour",
+                name: "flour",
                 quantity: 2,
                 units: "cups"
             },
             {
-                ingredientName: "eggs",
+                name: "eggs",
                 quantity: 2,
                 units: "Grade A"
             },
             {
-                ingredientName: "Sugar",
+                name: "Sugar",
                 quantity: 3,
                 units: "gallons"
             }
         ],
         Actions: [
             {
-                ActionTitle: "mix",
-                ActionText: "mix and blah blah blah",
+                title: "mix",
+                text: "mix and blah blah blah",
             }
         ]
     }, 
@@ -52,22 +52,22 @@ let recipesSeed = [
 //ingredients seed
 let ingredientsSeed = [
     {
-        ingredientName:"pasta",
+        name:"pasta",
         ingredientIconLink: "pasta icon link example here",
         ingredientCategory: "pasta ingredient category here",
         ingredientCategoryIconLink:"ingredient category icon link here",
         totalUsedCount:15,
     },
     {
-        ingredientName: "flour",
+        name: "flour",
         totalUsedCount: 1,
         ingredientCategory: "baked goods"
     },
     {
-        ingredientName: "eggs",
+        name: "eggs",
     },
     {
-        ingredientName: "milk",
+        name: "milk",
     },
 ];
 async function seedAsyncFunction() {

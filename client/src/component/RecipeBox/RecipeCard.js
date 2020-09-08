@@ -17,11 +17,11 @@ function RecipeCard() {
     // Loads recipes and set them to recipes
     function loadRecipes() {
         API.getAllRecipes()
-        .then(res => {
-            setRecipes(res.data);
-            console.log(res.data);
-        })
-        .catch(err => console.log(err));
+            .then(res => {
+                setRecipes(res.data);
+                console.log(res.data);
+            })
+            .catch(err => console.log(err));
     };
 
     function deleteRecipe(id) {
