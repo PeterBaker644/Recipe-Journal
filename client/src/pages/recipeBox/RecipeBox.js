@@ -40,10 +40,10 @@ function RecipeBox() {
             .catch(err => console.log(err));
     };
 
-    function onClick (e) {
+    function onClick(e) {
         const index = e.currentTarget.dataset.index;
         // console.log("this is a test", index)
-        setSelected({index: index})
+        setSelected({ index: index })
         setStatus(true);
     }
 
@@ -56,7 +56,7 @@ function RecipeBox() {
 
     const handleInputChange = event => {
         const value = event.target.value;
-        setForm({...form, input: value});
+        setForm({ ...form, input: value });
     };
 
     const handleFormSubmit = event => {
@@ -74,7 +74,7 @@ function RecipeBox() {
 
     function categorySearch(event) {
         event.stopPropagation();
-        event.preventDefault();      
+        event.preventDefault();
         setForm({
             ...form,
             filterBy: event.currentTarget.textContent.toLowerCase(),
@@ -102,16 +102,13 @@ function RecipeBox() {
 
     return (
         <Box>
-            <header className="row justify-content-between align-items-center">
-                <h1 className="font-brand mt-2 pb-3 text-center">My Recipe Box</h1>
-                <Header 
-                    firebase={firebase}
-                    formInput={form.input}
-                    handleInputChange={handleInputChange}
-                    handleFormSubmit={handleFormSubmit}
-                    clearForm={clearForm}
-                />
-            </header>
+            <Header
+                firebase={firebase}
+                formInput={form.input}
+                handleInputChange={handleInputChange}
+                handleFormSubmit={handleFormSubmit}
+                clearForm={clearForm}
+            />
             <section >
                 <div className="row row-cols-md-4">
                     <div className="col my-2 font-book recipe-card">
@@ -121,7 +118,7 @@ function RecipeBox() {
                     {/* Example Card... needs data to be added from DB */}
                     {recipes.length ? (
                         <>
-                            {filterRecipes(recipes, form.filterBy).map((recipe, index)=> {
+                            {filterRecipes(recipes, form.filterBy).map((recipe, index) => {
                                 return (<RecipeCard
                                     recipe={recipe}
                                     deleteRecipe={deleteRecipe}

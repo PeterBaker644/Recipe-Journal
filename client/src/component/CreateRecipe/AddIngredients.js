@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { useRecipe } from "../../component/CreateRecipe/RecipeContext";
 import TableBody from "../DynamicTable/TableBody"
@@ -9,7 +9,7 @@ import TestCard from "../TestCard"
 
 function AddIngredients() {
 
-    const { recipe, setValues } = useRecipe();
+    const { setValues } = useRecipe();
     const history = useHistory();
 
     const initState = ({
