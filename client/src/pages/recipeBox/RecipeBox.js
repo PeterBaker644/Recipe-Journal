@@ -76,6 +76,16 @@ function RecipeBox() {
         }
     };
 
+    function categorySearch(event) {
+        event.stopPropagation();
+        event.preventDefault();      
+        setForm({
+            ...form,
+            filterBy: event.currentTarget.textContent.toLowerCase(),
+            input: ""
+        });
+    };
+
     const clearForm = event => {
         event.preventDefault();
         setForm({
@@ -122,6 +132,7 @@ function RecipeBox() {
                                     onClick={onClick}
                                     key={(index + 1)}
                                     index={index}
+                                    categorySearch={categorySearch}
                                 />)
                             })}
                         </>

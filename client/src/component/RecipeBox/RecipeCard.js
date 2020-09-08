@@ -1,7 +1,7 @@
 import React from "react";
 import DeleteBtn from "../RecipeBox/DeleteBtn";
 
-function RecipeCard({ recipe, onClick, deleteRecipe, index }) {
+function RecipeCard({ recipe, onClick, deleteRecipe, categorySearch, index }) {
 
     // console.log("Component says:", recipe)
 
@@ -24,7 +24,13 @@ function RecipeCard({ recipe, onClick, deleteRecipe, index }) {
                     <span className="text-smaller font-book-italic text-black-50 text-truncate">
                         Tags: <span className="text-muted">{recipe.recipeTags.join(", ")}</span>
                     </span>
-                    <span className="font-sans text-smaller category-badge">{recipe.recipeCategory.toUpperCase()}</span>
+                    <button 
+                        type="button" 
+                        className="font-sans text-smaller category-badge"
+                        onClick={(e) => categorySearch(e)}
+                    >
+                        {recipe.recipeCategory.toUpperCase()}
+                    </button>
                 </div>
             </div>
         </div>
