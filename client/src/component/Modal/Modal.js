@@ -1,5 +1,5 @@
 import React from 'react';
-import './RecipeBox.css';
+import './Modal.css';
 import FontAwesome from 'react-fontawesome';
 
 const Modal = (props) => {
@@ -25,8 +25,8 @@ const Modal = (props) => {
     );
 
     return (
-        <div className="overlay">
-            <div className="content">
+        <div className="modal-overlay">
+            <div className="modal-content">
                 { closeIcon() }
                 {props.children}
             </div>

@@ -1,5 +1,5 @@
 /* Customizable Modal */
-.overlay {
+.modal-overlay {
     position: fixed;
     display: block;
     overflow: auto;
@@ -14,7 +14,7 @@
     cursor: pointer;
 }
 
-.content {
+.modal-content {
     margin: 5% auto;
     background-color: white;
     border-radius: 0.25rem;

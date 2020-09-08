@@ -5,7 +5,7 @@ import box from "../../images/box5.png";
 import "./splash.css";
 import TestCard from "../../component/TestCard"
 import { AuthContext } from "../../component/Auth";
-import Modal from "../../component/RecipeBox/Modal";
+import Modal from "../../component/Modal/Modal";
 import PrivacyPolicyText from "../../component/PrivacyPolicy/PrivacyPolicyText";
 
 function Splash() {
