@@ -3,21 +3,21 @@ import { Link, useHistory } from "react-router-dom";
 import { useRecipe } from "../../component/CreateRecipe/RecipeContext";
 import TableBody from "../DynamicTable/TableBody"
 import TableHeader from "../DynamicTable/TableHeader"
-import TableHeaderButton from "../DynamicTable/TableHeaderButton"
 import TableButton from "../DynamicTable/TableButton";
 import TestCard from "../TestCard"
 
 
 function AddIngredients() {
 
-    const initState = {
-        name: "",
-        ingredientQuantity: "",
-        ingredientUnit: ""
-    }
-
     const { recipe, setValues } = useRecipe();
     const history = useHistory();
+
+    const initState = ({
+        name: "",
+        quantity: "",
+        unit: ""
+    })
+
     const [ingredient, setIngredient] = useState(initState);
     const [ingredients, setIngredients] = useState([]);
 
@@ -73,8 +73,8 @@ function AddIngredients() {
                         type="text"
                         required
                         className="form-control"
-                        name="ingredientQuantity"
-                        value={ingredient.ingredientQuantity}
+                        name="quantity"
+                        value={ingredient.quantity}
                         onChange={e => onChange(e)}
                         placeholder="Amount"
                         aria-label="Amount"
@@ -84,8 +84,8 @@ function AddIngredients() {
                     <input
                         type="text"
                         className="form-control"
-                        name="ingredientUnit"
-                        value={ingredient.ingredientUnit}
+                        name="unit"
+                        value={ingredient.unit}
                         onChange={e => onChange(e)}
                         placeholder="Measure"
                         aria-label="Measure"

@@ -1,21 +1,20 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Link, useHistory } from "react-router-dom";
 import { useRecipe } from "../../component/CreateRecipe/RecipeContext";
 import TableBody from "../DynamicTable/TableBody"
 import TableHeader from "../DynamicTable/TableHeader"
-import TableHeaderButton from "../DynamicTable/TableHeaderButton"
-import TableButton from "../DynamicTable/TableButton";
+
 import TestCard from "../TestCard"
 
 
 function RecipeComplete() {
 
-    const { recipe, setValues } = useRecipe();
+    const { recipe } = useRecipe();
     const history = useHistory();
     
-    const onSubmit = (e) => {
-        e.preventDefault();
-    }
+    // const onSubmit = (e) => {
+    //     e.preventDefault();
+    // }
 
     const completeRecipe = (e) => {
         e.preventDefault();
