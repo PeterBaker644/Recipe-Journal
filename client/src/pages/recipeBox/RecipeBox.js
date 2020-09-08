@@ -52,6 +52,7 @@ function RecipeBox() {
                                     recipe={recipe}
                                     deleteRecipe={deleteRecipe}
                                     setStatus={setStatus}
+                                    key={recipe._id}
                                 />)
                             })}
                         </>
