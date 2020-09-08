@@ -3,9 +3,9 @@ import React from "react";
 function Header(props) {
 
     return (
-        <header className="flex-fill ml-4">
-            <div className="row g-0">
-                <div className="input-group pl-0 pl-sm-2 col">
+        <header>
+            <div className="d-flex flex-wrap g-0 pl-0 pb-2">
+                <div className="input-group pb-2 col-xs-12">
                     <input
                         type="text"
                         className="form-control"
@@ -17,10 +17,14 @@ function Header(props) {
                     ></input>
                     <button className="rb-btn btn-primary" type="button" id="searchSubmit" onClick={props.handleFormSubmit}>Search</button>
                 </div>
-                <button className="rb-btn btn-outline-primary col-3 col-md-2 mx-3" type="button" id="clearSubmit" onClick={props.clearForm}>Reset</button>
-                <button className="rb-btn btn-outline-warning col-3 col-md-2" type="button" onClick={() => props.firebase.auth().signOut()}>
-                    Sign Out
-                </button>
+                <div className="col pb-2 pr-1">
+                    <button className="rb-btn btn-outline-primary btn-block" type="button" id="clearSubmit" onClick={props.clearForm}>Reset</button>
+                </div>
+                <div className="col pl-1">
+                    <button className="rb-btn btn-outline-warning btn-block" type="button" onClick={() => props.firebase.auth().signOut()}>
+                        Sign Out
+                    </button>
+                </div>
             </div>
         </header>
     );
