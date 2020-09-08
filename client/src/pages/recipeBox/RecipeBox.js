@@ -5,6 +5,7 @@ import AddRecipe from "../../component/RecipeBox/AddRecipe";
 import Modal from "../../component/Modal/Modal";
 import API from "../../utils/API";
 import Box from "../../component/RecipeBox/Box"
+import Header from "../../component/RecipeBox/Header"
 import CardComplete from "../../component/CreateRecipe/CardComplete"
 import '../../component/Modal/Modal.css';
 
@@ -15,6 +16,10 @@ function RecipeBox() {
     const [status, setStatus] = useState(false);
     // Setting component intial state
     const [recipes, setRecipes] = useState([]);
+    const [form, setForm] = useState({
+        input: "",
+        filterBy: ""
+    });
     const [selected, setSelected] = useState({
         index: ""
     });
@@ -53,13 +58,53 @@ function RecipeBox() {
             .catch(err => console.log(err));
     }
 
+    const handleInputChange = event => {
+        const value = event.target.value;
+        setForm({...form, input: value});
+    };
+
+    const handleFormSubmit = event => {
+        event.preventDefault();
+        if (form.input) {
+            setForm({
+                ...form,
+                filterBy: form.input,
+                input: ""
+            });
+        } else {
+            // some kind of warning. 
+        }
+    };
+
+    const clearForm = event => {
+        event.preventDefault();
+        setForm({
+            input: "",
+            filterBy: ""
+        });
+    }
+
+    function filterRecipes(recipes, filterBy) {
+        const arrayFiltered = [];
+        for (const item of recipes) {
+            if (Object.values(item).toString().toLowerCase().includes((filterBy).toLowerCase()) || !filterBy) {
+                arrayFiltered.push(item);
+            }
+        }
+        return (arrayFiltered);
+    }
+
     return (
         <Box>
-            <div className="d-flex justify-content-between align-items-center mr-4">
+            <div className="d-flex justify-content-between align-items-center">
                 <h1 className="font-brand mt-2">My Recipe Box</h1>
-                <button className="rb-btn btn-warning" type="button" onClick={() => firebase.auth().signOut()}>
-                    Sign Out
-                </button>
+                <Header 
+                    firebase={firebase}
+                    formInput={form.input}
+                    handleInputChange={handleInputChange}
+                    handleFormSubmit={handleFormSubmit}
+                    clearForm={clearForm}
+                />
             </div>
             <section >
                 <div className="row row-cols-md-4">
@@ -70,7 +115,7 @@ function RecipeBox() {
                     {/* Example Card... needs data to be added from DB */}
                     {recipes.length ? (
                         <>
-                            {recipes.map((recipe, index)=> {
+                            {filterRecipes(recipes, form.filterBy).map((recipe, index)=> {
                                 return (<RecipeCard
                                     recipe={recipe}
                                     deleteRecipe={deleteRecipe}

@@ -21,11 +21,18 @@ function Splash() {
                     <img className="img-fluid mb-3" src={box} alt="recipe box" />
                 </section>
                 <section className="d-flex justify-content-center my-4">
-                    <Link to="/login" className="btn-secondary rb-btn">Sign In</Link>
                     {/* <Link to="/signup" className="btn-secondary rb-btn mx-4">Sign Up</Link> */}
                     {/* <Link to="/Gene" className="btn-secondary rb-btn">Gene's Page</Link> */}
                     {/* <Link to="/create/info" className="btn-secondary rb-btn">Create Recipe</Link> */}
-                    {!!currentUser ? <button className="rb-btn btn-primary ml-4" onClick={() => app.auth().signOut()}>Sign Out</button> : ""}
+                    {!!currentUser ? (
+                        <>
+                            <Link to="/recipebox" className="btn-secondary rb-btn mr-4">Recipe Box</Link> 
+                            <button className="rb-btn btn-primary" onClick={() => app.auth().signOut()}>Sign Out</button>
+                        </>
+                        ) : (
+                            <Link to="/login" className="btn-secondary rb-btn">Sign In</Link>
+                        )}
+
                 </section>
             </TestCard>
             <div className="d-flex justify-content-center">
