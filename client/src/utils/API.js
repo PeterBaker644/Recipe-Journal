@@ -37,6 +37,10 @@ export default {
     getOneRecipe: function (_id) {
         return authorize.get("/api/recipes/" + _id);
     },
+    getUserRecipes: function (userID) {
+        console.log("[API] getting all recipes by specified user");
+        return authorize.get("/api/recipes/user/" + userID);
+    },
     deleteRecipe: function (_id) {
         console.log("[API] deleteRecipe", _id);
         return authorize.delete("/api/recipes/" + _id);
