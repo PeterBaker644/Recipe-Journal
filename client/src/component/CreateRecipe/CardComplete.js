@@ -4,8 +4,6 @@ import TableHeader from "../DynamicTable/TableHeader"
 
 function CardComplete({ recipe }) {
 
-    console.log(recipe);
-
     return (
         <>
             <h1 className="display-2 font-brand-small mb-0">{recipe.recipeName}</h1>
