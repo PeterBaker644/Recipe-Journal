@@ -2,8 +2,7 @@ const db = require("../models");
 module.exports = {
     findAll: function (req, res) {
         db.RecipesModel
-            .find(req.query)
-            // .sort({ recipeName })
+            .find()
             .then(dbModelDataResult => res.json(dbModelDataResult))
             .catch(err => res.status(422).json(err));
     },
@@ -28,11 +27,21 @@ module.exports = {
             .catch(err => res.status(422).json(err));
     },
 
-    update: function (req, res) {
+    findByuserID: function (req, res) {
         db.RecipesModel
-            .findOneAndUpdate({ _id: req.params.id }, req.body)
+            .find({
+                "userID": req.query
+            })
             .then(dbModelDataResult => res.json(dbModelDataResult))
             .catch(err => res.status(422).json(err));
     },
+
+
+    // update: function (req, res) {
+    //     db.RecipesModel
+    //         .findOneAndUpdate({ _id: req.params.id }, req.body)
+    //         .then(dbModelDataResult => res.json(dbModelDataResult))
+    //         .catch(err => res.status(422).json(err));
+    // },
 
 };
