@@ -1,6 +1,5 @@
 import React from "react";
 import RecipeCard from "../../component/RecipeBox/RecipeCard";
-import '../../component/RecipeBox/RecipeBox.css';
 import AddRecipe from "../../component/RecipeBox/AddRecipe";
 
 

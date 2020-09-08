@@ -57,7 +57,7 @@ function Login({history}) {
         <TestCard>
             {currentUser ? (
                 <div className="card-text text-center">
-                    <div className="font-book py-2 mb-3">You are signed in. 🎉</div>
+                    <div className="font-book py-2 mb-3">You are signed in.</div>
                     <div className="d-flex justify-content-center">
                         <Link to="/" className="rb-btn btn-primary">Home</Link>
                         <Link to="/Gene" className="rb-btn btn-primary ml-3">Gene's Page</Link>

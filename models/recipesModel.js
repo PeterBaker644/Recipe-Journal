@@ -18,7 +18,7 @@ const recipesSchema = new Schema({
         type: String,
         required: false,
     },
-    recipePicLinks: [
+    recipeImageUrls: [
         {
             type: String,
             required: false,
@@ -38,7 +38,7 @@ const recipesSchema = new Schema({
     ],
     ingredients: [
         {
-            ingredientName: {
+            name: {
                 type: String,
                 required: true,
                 lowercase: true,
@@ -51,13 +51,13 @@ const recipesSchema = new Schema({
             units: String
         }
     ],
-    Actions: [
+    actions: [
         {
-            ActionTitle: {
+            title: {
                 type: String,
                 required: true
             },
-            ActionText: {
+            text: {
                 type: String,
                 required: true
             },
