@@ -2,8 +2,8 @@ import React from "react";
 import { Link, useHistory } from "react-router-dom";
 import API from "../../utils/API";
 import { useRecipe } from "../../component/CreateRecipe/RecipeContext";
-import TableBody from "../DynamicTable/TableBody"
-import TableHeader from "../DynamicTable/TableHeader"
+// import TableBody from "../DynamicTable/TableBody"
+// import TableHeader from "../DynamicTable/TableHeader"
 import TestCard from "../TestCard"
 import CardComplete from "./CardComplete"
 

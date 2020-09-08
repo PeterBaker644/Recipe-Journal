@@ -5,11 +5,11 @@ function TestCard({handleInputChange, submitSignin, submitSignup}) {
     return (
         <form>
             <div className="mb-2">
-                <label for="email-input" className="form-label font-book-italic">Email Address</label>
+                <label htmlFor ="email-input" className="form-label font-book-italic">Email Address</label>
                 <input name="email" type="email" className="form-control" id="email-input" onChange={handleInputChange}></input>
             </div>
             <div className="mb-3">
-                <label for="password-input" className="form-label font-book-italic">Password</label>
+                <label htmlFor ="password-input" className="form-label font-book-italic">Password</label>
                 <input name="password" type="password" className="form-control" id="password-input" onChange={handleInputChange}></input>
             </div>
             <div className="d-flex justify-content-between">
