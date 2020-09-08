@@ -19,7 +19,7 @@ function RecipeComplete() {
     const completeRecipe = (e) => {
         e.preventDefault();
         API.createRecipe(recipe).then(() => {
-            history.push('/recipeBox')
+            history.push('/recipebox')
         })
     }
 
