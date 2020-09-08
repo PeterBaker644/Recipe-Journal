@@ -46,11 +46,6 @@ function RecipeBox() {
         setStatus(true);
     }
 
-    function signOut (e) {
-        e.preventDefault();
-
-    }
-
     function deleteRecipe(event, id) {
         event.stopPropagation()
         API.deleteRecipe(id)
@@ -106,7 +101,7 @@ function RecipeBox() {
 
     return (
         <Box>
-            <div className="d-flex justify-content-between align-items-center">
+            <div className="d-flex align-items-center">
                 <h1 className="font-brand mt-2">My Recipe Box</h1>
                 <Header 
                     firebase={firebase}

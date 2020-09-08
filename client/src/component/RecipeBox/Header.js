@@ -3,8 +3,8 @@ import React from "react";
 function Header(props) {
 
     return (
-        <header>
-            <div className="row g-0 ">
+        <header className="flex-fill ml-4">
+            <div className="row g-0">
                 <div className="input-group pl-0 pl-sm-2 col">
                     <input
                         type="text"
