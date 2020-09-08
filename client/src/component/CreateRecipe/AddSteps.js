@@ -28,10 +28,10 @@ function AddSteps() {
         history.push('/create/complete');
     }
 
-    useEffect(() => {
-        console.log("Actions list is:", actions);
-        console.log("Recipe contains the following Actions:", recipe.recipeActions);
-    })
+    // useEffect(() => {
+    //     console.log("Actions list is:", actions);
+    //     console.log("Recipe contains the following Actions:", recipe.recipeActions);
+    // })
 
     const onChange = (e) => {
         setAction({ ...action, [e.target.name]: e.target.value });

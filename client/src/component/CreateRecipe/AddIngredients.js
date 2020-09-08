@@ -31,10 +31,10 @@ function AddIngredients() {
         history.push('/create/steps');
     }
     
-    useEffect(() => {
-        console.log("Ingredients list is:", ingredients);
-        console.log("Recipe contains the following ingredients:", recipe.recipeIngredients);
-    })
+    // useEffect(() => {
+    //     console.log("Ingredients list is:", ingredients);
+    //     console.log("Recipe contains the following ingredients:", recipe.recipeIngredients);
+    // })
     
     const onChange = (e) => {
         setIngredient({...ingredient, [e.target.name]: e.target.value.toLowerCase()});
