@@ -1,17 +1,23 @@
 import React, { useEffect, useState } from "react";
+import test from '../../firebase';
 import RecipeCard from "../../component/RecipeBox/RecipeCard";
 import AddRecipe from "../../component/RecipeBox/AddRecipe";
 import Modal from "../../component/Modal/Modal";
 import API from "../../utils/API";
-import Box from "../../component/RecipeBox/RecipeBox"
+import Box from "../../component/RecipeBox/Box"
 import CardComplete from "../../component/CreateRecipe/CardComplete"
 import '../../component/Modal/Modal.css';
+
+const firebase = test.firebase_;
 
 function RecipeBox() {
 
     const [status, setStatus] = useState(false);
     // Setting component intial state
     const [recipes, setRecipes] = useState([]);
+    const [selected, setSelected] = useState({
+        index: ""
+    });
 
     // Load all recipes and store with setRecipes
     useEffect(() => {
@@ -23,10 +29,22 @@ function RecipeBox() {
         API.getAllRecipes()
             .then(res => {
                 setRecipes(res.data);
-                console.log(res.data);
+                // console.log(res.data);
             })
             .catch(err => console.log(err));
     };
+
+    function onClick (e) {
+        const index = e.currentTarget.dataset.index;
+        console.log("this is a test", index)
+        setSelected({index: index})
+        setStatus(true);
+    }
+
+    function signOut (e) {
+        e.preventDefault();
+
+    }
 
     function deleteRecipe(event, id) {
         event.stopPropagation()
@@ -37,7 +55,12 @@ function RecipeBox() {
 
     return (
         <Box>
-            <h1 className="font-brand mt-2">My Recipe Box</h1>
+            <div className="d-flex justify-content-between align-items-center mr-4">
+                <h1 className="font-brand mt-2">My Recipe Box</h1>
+                <button className="rb-btn btn-warning" type="button" onClick={() => firebase.auth().signOut()}>
+                    Sign Out
+                </button>
+            </div>
             <section >
                 <div className="row row-cols-md-4">
                     <div className="col my-2 font-book recipe-card">
@@ -47,12 +70,13 @@ function RecipeBox() {
                     {/* Example Card... needs data to be added from DB */}
                     {recipes.length ? (
                         <>
-                            {recipes.map(recipe => {
+                            {recipes.map((recipe, index)=> {
                                 return (<RecipeCard
                                     recipe={recipe}
                                     deleteRecipe={deleteRecipe}
-                                    setStatus={setStatus}
-                                    key={recipe._id}
+                                    onClick={onClick}
+                                    key={(index + 1)}
+                                    index={index}
                                 />)
                             })}
                         </>
@@ -60,7 +84,7 @@ function RecipeBox() {
                     }
                     {/* This will have more descriptive recipe content */}
                     {status && (<Modal closeModal={() => setStatus(false)}>
-                        <CardComplete recipe={recipes[0]}></CardComplete>
+                        <CardComplete recipe={recipes[selected.index]}></CardComplete>
                     </Modal>)}
                 </div>
             </section>

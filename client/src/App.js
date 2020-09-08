@@ -5,7 +5,7 @@ import Signup from "./pages/signup/Signup";
 import Login from "./pages/login/Login";
 import CreateRecipe from "./pages/createRecipe/createRecipe";
 import { AuthProvider } from "./component/Auth";
-// import PrivateRoute from "./component/PrivateRoute";
+import PrivateRoute from "./component/PrivateRoute";
 import Gene from "./pages/gene/Gene";
 import Privacy from "./pages/privacyPolicy/privacyPolicy";
 import RecipeBox from "./pages/recipeBox/RecipeBox";
@@ -17,11 +17,11 @@ function App() {
         <AuthProvider>
             <Router>
                 <Switch>
-                    <Route exact path="/recipeBox" component={RecipeBox} />
+                    <PrivateRoute exact path="/recipebox" component={RecipeBox} />
                     <Route exact path="/gene" component={Gene} />
                     <Route exact path="/" component={Splash} />
                     <Route exact path="/login" component={Login} />
-                    <Route path="/create" component={CreateRecipe} />
+                    <PrivateRoute path="/create" component={CreateRecipe} />
                     <Route exact path="/privacy" component={Privacy} />
                     <Route exact path="/signup" component={Signup} />
                 </Switch>
