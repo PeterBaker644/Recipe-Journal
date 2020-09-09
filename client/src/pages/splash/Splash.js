@@ -36,7 +36,7 @@ function Splash() {
                 </section>
             </TestCard>
             <div className="d-flex justify-content-center">
-                <Link to="/privacy">
+                <Link to={{pathname: "/privacy"}}>
                 <button className="rb-btn btn-secondary mt-4" onClick={() => setDisplay(true)}>Privacy Policy</button>
                 </Link> 
             </div>
