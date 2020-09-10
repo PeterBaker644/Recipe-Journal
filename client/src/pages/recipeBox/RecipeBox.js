@@ -110,8 +110,8 @@ function RecipeBox() {
                 clearForm={clearForm}
             />
             <section >
-                <div className="row row-cols-md-4">
-                    <div className="col my-2 font-book recipe-card">
+                <div className="row row-cols-md-3 row-cols-lg-4">
+                    <div className="my-2 font-book recipe-card">
                         <AddRecipe />
                     </div>
                     {/* Cards should fill page based on number of recipes users have */}
