@@ -16,7 +16,9 @@ export const RecipeProvider = ({children}) => {
         recipeCategory: "",
         recipeTags: [],
         ingredients: [],
-        actions: []
+        actions: [],
+        //dates,
+        //comments,
     });
 
     const setValues = (values) => {
