@@ -2,7 +2,7 @@ const path = require("path");
 const router = require("express").Router();
 const apiRoutes = require("./api");
 const admin = require('firebase-admin');
-// const serviceAccount = require("../config/serviceAccountKey.json");
+const serviceAccount = require("../config/serviceAccountKey.json");
 
 // Initialize Firebase Admin
 admin.initializeApp({
@@ -10,9 +10,15 @@ admin.initializeApp({
         "client_email": process.env.FIREBASE_CLIENT_EMAIL,
         "private_key": process.env.FIREBASE_PRIVATE_KEY,
         "project_id": process.env.FIREBASE_PROJECT_ID,
+        //TODO
+    storageBucket: "<BUCKET_NAME>.appspot.com"
+
     } : serviceAccount),
     databaseURL: "https://recipe-box-6f07a.firebaseio.com"
 });
+
+var bucket = admin.storage().bucket();
+
 
 // This function might be able to live in apiRoutes.js. Let me know if you'd rather have it there, or feel free to move it.
 function checkAuth(req, res, next) {
