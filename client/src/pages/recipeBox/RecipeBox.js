@@ -125,15 +125,10 @@ function RecipeBox() {
                 clearForm={clearForm}
             />
             <section >
-<<<<<<< HEAD
-                <div className="row row-cols-md-4">
-                    <AddRecipe />
-=======
                 <div className="row row-cols-md-3 row-cols-lg-4">
                     <div className="my-2 font-book recipe-card">
                         <AddRecipe />
                     </div>
->>>>>>> origin
                     {/* Cards should fill page based on number of recipes users have */}
                     {/* Example Card... needs data to be added from DB */}
                     {recipes.length ? (
