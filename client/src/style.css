@@ -162,6 +162,14 @@ h2 {
     text-decoration: none !important
 }
 
+.btn-add {
+    color: #F78DA4 !important;
+}
+
+.btn-add:hover {
+    color: #EF2D56 !important;
+}
+
 .btn-delete:hover {
     color: #EF2D56 !important;
 }

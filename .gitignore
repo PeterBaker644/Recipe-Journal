@@ -111,3 +111,9 @@ desktop.ini
 
 # Oops
 serviceAccountKey.json
+<<<<<<< HEAD
+=======
+
+# Build Folder
+build
+>>>>>>> origin
