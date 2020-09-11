@@ -2,11 +2,19 @@ import React, { useState } from "react";
 import { useRecipe } from "../../component/CreateRecipe/RecipeContext";
 import { useHistory } from "react-router-dom";
 import TestCard from "../TestCard";
-import TableButton from "../DynamicTable/TableButton"
-import Tag from "./Tag"
+import TableButton from "../DynamicTable/TableButton";
+import Tag from "./Tag";
+import { ThemeProvider } from "styled-components";
+import { useDarkMode } from "../../component/DarkMode/useDarkMode";
+import Toggle from "../../component/DarkMode/Toggler";
+import { GlobalStyles } from "../../component/DarkMode/GlobalStyles";
+import { lightTheme, darkTheme } from "../../component/DarkMode/Theme";
 
 function RecipeInfo() {
 
+    const [theme, themeToggler] = useDarkMode();
+    const themeMode = theme === 'light' ? lightTheme : darkTheme;
+    
     const { recipe, setValues } = useRecipe();
     const [tag, setTag] = useState("");
     const [tags, setTags] = useState([]);
@@ -45,6 +53,14 @@ function RecipeInfo() {
     }
 
     return (
+        /* Dark and Light Mode */
+        <ThemeProvider theme={themeMode}>
+        <>
+        <GlobalStyles/>
+            <Toggle theme={theme} toggleTheme={themeToggler} />
+
+
+
         <TestCard>
             <h2 className="font-brand">new recipe:</h2>
             <form onSubmit={e => onSubmit(e)}>
@@ -107,7 +123,7 @@ function RecipeInfo() {
                         <div className="d-flex align-items-center ml-2">
                             <button
                                 type="button"
-                                className="rb-btn-icon btn-light p-0"
+                                className="rb-btn-icon btn-light btn-transparent p-0"
                                 onClick={e => addTag(e)}
                             >
                                 <TableButton />
@@ -134,6 +150,8 @@ function RecipeInfo() {
                 </div>
             </form>
         </TestCard>
+        </>
+        </ThemeProvider>
     )
 }
 

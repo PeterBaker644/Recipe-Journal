@@ -16,9 +16,13 @@
 
 .modal-content {
     margin: 5% auto;
-    background-color: white;
+    background-color: var(--modal-bgcolor, white);
     border-radius: 0.25rem;
     width: 50vw;
     padding: 2rem;
     position: relative;
+}
+
+.close-modal {
+    color: var(--close-modal, black);
 }

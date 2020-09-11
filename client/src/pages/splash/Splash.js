@@ -6,13 +6,24 @@ import TestCard from "../../component/TestCard"
 import { AuthContext } from "../../component/Auth";
 import Modal from "../../component/Modal/Modal";
 import PrivacyPolicyText from "../../component/PrivacyPolicy/PrivacyPolicyText";
+import { ThemeProvider } from "styled-components";
+import { useDarkMode } from "../../component/DarkMode/useDarkMode";
+import Toggle from "../../component/DarkMode/Toggler";
+import { GlobalStyles } from "../../component/DarkMode/GlobalStyles";
+import { lightTheme, darkTheme } from "../../component/DarkMode/Theme";
 
 function Splash() {
     const app = test.firebase_;
     const { currentUser } = useContext(AuthContext);
     const [display, setDisplay] = useState(false);
+    const [theme, themeToggler] = useDarkMode();
+    const themeMode = theme === 'light' ? lightTheme : darkTheme;
 
     return (
+        <ThemeProvider theme={themeMode}>
+        <>
+        <GlobalStyles/>
+            <Toggle theme={theme} toggleTheme={themeToggler} />
         <div>
             <TestCard>
                 <section className="text-center">
@@ -42,6 +53,8 @@ function Splash() {
                 <PrivacyPolicyText/>
             </Modal>)}
         </div>
+        </>
+        </ThemeProvider>
     );
 }
 

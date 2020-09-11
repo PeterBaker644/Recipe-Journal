@@ -84,12 +84,12 @@ h2 {
 }
 
 .rb-btn {
-    background: white;
-    border: var(--measurement) solid black;
+    background: var(--primary-color, white);
+    border: var(--measurement) solid var(--prime-border, black);
     cursor: pointer;
     font: 600 1rem/1.5 var(--sans);
     text-decoration: none;
-    color: black;
+    color: var(--prime-border, black);
     letter-spacing: var(--measurement);
     padding: 0.5rem 0.75rem;
     position: relative;
@@ -107,8 +107,15 @@ h2 {
 }
 
 .rb-btn-icon :hover {
-    background: white;
     color: black;
+}
+
+.btn-transparent {
+    background: transparent !important;
+}
+
+.btn-transparent:hover {
+    background: transparent !important;
 }
 
 .divider {
@@ -160,22 +167,26 @@ h2 {
 }
 
 .recipe-border-1 {
-    border: var(--measurement) solid black;
+    border: var(--measurement) solid var(--prime-border, black);
     border-radius: 1rem;
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
 }
 
 .recipe-border-2 {
-    border: thin solid black;
+    border: thin solid var(--prime-border, black);
     border-radius: 0.8rem;
     margin: 0.2rem;
     padding: 1rem
 }
 
 .recipe-card:hover {
-    box-shadow: -2px 4px 16px 0px rgba(0,0,0,0.15);
+    box-shadow: -2px 4px 16px 0px var(--card-hover, rgba(0,0,0,0.15));
     cursor: pointer;
+}
+
+.recipe-text {
+    color: #737373;
 }
 
 .category-badge {
@@ -217,4 +228,8 @@ h2 {
 
 .delete:hover {
     color: lightgray;
+}
+
+.table-style {
+    color: var(--table-style, black);
 }
