@@ -16,6 +16,7 @@ const firebase = test.firebase_;
 
 function RecipeBox() {
   const user = firebase.auth().currentUser.uid;
+  //Setting two modals state
   const [status, setStatus] = useState(false);
   const [statusModal, setStatusModal] = useState(false);
   // Setting component intial state
@@ -115,66 +116,56 @@ function RecipeBox() {
     setStatusModal(true);
   };
 
-  return (
-    <Box>
-      <Header
-        firebase={firebase}
-        formInput={form.input}
-        handleInputChange={handleInputChange}
-        handleFormSubmit={handleFormSubmit}
-        clearForm={clearForm}
-      />
-      <section>
-        <div className="row row-cols-md-4">
-          <div className="col my-2 font-book recipe-card">
-            <AddRecipe />
-          </div>
-          {/* Cards should fill page based on number of recipes users have */}
-          {/* Example Card... needs data to be added from DB */}
-          {recipes.length ? (
-            <>
-              {filterRecipes(recipes, form.filterBy).map((recipe, index) => {
-                return (
-                  <RecipeCard
-                    recipe={recipe}
-                    deleteRecipe={deleteRecipe}
-                    onClick={onClick}
-                    key={index + 1}
-                    index={index}
-                    categorySearch={categorySearch}
-                  />
-                );
-              })}
-            </>
-          ) : (
-            <h3>No Recipes to Display</h3>
-          )}
-          {/* This will have more descriptive recipe content */}
-          {status && (
-            <Modal closeModal={() => setStatus(false)}>
-              <CardComplete recipe={recipes[selected.index]}></CardComplete>
-              <div className="mt-4 d-flex justify-content-between">
-                <div className="d-flex justify-content-center">
-                  {console.log(recipes[selected.index])}
-                  <Link
-                    className="rb-btn btn-danger"
-                    to={{ pathname: "/make", state: recipes[selected.index] }}
-                  >
-                    Make
-                  </Link>
-                  <button onClick={updateModals}>History </button>
-                </div>
-              </div>
-            </Modal>
-          )}
-
-          {statusModal && (
-            <Modal closeModal={() => setStatusModal(false)}>
-              <RecipeHistory recipe={recipes[selected.index]}></RecipeHistory>
-            </Modal>
-          )}
-          
-        </div>
+    return (
+        <Box>
+            <Header
+                firebase={firebase}
+                formInput={form.input}
+                handleInputChange={handleInputChange}
+                handleFormSubmit={handleFormSubmit}
+                clearForm={clearForm}
+            />
+            <section >
+                <div className="row row-cols-md-3 row-cols-lg-4">
+                    <div className="my-2 font-book recipe-card">
+                        <AddRecipe />
+                    </div>
+                    {/* Cards should fill page based on number of recipes users have */}
+                    {/* Example Card... needs data to be added from DB */}
+                    {recipes.length ? (
+                        <>
+                            {filterRecipes(recipes, form.filterBy).map((recipe, index) => {
+                                return (<RecipeCard
+                                    recipe={recipe}
+                                    deleteRecipe={deleteRecipe}
+                                    onClick={onClick}
+                                    key={(index + 1)}
+                                    index={index}
+                                    categorySearch={categorySearch}
+                                />)
+                            })}
+                        </>
+                    ) : (<h3>No Recipes to Display</h3>)
+                    }
+                    {/* This will have more descriptive recipe content */}
+                    {status && (
+                        <Modal closeModal={() => setStatus(false)}>
+                            <CardComplete recipe={recipes[selected.index]}></CardComplete>
+                            <div className="form-group">
+                            <Link
+                              className="rb-btn btn-primary"
+                              to={{ pathname: "/make", state: recipes[selected.index] }} >
+                              Make </Link>
+                            <button onClick ={updateModals} className="rb-btn btn-primary"> History</button>
+                            </div>
+                        </Modal>)}
+            
+                    {statusModal && (
+                        <Modal closeModal={() => setStatusModal(false)}>
+                            <RecipeHistory recipe={recipes[selected.index]}></RecipeHistory>
+                        </Modal>
+                    )}
+            </div>
       </section>
     </Box>
   );

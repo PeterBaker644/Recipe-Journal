@@ -6,7 +6,11 @@ const serviceAccount = require("../config/serviceAccountKey.json");
 
 // Initialize Firebase Admin
 admin.initializeApp({
-    credential: admin.credential.cert(serviceAccount),
+    credential: admin.credential.cert( process.env.FIREBASE_CLIENT_EMAIL ? {
+        "client_email": process.env.FIREBASE_CLIENT_EMAIL,
+        "private_key": process.env.FIREBASE_PRIVATE_KEY,
+        "project_id": process.env.FIREBASE_PROJECT_ID,
+    } : serviceAccount),
     databaseURL: "https://recipe-box-6f07a.firebaseio.com"
 });
 
@@ -34,8 +38,8 @@ console.log("[SERVER-ROUTES] API Routes hit");
 router.use("/api", apiRoutes);
 
 // If no API routes are hit, send the React app
-router.use(function(req, res) {
-  res.sendFile(path.join(__dirname, "../client/build/index.html"));
-});
+// router.use(function(req, res) {
+//   res.sendFile(path.join(__dirname, "../client/build/index.html"));
+// });
 
 module.exports = router;
