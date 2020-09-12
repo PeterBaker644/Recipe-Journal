@@ -9,19 +9,18 @@ import CardComplete from "./CardComplete";
 import TableBody from "../DynamicTable/TableBody";
 import Accordion from "./Accordion";
 import Modal from "../../component/Modal/Modal";
+import AllDone from "./AllDone";
 
 
 function Make() {
 
   //modal state
   const [status, setStatus] = useState(false);
-
   
   const {
     state: { actions, recipeName },
   } = useLocation();
   
-
   //   const completeRecipe = (e) => {
   //     e.preventDefault();
   //     API.createRecipe(recipe).then(() => {
@@ -39,11 +38,14 @@ function Make() {
         return <Accordion title={obj.title} text={obj.text} />;
       })}
 
+      {/* HOW DO I GET MODAL TO OPEN WITHOUT CLICKING SOMETHING? */}
+      <button onClick={()=> setStatus(true)} className="rb-btn btn-primary" >Next</button>  
       {status && (
         <Modal closeModal={() => setStatus(false)}>
-          
+          <AllDone></AllDone>
         </Modal>
-      )}
+      )} 
+
     </TestCard>
   );
 }

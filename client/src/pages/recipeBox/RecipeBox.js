@@ -9,12 +9,15 @@ import Box from "../../component/RecipeBox/Box";
 import Header from "../../component/RecipeBox/Header";
 import CardComplete from "../../component/CreateRecipe/CardComplete";
 import "../../component/Modal/Modal.css";
+import RecipeHistory from "../../component/CreateRecipe/RecipeHistory";
+import { Route, Redirect } from "react-router-dom";
 
 const firebase = test.firebase_;
 
 function RecipeBox() {
   const user = firebase.auth().currentUser.uid;
   const [status, setStatus] = useState(false);
+  const [statusModal, setStatusModal] = useState(false);
   // Setting component intial state
   const [recipes, setRecipes] = useState([]);
   const [form, setForm] = useState({
@@ -45,6 +48,7 @@ function RecipeBox() {
     // console.log("this is a test", index)
     setSelected({ index: index });
     setStatus(true);
+    setStatusModal(false);
   }
 
   function deleteRecipe(event, id) {
@@ -106,6 +110,11 @@ function RecipeBox() {
     return arrayFiltered;
   }
 
+  const updateModals = () => {
+    setStatus(false);
+    setStatusModal(true);
+  };
+
   return (
     <Box>
       <Header
@@ -149,22 +158,22 @@ function RecipeBox() {
                   {console.log(recipes[selected.index])}
                   <Link
                     className="rb-btn btn-danger"
-                    to={{ pathname: "/make",
-                          state: recipes[selected.index]
-                        }}
+                    to={{ pathname: "/make", state: recipes[selected.index] }}
                   >
                     Make
                   </Link>
+                  <button onClick={updateModals}>History </button>
                 </div>
-                <Link
-                  className="rb-btn btn-danger"
-                  to={{ pathname: "/history" }}
-                >
-                  History
-                </Link>
               </div>
             </Modal>
           )}
+
+          {statusModal && (
+            <Modal closeModal={() => setStatusModal(false)}>
+              <RecipeHistory recipe={recipes[selected.index]}></RecipeHistory>
+            </Modal>
+          )}
+          
         </div>
       </section>
     </Box>

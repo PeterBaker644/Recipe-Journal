@@ -6,6 +6,7 @@ import AddIngredients from "../../component/CreateRecipe/AddIngredients"
 import AddSteps from "../../component/CreateRecipe/AddSteps"
 import RecipeComplete from "../../component/CreateRecipe/RecipeComplete"
 import Make from "../../component/CreateRecipe/Make";
+import RecipeHistory from "../../component/CreateRecipe/RecipeHistory";
 
 function CreateRecipe() {
 
@@ -18,6 +19,7 @@ function CreateRecipe() {
             : location.pathname === "/create/steps" ? <AddSteps/> 
             : location.pathname === "/create/complete" ? <RecipeComplete/> 
             : location.pathname === "/make" ? <Make/> 
+            : location.pathname === "/recipehistory" ? <RecipeHistory/> 
             : ""}
         </RecipeProvider>
     );
