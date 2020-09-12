@@ -1,13 +1,21 @@
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { useRecipe } from "../../component/CreateRecipe/RecipeContext";
-import TableBody from "../DynamicTable/TableBody"
-import TableHeader from "../DynamicTable/TableHeader"
+import TableBody from "../DynamicTable/TableBody";
+import TableHeader from "../DynamicTable/TableHeader";
 import TableButton from "../DynamicTable/TableButton";
-import TestCard from "../TestCard"
+import TestCard from "../TestCard";
+import { ThemeProvider } from "styled-components";
+import { useDarkMode } from "../../component/DarkMode/useDarkMode";
+import Toggle from "../../component/DarkMode/Toggler";
+import { GlobalStyles } from "../../component/DarkMode/GlobalStyles";
+import { lightTheme, darkTheme } from "../../component/DarkMode/Theme";
 
 function AddSteps() {
 
+    const [theme, themeToggler] = useDarkMode();
+    const themeMode = theme === 'light' ? lightTheme : darkTheme;
+    
     const initState = {
         title: "",
         text: "",
@@ -44,6 +52,14 @@ function AddSteps() {
     }
 
     return (
+        /* Dark and Light Mode */
+        <ThemeProvider theme={themeMode}>
+        <>
+        <GlobalStyles/>
+            <Toggle theme={theme} toggleTheme={themeToggler} />
+
+
+
         <TestCard>
             <h1 className="display-1 font-brand">add steps:</h1>
             <div className="table-responsive">
@@ -94,6 +110,8 @@ function AddSteps() {
                 <button className="rb-btn btn-success" onClick={completeActions}>Complete</button>
             </div>
         </TestCard>
+        </>
+        </ThemeProvider>
     )
 }
 

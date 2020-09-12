@@ -14,7 +14,7 @@ function RecipeCard({ recipe, onClick, deleteRecipe, categorySearch, index }) {
                             <h5 className="card-title mb-3">{recipe.name}</h5>
                             <DeleteBtn onClick={(e) => deleteRecipe(e, recipe._id)} />
                         </div>
-                        <p className="card-text text-muted">{recipe.description}</p>
+                        <p className="card-text recipe-text">{recipe.recipeDescription}</p>
                         <p className="card-text">{recipe.instructions}</p>
                         {/* hr className="my-1" />< */}
                     </div>

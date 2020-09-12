@@ -1,13 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { useRecipe } from "../../component/CreateRecipe/RecipeContext";
-import TableBody from "../DynamicTable/TableBody"
-import TableHeader from "../DynamicTable/TableHeader"
+import TableBody from "../DynamicTable/TableBody";
+import TableHeader from "../DynamicTable/TableHeader";
 import TableButton from "../DynamicTable/TableButton";
-import TestCard from "../TestCard"
-
+import TestCard from "../TestCard";
+import { ThemeProvider } from "styled-components";
+import { useDarkMode } from "../../component/DarkMode/useDarkMode";
+import Toggle from "../../component/DarkMode/Toggler";
+import { GlobalStyles } from "../../component/DarkMode/GlobalStyles";
+import { lightTheme, darkTheme } from "../../component/DarkMode/Theme";
 
 function AddIngredients() {
+
+    const [theme, themeToggler] = useDarkMode();
+    const themeMode = theme === 'light' ? lightTheme : darkTheme;
 
     const { recipe, setValues } = useRecipe();
     const history = useHistory();
@@ -48,12 +55,19 @@ function AddIngredients() {
     }
 
     return (
+        /* Dark and Light Mode */
+        <ThemeProvider theme={themeMode}>
+        <>
+        <GlobalStyles/>
+            <Toggle theme={theme} toggleTheme={themeToggler} />
+
+
         <TestCard>
             <h1 className="display-1 font-brand">add ingredients:</h1>
             <div className="table-responsive">
                 <table className="table font-book">
                     <TableHeader/>
-                    <TableBody tableContents={ingredients} />
+                    <TableBody tableContents={ingredients}/>
                 </table>
             </div>
             <form onSubmit={e => onSubmit(e)} className="row g-2">
@@ -109,6 +123,8 @@ function AddIngredients() {
                 <button className="rb-btn btn-success" onClick={completeIngredients}>Add steps</button>
             </div>
         </TestCard>
+        </>
+        </ThemeProvider>
     )
 }
 

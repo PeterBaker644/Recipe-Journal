@@ -29,7 +29,7 @@ function TableBody({ tableContents }) {
     })
 
     return (
-        <tbody>
+        <tbody className="table-style">
             {items}
         </tbody>
     );

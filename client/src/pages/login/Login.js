@@ -5,8 +5,16 @@ import SignUpForm from "../../component/SignUpForm"
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 import './firebaseui-styling.css';
 import { AuthContext } from "../../component/Auth";
+import { ThemeProvider } from "styled-components";
+import { useDarkMode } from "../../component/DarkMode/useDarkMode";
+import Toggle from "../../component/DarkMode/Toggler";
+import { GlobalStyles } from "../../component/DarkMode/GlobalStyles";
+import { lightTheme, darkTheme } from "../../component/DarkMode/Theme";
 
 function Login({history}) {
+    
+    const [theme, themeToggler] = useDarkMode();
+    const themeMode = theme === 'light' ? lightTheme : darkTheme;
     
     // This is some crazy bullshit and I have no idea why it's not working correctly. v
     const firebase = test.firebase_;
@@ -53,6 +61,13 @@ function Login({history}) {
     // );
 
     return (
+        <ThemeProvider theme={themeMode}>
+        <>
+        <GlobalStyles/>
+            <Toggle theme={theme} toggleTheme={themeToggler} />
+
+
+
         <TestCard>
             {currentUser ? (
                 history.push("/recipebox")
@@ -71,6 +86,8 @@ function Login({history}) {
                 </>
             )}
         </TestCard>
+        </>
+        </ThemeProvider>
     );
 }
 
