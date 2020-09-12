@@ -107,7 +107,7 @@ function RecipeInfo() {
                         <div className="d-flex align-items-center ml-2">
                             <button
                                 type="button"
-                                className="rb-btn-icon btn-light p-0"
+                                className="rb-btn-icon btn-light btn-transparent p-0"
                                 onClick={e => addTag(e)}
                             >
                                 <TableButton />
