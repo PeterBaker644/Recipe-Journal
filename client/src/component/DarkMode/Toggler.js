@@ -18,7 +18,7 @@ const Toggle = ({theme,  toggleTheme }) => {
         </Button>*/
         <div className="form-check form-switch mt-1 ml-2">
             <input className="form-check-input" onClick={toggleTheme} type="checkbox" id="flexSwitch"></input>
-            <label className="form-check-label" for="flexSwitch">Dark Mode</label>
+            <label className="form-check-label" htmlFor="flexSwitch">Dark Mode</label>
         </div>
     );
 };
