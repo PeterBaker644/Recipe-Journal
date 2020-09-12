@@ -1,20 +1,32 @@
-import React, { createContext, useState, useContext} from 'react';
+import React, { createContext, useState, useContext, useEffect } from 'react';
 import test from '../../firebase';
+import ls from "local-storage";
 
 const RecipeContext = createContext();
 const firebase = test.firebase_;
 
 // consider useMethods instead.
-export const RecipeProvider = ({children}) => {
+export const RecipeProvider = ({ children }) => {
     const user = firebase.auth().currentUser.uid
+
+    // console.log("trying to find the recipe")
+    // if (ls("recipe")) {
+    //     console.log('there is something')
+    // } else {
+    //     console.log("there is nothing")
+    // }
+
+    useEffect(() => {
+        console.log("context is refreshed");
+    })
 
     const [recipe, setRecipe] = useState({
         userID: user,
-        recipeName: "",
-        recipeDescription: "",
-        recipeImageUrls: [],
-        recipeCategory: "",
-        recipeTags: [],
+        name: "",
+        description: "",
+        imageUrls: "",
+        category: "",
+        tags: [],
         ingredients: [],
         actions: []
     });

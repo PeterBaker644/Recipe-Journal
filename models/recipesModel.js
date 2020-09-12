@@ -9,27 +9,27 @@ const recipesSchema = new Schema({
         type: String,
         required: true,
     },
-    recipeName: {
+    name: {
         type: String,
         required: true,
         lowercase: true,
     },
-    recipeDescription: {
+    description: {
         type: String,
         required: false,
     },
-    recipeImageUrls: [
+    imageUrls: [
         {
             type: String,
             required: false,
         }
     ],
-    recipeCategory: {
+    category: {
         type: String,
         required: false,
         lowercase: true,
     },
-    recipeTags: [
+    tags: [
         {
             type: String,
             required: false,

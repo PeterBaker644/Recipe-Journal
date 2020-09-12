@@ -14,11 +14,11 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/recipes_hybrid_
 let recipesSeed = [
     {
         userID:"QHJEh978YHaqyrJyOSrprc34TYV2",
-        recipeName: "Chicken Adobo",
-        recipeDescription:"This classic adobo recipe is simple to make and famous with all who have tasted it. It is delicious served over rice.",
-        recipeImageUrls:["recipeImageUrls goes here", "recipePicLink2 goes here"],
-        recipeCategory: "entree",  
-        recipeTags: [
+        name: "Chicken Adobo",
+        description:"This classic adobo recipe is simple to make and famous with all who have tasted it. It is delicious served over rice.",
+        imageUrls:["imageUrls goes here", "recipePicLink2 goes here"],
+        category: "entree",  
+        tags: [
             "chicken", "dinner", "easy",
         ],
         ingredients: [
@@ -76,11 +76,11 @@ let recipesSeed = [
     }, 
     {
         userID:"QHJEh978YHaqyrJyOSrprc34TYV2", 
-        recipeName: "Egg Salad Sandwich",
-        recipeDescription:"This sandwich is so easy to make, you'd wish you've made it earlier.",
-        recipeImageUrls:["recipeImageUrls goes here"],
-        recipeCategory:"entree", 
-        recipeTags: [
+        name: "Egg Salad Sandwich",
+        description:"This sandwich is so easy to make, you'd wish you've made it earlier.",
+        imageUrls:["imageUrls goes here"],
+        category:"entree", 
+        tags: [
             "egg", "lunch", "easy", "sandwich",
         ],
         ingredients: [
@@ -118,11 +118,11 @@ let recipesSeed = [
     },
     {
         userID:"QHJEh978YHaqyrJyOSrprc34TYV2", 
-        recipeName: "Emma's Mom's Soup",
-        recipeDescription:"Easy to make soup. Brings back memories of home!",
-        recipeImageUrls:["recipeImageUrls goes here"],
-        recipeCategory:"soup", 
-        recipeTags: [
+        name: "Emma's Mom's Soup",
+        description:"Easy to make soup. Brings back memories of home!",
+        imageUrls:["imageUrls goes here"],
+        category:"soup", 
+        tags: [
             "soup", "chicken", "potato", "slow-cook",
         ],
         ingredients: [
@@ -174,11 +174,11 @@ let recipesSeed = [
     },
     {
         userID:"QHJEh978YHaqyrJyOSrprc34TYV2", 
-        recipeName: "Sugar Cookie",
-        recipeDescription:"The best cookies to enjoy anytime of the year!",
-        recipeImageUrls:["recipeImageUrls goes here"],
-        recipeCategory:"dessert", 
-        recipeTags: [
+        name: "Sugar Cookie",
+        description:"The best cookies to enjoy anytime of the year!",
+        imageUrls:["imageUrls goes here"],
+        category:"dessert", 
+        tags: [
             "Aunt Betty's", "cookies", "sweets", "holiday", "treats"
         ],
         ingredients: [
@@ -249,11 +249,11 @@ let recipesSeed = [
     },
     {
         userID:"QHJEh978YHaqyrJyOSrprc34TYV2", 
-        recipeName: "Buttermilk Pancakes",
-        recipeDescription:"A decadent weekend breakfast for when you want to treat yourself.",
-        recipeImageUrls:["recipeImageUrls goes here"],
-        recipeCategory:"entree", 
-        recipeTags: [
+        name: "Buttermilk Pancakes",
+        description:"A decadent weekend breakfast for when you want to treat yourself.",
+        imageUrls:["imageUrls goes here"],
+        category:"entree", 
+        tags: [
             "breakfast", "treat", "weekend", "pancake",
         ],
         ingredients: [
@@ -315,11 +315,11 @@ let recipesSeed = [
     },
     {
         userID:"QHJEh978YHaqyrJyOSrprc34TYV2", 
-        recipeName: "Pork Ribs",
-        recipeDescription:"A versatile dish to be enjoyed with salad, on a sandwich, or with vegetables and potatoes or rice.",
-        recipeImageUrls:["recipeImageUrls goes here"],
-        recipeCategory:"entree", 
-        recipeTags: [
+        name: "Pork Ribs",
+        description:"A versatile dish to be enjoyed with salad, on a sandwich, or with vegetables and potatoes or rice.",
+        imageUrls:["imageUrls goes here"],
+        category:"entree", 
+        tags: [
             "pork", "ribs", "BBQ", 
         ],
         ingredients: [
@@ -368,11 +368,11 @@ let recipesSeed = [
     },
     {
         userID:"QHJEh978YHaqyrJyOSrprc34TYV2",
-        recipeName: "Tortellini Soup",
-        recipeDescription:"A cheese, meaty, Italian pasta dish that is sure to remind you of your trip to Italy!",
-        recipeImageUrls:["recipeImageUrls goes here"],
-        recipeCategory:"entree", 
-        recipeTags: [
+        name: "Tortellini Soup",
+        description:"A cheese, meaty, Italian pasta dish that is sure to remind you of your trip to Italy!",
+        imageUrls:["imageUrls goes here"],
+        category:"entree", 
+        tags: [
             "pasta", "italian", "sausage", "cheese",
         ],
         ingredients: [
@@ -453,11 +453,11 @@ let recipesSeed = [
     },
     {
         userID:"QHJEh978YHaqyrJyOSrprc34TYV2", 
-        recipeName: "Peach Cobbler",
-        recipeDescription:"A summer delight, pairs perfectly with ice cream!",
-        recipeImageUrls:["recipeImageUrls goes here"],
-        recipeCategory:"dessert", 
-        recipeTags: [
+        name: "Peach Cobbler",
+        description:"A summer delight, pairs perfectly with ice cream!",
+        imageUrls:["imageUrls goes here"],
+        category:"dessert", 
+        tags: [
             "peach", "dessert", "treat",
         ],
         ingredients: [
@@ -542,11 +542,11 @@ let recipesSeed = [
     },
     {
         userID:"QHJEh978YHaqyrJyOSrprc34TYV2", 
-        recipeName: "Zucchini Bread",
-        recipeDescription:"Perfect for breakfast or as a snack!",
-        recipeImageUrls:["recipeImageUrls goes here"],
-        recipeCategory:"dessert", 
-        recipeTags: [
+        name: "Zucchini Bread",
+        description:"Perfect for breakfast or as a snack!",
+        imageUrls:["imageUrls goes here"],
+        category:"dessert", 
+        tags: [
             "bread", "snack", "treat",
         ],
         ingredients: [
@@ -626,11 +626,11 @@ let recipesSeed = [
     },
     {
         userID:"3X77tE00c9TQk8QqlGdc51IrfXu1", 
-        recipeName: "Homemade Italian Turkey Sausage",
-        recipeDescription:"",
-        recipeImageUrls:["recipeImageUrls goes here"],
-        recipeCategory:"entree", 
-        recipeTags: [
+        name: "Homemade Italian Turkey Sausage",
+        description:"",
+        imageUrls:["imageUrls goes here"],
+        category:"entree", 
+        tags: [
             "Italian", "sausage",
         ],
         ingredients: [
@@ -691,11 +691,11 @@ let recipesSeed = [
     },
     {
         userID:"3X77tE00c9TQk8QqlGdc51IrfXu1", 
-        recipeName: "Country Potato Pancake",
-        recipeDescription:"",
-        recipeImageUrls:["recipeImageUrls goes here"],
-        recipeCategory:"entree", 
-        recipeTags: [
+        name: "Country Potato Pancake",
+        description:"",
+        imageUrls:["imageUrls goes here"],
+        category:"entree", 
+        tags: [
             "pancake", "potato", "breakfast", "savory",
         ],
         ingredients: [
@@ -756,11 +756,11 @@ let recipesSeed = [
     },
     {
         userID:"3X77tE00c9TQk8QqlGdc51IrfXu1",
-        recipeName: "Chicken Tacos - the Tahiti Way",
-        recipeDescription:"",
-        recipeImageUrls:["recipeImageUrls goes here"],
-        recipeCategory:"entree", 
-        recipeTags: [
+        name: "Chicken Tacos - the Tahiti Way",
+        description:"",
+        imageUrls:["imageUrls goes here"],
+        category:"entree", 
+        tags: [
             "tacos", "chicken", "Tahiti", "slow-cook",
         ],
         ingredients: [
@@ -821,11 +821,11 @@ let recipesSeed = [
     },
     {
         userID:"3X77tE00c9TQk8QqlGdc51IrfXu1", 
-        recipeName: "Tomato-Mint Quinoa Salad",
-        recipeDescription:"A delicious summer delight using fresh ingredients from the farmer's markets.",
-        recipeImageUrls:["recipeImageUrls goes here"],
-        recipeCategory:"entree", 
-        recipeTags: [
+        name: "Tomato-Mint Quinoa Salad",
+        description:"A delicious summer delight using fresh ingredients from the farmer's markets.",
+        imageUrls:["imageUrls goes here"],
+        category:"entree", 
+        tags: [
             "salad", "tomato", "quinoa",
         ],
         ingredients: [
@@ -913,11 +913,11 @@ let recipesSeed = [
     },
     {
         userID:"3X77tE00c9TQk8QqlGdc51IrfXu1",
-        recipeName: "Mapo Tofu",
-        recipeDescription:"A go-to staple for the days when when you don't have anything in the fridge except for tofu and green onions. Goes well with rice!",
-        recipeImageUrls:["recipeImageUrls goes here"],
-        recipeCategory:"entree", 
-        recipeTags: [
+        name: "Mapo Tofu",
+        description:"A go-to staple for the days when when you don't have anything in the fridge except for tofu and green onions. Goes well with rice!",
+        imageUrls:["imageUrls goes here"],
+        category:"entree", 
+        tags: [
             "tofu", "vegetarian", "sichuan", "easy",
         ],
         ingredients: [

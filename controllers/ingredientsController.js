@@ -4,7 +4,7 @@ module.exports = {
     findAll: function (req, res) {
         db.IngredientsModel
             .find(req.query)
-            // .sort({ recipeName })
+            // .sort({ name })
             .then(dbModelDataResult => res.json(dbModelDataResult))
             .catch(err => res.status(422).json(err));
     },

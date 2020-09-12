@@ -11,7 +11,7 @@ const recipesSchema = new Schema({
     //     default: Date.now
     // },
     //total ingredient list
-    recipeName: String,
+    name: String,
     ingredients: [
         {
             //example flour

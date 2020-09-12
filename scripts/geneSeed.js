@@ -13,7 +13,7 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/recipes_DB", {
 let recipesSeed = [
     {
         // date: Date.now,
-        recipeName: "pancakes",
+        name: "pancakes",
         ingredients: [
             {
                 name: "flour",
@@ -45,7 +45,7 @@ let recipesSeed = [
         ]
     }, {
         // date: Date.now,
-        recipeName: "pancakes Alt recipe",
+        name: "pancakes Alt recipe",
         ingredients: [
             {
                 name: "flour",
@@ -87,11 +87,11 @@ async function seedAsyncFunction() {
         //this is not needed for the seed, but tessted find and update and this works
         // await recipesModeldb.findOneAndUpdate(
         //   {
-        //     recipeName: "pancakes"
+        //     name: "pancakes"
         //   },
         //   {
         //     $set: {
-        //       recipeName: "new! pancake"
+        //       name: "new! pancake"
         //     }
         //   }
         // );   

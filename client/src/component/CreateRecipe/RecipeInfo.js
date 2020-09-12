@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useRecipe } from "../../component/CreateRecipe/RecipeContext";
 import { useHistory } from "react-router-dom";
 import TestCard from "../TestCard";
@@ -8,13 +8,28 @@ import Tag from "./Tag"
 function RecipeInfo() {
 
     const { recipe, setValues } = useRecipe();
+    const history = useHistory();
+
+    const categories = ['appetizer', 'soup', 'salad', 'entree', 'side', 'dessert'];
+    const initState = ({
+        name: recipe.name || "",
+        description: recipe.description || "",
+        category: recipe.category || ""
+    })
+
+    const [info, setInfo] = useState(initState);
     const [tag, setTag] = useState("");
     const [tags, setTags] = useState([]);
-    const history = useHistory();
-    const categories = ['appetizer', 'soup', 'salad', 'entree', 'side', 'dessert'];
+
+    useEffect(() => {
+        return () => {
+            console.log("Completed recipe info is:", recipe)
+            console.log("This component has unmounted");
+        }
+    }, [])
 
     const onChange = (e) => {
-        setValues({ [e.target.name]: e.target.value });
+        setInfo({ ...info, [e.target.name]: e.target.value });
     }
 
     const writeTag = (e) => {
@@ -39,8 +54,12 @@ function RecipeInfo() {
 
     const onSubmit = (e) => {
         e.preventDefault();
-        setValues({recipeTags: tags})
-        console.log(recipe);
+        setValues({
+            tags: tags,
+            name: info.name,
+            description: info.description,
+            category: info.category
+        })
         history.push('/create/ingredients');
     }
 
@@ -54,8 +73,8 @@ function RecipeInfo() {
                         type="text"
                         required
                         className="form-control"
-                        name="recipeName"
-                        value={recipe.recipeName}
+                        name="name"
+                        value={info.name}
                         onChange={e => onChange(e)}
                     />
                 </div>
@@ -65,8 +84,8 @@ function RecipeInfo() {
                         type="text"
                         required
                         className="form-control"
-                        name="recipeDescription"
-                        value={recipe.recipeDescription}
+                        name="description"
+                        value={info.description}
                         onChange={e => onChange(e)}
                     />
                 </div>
@@ -76,8 +95,8 @@ function RecipeInfo() {
                         // ref="userInput"  not valid for functional component
                         required
                         className="form-select"
-                        name="recipeCategory"
-                        defaultValue="default"
+                        name="category"
+                        defaultValue={recipe.category || "default"}
                         //avalue of select was a string  array
                         //new property of category
                         //display what category so user can see it
@@ -100,7 +119,7 @@ function RecipeInfo() {
                             type="text"
                             className="form-control"
                             id="tagInput"
-                            name="recipeTags"
+                            name="tags"
                             value={tag}
                             onChange={e => writeTag(e)}
                         />
@@ -115,13 +134,20 @@ function RecipeInfo() {
                         </div>
                     </div>
                     <div>
-                        {tags[0] ?
+                        {recipe.tags[0] ?
                             <div className="mt-2">
-                                {tags.map((tag, index) =>
-                                    <Tag key={index} index={index} value={tag} deleteTag={deleteTag}/>
+                                {recipe.tags.map((tag, index) =>
+                                    <Tag key={index} index={index} value={tag} deleteTag={deleteTag} />
                                 )}
                             </div>
-                        : ""}
+                        : tags[0] ?
+                            <div className="mt-2">
+                                {tags.map((tag, index) =>
+                                    <Tag key={index} index={index} value={tag} deleteTag={deleteTag} />
+                                )}
+                            </div>
+                        : ""
+                    }
                     </div>
                 </div>
 
