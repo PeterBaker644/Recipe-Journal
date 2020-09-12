@@ -126,9 +126,7 @@ function RecipeBox() {
             />
             <section >
                 <div className="row row-cols-md-3 row-cols-lg-4">
-                    <div className="my-2 font-book recipe-card">
-                        <AddRecipe />
-                    </div>
+                    <AddRecipe />
                     {/* Cards should fill page based on number of recipes users have */}
                     {/* Example Card... needs data to be added from DB */}
                     {recipes.length ? (
