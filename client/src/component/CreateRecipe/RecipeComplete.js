@@ -6,8 +6,16 @@ import { useRecipe } from "../../component/CreateRecipe/RecipeContext";
 // import TableHeader from "../DynamicTable/TableHeader"
 import TestCard from "../TestCard"
 import CardComplete from "./CardComplete"
+import { ThemeProvider } from "styled-components";
+import { useDarkMode } from "../../component/DarkMode/useDarkMode";
+import Toggle from "../../component/DarkMode/Toggler";
+import { GlobalStyles } from "../../component/DarkMode/GlobalStyles";
+import { lightTheme, darkTheme } from "../../component/DarkMode/Theme";
 
 function RecipeComplete() {
+
+    const [theme, themeToggler] = useDarkMode();
+    const themeMode = theme === 'light' ? lightTheme : darkTheme;
 
     const { recipe } = useRecipe();
     const history = useHistory();
@@ -24,6 +32,13 @@ function RecipeComplete() {
     }
 
     return (
+        /* Dark and Light Mode */
+        <ThemeProvider theme={themeMode}>
+        <>
+        <GlobalStyles/>
+            <Toggle theme={theme} toggleTheme={themeToggler} />
+
+
         <TestCard>
             <CardComplete recipe={recipe}>
             </CardComplete>
@@ -34,6 +49,8 @@ function RecipeComplete() {
                 <button className="rb-btn btn-success" onClick={completeRecipe}>Save Recipe</button>
             </div>
         </TestCard>
+        </>
+        </ThemeProvider>
     )
 }
 

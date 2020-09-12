@@ -9,10 +9,10 @@ const Modal = (props) => {
     const closeIcon = () => (
         <FontAwesome
         // Any close icon can be used
+        className="close-modal"
         name="times"
         onClick={closeModal}
         style={{
-            color: '#000',
             padding: '10px',
             cursor: 'pointer',
             backgroundColor: 'transparent',
