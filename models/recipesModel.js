@@ -58,6 +58,11 @@ const recipesSchema = new Schema({
                 required: true,
                 lowercase: true,
             },
+            details: {
+                type: String,
+                required: false,
+                lowercase: true,
+            },            
             quantity: {
                 type: String,
                 required: true,
