@@ -25,6 +25,7 @@
 
 body {
     font-family: var(--sans);
+    /* background-color: gray !important; */
 }
 
 td, th {
@@ -172,6 +173,14 @@ h2 {
 
 .btn-delete:hover {
     color: #EF2D56 !important;
+}
+
+.btn-transparent {
+    background-color: transparent !important;
+}
+
+.btn-transparent:hover {
+    background-color: transparent !important;
 }
 
 .recipe-border-1 {

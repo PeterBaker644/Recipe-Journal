@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { useRecipe } from "../../component/CreateRecipe/RecipeContext";
 import TableBody from "../DynamicTable/TableBody";
@@ -16,7 +16,7 @@ function AddIngredients() {
     const [theme, themeToggler] = useDarkMode();
     const themeMode = theme === 'light' ? lightTheme : darkTheme;
 
-    const { setValues } = useRecipe();
+    const { recipe, setValues } = useRecipe();
     const history = useHistory();
 
     const initState = ({
@@ -38,10 +38,11 @@ function AddIngredients() {
         history.push('/create/steps');
     }
     
-    // useEffect(() => {
-    //     console.log("Ingredients list is:", ingredients);
-    //     console.log("Recipe contains the following ingredients:", recipe.recipeIngredients);
-    // })
+    useEffect(() => {
+        console.log("Recipe is:", recipe);
+        console.log("Ingredients list is:", ingredients);
+        console.log("Recipe contains the following ingredients:", recipe.recipeIngredients);
+    })
     
     const onChange = (e) => {
         setIngredient({...ingredient, [e.target.name]: e.target.value.toLowerCase()});

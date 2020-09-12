@@ -9,7 +9,7 @@ function Genepagetest() {
     let [newRecipe, setNewRecipe] = useState([
         {
             userID: "",
-            recipeName: "",
+            name: "",
         },
     ]);
 
@@ -34,15 +34,15 @@ function Genepagetest() {
         function setDummyObject() {
             setNewRecipe({
                 userID: "usernumber1",
-                recipeName: "asdfasdfasdf pancakes",
-                recipeDescription: "this is a recipe description field",
-                recipeImageUrls:
+                name: "asdfasdfasdf pancakes",
+                description: "this is a recipe description field",
+                imageUrls:
                     [
                         "recipePicLink goes here",
                         "recipePicLink2 goes here",
                     ],
-                recipeCategory: "baked recipes",
-                recipeTags: [
+                category: "baked recipes",
+                tags: [
                     "dessert", "breakfast"
                 ],
                 ingredients: [
@@ -124,21 +124,21 @@ function Genepagetest() {
                     return (<div>
                         <RecipeListItem
                             key={recipe._id}
-                            recipeName={recipe.recipeName}
-                            recipeDescription={recipe.recipeDescription}
-                            ingredientPictureLink={recipe.ingredientPictureLink}
-                            recipeCategory={recipe.recipeCategory}
-                            recipeImageUrls={recipe.recipeImageUrls[0]}
+                            name={recipe.name}
+                            description={recipe.description}
+                            imageUrls={recipe.imageUrls}
+                            category={recipe.category}
+                            imageUrls={recipe.imageUrls[0]}
                             title={recipe.actions[0].title}
                             text={recipe.actions[0].text}
                         />
-                        <h2>recipeTags UL list</h2>
+                        <h2>tags UL list</h2>
                         <UlList>
-                            {recipe.recipeTags.map(tags => {
+                            {recipe.tags.map(tags => {
                                 return (
                                     <NestedTagsList
                                         key={tags._id}
-                                        recipeTags={tags}
+                                        tags={tags}
                                     />
 
                                 );
