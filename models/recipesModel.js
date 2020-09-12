@@ -16,10 +16,19 @@ const recipesSchema = new Schema({
         default: Date.now,
         required: true,
     },
-    comments: {
-        type: String,
-        required: false,
-    },
+    comments: [
+        {
+            text: {
+                type: String,
+                required: false,
+            },
+            dateCreated: {
+                type: Date,
+                default: Date.now,
+                required: true,
+            },
+        }
+    ],
     description: {
         type: String,
         required: false,
