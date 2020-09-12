@@ -7,20 +7,20 @@ const ingredientsSchema = new Schema({
         required: true,
         lowercase: true,
     },
-    ingredientIconLink: {
+    iconLink: {
         type: String,
         required: false,
     },
-    ingredientCategory: {
+    category: {
         type: String,
         required: false,
         lowercase: true,
     },
-    ingredientCategoryIconLink: {
+    categoryIconLink: {
         type: String,
         required: false,
     },
-    totalUsedCount: {
+    usedCount: {
         type: Number,
         "minimum": 0
     },
