@@ -32,8 +32,11 @@ export default {
         return authorize.get("/api/recipes");
     },
     createRecipe: function (newRecipe) {
-        console.log("[API] newRecipe", newRecipe);
+        console.log("[API] New recipe created:", newRecipe);
         return authorize.post("/api/recipes", newRecipe);
+    },
+    updateRecipe: function (_id, recipe) {
+        return authorize.put("/api/recipes/" + _id, recipe);
     },
     getOneRecipe: function (_id) {
         return authorize.get("/api/recipes/" + _id);
@@ -43,7 +46,7 @@ export default {
         return authorize.get("/api/recipes/user/" + userID);
     },
     deleteRecipe: function (_id) {
-        console.log("[API] deleteRecipe", _id);
+        console.log("[API] Recipe deleted:", _id);
         return authorize.delete("/api/recipes/" + _id);
     },
     getAllIngredients: function () {

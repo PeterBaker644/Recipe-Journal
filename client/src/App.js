@@ -29,6 +29,7 @@ function App() {
                     
 
                 </Switch>
+                <Route path="/privacy"/>
             </Router>
         </AuthProvider>
     );

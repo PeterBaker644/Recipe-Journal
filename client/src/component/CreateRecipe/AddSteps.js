@@ -5,29 +5,27 @@ import TableBody from "../DynamicTable/TableBody";
 import TableHeader from "../DynamicTable/TableHeader";
 import TableButton from "../DynamicTable/TableButton";
 import TestCard from "../TestCard";
-import { ThemeProvider } from "styled-components";
-import { useDarkMode } from "../../component/DarkMode/useDarkMode";
-import Toggle from "../../component/DarkMode/Toggler";
-import { GlobalStyles } from "../../component/DarkMode/GlobalStyles";
-import { lightTheme, darkTheme } from "../../component/DarkMode/Theme";
 
 function AddSteps() {
 
-    const [theme, themeToggler] = useDarkMode();
-    const themeMode = theme === 'light' ? lightTheme : darkTheme;
-    
     const initState = {
         title: "",
         text: "",
     }
 
-    const { setValues } = useRecipe();
+    const { recipe, setValues } = useRecipe();
     const history = useHistory();
     const [action, setAction] = useState(initState);
-    const [actions, setActions] = useState([]);
+    const [actions, setActions] = useState([...recipe.actions || ""]);
 
     const clearActions = (e) => {
         setActions([]);
+    }
+
+    const deleteAction = (index) => {
+        let array = [...actions];
+        array.splice(index, 1);
+        setActions(array);
     }
 
     const completeActions = (e) => {
@@ -52,20 +50,12 @@ function AddSteps() {
     }
 
     return (
-        /* Dark and Light Mode */
-        <ThemeProvider theme={themeMode}>
-        <>
-        <GlobalStyles/>
-            <Toggle theme={theme} toggleTheme={themeToggler} />
-
-
-
         <TestCard>
             <h1 className="display-1 font-brand">add steps:</h1>
             <div className="table-responsive">
                 <table className="table font-book">
                     <TableHeader />
-                    <TableBody tableContents={actions} />
+                    <TableBody tableContents={actions} delete={deleteAction}/>
                 </table>
             </div>
             <form onSubmit={e => onSubmit(e)} className="g-2">
@@ -107,11 +97,9 @@ function AddSteps() {
                     <Link className="rb-btn btn-danger" to={{ pathname: "/create/info" }}>Restart</Link>
                     <button type="button" className="rb-btn btn-warning ml-2" onClick={clearActions}>Reset</button>
                 </div>
-                <button className="rb-btn btn-success" onClick={completeActions}>Complete</button>
+                <button className="rb-btn btn-success" onClick={completeActions}>Complete Recipe</button>
             </div>
         </TestCard>
-        </>
-        </ThemeProvider>
     )
 }
 
