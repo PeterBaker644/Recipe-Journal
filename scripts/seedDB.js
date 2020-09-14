@@ -15,6 +15,14 @@ let recipesSeed = [
     {
         userID:"QHJEh978YHaqyrJyOSrprc34TYV2",
         name: "Chicken Adobo",
+        comments: [
+            {
+                text: "This dish could benefit from a little more soy next time.",
+            },
+            {
+                text:" It came out perfectly with soy addition! ", 
+            }
+        ],
         description:"This classic adobo recipe is simple to make and famous with all who have tasted it. It is delicious served over rice.",
         imageUrls:["imageUrls goes here", "recipePicLink2 goes here"],
         category: "entree",  
@@ -77,6 +85,14 @@ let recipesSeed = [
     {
         userID:"QHJEh978YHaqyrJyOSrprc34TYV2", 
         name: "Egg Salad Sandwich",
+        comments: [
+            {
+                text:"Add an extra egg and .5 tbspn of mayo for extra calories.",
+            },
+            {
+                text:"4 eggs is a bit much for 1 person to eat! Go back to 3 eggs.", 
+            }
+        ],
         description:"This sandwich is so easy to make, you'd wish you've made it earlier.",
         imageUrls:["imageUrls goes here"],
         category:"entree", 
@@ -119,6 +135,11 @@ let recipesSeed = [
     {
         userID:"QHJEh978YHaqyrJyOSrprc34TYV2", 
         name: "Emma's Mom's Soup",
+        comments: [
+            {
+                text: "Amazing dish. No need to change anything",
+            }
+        ],
         description:"Easy to make soup. Brings back memories of home!",
         imageUrls:["imageUrls goes here"],
         category:"soup", 
@@ -175,6 +196,14 @@ let recipesSeed = [
     {
         userID:"QHJEh978YHaqyrJyOSrprc34TYV2", 
         name: "Sugar Cookie",
+        comments: [
+            {
+                text: "These cookies are great! To reduce the amount of sugar, do 3/4 cup instead!",
+            },
+            {
+                text:"Reducing sugar is perfect for those who prefer less sugar!", 
+            }
+        ],
         description:"The best cookies to enjoy anytime of the year!",
         imageUrls:["imageUrls goes here"],
         category:"dessert", 
@@ -250,6 +279,14 @@ let recipesSeed = [
     {
         userID:"QHJEh978YHaqyrJyOSrprc34TYV2", 
         name: "Buttermilk Pancakes",
+        comments: [
+            {
+                text: "This dish is barely enough for 2 people.  Double the amount next time!",
+            },
+            {
+                text:" Doubling the amount will yield leftover. Maybe try adding fruits on top next time.", 
+            }
+        ],
         description:"A decadent weekend breakfast for when you want to treat yourself.",
         imageUrls:["imageUrls goes here"],
         category:"entree", 
@@ -316,6 +353,14 @@ let recipesSeed = [
     {
         userID:"QHJEh978YHaqyrJyOSrprc34TYV2", 
         name: "Pork Ribs",
+        comments: [
+            {
+                text: "This BBQ sauce is too spicy. Cut it with something pickled next time?",
+            },
+            {
+                text:"This dish goes really well with pickled red onions!", 
+            }
+        ],
         description:"A versatile dish to be enjoyed with salad, on a sandwich, or with vegetables and potatoes or rice.",
         imageUrls:["imageUrls goes here"],
         category:"entree", 
@@ -350,7 +395,7 @@ let recipesSeed = [
             },
             {
                 title: "Wrap",
-                text:"Put wire rack in baking sheet. Wrap ribs in foil pack, meat side up on rack.",
+                text:"Put wire rack on baking sheet. Wrap ribs in foil pack, meat side up on rack.",
             },
             {
                 title: "Bake",
@@ -369,6 +414,14 @@ let recipesSeed = [
     {
         userID:"QHJEh978YHaqyrJyOSrprc34TYV2",
         name: "Tortellini Soup",
+        comments: [
+            {
+                text: "I wonder if the recipe comes out okay without the sausuage?",
+            },
+            {
+                text:"Yes, vegetarian works well with it!", 
+            }
+        ],
         description:"A cheese, meaty, Italian pasta dish that is sure to remind you of your trip to Italy!",
         imageUrls:["imageUrls goes here"],
         category:"entree", 
@@ -454,6 +507,14 @@ let recipesSeed = [
     {
         userID:"QHJEh978YHaqyrJyOSrprc34TYV2", 
         name: "Peach Cobbler",
+        comments: [
+            {
+                text: "Yummy! But a little extra sugar might go best with this dish, especially if there is no ice cream!",
+            },
+            {
+                text:"Adding 1/2 cup sugar for the recipe is great, if you're eating with coffee only!", 
+            }
+        ],
         description:"A summer delight, pairs perfectly with ice cream!",
         imageUrls:["imageUrls goes here"],
         category:"dessert", 
@@ -543,6 +604,11 @@ let recipesSeed = [
     {
         userID:"QHJEh978YHaqyrJyOSrprc34TYV2", 
         name: "Zucchini Bread",
+        comments: [
+            {
+                text: "Delicious!!!",
+            }
+        ],
         description:"Perfect for breakfast or as a snack!",
         imageUrls:["imageUrls goes here"],
         category:"dessert", 
@@ -627,6 +693,14 @@ let recipesSeed = [
     {
         userID:"3X77tE00c9TQk8QqlGdc51IrfXu1", 
         name: "Homemade Italian Turkey Sausage",
+        comments: [
+            {
+                text: "I wonder if onions would make this sausage more moist?",
+            },
+            {
+                text:"Nope. Onions didn't do much! Skip the onion.", 
+            }
+        ],
         description:"",
         imageUrls:["imageUrls goes here"],
         category:"entree", 
@@ -692,6 +766,11 @@ let recipesSeed = [
     {
         userID:"3X77tE00c9TQk8QqlGdc51IrfXu1", 
         name: "Country Potato Pancake",
+        comments: [
+            {
+                text: "Had some sour cream and smoked salmon lying around.  Definitely a great addition!",
+            }
+        ],
         description:"",
         imageUrls:["imageUrls goes here"],
         category:"entree", 
@@ -757,6 +836,14 @@ let recipesSeed = [
     {
         userID:"3X77tE00c9TQk8QqlGdc51IrfXu1",
         name: "Chicken Tacos - the Tahiti Way",
+        comments: [
+            {
+                text: "Lacking text, maybe try pickled red onion and shredded cabbage next time!",
+            },
+            {
+                text:"Yes, texture definitely adds to this dish!", 
+            }
+        ],
         description:"",
         imageUrls:["imageUrls goes here"],
         category:"entree", 
@@ -822,6 +909,11 @@ let recipesSeed = [
     {
         userID:"3X77tE00c9TQk8QqlGdc51IrfXu1", 
         name: "Tomato-Mint Quinoa Salad",
+        comments: [
+            {
+                text: "It looks so pretty!",
+            }
+        ],
         description:"A delicious summer delight using fresh ingredients from the farmer's markets.",
         imageUrls:["imageUrls goes here"],
         category:"entree", 
@@ -914,6 +1006,14 @@ let recipesSeed = [
     {
         userID:"3X77tE00c9TQk8QqlGdc51IrfXu1",
         name: "Mapo Tofu",
+        comments: [
+            {
+                text: "This dish needs a little sauce! Maybe add 2-3 tablespoon of water?",
+            },
+            {
+                text:"Yep, water helps and coats the rice better!", 
+            }
+        ],
         description:"A go-to staple for the days when when you don't have anything in the fridge except for tofu and green onions. Goes well with rice!",
         imageUrls:["imageUrls goes here"],
         category:"entree", 

@@ -11,6 +11,7 @@ import { useDarkMode } from "../../component/DarkMode/useDarkMode";
 import Toggle from "../../component/DarkMode/Toggler";
 import { GlobalStyles } from "../../component/DarkMode/GlobalStyles";
 import { lightTheme, darkTheme } from "../../component/DarkMode/Theme";
+import Countdown from "../../component/CreateRecipe/Countdown";
 
 function Splash() {
     const app = test.firebase_;
@@ -35,6 +36,7 @@ function Splash() {
                     {/* <Link to="/signup" className="btn-secondary rb-btn mx-4">Sign Up</Link> */}
                     {/* <Link to="/Gene" className="btn-secondary rb-btn">Gene's Page</Link> */}
                     {/* <Link to="/create/info" className="btn-secondary rb-btn">Create Recipe</Link> */}
+                    <Link to="/timer" className="btn-secondary rb-btn">Countdown</Link>
                     {!!currentUser ? (
                         <>
                             <Link to="/recipebox" className="btn-secondary rb-btn mr-4">Recipe Box</Link> 
