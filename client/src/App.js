@@ -10,6 +10,8 @@ import Gene from "./pages/gene/Gene";
 import Privacy from "./pages/privacyPolicy/privacyPolicy";
 import RecipeBox from "./pages/recipeBox/RecipeBox";
 import "./style.css";
+import Make from "./component/CreateRecipe/Make";
+import RecipeHistory from "./component/CreateRecipe/RecipeHistory";
 
 function App() {
 
@@ -22,8 +24,10 @@ function App() {
                     <Route exact path="/" component={Splash} />
                     <Route exact path="/login" component={Login} />
                     <PrivateRoute path="/create" component={CreateRecipe} />
+                    <Route exact path="/make" component={Make} />
                     <Route exact path="/privacy" component={Privacy} />
                     <Route exact path="/signup" component={Signup} />
+
                 </Switch>
             </Router>
         </AuthProvider>
