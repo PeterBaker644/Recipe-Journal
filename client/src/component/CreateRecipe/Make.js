@@ -10,15 +10,17 @@ import TableBody from "../DynamicTable/TableBody";
 import Accordion from "./Accordion";
 import Modal from "../../component/Modal/Modal";
 import AllDone from "./AllDone";
+import Countdown from "../../component/CreateRecipe/Countdown";
 
 
 function Make() {
 
-  //modal state
+  //modal state 
   const [status, setStatus] = useState(false);
+  const [timer, setTimer] =useState(false);
   
   const {
-    state: { actions, recipeName },
+    state: { actions, name },
   } = useLocation();
   
   //   const completeRecipe = (e) => {
@@ -28,10 +30,18 @@ function Make() {
   //     });
   //   };
 
+  
+  console.log("recipe name", name);
+
   return (
     <TestCard>
-      <h1 className="display-2 font-brand-small mb-0">{recipeName}</h1>
-      <p1>Timer??</p1>
+      <h1 className="display-2 font-brand-small mb-0">{name}</h1>
+      <button onClick={()=> setTimer(true)} className="rb-btn btn-primary" >Timer</button>  
+      {timer && (
+        <Modal closeModal={() => setTimer(false)}>
+          <Countdown></Countdown>
+        </Modal>
+      )} 
       <hr className="divider-color" />
      
       {actions.map((obj) => {

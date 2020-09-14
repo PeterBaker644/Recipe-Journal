@@ -12,7 +12,7 @@ import Moment from "react-moment";
 
 
 function RecipeHistory(recipe) {
-  // console.log("recipe", recipe);
+  console.log("recipe", recipe);
   // console.log("recipe Actions Title", recipe.recipe.actions[0].title);
   // console.log("recipe Actions Title", recipe.recipe.actions[0].text);
   // console.log("recipe comments", recipe.recipe.comments[0].text);
