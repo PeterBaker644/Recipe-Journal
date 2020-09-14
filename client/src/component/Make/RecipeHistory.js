@@ -1,13 +1,13 @@
 import React, { useState, Fragment } from "react";
 import { Link, useHistory, useLocation } from "react-router-dom";
 import API from "../../utils/API";
-import { useRecipe } from "./RecipeContext";
+import { useRecipe } from "../CreateRecipe/RecipeContext";
 // import TableBody from "../DynamicTable/TableBody"
 // import TableHeader from "../DynamicTable/TableHeader"
-import CardComplete from "./CardComplete";
+import CardComplete from "../CreateRecipe/CardComplete";
 import TableBody from "../DynamicTable/TableBody";
 import TestCard from "../TestCard";
-import Accordion from "../CreateRecipe/Accordion";
+import Accordion from "./Accordion";
 import Moment from "react-moment";
 
 

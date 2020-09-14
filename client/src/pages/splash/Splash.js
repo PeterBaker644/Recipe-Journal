@@ -11,7 +11,7 @@ import { useDarkMode } from "../../component/DarkMode/useDarkMode";
 import Toggle from "../../component/DarkMode/Toggler";
 import { GlobalStyles } from "../../component/DarkMode/GlobalStyles";
 import { lightTheme, darkTheme } from "../../component/DarkMode/Theme";
-import Countdown from "../../component/CreateRecipe/Countdown";
+import Countdown from "../../component/Make/Countdown";
 
 function Splash() {
     const app = test.firebase_;
