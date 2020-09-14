@@ -25,6 +25,7 @@ function App() {
                     <Route exact path="/privacy" component={Privacy} />
                     <Route exact path="/signup" component={Signup} />
                 </Switch>
+                <Route path="/privacy"/>
             </Router>
         </AuthProvider>
     );

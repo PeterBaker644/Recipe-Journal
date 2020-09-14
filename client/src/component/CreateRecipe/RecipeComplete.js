@@ -2,20 +2,13 @@ import React from "react";
 import { Link, useHistory } from "react-router-dom";
 import API from "../../utils/API";
 import { useRecipe } from "../../component/CreateRecipe/RecipeContext";
-// import TableBody from "../DynamicTable/TableBody"
-// import TableHeader from "../DynamicTable/TableHeader"
-import TestCard from "../TestCard"
-import CardComplete from "./CardComplete"
-import { ThemeProvider } from "styled-components";
-import { useDarkMode } from "../../component/DarkMode/useDarkMode";
-import Toggle from "../../component/DarkMode/Toggler";
-import { GlobalStyles } from "../../component/DarkMode/GlobalStyles";
-import { lightTheme, darkTheme } from "../../component/DarkMode/Theme";
+// import TableBody from "../DynamicTable/TableBody";
+// import TableHeader from "../DynamicTable/TableHeader";
+import TestCard from "../TestCard";
+import CardComplete from "./CardComplete";
+import ls from 'local-storage';
 
 function RecipeComplete() {
-
-    const [theme, themeToggler] = useDarkMode();
-    const themeMode = theme === 'light' ? lightTheme : darkTheme;
 
     const { recipe } = useRecipe();
     const history = useHistory();
@@ -26,19 +19,20 @@ function RecipeComplete() {
 
     const completeRecipe = (e) => {
         e.preventDefault();
+
+        if (recipe._id) {
+            console.log("This recipe has an ID");
+            API.updateRecipe(recipe._id, recipe).then(() => {
+                history.push('/recipebox')
+            })
+        } else {
         API.createRecipe(recipe).then(() => {
             history.push('/recipebox')
         })
+        }
     }
 
     return (
-        /* Dark and Light Mode */
-        <ThemeProvider theme={themeMode}>
-        <>
-        <GlobalStyles/>
-            <Toggle theme={theme} toggleTheme={themeToggler} />
-
-
         <TestCard>
             <CardComplete recipe={recipe}>
             </CardComplete>
@@ -49,8 +43,6 @@ function RecipeComplete() {
                 <button className="rb-btn btn-success" onClick={completeRecipe}>Save Recipe</button>
             </div>
         </TestCard>
-        </>
-        </ThemeProvider>
     )
 }
 

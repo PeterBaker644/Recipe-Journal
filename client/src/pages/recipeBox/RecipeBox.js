@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
+import { Link, useHistory } from "react-router-dom";
 import test from '../../firebase';
+import ls from 'local-storage';
+
 import RecipeCard from "../../component/RecipeBox/RecipeCard";
 import AddRecipe from "../../component/RecipeBox/AddRecipe";
 import Modal from "../../component/Modal/Modal";
@@ -8,11 +11,7 @@ import Box from "../../component/RecipeBox/Box"
 import Header from "../../component/RecipeBox/Header"
 import CardComplete from "../../component/CreateRecipe/CardComplete"
 import '../../component/Modal/Modal.css';
-import { ThemeProvider } from "styled-components";
-import { useDarkMode } from "../../component/DarkMode/useDarkMode";
-import Toggle from "../../component/DarkMode/Toggler";
-import { GlobalStyles } from "../../component/DarkMode/GlobalStyles";
-import { lightTheme, darkTheme } from "../../component/DarkMode/Theme";
+import EditRecipe from "../../component/CreateRecipe/EditRecipe";
 
 const firebase = test.firebase_;
 
@@ -29,13 +28,12 @@ function RecipeBox() {
     const [selected, setSelected] = useState({
         index: ""
     });
-    const [theme, themeToggler] = useDarkMode();
-    const themeMode = theme === 'light' ? lightTheme : darkTheme;
+    const history = useHistory();
     
-
     // Load all recipes and store with setRecipes
     useEffect(() => {
-        loadRecipes()
+        loadRecipes();
+        selectRecipe();
     }, [])
 
     // Loads recipes and set them to recipes
@@ -55,11 +53,24 @@ function RecipeBox() {
         setStatus(true);
     }
 
+    function selectRecipe(recipe) {
+        if (!recipe) {
+            ls.remove("recipe")
+        } else {
+            ls.set("recipe", recipe)
+        }
+    }
+
     function deleteRecipe(event, id) {
         event.stopPropagation()
         API.deleteRecipe(id)
             .then(res => loadRecipes())
             .catch(err => console.log(err));
+    }
+
+    const selectAndGo = () => {
+        selectRecipe(recipes[selected.index]);
+        history.push('/create/info')
     }
 
     const handleInputChange = event => {
@@ -109,13 +120,6 @@ function RecipeBox() {
     }
 
     return (
-        /* Dark and Light Mode */
-        <ThemeProvider theme={themeMode}>
-        <>
-        <GlobalStyles/>
-            <Toggle theme={theme} toggleTheme={themeToggler} />
-
-
         <Box>
             <Header
                 firebase={firebase}
@@ -127,8 +131,6 @@ function RecipeBox() {
             <section >
                 <div className="row row-cols-md-3 row-cols-lg-4">
                     <AddRecipe />
-                    {/* Cards should fill page based on number of recipes users have */}
-                    {/* Example Card... needs data to be added from DB */}
                     {recipes.length ? (
                         <>
                             {filterRecipes(recipes, form.filterBy).map((recipe, index) => {
@@ -147,12 +149,14 @@ function RecipeBox() {
                     {/* This will have more descriptive recipe content */}
                     {status && (<Modal closeModal={() => setStatus(false)}>
                         <CardComplete recipe={recipes[selected.index]}></CardComplete>
+                            <Link className="rb-btn btn-success mb-3 text-center">Make
+                            </Link>
+                            <button type="button" onClick={selectAndGo} className="rb-btn btn-secondary text-center">Edit Recipe
+                            </button>
                     </Modal>)}
                 </div>
             </section>
         </Box>
-        </>
-        </ThemeProvider>
     );
 }
 

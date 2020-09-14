@@ -4,21 +4,12 @@ import { useHistory } from "react-router-dom";
 import TestCard from "../TestCard";
 import TableButton from "../DynamicTable/TableButton";
 import Tag from "./Tag";
-import { ThemeProvider } from "styled-components";
-import { useDarkMode } from "../../component/DarkMode/useDarkMode";
-import Toggle from "../../component/DarkMode/Toggler";
-import { GlobalStyles } from "../../component/DarkMode/GlobalStyles";
-import { lightTheme, darkTheme } from "../../component/DarkMode/Theme";
 
 function RecipeInfo() {
-
-    const [theme, themeToggler] = useDarkMode();
-    const themeMode = theme === 'light' ? lightTheme : darkTheme;
-    
     const { recipe, setValues } = useRecipe();
     const history = useHistory();
 
-    const categories = ['appetizer', 'soup', 'salad', 'entree', 'side', 'dessert'];
+    const categories = ['appetizer', 'soup', 'salad', 'bread', 'entree', 'side', 'dessert', 'snack', 'drink'];
     const initState = ({
         name: recipe.name || "",
         description: recipe.description || "",
@@ -27,7 +18,7 @@ function RecipeInfo() {
 
     const [info, setInfo] = useState(initState);
     const [tag, setTag] = useState("");
-    const [tags, setTags] = useState([]);
+    const [tags, setTags] = useState([...recipe.tags || ""]);
 
     useEffect(() => {
         return () => {
@@ -54,7 +45,6 @@ function RecipeInfo() {
     }
 
     const deleteTag = (index) => {
-        console.log(index)
         let array = [...tags];
         array.splice(index, 1);
         setTags(array);
@@ -72,14 +62,6 @@ function RecipeInfo() {
     }
 
     return (
-        /* Dark and Light Mode */
-        <ThemeProvider theme={themeMode}>
-        <>
-        <GlobalStyles/>
-            <Toggle theme={theme} toggleTheme={themeToggler} />
-
-
-
         <TestCard>
             <h2 className="font-brand">new recipe:</h2>
             <form onSubmit={e => onSubmit(e)}>
@@ -96,7 +78,7 @@ function RecipeInfo() {
                 </div>
                 <div className="form-group">
                     <label className="font-book-italic mt-2">Description:</label>
-                    <input
+                    <textarea
                         type="text"
                         required
                         className="form-control"
@@ -113,10 +95,6 @@ function RecipeInfo() {
                         className="form-select"
                         name="category"
                         defaultValue={recipe.category || "default"}
-                        //avalue of select was a string  array
-                        //new property of category
-                        //display what category so user can see it
-                        //where are info coming from API
                         onChange={e => onChange(e)}
                     >
                         <option className="text-muted" name="default">Select a category...</option>
@@ -150,20 +128,11 @@ function RecipeInfo() {
                         </div>
                     </div>
                     <div>
-                        {recipe.tags[0] ?
-                            <div className="mt-2">
-                                {recipe.tags.map((tag, index) =>
-                                    <Tag key={index} index={index} value={tag} deleteTag={deleteTag} />
-                                )}
-                            </div>
-                        : tags[0] ?
-                            <div className="mt-2">
-                                {tags.map((tag, index) =>
-                                    <Tag key={index} index={index} value={tag} deleteTag={deleteTag} />
-                                )}
-                            </div>
-                        : ""
-                    }
+                        <div className="mt-2">
+                            {tags.map((tag, index) =>
+                                <Tag key={index} index={index} value={tag} deleteTag={deleteTag} />
+                            )}
+                        </div>
                     </div>
                 </div>
 
@@ -176,8 +145,6 @@ function RecipeInfo() {
                 </div>
             </form>
         </TestCard>
-        </>
-        </ThemeProvider>
     )
 }
 

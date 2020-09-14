@@ -36,12 +36,11 @@ module.exports = {
             .catch(err => res.status(422).json(err));
     },
 
-
-    // update: function (req, res) {
-    //     db.RecipesModel
-    //         .findOneAndUpdate({ _id: req.params.id }, req.body)
-    //         .then(dbModelDataResult => res.json(dbModelDataResult))
-    //         .catch(err => res.status(422).json(err));
-    // },
+    update: function (req, res) {
+        db.RecipesModel
+            .findOneAndUpdate({ _id: req.params.id }, req.body)
+            .then(dbModelDataResult => res.json(dbModelDataResult))
+            .catch(err => res.status(422).json(err));
+    },
 
 };

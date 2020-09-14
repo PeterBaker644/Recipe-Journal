@@ -11,16 +11,20 @@ export const RecipeProvider = ({ children }) => {
 
     // console.log("trying to find the recipe")
     // if (ls("recipe")) {
-    //     console.log('there is something')
+    //     console.log('there is something', (ls.get("recipe")));
     // } else {
     //     console.log("there is nothing")
     // }
 
     useEffect(() => {
         console.log("context is refreshed");
+        return () => {
+            console.log("component is unmounting")
+            ls.set("recipe", recipe);
+        }
     })
 
-    const [recipe, setRecipe] = useState({
+    const initState = ls.get("recipe") || {
         userID: user,
         name: "",
         description: "",
@@ -29,7 +33,11 @@ export const RecipeProvider = ({ children }) => {
         tags: [],
         ingredients: [],
         actions: []
-    });
+    };
+
+    // Do we want to store an editting variable in the recipeContext?
+
+    const [recipe, setRecipe] = useState(initState);
 
     const setValues = (values) => {
         setRecipe(prevData => ({
