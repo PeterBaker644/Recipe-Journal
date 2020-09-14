@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import { Link, useHistory, useLocation } from "react-router-dom";
 import API from "../../utils/API";
-import { useRecipe } from "../../component/CreateRecipe/RecipeContext";
+import { useRecipe } from "../CreateRecipe/RecipeContext";
 // import TableBody from "../DynamicTable/TableBody"
 // import TableHeader from "../DynamicTable/TableHeader"
 import TestCard from "../TestCard";
-import CardComplete from "./CardComplete";
+import CardComplete from "../CreateRecipe/CardComplete";
 import TableBody from "../DynamicTable/TableBody";
 import Accordion from "./Accordion";
-import Modal from "../../component/Modal/Modal";
+import Modal from "../Modal/Modal";
 import AllDone from "./AllDone";
-import Countdown from "../../component/CreateRecipe/Countdown";
+import Countdown from "./Countdown";
 
 
 function Make() {
