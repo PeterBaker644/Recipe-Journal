@@ -5,11 +5,13 @@ import TableBody from "../DynamicTable/TableBody";
 import TableHeader from "../DynamicTable/TableHeader";
 import TableButton from "../DynamicTable/TableButton";
 import TestCard from "../TestCard";
+import ExitBtn from "./ExitBtn";
 
 function AddIngredients() {
 
     const { recipe, setValues } = useRecipe();
     const history = useHistory();
+    const editMode = !!recipe._id; 
 
     const initState = ({
         name: "",
@@ -54,7 +56,14 @@ function AddIngredients() {
 
     return (
         <TestCard>
-            <h1 className="display-1 font-brand">add ingredients:</h1>
+            <div className="d-flex justify-content-between">
+                <h2 className="font-brand">
+                    {editMode ? <span>edit ingredients:</span> : <span>add ingredients:</span>}
+                </h2>
+                <Link className="d-flex btn-delete font-sans" to={{ pathname: "/recipebox" }}>
+                    <ExitBtn/>
+                </Link>
+            </div>
             <div className="table-responsive">
                 <table className="table font-book">
                     <TableHeader/>
@@ -109,10 +118,12 @@ function AddIngredients() {
             </form>
             <div className="mt-4 d-flex justify-content-between">
                 <div className="d-flex justify-content-center">
-                    <Link className="rb-btn btn-danger" to={{pathname: "/create/info"}}>Restart</Link>
-                    <button type="button" className="rb-btn btn-warning ml-2" onClick={clearIngredients}>Reset</button>
+                    <Link className="rb-btn btn-primary" to={{pathname: "/create/info"}}>Back</Link>
+                    <button type="button" className="rb-btn btn-danger ml-2" onClick={clearIngredients}>Clear</button>
                 </div>
-                <button className="rb-btn btn-success" onClick={completeIngredients}>Add steps</button>
+                <button className="rb-btn btn-success" onClick={completeIngredients}>
+                    {editMode ? <span>edit steps</span> : <span>add steps</span>}
+                </button>
             </div>
         </TestCard>
     )

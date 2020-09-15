@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { useRecipe } from "../../component/CreateRecipe/RecipeContext";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import TestCard from "../TestCard";
 import TableButton from "../DynamicTable/TableButton";
 import Tag from "./Tag";
+import ExitBtn from "./ExitBtn";
 
 function RecipeInfo() {
     const { recipe, setValues } = useRecipe();
     const history = useHistory();
+    const editMode = !!recipe._id;
 
     const categories = ['appetizer', 'soup', 'salad', 'bread', 'entree', 'side', 'dessert', 'snack', 'drink'];
     const initState = ({
@@ -63,7 +65,14 @@ function RecipeInfo() {
 
     return (
         <TestCard>
-            <h2 className="font-brand">new recipe:</h2>
+            <div className="d-flex justify-content-between">
+                <h2 className="font-brand">
+                    {editMode ? <span>edit recipe:</span> : <span>new recipe:</span>}
+                </h2>
+                <Link className="d-flex btn-delete font-sans" to={{ pathname: "/recipebox" }}>
+                    <ExitBtn/>
+                </Link>
+            </div>
             <form onSubmit={e => onSubmit(e)}>
                 <div className="form-group">
                     <label className="font-book-italic mt-2">Name:</label>
@@ -136,12 +145,15 @@ function RecipeInfo() {
                     </div>
                 </div>
 
-                <div className="form-group">
+                <div className="form-group d-flex justify-content-between mt-3">
+                    <Link className="rb-btn btn-danger d-flex" to={{ pathname: "/recipebox" }}>exit</Link>
                     <button
                         type="submit"
                         value="create"
-                        className="rb-btn btn-primary mt-3"
-                    >Create</button>
+                        className="rb-btn btn-primary"
+                    >
+                        {editMode ? <span>edit ingredients</span> : <span>add ingredients</span>}
+                    </button>
                 </div>
             </form>
         </TestCard>

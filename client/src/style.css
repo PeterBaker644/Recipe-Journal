@@ -171,6 +171,11 @@ h2 {
     color: #EF2D56 !important;
 }
 
+.btn-delete {
+    color: black;
+    text-decoration: none !important;
+}
+
 .btn-delete:hover {
     color: #EF2D56 !important;
 }
