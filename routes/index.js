@@ -27,7 +27,7 @@ try {
 // This function might be able to live in apiRoutes.js. Let me know if you'd rather have it there, or feel free to move it.
 function checkAuth(req, res, next) {
     console.log("================================================")
-    console.log("[SERVER] Beginning Authentication", req.headers);
+    console.log("[SERVER] Beginning Authentication");
     if (req.headers.authorization) {
         admin.auth().verifyIdToken(req.headers.authorization)
             .then(() => {
