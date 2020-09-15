@@ -149,8 +149,10 @@ function RecipeBox() {
                     {/* This will have more descriptive recipe content */}
                     {status && (<Modal closeModal={() => setStatus(false)}>
                         <CardComplete recipe={recipes[selected.index]}></CardComplete>
-                            <Link className="rb-btn btn-success mb-3 text-center">Make
-                            </Link>
+                             <Link
+                              className="rb-btn btn-success mb-3 text-center"
+                              to={{ pathname: "/make", state: recipes[selected.index] }} >
+                              Make </Link>
                             <button type="button" onClick={selectAndGo} className="rb-btn btn-secondary text-center">Edit Recipe
                             </button>
                     </Modal>)}
