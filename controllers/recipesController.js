@@ -37,11 +37,6 @@ module.exports = {
     },
 
     update: function (req, res) {
-        console.log("---------------------------------------------");
-        console.log("req.params");
-        console.log(req.params);
-        console.log("req.params.id");
-        console.log(req.params.id);
         db.RecipesModel
             .findOneAndUpdate({ _id: req.params }, req.body)
             .then(dbModelDataResult => res.json(dbModelDataResult))
