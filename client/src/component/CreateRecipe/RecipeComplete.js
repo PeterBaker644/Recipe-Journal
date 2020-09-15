@@ -6,6 +6,7 @@ import { useRecipe } from "../../component/CreateRecipe/RecipeContext";
 // import TableHeader from "../DynamicTable/TableHeader";
 import TestCard from "../TestCard";
 import CardComplete from "./CardComplete";
+import ExitBtn from "./ExitBtn";
 import ls from 'local-storage';
 
 function RecipeComplete() {
@@ -37,8 +38,9 @@ function RecipeComplete() {
             <CardComplete recipe={recipe}>
             </CardComplete>
             <div className="mt-4 d-flex justify-content-between">
-                <div className="d-flex justify-content-center">
-                    <Link className="rb-btn btn-danger" to={{pathname: "/create/info"}}>Restart</Link>
+                <div className="d-flex">
+                    <Link className="rb-btn btn-primary" to={{pathname: "/create/steps"}}>Back</Link>
+                    <Link className="rb-btn btn-warning ml-md-2" to={{pathname: "/create/info"}}>Restart</Link>
                 </div>
                 <button className="rb-btn btn-success" onClick={completeRecipe}>Save Recipe</button>
             </div>

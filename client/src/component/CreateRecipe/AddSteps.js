@@ -5,6 +5,7 @@ import TableBody from "../DynamicTable/TableBody";
 import TableHeader from "../DynamicTable/TableHeader";
 import TableButton from "../DynamicTable/TableButton";
 import TestCard from "../TestCard";
+import ExitBtn from "./ExitBtn";
 
 function AddSteps() {
 
@@ -17,6 +18,7 @@ function AddSteps() {
     const history = useHistory();
     const [action, setAction] = useState(initState);
     const [actions, setActions] = useState([...recipe.actions || ""]);
+    const editMode = !!recipe._id; 
 
     const clearActions = (e) => {
         setActions([]);
@@ -51,7 +53,14 @@ function AddSteps() {
 
     return (
         <TestCard>
-            <h1 className="display-1 font-brand">add steps:</h1>
+            <div className="d-flex justify-content-between">
+                <h2 className="font-brand">
+                    {editMode ? <span>edit steps:</span> : <span>add steps:</span>}
+                </h2>
+                <Link className="d-flex btn-delete font-sans" to={{ pathname: "/recipebox" }}>
+                    <ExitBtn/>
+                </Link>
+            </div>
             <div className="table-responsive">
                 <table className="table font-book">
                     <TableHeader />
@@ -94,10 +103,12 @@ function AddSteps() {
             </form>
             <div className="mt-4 d-flex justify-content-between">
                 <div className="d-flex justify-content-center">
-                    <Link className="rb-btn btn-danger" to={{ pathname: "/create/info" }}>Restart</Link>
-                    <button type="button" className="rb-btn btn-warning ml-2" onClick={clearActions}>Reset</button>
+                    <Link className="rb-btn btn-primary" to={{ pathname: "/create/ingredients" }}>Back</Link>
+                    <button type="button" className="rb-btn btn-danger ml-2" onClick={clearActions}>Clear</button>
                 </div>
-                <button className="rb-btn btn-success" onClick={completeActions}>Complete Recipe</button>
+                <button className="rb-btn btn-success" onClick={completeActions}>
+                    {editMode ? <span>review changes</span> : <span>complete recipe</span>}
+                </button>
             </div>
         </TestCard>
     )
