@@ -97,6 +97,14 @@ h2 {
     text-transform: uppercase;
 }
 
+.rb-btn-subtle {
+    background: var(--primary-color, white);
+    border: thin solid var(--prime-border, lightgray);
+    color: var(--bs-secondary);
+    border-radius: 0.4rem;
+    padding: 0.5rem 1rem;
+}
+
 .rb-btn-icon {
     background: white;
     color: #ced4da;
@@ -254,4 +262,10 @@ h2 {
 
 .table-style {
     color: var(--table-style, black);
+}
+
+/* This is for testing below: */
+
+input[type="checkbox"] {
+    transform:scale(1.4, 1.4);
 }

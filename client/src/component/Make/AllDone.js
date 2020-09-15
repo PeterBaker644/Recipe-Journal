@@ -1,29 +1,45 @@
-import React, {useState} from "react";
-import API from "../../utils/API"; 
-import { useRecipe } from "../../component/CreateRecipe/RecipeContext";
-import TableBody from "../DynamicTable/TableBody"
-import TableHeader from "../DynamicTable/TableHeader"
-import AddBtn from "../RecipeBox/AddBtn";
+import React, { useEffect, useState } from "react";
+import { Link, useHistory } from "react-router-dom";
+import API from "../../utils/API"
+import ls from "local-storage";
 
 function AllDone() {
 
-    //need to grab values form somewhere?
-    //can we use history? This is a modal?
-    
-    //const { recipe } = useRecipe();
-    //const { setValues } = useRecipe();
-    // const history = useHistory();
-
     // what about dates? does this page help track dates? 
     const [selectedFile, setSelectedFile] = useState();
-    const [comment, setComment] = useState();
-    const [comments, setComments] = useState([]);
-    
-    const onChange = (e) => {
-        // setComment ({...comment, [e.target.name]: e.target.value.toLowerCase()});
-        
+    const [comment, setComment] = useState("");
+    const [recipe, setRecipe] = useState(ls.get("recipe"));
+    const history = useHistory();
+
+    useEffect(() => {
+        console.log(comment);
+        return () => {
+            API.updateRecipe(recipe._id, recipe).then(()=>{
+                console.log("recipe successfully written");
+            })
+        }
+    }, [])
+
+    const submitForms = (route) => {
+        let comments = recipe.comments;
+        comments.push(comment);
+        console.log("Recipe comments as follows:", comments);
+        // setting and uploading the photo logic goes here
+        setRecipe({ ...recipe, comments: comments })
+        switch(route) {
+            case "HOME":
+                history.push('/recipebox');
+                return;
+            case "EDIT":
+                history.push('/create/info');
+                return;
+        }   
     }
-  
+
+    const onChange = (e) => {
+        setComment({...comment, text: e.target.value });
+    }
+
     const fileSelectedHandler = event => {
         console.log("Photo", event.target.files[0]);
         setSelectedFile({
@@ -48,24 +64,23 @@ function AllDone() {
         <>
             <h1 className="display-2 font-brand-small mb-0">all done!</h1>
             <hr className="divider-color" />
-            
 
             <form onSubmit={e => onComplete(e)}>
-            <div className="form-group">
-                    <label className="font-book-italic mt-2">Add Photo:</label>
+                <div className="form-file">
                     <input
                         type="file"
-                        // required
-                        className="form-control"
-                        name="addPhoto"
-                        // value={recipe.comment}
+                        className="form-file-input"
+                        id="filePhoto"
                         onChange={fileSelectedHandler}
                     />
-                    
+                    <label className="form-file-label font-book-italic mb-2">
+                        <span className="form-file-text">Upload a photo...</span>
+                        <span className="form-file-button">Browse</span>
+                    </label>
                 </div>
                 <div className="form-group">
                     <label className="font-book-italic mt-2">Comments:</label>
-                    <input
+                    <textarea
                         type="text"
                         required
                         className="form-control"
@@ -74,32 +89,19 @@ function AllDone() {
                         onChange={e => onChange(e)}
                     />
                 </div>
-                <div className="form-group">
-                {/* DOES THIS SECTION REROUTE US SOMEWHERE ???  INPUT OR BUTTON??*/}
-                    {/* <label className="font-book-italic mt-2">Edit Recipes:</label>
-                    <input
-                        type="text"
-                        required
-                        className="form-control"
-                        name="editRecipes"
-                        // value={recipe.editRecipes}
-                        onChange={e => onChange(e)}
-                    /> */}
-                    <button
-                        type="submit"
-                        value="editRecipe"
-                        className="rb-btn btn-primary mt-3"
-                    >Edit Recipe</button>
-                </div>
-                <div className="form-group">
-                    <button
-                        type="submit"
-                        value="complete"
-                        className="rb-btn btn-primary mt-3"
-                        
-                    >Complete</button>
-                </div>
             </form>
+            <div className="d-flex justify-content-between">
+                <button
+                    type="button"
+                    onClick={() => submitForms("EDIT")}
+                    className="rb-btn btn-warning mt-3"
+                >Edit Recipe</button>
+                <button
+                    type="button"
+                    onClick={() => submitForms("HOME")} 
+                    className="rb-btn btn-primary mt-3"
+                >Return to Recipe Box</button>
+            </div>
         </>
     )
 }

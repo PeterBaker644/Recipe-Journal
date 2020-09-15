@@ -63,7 +63,7 @@ function AddSteps() {
             </div>
             <div className="table-responsive">
                 <table className="table font-book">
-                    <TableHeader />
+                    {/* <TableHeader /> */}
                     <TableBody tableContents={actions} delete={deleteAction}/>
                 </table>
             </div>
