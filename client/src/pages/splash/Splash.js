@@ -36,7 +36,6 @@ function Splash() {
                     {/* <Link to="/signup" className="btn-secondary rb-btn mx-4">Sign Up</Link> */}
                     {/* <Link to="/Gene" className="btn-secondary rb-btn">Gene's Page</Link> */}
                     {/* <Link to="/create/info" className="btn-secondary rb-btn">Create Recipe</Link> */}
-                    <Link to="/timer" className="btn-secondary rb-btn">Countdown</Link>
                     {!!currentUser ? (
                         <>
                             <Link to="/recipebox" className="btn-secondary rb-btn mr-4">Recipe Box</Link> 
