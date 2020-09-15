@@ -12,6 +12,7 @@ import Header from "../../component/RecipeBox/Header"
 import CardComplete from "../../component/CreateRecipe/CardComplete"
 import '../../component/Modal/Modal.css';
 import EditRecipe from "../../component/CreateRecipe/EditRecipe";
+import RecipeHistory from "../../component/Make/RecipeHistory";
 
 const firebase = test.firebase_;
 
@@ -19,6 +20,7 @@ function RecipeBox() {
 
     const user = firebase.auth().currentUser.uid
     const [status, setStatus] = useState(false);
+    const [statusModal, setStatusModal] = useState(false);
     // Setting component intial state
     const [recipes, setRecipes] = useState([]);
     const [form, setForm] = useState({
@@ -51,6 +53,7 @@ function RecipeBox() {
         // console.log("this is a test", index)
         setSelected({ index: index })
         setStatus(true);
+        setStatusModal(false);
     }
 
     function selectRecipe(recipe) {
@@ -119,6 +122,11 @@ function RecipeBox() {
         return (arrayFiltered);
     }
 
+    const updateModals = () => {
+      setStatus(false);
+      setStatusModal(true);
+    }
+
     return (
         <Box>
             <Header
@@ -155,7 +163,15 @@ function RecipeBox() {
                               Make </Link>
                             <button type="button" onClick={selectAndGo} className="rb-btn btn-secondary text-center">Edit Recipe
                             </button>
+                            <button type="button" onClick={updateModals} className="rb-btn btn-secondary text-center"> Recipe History
+                            </button>
                     </Modal>)}
+                    
+                    {statusModal && (
+                        <Modal closeModal={() => setStatusModal(false)}>
+                            <RecipeHistory recipe={recipes[selected.index]}></RecipeHistory>
+                        </Modal>
+                    )}
                 </div>
             </section>
         </Box>
