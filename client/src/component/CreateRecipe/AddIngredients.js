@@ -66,7 +66,7 @@ function AddIngredients() {
             </div>
             <div className="table-responsive">
                 <table className="table font-book">
-                    <TableHeader/>
+                    <TableHeader contents={recipe.ingredients}/>
                     {/* This really ought to be fixed at some point to include table headers */}
                     <TableBody tableContents={ingredients} delete={deleteIngredient}/>
                 </table>
