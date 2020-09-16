@@ -97,10 +97,28 @@ function Genepagetest() {
             .catch(err => console.log(err));
     };
 
+
+    const upload = event => {
+        var file = 
+    };
+    const choosefile = event => {
+        // event.preventDefault();
+        // API.getOneRecipe("5f5550b4ea82aa49a4f93a84")
+        //     .then(res => console.log(res.data))
+        //     .catch(err => console.log(err));
+    };
+
     return (
         <div>
 
             <h1>Genes testing page</h1>
+            <button onClick={upload} className="btn btn-primary">
+                {" "}upload{" "}
+            </button>
+            <button onClick={choosefile} className="btn btn-primary">
+                {" "}choosefile{" "}
+            </button>
+
             <button onClick={deleteRecipe} className="btn btn-primary">
                 {" "}deleteRecipe Test{" "}
             </button>
