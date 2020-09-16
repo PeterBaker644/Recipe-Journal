@@ -734,7 +734,7 @@ let recipesSeed = [
                 text:"Nope. Onions didn't do much! Skip the onion.", 
             }
         ],
-        description:"",
+        description:"Easy homemade suasage that you can customize with any type of meats.",
         imageUrls:["imageUrls goes here"],
         category:"entree", 
         tags: [
@@ -808,7 +808,7 @@ let recipesSeed = [
                 text: "Had some sour cream and smoked salmon lying around.  Definitely a great addition!",
             }
         ],
-        description:"",
+        description:"A great savory pancake dish that you can swap in for a change of scene.",
         imageUrls:["imageUrls goes here"],
         category:"entree", 
         tags: [
@@ -885,7 +885,7 @@ let recipesSeed = [
                 text:"Yes, texture definitely adds to this dish!", 
             }
         ],
-        description:"",
+        description:"This recipe is from my favorite taco truck on last trip to Portland.",
         imageUrls:["imageUrls goes here"],
         category:"entree", 
         tags: [
