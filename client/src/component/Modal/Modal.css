@@ -26,3 +26,31 @@
 .close-modal {
     color: var(--close-modal, black);
 }
+
+
+@media (max-width: 768px) {
+    .modal-content {
+        width: 60vw;
+    }
+}
+
+@media (max-width: 576px) {
+    .modal-content {
+        width: 70vw;
+    }
+}
+
+/* iPhone X, Pixel 2 */
+@media (max-width: 415px) {
+    .modal-content {
+        width: 85vw;
+    }
+}
+
+/* Galaxy S5 */
+@media (max-width: 360px) {
+    .modal-content {
+        width: 90vw;
+    }
+}
+

@@ -11,49 +11,48 @@ import Accordion from "./Accordion";
 import Moment from "react-moment";
 
 
-function RecipeHistory(recipe) {
-  console.log("recipe", recipe);
-  // console.log("recipe Actions Title", recipe.recipe.actions[0].title);
-  // console.log("recipe Actions Title", recipe.recipe.actions[0].text);
-  // console.log("recipe comments", recipe.recipe.comments[0].text);
-  // console.log(
-  //   "recipe comments dateCreated",
-  //   recipe.recipe.comments[0].dateCreated
-  // );
+function RecipeHistory({ recipe, flipCard }) {
 
- 
-
-  return (
-    <>
-      <h1 className="display-2 font-brand-small mb-0">Recipe History </h1>
-      <hr className="divider-color" />
-
-      <div >
-        <table className="table font-book">
-          <thead>
-            <tr>
-              <th>Date</th>
-              <th>Comment</th>
-            </tr>
-          </thead>
-          <tbody className="table-style">
-            {recipe.recipe.comments.map((item) => {
-              return (
-                <tr>
-                  <td>
-                    <Moment format="MMM Do YY" parse="YYYY-MM-DD">
-                      {item.dateCreated}
-                    </Moment>
-                  </td>
-                  <td>{item.text}</td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
-      </div>
-    </>
-  );
+    return (
+        <>
+            <div className="d-flex justify-content-between">
+                <h2 className="display-2 font-brand-small">
+                    {recipe.name}
+                </h2>
+                <div>
+                    <button type="button" className="rb-btn-subtle font-book-italic mr-3 mt-2" onClick={() => flipCard()}>
+                        Front Side
+                    </button>
+                </div>
+            </div>
+            <hr className="divider-color" />
+            <div >
+                <h1 className="rb-btn">History</h1>
+                <table className="table font-book">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Comment</th>
+                        </tr>
+                    </thead>
+                    <tbody className="table-style">
+                        {recipe.comments.map((item) => {
+                            return (
+                                <tr key={item._id}>
+                                    <td>
+                                        <Moment format="MMM Do YY" parse="YYYY-MM-DD">
+                                            {item.dateCreated}
+                                        </Moment>
+                                    </td>
+                                    <td>{item.text}</td>
+                                </tr>
+                            );
+                        })}
+                    </tbody>
+                </table>
+            </div>
+        </>
+    );
 }
 
 export default RecipeHistory;

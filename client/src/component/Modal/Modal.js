@@ -27,7 +27,7 @@ const Modal = (props) => {
     return (
         <div className="modal-overlay">
             <div className="modal-content">
-                { closeIcon() }
+                {props.noClose ? "" : closeIcon()}
                 {props.children}
             </div>
         </div>

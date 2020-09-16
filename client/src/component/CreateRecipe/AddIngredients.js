@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { useRecipe } from "../../component/CreateRecipe/RecipeContext";
 import TableBody from "../DynamicTable/TableBody";
+// import TableControl from "../DynamicTable/TableControl";
 import TableHeader from "../DynamicTable/TableHeader";
 import TableButton from "../DynamicTable/TableButton";
 import TestCard from "../TestCard";
@@ -66,9 +67,10 @@ function AddIngredients() {
             </div>
             <div className="table-responsive">
                 <table className="table font-book">
-                    <TableHeader/>
+                    {ingredients.length ? <TableHeader contents={ingredients}/> : null}
                     {/* This really ought to be fixed at some point to include table headers */}
                     <TableBody tableContents={ingredients} delete={deleteIngredient}/>
+                    {/* <TableControl ingredients={ingredients}></TableControl> */}
                 </table>
             </div>
             <form onSubmit={e => onSubmit(e)} className="row g-2">
@@ -110,7 +112,7 @@ function AddIngredients() {
                 <div className="col-1 d-flex align-items-center">
                     <button 
                         type="submit" 
-                        className="rb-btn-icon btn-light p-0"
+                        className="rb-btn-icon btn-light p-0 btn-transparent"
                     >
                         <TableButton/>
                     </button>
