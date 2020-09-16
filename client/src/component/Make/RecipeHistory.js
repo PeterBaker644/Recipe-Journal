@@ -25,11 +25,11 @@ function RecipeHistory({ recipe, flipCard }) {
                     </button>
                 </div>
             </div>
-            <hr className="divider-color" />
+            <span className="divider-color"></span>
             <div >
                 <h1 className="rb-btn">History</h1>
                 <table className="table font-book">
-                    <thead>
+                    <thead className="table-head-style">
                         <tr>
                             <th>Date</th>
                             <th>Comment</th>

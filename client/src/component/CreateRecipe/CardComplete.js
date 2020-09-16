@@ -27,8 +27,10 @@ function CardComplete({ recipe, flipCard }) {
                     </div>
                 )}
             </div>
-            <hr className="divider-color" />
-            <span className="font-book text-center">{recipe.description}</span>
+            <span className="divider-color"></span>
+            <section className="text-center">
+                <span className="font-book">{recipe.description}</span>
+            </section>
             <span className="text-smaller font-book-italic text-truncate divider m-2 mb-3">
                 Tags: {recipe.tags.join(", ")}
             </span>

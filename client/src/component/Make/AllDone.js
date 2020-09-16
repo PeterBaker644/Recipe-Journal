@@ -63,7 +63,7 @@ function AllDone() {
     return (
         <>
             <h1 className="display-2 font-brand-small mb-0">all done!</h1>
-            <hr className="divider-color" />
+            <span className="divider-color"></span>
 
             <form onSubmit={e => onComplete(e)}>
                 <div className="form-file">
@@ -94,12 +94,12 @@ function AllDone() {
                 <button
                     type="button"
                     onClick={() => submitForms("EDIT")}
-                    className="rb-btn btn-warning mt-3"
+                    className="rb-btn btn-warning mt-3 mr-1"
                 >Edit Recipe</button>
                 <button
                     type="button"
                     onClick={() => submitForms("HOME")} 
-                    className="rb-btn btn-primary mt-3"
+                    className="rb-btn btn-primary mt-3 ml-1"
                 >Return to Recipe Box</button>
             </div>
         </>

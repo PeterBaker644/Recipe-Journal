@@ -9,6 +9,7 @@ export const lightTheme = {
     divider: '#ebebeb',
     closeModal: 'black',
     tableStyle: '#363537',
+    close: 'black',
 }
 
 export const darkTheme = {
@@ -22,4 +23,5 @@ export const darkTheme = {
     divider: '#FFF',
     closeModal: 'white',
     tableStyle: 'lightgray',
+    close: 'white',
 }

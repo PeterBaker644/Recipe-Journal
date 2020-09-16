@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Timer from "react-compound-timer";
 import FontAwesome from 'react-fontawesome';
+import Collapse from "react-bootstrap/Collapse";
 
 function Accordion(props) {
 
@@ -62,8 +63,8 @@ function Accordion(props) {
 
     return (
         <>
-            <div className="accordian">
-                <div onClick={isLocked ? () => ('') : () => setIsOpen(!isOpen)} className="accordian-header">
+            <div className="accordion">
+                <div onClick={isLocked ? ()=>('') : () => setIsOpen(!isOpen)} aria-expanded={isOpen} aria-controls="collapse" className="accordion-header">
                     {/* DO WE NEED THESE CHECKBOXES? CAN WE CREATE NEW COMPONENTS FOR THEM? */}
                     <h4 className="rb-btn d-flex justify-content-between align-items-center">
                         <div>
@@ -101,15 +102,14 @@ function Accordion(props) {
                             </Timer>
                             : null}
                     </h4>
-                    <div className="accordion-indicator"></div>
                 </div>
+                <Collapse in={isOpen}>
+                    <div id="collapse">
+                        {props.text ? <li className="font-book my-4">{props.text}</li> : ""}
+                        {props.children}
+                    </div>
+                </Collapse>
             </div>
-            {isOpen && (
-                <div className="">
-                    {props.text ? <li className="font-book my-4">{props.text}</li> : ""}
-                    {props.children}
-                </div>
-            )}
         </>
     );
 }

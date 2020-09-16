@@ -9,6 +9,7 @@ export const GlobalStyles = createGlobalStyle`
         --divider-color: ${({ theme }) => theme.divider};
         --close-modal: ${({ theme }) => theme.closeModal};
         --table-style: ${({ theme }) => theme.tableStyle};
+        --close: ${({ theme }) => theme.close};
         transition: all 0.50s linear;
     }
     body {
