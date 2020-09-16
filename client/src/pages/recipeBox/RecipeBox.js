@@ -8,11 +8,6 @@ import Box from "../../component/RecipeBox/Box"
 import Header from "../../component/RecipeBox/Header"
 import CardComplete from "../../component/CreateRecipe/CardComplete"
 import '../../component/Modal/Modal.css';
-import { ThemeProvider } from "styled-components";
-import { useDarkMode } from "../../component/DarkMode/useDarkMode";
-import Toggle from "../../component/DarkMode/Toggler";
-import { GlobalStyles } from "../../component/DarkMode/GlobalStyles";
-import { lightTheme, darkTheme } from "../../component/DarkMode/Theme";
 
 const firebase = test.firebase_;
 
@@ -29,9 +24,6 @@ function RecipeBox() {
     const [selected, setSelected] = useState({
         index: ""
     });
-    const [theme, themeToggler] = useDarkMode();
-    const themeMode = theme === 'light' ? lightTheme : darkTheme;
-    
 
     // Load all recipes and store with setRecipes
     useEffect(() => {
@@ -109,13 +101,6 @@ function RecipeBox() {
     }
 
     return (
-        /* Dark and Light Mode */
-        <ThemeProvider theme={themeMode}>
-        <>
-        <GlobalStyles/>
-            <Toggle theme={theme} toggleTheme={themeToggler} />
-
-
         <Box>
             <Header
                 firebase={firebase}
@@ -151,8 +136,6 @@ function RecipeBox() {
                 </div>
             </section>
         </Box>
-        </>
-        </ThemeProvider>
     );
 }
 

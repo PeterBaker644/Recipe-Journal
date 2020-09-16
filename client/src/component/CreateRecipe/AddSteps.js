@@ -5,16 +5,8 @@ import TableBody from "../DynamicTable/TableBody";
 import TableHeader from "../DynamicTable/TableHeader";
 import TableButton from "../DynamicTable/TableButton";
 import TestCard from "../TestCard";
-import { ThemeProvider } from "styled-components";
-import { useDarkMode } from "../../component/DarkMode/useDarkMode";
-import Toggle from "../../component/DarkMode/Toggler";
-import { GlobalStyles } from "../../component/DarkMode/GlobalStyles";
-import { lightTheme, darkTheme } from "../../component/DarkMode/Theme";
 
 function AddSteps() {
-
-    const [theme, themeToggler] = useDarkMode();
-    const themeMode = theme === 'light' ? lightTheme : darkTheme;
     
     const initState = {
         title: "",
@@ -52,13 +44,6 @@ function AddSteps() {
     }
 
     return (
-        /* Dark and Light Mode */
-        <ThemeProvider theme={themeMode}>
-        <>
-        <GlobalStyles/>
-            <Toggle theme={theme} toggleTheme={themeToggler} />
-
-
 
         <TestCard>
             <h1 className="display-1 font-brand">add steps:</h1>
@@ -84,7 +69,7 @@ function AddSteps() {
                         <div className="d-flex align-items-center ml-2">
                             <button
                                 type="submit"
-                                className="rb-btn-icon btn-light p-0"
+                                className="rb-btn-icon btn-light p-0 btn-transparent"
                             >
                                 <TableButton />
                             </button>
@@ -110,8 +95,6 @@ function AddSteps() {
                 <button className="rb-btn btn-success" onClick={completeActions}>Complete</button>
             </div>
         </TestCard>
-        </>
-        </ThemeProvider>
     )
 }
 

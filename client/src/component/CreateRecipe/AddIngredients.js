@@ -5,16 +5,8 @@ import TableBody from "../DynamicTable/TableBody";
 import TableHeader from "../DynamicTable/TableHeader";
 import TableButton from "../DynamicTable/TableButton";
 import TestCard from "../TestCard";
-import { ThemeProvider } from "styled-components";
-import { useDarkMode } from "../../component/DarkMode/useDarkMode";
-import Toggle from "../../component/DarkMode/Toggler";
-import { GlobalStyles } from "../../component/DarkMode/GlobalStyles";
-import { lightTheme, darkTheme } from "../../component/DarkMode/Theme";
 
 function AddIngredients() {
-
-    const [theme, themeToggler] = useDarkMode();
-    const themeMode = theme === 'light' ? lightTheme : darkTheme;
 
     const { setValues } = useRecipe();
     const history = useHistory();
@@ -54,12 +46,6 @@ function AddIngredients() {
     }
 
     return (
-        /* Dark and Light Mode */
-        <ThemeProvider theme={themeMode}>
-        <>
-        <GlobalStyles/>
-            <Toggle theme={theme} toggleTheme={themeToggler} />
-
 
         <TestCard>
             <h1 className="display-1 font-brand">add ingredients:</h1>
@@ -108,7 +94,7 @@ function AddIngredients() {
                 <div className="col-1 d-flex align-items-center">
                     <button 
                         type="submit" 
-                        className="rb-btn-icon btn-light p-0"
+                        className="rb-btn-icon btn-light p-0 btn-transparent"
                     >
                         <TableButton/>
                     </button>
@@ -122,8 +108,6 @@ function AddIngredients() {
                 <button className="rb-btn btn-success" onClick={completeIngredients}>Add steps</button>
             </div>
         </TestCard>
-        </>
-        </ThemeProvider>
     )
 }
 

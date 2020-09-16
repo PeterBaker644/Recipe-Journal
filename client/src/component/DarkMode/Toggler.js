@@ -1,24 +1,24 @@
 import React from 'react'
 import { func, string } from 'prop-types';
-import styled from "styled-components"
-/*const Button = styled.button`
-    background: ${({ theme }) => theme.background};
-    border: 2px solid ${({ theme }) => theme.toggleBorder};
-    color: ${({ theme }) => theme.text};
-    border-radius: 30px;
-    cursor: pointer;
-    font-size:0.8rem;
-    padding: 0.6rem;
-}`;*/
+
 
 const Toggle = ({theme,  toggleTheme }) => {
+    const isDark = theme === 'dark';
     return (
-        /*<Button onClick={toggleTheme} >
-          Switch Theme
-        </Button>*/
+        
         <div className="form-check form-switch mt-1 ml-2">
-            <input className="form-check-input" onClick={toggleTheme} type="checkbox" id="flexSwitch"></input>
-            <label className="form-check-label" for="flexSwitch">Dark Mode</label>
+            <input 
+                checked={isDark}
+                className="form-check-input" 
+                onClick={toggleTheme} 
+                type="checkbox" 
+                id="flexSwitch">
+            </input>
+            <label 
+                className="form-check-label" 
+                htmlFor="flexSwitch">
+                    {theme === 'light' ? <i className='fas fa-sun'></i> : <i className='fas fa-moon'></i>}
+            </label>
         </div>
     );
 };

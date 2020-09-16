@@ -4,16 +4,8 @@ import { useHistory } from "react-router-dom";
 import TestCard from "../TestCard";
 import TableButton from "../DynamicTable/TableButton";
 import Tag from "./Tag";
-import { ThemeProvider } from "styled-components";
-import { useDarkMode } from "../../component/DarkMode/useDarkMode";
-import Toggle from "../../component/DarkMode/Toggler";
-import { GlobalStyles } from "../../component/DarkMode/GlobalStyles";
-import { lightTheme, darkTheme } from "../../component/DarkMode/Theme";
 
 function RecipeInfo() {
-
-    const [theme, themeToggler] = useDarkMode();
-    const themeMode = theme === 'light' ? lightTheme : darkTheme;
     
     const { recipe, setValues } = useRecipe();
     const [tag, setTag] = useState("");
@@ -53,14 +45,6 @@ function RecipeInfo() {
     }
 
     return (
-        /* Dark and Light Mode */
-        <ThemeProvider theme={themeMode}>
-        <>
-        <GlobalStyles/>
-            <Toggle theme={theme} toggleTheme={themeToggler} />
-
-
-
         <TestCard>
             <h2 className="font-brand">new recipe:</h2>
             <form onSubmit={e => onSubmit(e)}>
@@ -150,8 +134,6 @@ function RecipeInfo() {
                 </div>
             </form>
         </TestCard>
-        </>
-        </ThemeProvider>
     )
 }
 
