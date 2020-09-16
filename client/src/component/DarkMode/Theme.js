@@ -6,9 +6,9 @@ export const lightTheme = {
     background: '#FFF',
     hover: 'rgba(0,0,0,0.15)',
     recipetext: '#737373',
-    divider: '#8b95a5',
+    divider: '#ebebeb',
     closeModal: 'black',
-    tableStyle: 'black',
+    tableStyle: '#363537',
 }
 
 export const darkTheme = {

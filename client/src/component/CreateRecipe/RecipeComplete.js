@@ -35,8 +35,7 @@ function RecipeComplete() {
 
     return (
         <TestCard>
-            <CardComplete recipe={recipe}>
-            </CardComplete>
+            <CardComplete recipe={recipe} />
             <div className="mt-4 d-flex justify-content-between">
                 <div className="d-flex">
                     <Link className="rb-btn btn-primary" to={{pathname: "/create/steps"}}>Back</Link>

@@ -112,7 +112,7 @@ function AddIngredients() {
                 <div className="col-1 d-flex align-items-center">
                     <button 
                         type="submit" 
-                        className="rb-btn-icon btn-light p-0"
+                        className="rb-btn-icon btn-light p-0 btn-transparent"
                     >
                         <TableButton/>
                     </button>

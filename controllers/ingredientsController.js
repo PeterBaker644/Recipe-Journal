@@ -1,36 +1,35 @@
 const db = require("../models");
 
 module.exports = {
+    //TODO filter by name
     findAll: function (req, res) {
         db.IngredientsModel
-            .find(req.query)
-            // .sort({ name })
+            .find()
+            .sort({ usedCount })
             .then(dbModelDataResult => res.json(dbModelDataResult))
             .catch(err => res.status(422).json(err));
     },
-    //only find all is working at the moment
-    findById: function (req, res) {
-        db.IngredientsModel
-            .findById(req.params.id)
-            .then(dbModelDataResult => res.json(dbModelDataResult))
-            .catch(err => res.status(422).json(err));
-    },
-    create: function (req, res) {
-        db.IngredientsModel
-            .create(req.body)
-            .then(dbModelDataResult => res.json(dbModelDataResult))
-            .catch(err => res.status(422).json(err));
-    },
-    update: function (req, res) {
-        db.IngredientsModel
-            .findOneAndUpdate({ _id: req.params.id }, req.body)
-            .then(dbModelDataResult => res.json(dbModelDataResult))
-            .catch(err => res.status(422).json(err));
-    },
-    remove: function (req, res) {
-        db.IngredientsModel
-            .findById({ _id: req.params.id })
-            .then(dbModelDataResult => dbModelDataResult.remove())
+
+    updateIngredientCount: function (req, res) {
+
+        // console.log("[addingredients page] sending ingredients list API",ingredients );
+        // API.updateIngredientCount(ingredients).then(() => {
+        //     console.log('pushed ingredients and updated count');
+        // })
+
+
+        let ingredientArray = [];
+        for (i in req.body) {
+            let newThing = {
+                updateOne: {
+                    filter: {name: req.body[i].name},
+                    update: { $inc: { usedCount: 1 }},
+                    upsert: true
+                }
+            }
+            ingredientArray.push(newThing);
+        }
+        db.IngredientsModel.bulkWrite(ingredientArray)
             .then(dbModelDataResult => res.json(dbModelDataResult))
             .catch(err => res.status(422).json(err));
     }

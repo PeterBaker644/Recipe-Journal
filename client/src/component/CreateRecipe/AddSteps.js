@@ -83,7 +83,7 @@ function AddSteps() {
                         <div className="d-flex align-items-center ml-2">
                             <button
                                 type="submit"
-                                className="rb-btn-icon btn-light p-0"
+                                className="rb-btn-icon btn-light p-0 btn-transparent"
                             >
                                 <TableButton />
                             </button>
