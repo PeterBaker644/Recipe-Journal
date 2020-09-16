@@ -21,7 +21,7 @@ function RecipeHistory({ recipe, flipCard }) {
                 </h2>
                 <div>
                     <button type="button" className="rb-btn-subtle font-book-italic mr-3 mt-2" onClick={() => flipCard()}>
-                        Front Side
+                        Recipe
                     </button>
                 </div>
             </div>

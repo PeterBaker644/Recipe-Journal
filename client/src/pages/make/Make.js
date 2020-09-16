@@ -62,7 +62,7 @@ function Make() {
                 </div>
             </Accordion>
             {recipe.actions.map((obj) => {
-                return <Accordion key={obj.title} title={obj.title} text={obj.text} check={true} />;
+                return <Accordion key={obj.title} title={obj.title} text={obj.text} check={true} timer={true}/>;
             })}
 
             

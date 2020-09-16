@@ -37,7 +37,7 @@ function RecipeBox() {
 
     // Loads recipes and set them to recipes
     function loadRecipes() {
-        API.getUserRecipes(user)
+        API.getAllRecipes(user)
             .then(res => {
                 setRecipes(res.data);
                 // console.log(res.data);

@@ -22,7 +22,7 @@ function CardComplete({ recipe, flipCard }) {
                 ) : (
                     <div>
                         <button type="button" className="rb-btn-subtle font-book-italic mr-3 mt-2" onClick={() => flipCard()}>
-                            Back Side
+                            History
                         </button>
                     </div>
                 )}
