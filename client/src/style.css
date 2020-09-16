@@ -105,6 +105,10 @@ h2 {
     padding: 0.5rem 1rem;
 }
 
+.rb-btn-subtle:hover {
+    box-shadow: -2px 4px 16px 0px var(--card-hover, rgba(0,0,0,0.05));
+}
+
 .rb-btn-icon {
     background: white;
     color: #ced4da;

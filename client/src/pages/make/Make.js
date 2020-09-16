@@ -43,7 +43,7 @@ function Make() {
                     <Countdown></Countdown>
                 </Modal>
             )} */}
-            <hr className="divider-color" />
+            <span className="divider-color"></span>
             <span className="font-book text-center">{recipe.description}</span>
             <span className="text-smaller font-book-italic text-truncate divider m-2 mb-3">
                 Tags: {recipe.tags.join(", ")}
@@ -60,7 +60,7 @@ function Make() {
                 </div>
             </Accordion>
             {recipe.actions.map((obj) => {
-                return <Accordion key={obj.title} title={obj.title} text={obj.text} check={true} />;
+                return <Accordion key={obj.title} title={obj.title} text={obj.text} check={true} timer={true}/>;
             })}
 
             <hr className="divider-color" />
