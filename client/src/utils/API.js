@@ -26,7 +26,6 @@ firebase.auth().onAuthStateChanged(function (user) {
     }
 });
 
-// The getRecipes method retrieves recipes from the server
 export default {
     getAllRecipes: function () {
         return authorize.get("/api/recipes");
@@ -51,5 +50,9 @@ export default {
     },
     getAllIngredients: function () {
         return authorize.get("/api/Ingredients");
+    },
+    updateIngredientCount: function (Ingredientlist) {
+        console.log("[API] updating ingredient count:", Ingredientlist);
+        return authorize.put("/api/Ingredients", Ingredientlist);
     },
 };
