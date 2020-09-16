@@ -7,10 +7,6 @@ import './firebaseui-styling.css';
 import { AuthContext } from "../../component/Auth";
 
 function Login({history}) {
-<<<<<<< HEAD
-    
-=======
->>>>>>> origin
     // This is some crazy bullshit and I have no idea why it's not working correctly. v
     const firebase = test.firebase_;
     const [userCred, setUserCred] = useState({});
@@ -48,10 +44,6 @@ function Login({history}) {
     }
 
     return (
-<<<<<<< HEAD
-
-=======
->>>>>>> origin
         <TestCard>
             {currentUser ? (
                 history.push("/recipebox")

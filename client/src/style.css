@@ -262,7 +262,6 @@ h2 {
 }
 
 .table-style {
-<<<<<<< HEAD
     color: var(--table-style, #363537);
 }
 
@@ -294,13 +293,3 @@ h2 {
 }
 
 
-=======
-    color: var(--table-style, black);
-}
-
-/* This is for testing below: */
-
-input[type="checkbox"] {
-    transform:scale(1.4, 1.4);
-}
->>>>>>> origin
