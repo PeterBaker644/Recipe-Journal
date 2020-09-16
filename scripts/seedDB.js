@@ -75,10 +75,12 @@ let recipesSeed = [
             {
                 title: "Step 1", 
                 text: "Put all ingredients in a pot and cover. Bring pot to boil.",
+                timer: 0, 
             },
             {
                 title: "Step 2",  
                 text: "Cover with lid and simmer for 40 minutes, turning have way through.",
+                timer: 24000,
             }
         ]
     }, 
@@ -125,10 +127,12 @@ let recipesSeed = [
             {
                 title:"Step 1",
                 text:"Boil eggs for 7-9 minutes. Remove from stove, drain water and fill pan with cold water.",
+                timer: 420,
             },
             {
                 title: "Step 2", 
                 text: "Let sit and then peel eggs and crushed. Mix the mayo and eggs. Add salt and pepper to taste.",
+                timer: 0,
             }
         ]
     },
@@ -190,6 +194,7 @@ let recipesSeed = [
             {
                 title: "Step 3",
                 text: "Cover with lid and simmer for 3 hours or until potatoes are soft.",
+                timer: 180,
             }
         ]
     },
@@ -261,18 +266,22 @@ let recipesSeed = [
             {
                 title: "Prep", 
                 text: "Preheat oven to 360F.",
+                timer: 0,
             },
             {
                 title: "Mix",
                 text: "Cream butter, sugars. Beat in eggs and vanilla.",
+                timer: 0,
             },
             {
                 title: "Stir", 
                 text: "Stir in dry ingredients. Coat in sugar.",
+                timer: 0,
             },
             {
                 title: "Bake", 
                 text: "Bake for 10 minutes.",
+                timer: 600,
             },
         ]
     },
@@ -339,14 +348,17 @@ let recipesSeed = [
             {
                 title:"Dry", 
                 text: "Whisk flour, baking soda, baking powder, salt, sugar.",
+                timer: 0,
             },
             {
                 title: "Wet",
                 text: "Add eggs, buttermilk, butter and whisk to combine. Batter should be lummpy.",
+                timer: 0,
             },
             {
                 title: "Fry",
                 text: "Heat a lightly oiled frying pan over medium high heat. Pour the batter onto pan, using approximately 1/4 cup for each pancake. Brown on both sides and serve hot.",
+                timer: 0,
             }
         ]
     },
@@ -399,15 +411,22 @@ let recipesSeed = [
             },
             {
                 title: "Bake",
-                text: "Bake for 2 hours.  Unwrap and bake for another 1-1.5 hours.",
+                text: "Bake for 2 hours.",
+                timer: 72000,
+            },
+            {   title: "Unwrap/Bake",
+                text: "Unwrap and bake for another 1-1.5 hours.",
+                timer: 36000,
             },
             {
                 title: "Baste",
                 text: "Turn oven heat to 500F. Baste with sauce on both sides.",
+                timer: 0,
             },
             {
                 title: "Finish",
                 text: "Bake for 10 minutes and let rest.",
+                timer: 600,
             }
         ]
     },
@@ -489,18 +508,22 @@ let recipesSeed = [
             {
                 title:"Step 1", 
                 text:"Heat olive oil in big pot and brown sausage. Crumble sausage as it cooks, remove excess fat. Add garlic and onion until brown.",
+                timer: 0,
             },
             {
                 title: "Step 2",
                 text: "Add stock, tomatoes, spices and 1 cup water. Season with salt and pepper.",
+                timer: 0,
             },
             {
                 title: "Step 3",
                 text: "Bring to boil and stir in tortellini, reduce heat and simmer for 5-6 minutes.",
+                timer: 300,
             },
             {
                 title: "Step 4",
                 text: "Add cream and parmesan.  Simmer for 4 minutes.",
+                timer: 240,
             }
         ]
     },
@@ -582,22 +605,27 @@ let recipesSeed = [
             {
                 title:"Prep", 
                 text: "Preheat oven to 350F.",
+                timer: 0,
             },
             {
                 title: "Melt",
                 text: "Melt butter in pan.",
+                timer: 0,
             },
             {
                 title: "Mix",
                 text: "Mix dry ingredients. Stir in milk and egg. Pour over melted butter.",
+                timer: 0,
             },
             {
                 title: "Combine",
                 text: "Combine filling and spread over batter - don't stir.",
+                timer: 0,
             },
             {
                 title: "Bake",
                 text: "Bake for 35-45 minutes.",
+                timer: 2100,
             },
         ]
     },
@@ -671,22 +699,27 @@ let recipesSeed = [
             {
                 title:"Step 1", 
                 text: "Preheat the oven to 350F.",
+                timer: 0,
             },
             {
                 title: "Step 2",
                 text: "Sift flour, baking powder, baking soda, cinnamon, salt and sugar.",
+                timer: 0,
             },
             {
                 title: "Step 3",
                 text: "In a separate bowl, combine vanilla, oil, and eggs.",
+                timer: 0,
             },
             {
                 title: "Step 4",
                 text: "Add the dry and wet ingredients together and fold in the zucchini.",
+                timer: 0,
             },
             {
                 title: "Step 5",
                 text: "Pour into bread loaf container and bake for 1 hour.",
+                timer: 3600,
             }
         ]
     },
@@ -748,18 +781,22 @@ let recipesSeed = [
             {
                 title:"Step 1", 
                 text: "In a bowl, combine the turkey, garlic powder, fennel seed, sugar, salt, oregano and pepper.",
+                timer: 0,
             },
             {
                 title: "Step 2",
                 text: "Cover and refrigerate for at least 8 hours or overnight.",
+                timer: 28000,
             },
             {
                 title: "Step 3",
                 text: "Shape into eight patties.",
+                timer: 0,
             },
             {
                 title: "Step 4",
                 text:  "Coat nonstick pan with cooking spray and cook for 3 minutes on each side or until meat thermometer reads 165F.",
+                timer: 180,
             },
         ]
     },
@@ -818,18 +855,22 @@ let recipesSeed = [
             {
                 title:"Step 1", 
                 text: "Finely grate potatoes. Drain any liquid. Add eggs, onion, flour, salt and baking powder.",
+                timer: 0,
             },
             {
                 title: "Step 2",
                 text:"In a frying pan, add oil to the depth of 1/8 in. Heat over medium-high (375F).",
+                timer: 0,
             },
             {
                 title: "Step 3",
                 text: "Drop batter by heaping tablespoonfuls in hot oil. Flatten to form patties.",
+                timer: 0,
             },
             {
                 title: "Step 4",
                 text:  "Fry until golden brown then turn and cook the other side.",
+                timer: 0,
             },
         ]
     },
@@ -891,18 +932,22 @@ let recipesSeed = [
             {
                 title:"Step 1", 
                 text: "Combine everything including the ENTIRE jar of peppers, juice and all, but the tortillas into a slow cooker.",
+                timer: 0,
             },
             {
                 title: "Step 2",
                 text: "Cook on low 5 hours.",
+                timer: 18000,
             },
             {
                 title: "Step 3",
                 text:  "Shred chicken with 2 forks. Mix well with everything in the pot.",
+                timer: 0,
             },
             {
                 title: "Step 4",
                 text: "Heat tortillas till soft. Served the chicken on the tortilla. Enjoy!",
+                timer: 0,
             }
         ]
     },
@@ -1046,10 +1091,12 @@ let recipesSeed = [
             {
                 title:"Step 1",
                 text: "Heat vegetable oil in medium heat pan. Add seasoning, tofu, and green onions to the pan.",
+                timer: 0,
             },
             {
                 title: "Step 2",
                 text: "Mix all ingredients and when throughly heated, served with rice.",
+                timer: 0,
             }
         ]
     }
