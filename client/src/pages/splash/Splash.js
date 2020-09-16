@@ -6,25 +6,15 @@ import TestCard from "../../component/TestCard"
 import { AuthContext } from "../../component/Auth";
 import Modal from "../../component/Modal/Modal";
 import PrivacyPolicyText from "../../component/PrivacyPolicy/PrivacyPolicyText";
-import { ThemeProvider } from "styled-components";
-import { useDarkMode } from "../../component/DarkMode/useDarkMode";
-import Toggle from "../../component/DarkMode/Toggler";
-import { GlobalStyles } from "../../component/DarkMode/GlobalStyles";
-import { lightTheme, darkTheme } from "../../component/DarkMode/Theme";
 import Countdown from "../../component/Make/Countdown";
 
 function Splash() {
     const app = test.firebase_;
     const { currentUser } = useContext(AuthContext);
     const [display, setDisplay] = useState(false);
-    const [theme, themeToggler] = useDarkMode();
-    const themeMode = theme === 'light' ? lightTheme : darkTheme;
 
     return (
-        <ThemeProvider theme={themeMode}>
-        <>
-        <GlobalStyles/>
-            <Toggle theme={theme} toggleTheme={themeToggler} />
+
         <div>
             <TestCard>
                 <section className="text-center">
@@ -48,14 +38,13 @@ function Splash() {
                 </section>
             </TestCard>
             <div className="d-flex justify-content-center">
-                <button className="rb-btn btn-secondary mt-4" onClick={() => setDisplay(true)}>Privacy Policy</button>
+                <button className="rb-btn btn-secondary mt-4 mr-1" onClick={() => setDisplay(true)}>Privacy Policy</button>
+                <Link to="/aboutus" className="rb-btn btn-secondary mt-4 ml-1">About Us</Link>
             </div>
             { display && (<Modal closeModal={() => setDisplay(false)}>
                 <PrivacyPolicyText/>
             </Modal>)}
         </div>
-        </>
-        </ThemeProvider>
     );
 }
 

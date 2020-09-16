@@ -5,10 +5,16 @@ import TableBody from "../DynamicTable/TableBody";
 import TableHeader from "../DynamicTable/TableHeader";
 import TableButton from "../DynamicTable/TableButton";
 import TestCard from "../TestCard";
+<<<<<<< HEAD
+
+function AddSteps() {
+    
+=======
 import ExitBtn from "./ExitBtn";
 
 function AddSteps() {
 
+>>>>>>> origin
     const initState = {
         title: "",
         text: "",
@@ -52,6 +58,10 @@ function AddSteps() {
     }
 
     return (
+<<<<<<< HEAD
+
+=======
+>>>>>>> origin
         <TestCard>
             <div className="d-flex justify-content-between">
                 <h2 className="font-brand">
@@ -83,7 +93,7 @@ function AddSteps() {
                         <div className="d-flex align-items-center ml-2">
                             <button
                                 type="submit"
-                                className="rb-btn-icon btn-light p-0"
+                                className="rb-btn-icon btn-light p-0 btn-transparent"
                             >
                                 <TableButton />
                             </button>

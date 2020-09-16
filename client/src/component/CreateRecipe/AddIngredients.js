@@ -6,11 +6,18 @@ import TableBody from "../DynamicTable/TableBody";
 import TableHeader from "../DynamicTable/TableHeader";
 import TableButton from "../DynamicTable/TableButton";
 import TestCard from "../TestCard";
+<<<<<<< HEAD
+
+function AddIngredients() {
+
+    const { setValues } = useRecipe();
+=======
 import ExitBtn from "./ExitBtn";
 
 function AddIngredients() {
 
     const { recipe, setValues } = useRecipe();
+>>>>>>> origin
     const history = useHistory();
     const editMode = !!recipe._id; 
 
@@ -56,6 +63,10 @@ function AddIngredients() {
     }
 
     return (
+<<<<<<< HEAD
+
+=======
+>>>>>>> origin
         <TestCard>
             <div className="d-flex justify-content-between">
                 <h2 className="font-brand">
@@ -112,7 +123,7 @@ function AddIngredients() {
                 <div className="col-1 d-flex align-items-center">
                     <button 
                         type="submit" 
-                        className="rb-btn-icon btn-light p-0"
+                        className="rb-btn-icon btn-light p-0 btn-transparent"
                     >
                         <TableButton/>
                     </button>

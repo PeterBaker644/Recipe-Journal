@@ -10,6 +10,11 @@ function CardComplete({ recipe, flipCard }) {
 
     return (
         <>
+<<<<<<< HEAD
+            <h1 className="display-2 font-brand-small mb-0">{recipe.recipeName}</h1>
+            <span className="divider-color"></span>
+            <span className="font-book text-center">{recipe.recipeDescription}</span>
+=======
             {/* <h1 className="display-2 font-brand-small mb-0">{recipe.name}</h1> */}
             <div className="d-flex justify-content-between">
                 <h2 className="display-2 font-brand-small">
@@ -29,6 +34,7 @@ function CardComplete({ recipe, flipCard }) {
             </div>
             <hr className="divider-color" />
             <span className="font-book text-center">{recipe.description}</span>
+>>>>>>> origin
             <span className="text-smaller font-book-italic text-truncate divider m-2 mb-3">
                 Tags: {recipe.tags.join(", ")}
             </span>

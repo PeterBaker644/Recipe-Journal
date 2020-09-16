@@ -4,9 +4,15 @@ import { useHistory, Link } from "react-router-dom";
 import TestCard from "../TestCard";
 import TableButton from "../DynamicTable/TableButton";
 import Tag from "./Tag";
+<<<<<<< HEAD
+
+function RecipeInfo() {
+    
+=======
 import ExitBtn from "./ExitBtn";
 
 function RecipeInfo() {
+>>>>>>> origin
     const { recipe, setValues } = useRecipe();
     const history = useHistory();
     const editMode = !!recipe._id;

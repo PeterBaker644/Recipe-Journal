@@ -154,7 +154,8 @@ h2 {
 }
 
 .divider-color {
-    border-top: 1px solid #8b95a5;
+    display: flex;
+    border-top: 1px solid var(--divider-color, #ebebeb);
     margin: 16px 8px;
 }
 
@@ -261,6 +262,39 @@ h2 {
 }
 
 .table-style {
+<<<<<<< HEAD
+    color: var(--table-style, #363537);
+}
+
+.about-us {
+    margin: auto;
+    width: 50%;
+}
+
+/* Media Queries for About Page */
+@media (max-width: 576px) {
+    .about-us {
+        margin: auto;
+        width: 80vw;
+    }
+}
+
+@media (min-width: 577px) and (max-width: 768px) {
+    .about-us {
+        margin: auto;
+        width: 100vw;
+    }
+}
+
+@media (min-width: 767px) and (max-width: 998px) {
+    .about-us {
+        margin: auto;
+        width: 70vw;
+    }
+}
+
+
+=======
     color: var(--table-style, black);
 }
 
@@ -269,3 +303,4 @@ h2 {
 input[type="checkbox"] {
     transform:scale(1.4, 1.4);
 }
+>>>>>>> origin
