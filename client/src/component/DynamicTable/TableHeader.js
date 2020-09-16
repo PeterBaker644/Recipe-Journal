@@ -13,6 +13,7 @@ function TableHeader({contents}) {
     }
 
     const tableArray = Object.values(contents);
+    console.log("tableArray is:", tableArray)
     const tableSample = Object.keys(tableArray[0]);
     let headers = [];
     for (let i = (arrayStart); i < tableSample.length; i++) {
