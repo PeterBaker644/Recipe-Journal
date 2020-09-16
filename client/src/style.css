@@ -100,7 +100,7 @@ h2 {
 .rb-btn-subtle {
     background: var(--primary-color, white);
     border: thin solid var(--prime-border, lightgray);
-    color: var(--bs-secondary);
+    color: var(--prime-border, black);
     border-radius: 0.4rem;
     padding: 0.5rem 1rem;
 }
@@ -181,7 +181,7 @@ h2 {
 }
 
 .btn-delete {
-    color: black;
+    color: var(--close, black);
     text-decoration: none !important;
 }
 
@@ -259,6 +259,11 @@ h2 {
 
 .delete:hover {
     color: lightgray;
+}
+
+.table-head-style {
+    color: var(--table-style, #363537);
+    border-bottom-width: 2px;
 }
 
 .table-style {

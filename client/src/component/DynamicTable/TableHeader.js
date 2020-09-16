@@ -26,7 +26,7 @@ function TableHeader({contents}) {
     }
 
     return (
-        <thead>
+        <thead className="table-head-style">
             <tr>
                 {headers}
             </tr>
