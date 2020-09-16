@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
+import { Link, useHistory } from "react-router-dom";
 import test from '../../firebase';
+import ls from 'local-storage';
 import RecipeCard from "../../component/RecipeBox/RecipeCard";
 import AddRecipe from "../../component/RecipeBox/AddRecipe";
 import Modal from "../../component/Modal/Modal";
@@ -8,6 +10,8 @@ import Box from "../../component/RecipeBox/Box"
 import Header from "../../component/RecipeBox/Header"
 import CardComplete from "../../component/CreateRecipe/CardComplete"
 import '../../component/Modal/Modal.css';
+import EditRecipe from "../../component/CreateRecipe/EditRecipe";
+import RecipeHistory from "../../component/Make/RecipeHistory"
 
 const firebase = test.firebase_;
 
@@ -21,18 +25,19 @@ function RecipeBox() {
         input: "",
         filterBy: ""
     });
-    const [selected, setSelected] = useState({
-        index: ""
-    });
-
+    const [selected, setSelected] = useState({ index: "" });
+    const [flip, setFlip] = useState(false);
+    const history = useHistory();
+    
     // Load all recipes and store with setRecipes
     useEffect(() => {
-        loadRecipes()
+        loadRecipes();
+        selectRecipe();
     }, [])
 
     // Loads recipes and set them to recipes
     function loadRecipes() {
-        API.getAllRecipes(user)
+        API.getUserRecipes(user)
             .then(res => {
                 setRecipes(res.data);
                 // console.log(res.data);
@@ -47,11 +52,31 @@ function RecipeBox() {
         setStatus(true);
     }
 
+    function selectRecipe(recipe) {
+        if (!recipe) {
+            ls.remove("recipe")
+        } else {
+            ls.set("recipe", recipe)
+        }
+    }
+
     function deleteRecipe(event, id) {
         event.stopPropagation()
         API.deleteRecipe(id)
             .then(res => loadRecipes())
             .catch(err => console.log(err));
+    }
+
+    const selectAndGo = (route) => {
+        selectRecipe(recipes[selected.index]);
+        switch (route) {
+            case "make":
+                history.push('/make');
+                return;
+            case "edit":
+                history.push('/create/info');
+                return;
+        }
     }
 
     const handleInputChange = event => {
@@ -90,6 +115,10 @@ function RecipeBox() {
         });
     }
 
+    const flipCard = () => {
+        setFlip(!flip);
+    }
+
     function filterRecipes(recipes, filterBy) {
         const arrayFiltered = [];
         for (const item of recipes) {
@@ -112,8 +141,6 @@ function RecipeBox() {
             <section >
                 <div className="row row-cols-md-3 row-cols-lg-4">
                     <AddRecipe />
-                    {/* Cards should fill page based on number of recipes users have */}
-                    {/* Example Card... needs data to be added from DB */}
                     {recipes.length ? (
                         <>
                             {filterRecipes(recipes, form.filterBy).map((recipe, index) => {
@@ -131,7 +158,11 @@ function RecipeBox() {
                     }
                     {/* This will have more descriptive recipe content */}
                     {status && (<Modal closeModal={() => setStatus(false)}>
-                        <CardComplete recipe={recipes[selected.index]}></CardComplete>
+                        {flip ? <RecipeHistory flipCard={flipCard} recipe={recipes[selected.index]}/> : <CardComplete flipCard={flipCard} recipe={recipes[selected.index]}/>}
+                        <button type="button" onClick={() => selectAndGo("make")}className="rb-btn btn-success mb-3 text-center">Make
+                        </button>
+                        <button type="button" onClick={() => selectAndGo("edit")} className="rb-btn btn-secondary text-center">Edit Recipe
+                        </button>
                     </Modal>)}
                 </div>
             </section>

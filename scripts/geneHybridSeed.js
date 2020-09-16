@@ -13,15 +13,15 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/recipes_hybrid_
 let recipesSeed = [
     {
         userID:"usernumber1",
-        recipeName: "pancakes",
-        recipeDescription:"this is a recipe description field",
-        recipeImageUrls:
+        name: "pancakes",
+        description:"this is a recipe description field",
+        imageUrls:
         [
             "recipePicLink goes here",
             "recipePicLink2 goes here",
         ],
-        recipeCategory:"baked recipes",
-        recipeTags: [
+        category:"baked recipes",
+        tags: [
             "dessert", "breakfast"
         ],
         ingredients: [

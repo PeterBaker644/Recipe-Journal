@@ -1,9 +1,10 @@
 import React from "react";
+import TableDeleteBtn from "./TableDeleteBtn";
 
-function TableBody({ tableContents }) {
+function TableBody(props) {
 
+    const tableContents = props.tableContents;
     let arrayStart = 0;
-
     try {
         if (Object.keys(tableContents[arrayStart]._id)) {
             arrayStart = 1;
@@ -13,7 +14,7 @@ function TableBody({ tableContents }) {
         // Nothing happens if the recipe hasn't been pulled from the database yet.
     }
 
-    let items = tableContents.map(item => {
+    let items = tableContents.map((item, index) => {
         let values = Object.values(item);
         let rowBody = [];
         for (let i = (arrayStart + 1); i < values.length; i++) {
@@ -24,7 +25,8 @@ function TableBody({ tableContents }) {
             <tr key={values[arrayStart]}>
                 <th scope="row">{values[arrayStart]}</th>
                 {rowBody}
-            </tr>;
+                {props.delete ? <TableDeleteBtn onClick={() => props.delete(index)}/> : <></>}
+            </tr>
         return row;
     })
 

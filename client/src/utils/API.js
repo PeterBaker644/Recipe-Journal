@@ -9,10 +9,11 @@ const authorize = axios.create();
 firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
         console.log("[API] User is signed in");
+        // console.log("user =", user)
+        // console.log("Firebase.auth().user =",firebase.auth().user)
         // Getting an authorization token from Fireback to send to the backend.
-        firebase.auth().currentUser.getIdToken(true).then(function (idToken) {
+        user.getIdToken().then(function (idToken) {
             // Intercepting any request and appending token to the header.
-            // This somehow doesn't work.
             authorize.interceptors.request.use(function (config) {
                 config.headers.authorization = idToken;
                 return config;
@@ -31,8 +32,11 @@ export default {
         return authorize.get("/api/recipes");
     },
     createRecipe: function (newRecipe) {
-        console.log("[API] newRecipe", newRecipe);
+        console.log("[API] New recipe created:", newRecipe);
         return authorize.post("/api/recipes", newRecipe);
+    },
+    updateRecipe: function (_id, recipe) {
+        return authorize.put("/api/recipes/" + _id, recipe);
     },
     getOneRecipe: function (_id) {
         return authorize.get("/api/recipes/" + _id);
@@ -42,10 +46,9 @@ export default {
         return authorize.get("/api/recipes/user/" + userID);
     },
     deleteRecipe: function (_id) {
-        console.log("[API] deleteRecipe", _id);
+        console.log("[API] Recipe deleted:", _id);
         return authorize.delete("/api/recipes/" + _id);
     },
-
     getAllIngredients: function () {
         return authorize.get("/api/Ingredients");
     },

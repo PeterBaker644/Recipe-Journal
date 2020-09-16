@@ -2,34 +2,49 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const recipesSchema = new Schema({
-    //for future goal, this userID can be set to PUBLIC ? and that will
-    // determine that this is a public recipe that cant be edited, but can be up/down voted
-    //TODO add upvote field?
     userID: {
         type: String,
         required: true,
     },
-    recipeName: {
+    name: {
         type: String,
         required: true,
         lowercase: true,
     },
-    recipeDescription: {
+    dateCreated: {
+        type: Date,
+        default: Date.now,
+        required: true,
+    },
+    comments: [
+        {
+            text: {
+                type: String,
+                required: false,
+            },
+            dateCreated: {
+                type: Date,
+                default: Date.now,
+                required: true,
+            },
+        }
+    ],
+    description: {
         type: String,
         required: false,
     },
-    recipeImageUrls: [
+    imageUrls: [
         {
             type: String,
             required: false,
         }
     ],
-    recipeCategory: {
+    category: {
         type: String,
         required: false,
         lowercase: true,
     },
-    recipeTags: [
+    tags: [
         {
             type: String,
             required: false,
@@ -43,6 +58,11 @@ const recipesSchema = new Schema({
                 required: true,
                 lowercase: true,
             },
+            details: {
+                type: String,
+                required: false,
+                lowercase: true,
+            },            
             quantity: {
                 type: String,
                 required: true,

@@ -14,14 +14,14 @@ export function UlList({ children }) {
 
 
 export function NestedTagsList({
-  recipeTags
+  tags
 }) {
   return (
     <li className="list-group-item">
       <div>
         <div>
           <div className="xs-8 sm-9">
-            <h3>{recipeTags}</h3>
+            <h3>{tags}</h3>
           </div>
         </div>
       </div>
@@ -56,10 +56,10 @@ export function NestedIngredientsList({
 
 // RecipeListItem renders a bootstrap list item containing data from the recipe api call
 export function RecipeListItem({
-  recipeName,
-  recipeDescription,
-  recipeImageUrls,
-  recipeCategory,
+  name,
+  description,
+  imageUrls,
+  category,
   ingredientCategoryIconLink,
   title,
   text
@@ -69,17 +69,17 @@ export function RecipeListItem({
       <div>
         <div>
           <div className="xs-8 sm-9">
-            <h6>recipeName</h6>
-            <h1>{recipeName}</h1>
+            <h6>name</h6>
+            <h1>{name}</h1>
 
-            <h6>recipeDescription</h6>
-            <h1>{recipeDescription}</h1>
+            <h6>description</h6>
+            <h1>{description}</h1>
 
-            <h6>recipeImageUrls</h6>
-            <h1>{recipeImageUrls}</h1>
+            <h6>imageUrls</h6>
+            <h1>{imageUrls}</h1>
 
-            <h6>recipeCategory</h6>
-            <h1>{recipeCategory}</h1>
+            <h6>category</h6>
+            <h1>{category}</h1>
 
             <h6>ingredientCategoryIconLink</h6>
             <h1>{ingredientCategoryIconLink}</h1>

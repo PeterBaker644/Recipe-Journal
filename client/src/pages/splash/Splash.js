@@ -6,6 +6,7 @@ import TestCard from "../../component/TestCard"
 import { AuthContext } from "../../component/Auth";
 import Modal from "../../component/Modal/Modal";
 import PrivacyPolicyText from "../../component/PrivacyPolicy/PrivacyPolicyText";
+import Countdown from "../../component/Make/Countdown";
 
 function Splash() {
     const app = test.firebase_;

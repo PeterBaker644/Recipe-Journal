@@ -10,7 +10,7 @@ router.route("/")
 router
     .route("/:_id")
     .get(recipesController.findById)
-    // .put(recipesController.update)
+    .put(recipesController.update)
     .delete(recipesController.remove);
 
 // Matches with "/api/recipes/user/:userID"

@@ -29,19 +29,16 @@ module.exports = {
 
     findByuserID: function (req, res) {
         db.RecipesModel
-            .find({
-                "userID": req.query
-            })
+            .find({ userID: req.params.userID  })
             .then(dbModelDataResult => res.json(dbModelDataResult))
             .catch(err => res.status(422).json(err));
     },
 
-
-    // update: function (req, res) {
-    //     db.RecipesModel
-    //         .findOneAndUpdate({ _id: req.params.id }, req.body)
-    //         .then(dbModelDataResult => res.json(dbModelDataResult))
-    //         .catch(err => res.status(422).json(err));
-    // },
+    update: function (req, res) {
+        db.RecipesModel
+            .findOneAndUpdate({ _id: req.params }, req.body)
+            .then(dbModelDataResult => res.json(dbModelDataResult))
+            .catch(err => res.status(422).json(err));
+    },
 
 };

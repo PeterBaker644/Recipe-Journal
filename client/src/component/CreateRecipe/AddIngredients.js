@@ -1,15 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { useRecipe } from "../../component/CreateRecipe/RecipeContext";
 import TableBody from "../DynamicTable/TableBody";
+// import TableControl from "../DynamicTable/TableControl";
 import TableHeader from "../DynamicTable/TableHeader";
 import TableButton from "../DynamicTable/TableButton";
 import TestCard from "../TestCard";
+<<<<<<< HEAD
 
 function AddIngredients() {
 
     const { setValues } = useRecipe();
+=======
+import ExitBtn from "./ExitBtn";
+
+function AddIngredients() {
+
+    const { recipe, setValues } = useRecipe();
+>>>>>>> origin
     const history = useHistory();
+    const editMode = !!recipe._id; 
 
     const initState = ({
         name: "",
@@ -18,7 +28,7 @@ function AddIngredients() {
     })
 
     const [ingredient, setIngredient] = useState(initState);
-    const [ingredients, setIngredients] = useState([]);
+    const [ingredients, setIngredients] = useState([...recipe.ingredients || ""]);
 
     const clearIngredients = (e) => {
         setIngredients([]);
@@ -29,11 +39,18 @@ function AddIngredients() {
         setValues({ingredients: ingredients});
         history.push('/create/steps');
     }
+
+    const deleteIngredient = (index) => {
+        let array = [...ingredients];
+        array.splice(index, 1);
+        setIngredients(array);
+    }
     
-    // useEffect(() => {
-    //     console.log("Ingredients list is:", ingredients);
-    //     console.log("Recipe contains the following ingredients:", recipe.recipeIngredients);
-    // })
+    useEffect(() => {
+        console.log("Recipe is:", recipe);
+        console.log("Ingredients list is:", ingredients);
+        console.log("Recipe contains the following ingredients:", recipe.recipeIngredients);
+    })
     
     const onChange = (e) => {
         setIngredient({...ingredient, [e.target.name]: e.target.value.toLowerCase()});
@@ -46,13 +63,25 @@ function AddIngredients() {
     }
 
     return (
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin
         <TestCard>
-            <h1 className="display-1 font-brand">add ingredients:</h1>
+            <div className="d-flex justify-content-between">
+                <h2 className="font-brand">
+                    {editMode ? <span>edit ingredients:</span> : <span>add ingredients:</span>}
+                </h2>
+                <Link className="d-flex btn-delete font-sans" to={{ pathname: "/recipebox" }}>
+                    <ExitBtn/>
+                </Link>
+            </div>
             <div className="table-responsive">
                 <table className="table font-book">
-                    <TableHeader/>
-                    <TableBody tableContents={ingredients}/>
+                    {ingredients.length ? <TableHeader contents={ingredients}/> : null}
+                    {/* This really ought to be fixed at some point to include table headers */}
+                    <TableBody tableContents={ingredients} delete={deleteIngredient}/>
+                    {/* <TableControl ingredients={ingredients}></TableControl> */}
                 </table>
             </div>
             <form onSubmit={e => onSubmit(e)} className="row g-2">
@@ -102,10 +131,12 @@ function AddIngredients() {
             </form>
             <div className="mt-4 d-flex justify-content-between">
                 <div className="d-flex justify-content-center">
-                    <Link className="rb-btn btn-danger" to={{pathname: "/create/info"}}>Restart</Link>
-                    <button type="button" className="rb-btn btn-warning ml-2" onClick={clearIngredients}>Reset</button>
+                    <Link className="rb-btn btn-primary" to={{pathname: "/create/info"}}>Back</Link>
+                    <button type="button" className="rb-btn btn-danger ml-2" onClick={clearIngredients}>Clear</button>
                 </div>
-                <button className="rb-btn btn-success" onClick={completeIngredients}>Add steps</button>
+                <button className="rb-btn btn-success" onClick={completeIngredients}>
+                    {editMode ? <span>edit steps</span> : <span>add steps</span>}
+                </button>
             </div>
         </TestCard>
     )
