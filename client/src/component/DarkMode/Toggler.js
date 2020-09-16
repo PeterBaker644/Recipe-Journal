@@ -7,7 +7,6 @@ const Toggle = ({theme,  toggleTheme }) => {
     return (
         
         <div className="form-check form-switch mt-1 ml-2">
-<<<<<<< HEAD
             <input 
                 checked={isDark}
                 className="form-check-input" 
@@ -20,10 +19,6 @@ const Toggle = ({theme,  toggleTheme }) => {
                 htmlFor="flexSwitch">
                     {theme === 'light' ? <i className='fas fa-sun'></i> : <i className='fas fa-moon'></i>}
             </label>
-=======
-            <input className="form-check-input" onClick={toggleTheme} type="checkbox" id="flexSwitch"></input>
-            <label className="form-check-label" htmlFor="flexSwitch">Dark Mode</label>
->>>>>>> origin
         </div>
     );
 };

@@ -2,19 +2,12 @@ import React from "react";
 import { Link, useHistory } from "react-router-dom";
 import API from "../../utils/API";
 import { useRecipe } from "../../component/CreateRecipe/RecipeContext";
-<<<<<<< HEAD
-// import TableBody from "../DynamicTable/TableBody"
-// import TableHeader from "../DynamicTable/TableHeader"
-import TestCard from "../TestCard"
-import CardComplete from "./CardComplete"
-=======
 // import TableBody from "../DynamicTable/TableBody";
 // import TableHeader from "../DynamicTable/TableHeader";
 import TestCard from "../TestCard";
 import CardComplete from "./CardComplete";
 import ExitBtn from "./ExitBtn";
 import ls from 'local-storage';
->>>>>>> origin
 
 function RecipeComplete() {
 
@@ -41,10 +34,6 @@ function RecipeComplete() {
     }
 
     return (
-<<<<<<< HEAD
-
-=======
->>>>>>> origin
         <TestCard>
             <CardComplete recipe={recipe} />
             <div className="mt-4 d-flex justify-content-between">
