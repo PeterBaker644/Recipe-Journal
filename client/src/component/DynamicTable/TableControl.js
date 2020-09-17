@@ -53,8 +53,8 @@ function TableControl(props) {
             <thead>
                 <tr>
                     <th scope="col">Instruction</th>
-                    <th scope="col">Details</th>
-                    <th scope="col">Time</th>
+                    <th scope="col-6">Details</th>
+                    <th scope="col-1">Time</th>
                     {props.delete ? <td></td> : null}
                 </tr>
             </thead>
@@ -89,8 +89,8 @@ function TableControl(props) {
         let tableHeader = (
             <thead>
                 <tr>
-                    <th scope="col">Note</th>
                     <th scope="col">Date</th>
+                    <th scope="col">Note</th>
                 </tr>
             </thead>
         )

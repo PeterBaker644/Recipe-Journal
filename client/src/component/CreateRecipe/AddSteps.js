@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { useRecipe } from "../../component/CreateRecipe/RecipeContext";
 import TableControl from "../DynamicTable/TableControl";
@@ -6,19 +6,27 @@ import TableHeader from "../DynamicTable/TableHeader";
 import TableButton from "../DynamicTable/TableButton";
 import TestCard from "../TestCard";
 import ExitBtn from "./ExitBtn";
+import timeParser from "../../utils/timeParser"
 
 function AddSteps() {
 
-    const initState = {
+    const initAction = {
         title: "",
         text: "",
+        timer: "",
+    }
+
+    const initTimer = {
+        hours: "",
+        minutes: ""
     }
 
     const { recipe, setValues } = useRecipe();
     const history = useHistory();
-    const [action, setAction] = useState(initState);
+    const [action, setAction] = useState(initAction);
+    const [timer, setTimer] = useState(initTimer);
     const [actions, setActions] = useState([...recipe.actions || ""]);
-    const editMode = !!recipe._id; 
+    const editMode = !!recipe._id;
 
     const clearActions = (e) => {
         setActions([]);
@@ -32,23 +40,31 @@ function AddSteps() {
 
     const completeActions = (e) => {
         e.preventDefault();
-        setValues({actions: actions});
+        setValues({ actions: actions });
         history.push('/create/complete');
     }
 
-    // useEffect(() => {
-    //     console.log("Actions list is:", actions);
-    //     console.log("Recipe contains the following Actions:", recipe.recipeActions);
-    // })
+    useEffect(() => {
+        (timer.hours.length || timer.minutes.length) ?
+        setAction({ ...action, timer: timeParser("SEC", timer.hours, timer.minutes)})
+        : 
+        setAction({...action, timer: ""});
+        console.log("Timer has been set")
+    },[timer])
 
     const onChange = (e) => {
         setAction({ ...action, [e.target.name]: e.target.value });
     }
 
+    const onTime = (e) => {
+        setTimer({ ...timer, [e.target.name]: e.target.value });
+    }
+
     const onSubmit = (e) => {
         e.preventDefault();
         setActions([...actions, action]);
-        setAction(initState);
+        setAction(initAction);
+        setTimer(initTimer);
     }
 
     return (
@@ -58,13 +74,14 @@ function AddSteps() {
                     {editMode ? <span>edit steps:</span> : <span>add steps:</span>}
                 </h2>
                 <Link className="d-flex btn-delete font-sans" to={{ pathname: "/recipebox" }}>
-                    <ExitBtn/>
+                    <ExitBtn />
                 </Link>
             </div>
             <TableControl actions={actions} delete={deleteAction} header={true}></TableControl>
             <form onSubmit={e => onSubmit(e)} className="g-2">
                 <div className="form-group">
                     <div className="d-flex mb-2">
+
                         <input
                             type="text"
                             required
@@ -75,14 +92,37 @@ function AddSteps() {
                             placeholder="Instruction"
                             aria-label="Instruction"
                         />
-                        <div className="d-flex align-items-center ml-2">
-                            <button
-                                type="submit"
-                                className="rb-btn-icon btn-light p-0 btn-transparent"
+
+
+                        <div className="input-group ml-2">
+                            <span class="input-group-text font-book">Timer</span>
+                            <input
+                                type="number"
+                                className="form-control"
+                                name="hours"
+                                value={timer.hours}
+                                onChange={e => onTime(e)}
+                                placeholder="Hours"
+                                aria-label="Hours"
+                            />
+                            <input
+                                type="number"
+                                className="form-control"
+                                name="minutes"
+                                value={timer.minutes}
+                                onChange={e => onTime(e)}
+                                placeholder="Minutes"
+                                aria-label="Minutes"
+                            />
+                        </div>
+                        <button type="submit" className="rb-btn-subtle d-flex align-items-center ml-2 px-2">
+                            <span className="text-nowrap text-muted">ADD STEP</span>
+                            <span
+                                className="rb-btn-icon btn-transparent ml-2"
                             >
                                 <TableButton />
-                            </button>
-                        </div>
+                            </span>
+                        </button>
                     </div>
                     <textarea
                         type="text"
