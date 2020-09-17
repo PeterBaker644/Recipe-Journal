@@ -77,7 +77,7 @@ function Accordion(props) {
                         </div>
                         {props.timer ?
                             <Timer 
-                                initialTime={55000} 
+                                initialTime={props.timer*100} 
                                 startImmediately={false} 
                                 direction="backward"
                                 checkpoints={[
