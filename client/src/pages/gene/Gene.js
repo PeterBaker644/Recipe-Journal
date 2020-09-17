@@ -46,8 +46,21 @@ function Genepagetest() {
 
     const upload = event => {
         event.preventDefault();
+        console.log('Uploading a blob or file!');
         // Points to the root reference
         var storageRef = firebase.storage().ref();
+
+        //creates a reference to pic within the folder
+        var peterPicRef = storageRef.child("./foldername/PeterReactionFace.jpg");
+        // use the Blob or File API
+        var file =  require('./PeterReactionFace.JPG');
+        var blob = new Blob([file], { type: "image/jpeg" });
+
+        console.log(file);
+        console.log(blob);
+        peterPicRef.put([blob]).then(function (snapshot) {
+            console.log('Uploaded a blob or file!');
+        });
 
 
         // // Points to the root reference
