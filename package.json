@@ -26,6 +26,7 @@
     "moment": "^2.28.0",
     "mongoose": "^5.10.2",
     "react-compound-timer": "^1.2.0",
-    "react-moment": "^0.9.7"
+    "react-moment": "^0.9.7",
+    "react-webcam": "^5.2.0"
   }
 }
