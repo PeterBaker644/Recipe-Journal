@@ -36,7 +36,7 @@ function CardComplete({ recipe, flipCard }) {
             <h4 className="rb-btn">Ingredients</h4>
             <TableControl ingredients={recipe.ingredients} header={true}></TableControl>
             <h4 className="rb-btn">Instructions</h4>
-            <TableControl actions={recipe.actions} header={true}></TableControl>
+            <TableControl actions={recipe.actions}></TableControl>
         </>
     )
 }

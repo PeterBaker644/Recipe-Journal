@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { useRecipe } from "../../component/CreateRecipe/RecipeContext";
-import TableBody from "../DynamicTable/TableBody";
 import TableControl from "../DynamicTable/TableControl";
-import TableHeader from "../DynamicTable/TableHeader";
 import TableButton from "../DynamicTable/TableButton";
 import TestCard from "../TestCard";
 import ExitBtn from "./ExitBtn";
@@ -16,6 +14,7 @@ function AddIngredients() {
 
     const initState = ({
         name: "",
+        details: "",
         quantity: "",
         unit: ""
     })
@@ -67,7 +66,7 @@ function AddIngredients() {
             </div>
             <TableControl ingredients={ingredients} delete={deleteIngredient} header={true}></TableControl>
             <form onSubmit={e => onSubmit(e)} className="row g-2">
-                <div className="form-group col-7">
+                <div className="form-group col-3">
                     <input
                         type="text"
                         required
@@ -77,6 +76,17 @@ function AddIngredients() {
                         onChange={e => onChange(e)}
                         placeholder="Ingredient"
                         aria-label="Ingredient"
+                    />
+                </div>
+                <div className="form-group col-4">
+                    <input
+                        type="text"
+                        className="form-control"
+                        name="details"
+                        value={ingredient.details}
+                        onChange={e => onChange(e)}
+                        placeholder="(details)"
+                        aria-label="Details"
                     />
                 </div>
                 <div className="form-group col">
