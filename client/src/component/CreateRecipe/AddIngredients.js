@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { useRecipe } from "../../component/CreateRecipe/RecipeContext";
 import TableBody from "../DynamicTable/TableBody";
-// import TableControl from "../DynamicTable/TableControl";
+import TableControl from "../DynamicTable/TableControl";
 import TableHeader from "../DynamicTable/TableHeader";
 import TableButton from "../DynamicTable/TableButton";
 import TestCard from "../TestCard";
@@ -12,7 +12,7 @@ function AddIngredients() {
 
     const { recipe, setValues } = useRecipe();
     const history = useHistory();
-    const editMode = !!recipe._id; 
+    const editMode = !!recipe._id;
 
     const initState = ({
         name: "",
@@ -29,7 +29,7 @@ function AddIngredients() {
 
     const completeIngredients = (e) => {
         e.preventDefault();
-        setValues({ingredients: ingredients});
+        setValues({ ingredients: ingredients });
         history.push('/create/steps');
     }
 
@@ -38,15 +38,15 @@ function AddIngredients() {
         array.splice(index, 1);
         setIngredients(array);
     }
-    
+
     useEffect(() => {
         console.log("Recipe is:", recipe);
         console.log("Ingredients list is:", ingredients);
         console.log("Recipe contains the following ingredients:", recipe.recipeIngredients);
     })
-    
+
     const onChange = (e) => {
-        setIngredient({...ingredient, [e.target.name]: e.target.value.toLowerCase()});
+        setIngredient({ ...ingredient, [e.target.name]: e.target.value.toLowerCase() });
     }
 
     const onSubmit = (e) => {
@@ -62,17 +62,10 @@ function AddIngredients() {
                     {editMode ? <span>edit ingredients:</span> : <span>add ingredients:</span>}
                 </h2>
                 <Link className="d-flex btn-delete font-sans" to={{ pathname: "/recipebox" }}>
-                    <ExitBtn/>
+                    <ExitBtn />
                 </Link>
             </div>
-            <div className="table-responsive">
-                <table className="table font-book">
-                    {ingredients.length ? <TableHeader contents={ingredients}/> : null}
-                    {/* This really ought to be fixed at some point to include table headers */}
-                    <TableBody tableContents={ingredients} delete={deleteIngredient}/>
-                    {/* <TableControl ingredients={ingredients}></TableControl> */}
-                </table>
-            </div>
+            <TableControl ingredients={ingredients} delete={deleteIngredient} header={true}></TableControl>
             <form onSubmit={e => onSubmit(e)} className="row g-2">
                 <div className="form-group col-7">
                     <input
@@ -110,17 +103,17 @@ function AddIngredients() {
                     />
                 </div>
                 <div className="col-1 d-flex align-items-center">
-                    <button 
-                        type="submit" 
+                    <button
+                        type="submit"
                         className="rb-btn-icon btn-light p-0 btn-transparent"
                     >
-                        <TableButton/>
+                        <TableButton />
                     </button>
                 </div>
             </form>
             <div className="mt-4 d-flex justify-content-between">
                 <div className="d-flex justify-content-center">
-                    <Link className="rb-btn btn-primary" to={{pathname: "/create/info"}}>Back</Link>
+                    <Link className="rb-btn btn-primary" to={{ pathname: "/create/info" }}>Back</Link>
                     <button type="button" className="rb-btn btn-danger ml-2" onClick={clearIngredients}>Clear</button>
                 </div>
                 <button className="rb-btn btn-success" onClick={completeIngredients}>

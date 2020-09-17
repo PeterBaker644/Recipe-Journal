@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { useRecipe } from "../../component/CreateRecipe/RecipeContext";
-import TableBody from "../DynamicTable/TableBody";
+import TableControl from "../DynamicTable/TableControl";
 import TableHeader from "../DynamicTable/TableHeader";
 import TableButton from "../DynamicTable/TableButton";
 import TestCard from "../TestCard";
@@ -61,12 +61,7 @@ function AddSteps() {
                     <ExitBtn/>
                 </Link>
             </div>
-            <div className="table-responsive">
-                <table className="table font-book">
-                    {/* <TableHeader /> */}
-                    <TableBody tableContents={actions} delete={deleteAction}/>
-                </table>
-            </div>
+            <TableControl actions={actions} delete={deleteAction} header={true}></TableControl>
             <form onSubmit={e => onSubmit(e)} className="g-2">
                 <div className="form-group">
                     <div className="d-flex mb-2">

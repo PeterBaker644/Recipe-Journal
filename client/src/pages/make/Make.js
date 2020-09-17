@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import TableHeader from "../../component/DynamicTable/TableHeader"
 import ls from "local-storage";
 import TestCard from "../../component/TestCard";
-import TableBody from "../../component/DynamicTable/TableBody";
+import TableControl from "../../component/DynamicTable/TableControl";
 import Accordion from "../../component/Make/Accordion";
 import AccordionTest from "../../component/Make/AccordionTest";
 import Modal from "../../component/Modal/Modal";
@@ -54,12 +54,7 @@ function Make() {
             {/* <AccordionTest/> */}
 
             <Accordion title={"Ingredients"}>
-                <div className="table-responsive">
-                    <table className="table font-book">
-                        <TableHeader contents={recipe.ingredients} />
-                        <TableBody tableContents={recipe.ingredients} />
-                    </table>
-                </div>
+                <TableControl ingredients={recipe.ingredients} header={true}></TableControl>
             </Accordion>
             {recipe.actions.map((obj) => {
                 return <Accordion key={obj.title} title={obj.title} text={obj.text} check={true} timer={obj.timer}/>;
