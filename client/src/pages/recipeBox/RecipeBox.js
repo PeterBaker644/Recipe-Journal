@@ -43,6 +43,8 @@ function RecipeBox() {
                 // console.log(res.data);
             })
             .catch(err => console.log(err));
+
+            
     };
 
     function onClick(e) {

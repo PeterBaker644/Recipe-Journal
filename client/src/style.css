@@ -279,6 +279,10 @@ h2 {
     width: 50%;
 }
 
+.extra-margin {
+    padding: 2rem 0rem;
+}
+
 /* Media Queries for About Page */
 @media (max-width: 576px) {
     .about-us {
