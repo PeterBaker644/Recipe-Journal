@@ -7,9 +7,12 @@ export const lightTheme = {
     hover: 'rgba(0,0,0,0.15)',
     recipetext: '#737373',
     divider: '#ebebeb',
+    divide: '#ebebeb',
     closeModal: 'black',
     tableStyle: '#363537',
     close: 'black',
+    timerBtns1: "#8b95a5",
+    timerBtns2: "#8b95a5",
 }
 
 export const darkTheme = {
@@ -20,8 +23,11 @@ export const darkTheme = {
     background: '#737373',
     hover: 'rgba(255,255,255,0.5)',
     recipetext: 'lightgray',
-    divider: '#FFF',
+    divider: '#8b95a5',
+    divide: '#8b95a5',
     closeModal: 'white',
     tableStyle: 'lightgray',
     close: 'white',
+    timerBtns1: "lightgray",
+    timerBtns2: "#929292",
 }

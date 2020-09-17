@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Timer from "react-compound-timer";
 import FontAwesome from 'react-fontawesome';
 import Collapse from "react-bootstrap/Collapse";
@@ -51,14 +51,9 @@ function Accordion(props) {
         />
     );
 
-    const updateColor = (value) => {
-        setColor(value);
+    const startColor = () => {
+        document.getElementsByClassName('accordion').style.backgroundColor("green");
         console.log(color);
-    }
-
-    const noProp = (e, start) => {
-        e.stopPropagation();
-        start();
     }
 
     return (
@@ -66,7 +61,7 @@ function Accordion(props) {
             <div className="accordion">
                 <div onClick={isLocked ? ()=>('') : () => setIsOpen(!isOpen)} aria-expanded={isOpen} aria-controls="collapse" className="accordion-header">
                     {/* DO WE NEED THESE CHECKBOXES? CAN WE CREATE NEW COMPONENTS FOR THEM? */}
-                    <h4 className="rb-btn d-flex justify-content-between align-items-center">
+                    <h4 id="accord" className="rb-btn d-flex justify-content-between align-items-center">
                         <div>
                             {props.check ? <input
                                 type="checkbox"
@@ -82,7 +77,7 @@ function Accordion(props) {
                                 startImmediately={false} 
                                 direction="backward"
                                 checkpoints={[
-                                    {time: 0, callback: () => updateColor("red")}
+                                    {time: 55000, callback: () => startColor},
                                 ]}
                             >
                                 {({ start, pause, reset }) => (
@@ -92,7 +87,7 @@ function Accordion(props) {
                                             <Timer.Minutes formatValue={value => `${value.toString().padStart(2, '0')}:`} />
                                             <Timer.Seconds formatValue={value => `${value.toString().padStart(2, '0')}`} />
                                         </div>
-                                        <div class="btn-group btn-group-sm" role="group" aria-label="Timer Buttons">
+                                        <div className="btn-group btn-group-sm" role="group" aria-label="Timer Buttons">
                                             <button className="btn btn-outline-secondary" onClick={start}>{playIcon()}</button>
                                             <button className="btn btn-outline-secondary" onClick={pause}>{pauseIcon()}</button>
                                             <button className="btn btn-outline-secondary" onClick={reset}>{resetIcon()}</button>
@@ -105,7 +100,7 @@ function Accordion(props) {
                 </div>
                 <Collapse in={isOpen}>
                     <div id="collapse">
-                        {props.text ? <li className="font-book my-4">{props.text}</li> : ""}
+                        {props.text ? <p className="font-book my-4">{props.text}</p> : ""}
                         {props.children}
                     </div>
                 </Collapse>
