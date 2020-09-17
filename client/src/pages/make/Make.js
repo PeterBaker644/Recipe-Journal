@@ -37,7 +37,7 @@ function Make() {
                     <ExitBtn />
                 </Link>
             </header>
-            {/* <button onClick={() => setTimer(true)} className="rb-btn btn-primary" >Timer</button>
+            {/* <button onClick={() => setTimer(true)} className="rb-btn btn-info" >Timer</button>
             {timer && (
                 <Modal closeModal={() => setTimer(false)}>
                     <Countdown></Countdown>
@@ -64,9 +64,9 @@ function Make() {
             <div className="d-flex justify-content-between pt-2">
                 <Link
                     to={{ pathname: "/recipebox" }}
-                    className="d-flex rb-btn btn-primary"
+                    className="d-flex rb-btn btn-info"
                 >Return</Link>
-                <button onClick={() => setModal(true)} className="rb-btn btn-success" >Complete</button>
+                <button onClick={() => setModal(true)} className="rb-btn btn-info" >Complete</button>
             </div>
             {modal && (
                 <Modal noClose={true} closeModal={() => setModal(false)}>

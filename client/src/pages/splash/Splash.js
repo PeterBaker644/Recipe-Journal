@@ -29,7 +29,7 @@ function Splash() {
                     {!!currentUser ? (
                         <>
                             <Link to="/recipebox" className="btn-secondary rb-btn mr-4">Recipe Box</Link> 
-                            <button className="rb-btn btn-primary" onClick={() => app.auth().signOut()}>Sign Out</button>
+                            <button className="rb-btn btn-info" onClick={() => app.auth().signOut()}>Sign Out</button>
                         </>
                         ) : (
                             <Link to="/login" className="btn-secondary rb-btn">Sign In</Link>

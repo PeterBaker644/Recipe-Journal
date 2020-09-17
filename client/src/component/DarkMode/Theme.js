@@ -1,6 +1,6 @@
 export const lightTheme = {
     border: 'black',
-    secondaryBorder: 'rgba(0, 0, 0, 0.125)',
+    secondaryBorder: '#ced4da',
     body: '#FFF',
     text: '#363537',
     toggleBorder: 'black',

@@ -147,7 +147,7 @@ function AllDone() {
                 <button
                     type="button"
                     onClick={() => submitForms("HOME")}
-                    className="rb-btn btn-primary mt-3 ml-1"
+                    className="rb-btn btn-info mt-3 ml-1"
                 >Return to Recipe Box</button>
             </div>
         </>
