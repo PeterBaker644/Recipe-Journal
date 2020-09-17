@@ -40,7 +40,7 @@ function RecipeBox() {
         API.getAllRecipes(user)
             .then(res => {
                 setRecipes(res.data);
-                console.log(res.data);
+                // console.log(res.data);
             })
             .catch(err => console.log(err));
 
