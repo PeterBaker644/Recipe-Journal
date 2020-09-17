@@ -2,31 +2,7 @@ import React, { useState } from "react";
 import API from "../../utils/API";
 import { UlList, RecipeListItem, IngredientsListItem, NestedIngredientsList, NestedTagsList, } from "../../component/RecipeList/index";
 import firebase from 'firebase';
-
-// import 'firebase/storage'; 
-// try {
-//     const serviceAccount = require("./serviceAccountKey.json");
-//     firebase.initializeApp({
-//         serviceAccount
-//     });
-// } catch (error) {
-//     console.log("-------------------------------------------");
-//     console.error(error);
-
-// }
-
-// var storage = require('@google-cloud/storage');
-
-// const storage = gcloud.storage({
-//     projectId: 'recipe-box-6f07a',
-//     keyFilename: 'service-account-credentials.json',
-// });
-
-// const bucket = storage.bucket('recipe-box-6f07a.appspot.com')
-
-
-
-// Get a reference to the storage service, which is used to create references in your storage bucket
+import WebcamCapture from "../../component/Camera"
 
 
 
@@ -44,66 +20,6 @@ function Genepagetest() {
     ]);
 
 
-    const upload = event => {
-        event.preventDefault();
-        console.log('Uploading a blob or file!');
-        // Points to the root reference
-        var storageRef = firebase.storage().ref();
-
-        //creates a reference to pic within the folder
-        var peterPicRef = storageRef.child("./foldername/PeterReactionFace.jpg");
-        // use the Blob or File API
-        var file =  require('./PeterReactionFace.JPG');
-        var blob = new Blob([file], { type: "image/jpeg" });
-
-        console.log(file);
-        console.log(blob);
-        peterPicRef.put([blob]).then(function (snapshot) {
-            console.log('Uploaded a blob or file!');
-        });
-
-
-        // // Points to the root reference
-        // var storageRef = firebase.storage().ref();
-
-        // // Points to 'images'
-        // var imagesRef = storageRef.child('images');
-
-        // // Points to 'images/space.jpg'
-        // // Note that you can use variables to create child values
-        // var fileName = 'space.jpg';
-        // var spaceRef = imagesRef.child(fileName);
-
-        // // File path is 'images/space.jpg'
-        // var path = spaceRef.fullPath
-
-        // // File name is 'space.jpg'
-        // var name = spaceRef.name
-
-        // // Points to 'images'
-        // var imagesRef = spaceRef.parent;
-
-
-        var peterPic = "./PeterReactionFace.jpg";
-        var storageRef = firebase.storage().ref("recipePics/" + peterPic.name);
-        var uploadProgressTask = storageRef.put(peterPic);
-
-        uploadProgressTask.on('state_changed',
-            function progress(snapshot) {
-                console.log(snapshot);
-            },
-            function error(err) {
-                console.log(err);
-            },
-            function complete() {
-                console.log("complete");
-            },
-        )
-    };
-    const choosefile = event => {
-        event.preventDefault();
-
-    };
 
     const recipeSubmit = event => {
         event.preventDefault();
@@ -195,13 +111,8 @@ function Genepagetest() {
     return (
         <div>
 
+            
             <h1>Genes testing page</h1>
-            <button onClick={upload} className="btn btn-info">
-                {" "}upload{" "}
-            </button>
-            <button onClick={choosefile} className="btn btn-info">
-                {" "}choosefile{" "}
-            </button>
 
             <button onClick={deleteRecipe} className="btn btn-info">
                 {" "}deleteRecipe Test{" "}
@@ -221,6 +132,10 @@ function Genepagetest() {
             <button onClick={recipeSubmit} className="btn btn-info">
                 {" "}RecipeList{" "}
             </button>
+            <button onClick={ingredientsSubmit} className="btn btn-primary">
+                {" "}Ingredients List{" "}
+            </button>
+            <WebcamCapture />
             <UlList>
                 {recipes.map(recipe => {
                     return (<div>
@@ -268,9 +183,6 @@ function Genepagetest() {
 
             </UlList>
 
-            <button onClick={ingredientsSubmit} className="btn btn-info">
-                {" "}Ingredients List{" "}
-            </button>
             <UlList>
                 {ingredients.map(ingredient => {
                     return (
