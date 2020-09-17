@@ -1,6 +1,36 @@
 import React, { useState } from "react";
 import API from "../../utils/API";
 import { UlList, RecipeListItem, IngredientsListItem, NestedIngredientsList, NestedTagsList, } from "../../component/RecipeList/index";
+import firebase from 'firebase';
+
+// import 'firebase/storage'; 
+// try {
+//     const serviceAccount = require("./serviceAccountKey.json");
+//     firebase.initializeApp({
+//         serviceAccount
+//     });
+// } catch (error) {
+//     console.log("-------------------------------------------");
+//     console.error(error);
+
+// }
+
+// var storage = require('@google-cloud/storage');
+
+// const storage = gcloud.storage({
+//     projectId: 'recipe-box-6f07a',
+//     keyFilename: 'service-account-credentials.json',
+// });
+
+// const bucket = storage.bucket('recipe-box-6f07a.appspot.com')
+
+
+
+// Get a reference to the storage service, which is used to create references in your storage bucket
+
+
+
+
 
 function Genepagetest() {
     const [recipes, setRecipes] = useState([]);
@@ -12,6 +42,68 @@ function Genepagetest() {
             name: "",
         },
     ]);
+
+
+    const upload = event => {
+        event.preventDefault();
+        console.log('Uploading a blob or file!');
+        // Points to the root reference
+        var storageRef = firebase.storage().ref();
+
+        //creates a reference to pic within the folder
+        var peterPicRef = storageRef.child("./foldername/PeterReactionFace.jpg");
+        // use the Blob or File API
+        var file =  require('./PeterReactionFace.JPG');
+        var blob = new Blob([file], { type: "image/jpeg" });
+
+        console.log(file);
+        console.log(blob);
+        peterPicRef.put([blob]).then(function (snapshot) {
+            console.log('Uploaded a blob or file!');
+        });
+
+
+        // // Points to the root reference
+        // var storageRef = firebase.storage().ref();
+
+        // // Points to 'images'
+        // var imagesRef = storageRef.child('images');
+
+        // // Points to 'images/space.jpg'
+        // // Note that you can use variables to create child values
+        // var fileName = 'space.jpg';
+        // var spaceRef = imagesRef.child(fileName);
+
+        // // File path is 'images/space.jpg'
+        // var path = spaceRef.fullPath
+
+        // // File name is 'space.jpg'
+        // var name = spaceRef.name
+
+        // // Points to 'images'
+        // var imagesRef = spaceRef.parent;
+
+
+        var peterPic = "./PeterReactionFace.jpg";
+        var storageRef = firebase.storage().ref("recipePics/" + peterPic.name);
+        var uploadProgressTask = storageRef.put(peterPic);
+
+        uploadProgressTask.on('state_changed',
+            function progress(snapshot) {
+                console.log(snapshot);
+            },
+            function error(err) {
+                console.log(err);
+            },
+            function complete() {
+                console.log("complete");
+            },
+        )
+    };
+    const choosefile = event => {
+        event.preventDefault();
+
+    };
 
     const recipeSubmit = event => {
         event.preventDefault();
@@ -87,9 +179,9 @@ function Genepagetest() {
         event.preventDefault();
         // manually put the recipe id here to verify this works 
         API.deleteRecipe("5f5550b4ea82aa49a4f93a84")
-        .catch(err => console.log(err));
+            .catch(err => console.log(err));
     };
-    
+
     const oneRecipe = event => {
         event.preventDefault();
         API.getOneRecipe("5f5550b4ea82aa49a4f93a84")
@@ -97,10 +189,20 @@ function Genepagetest() {
             .catch(err => console.log(err));
     };
 
+
+
+
     return (
         <div>
 
             <h1>Genes testing page</h1>
+            <button onClick={upload} className="btn btn-primary">
+                {" "}upload{" "}
+            </button>
+            <button onClick={choosefile} className="btn btn-primary">
+                {" "}choosefile{" "}
+            </button>
+
             <button onClick={deleteRecipe} className="btn btn-primary">
                 {" "}deleteRecipe Test{" "}
             </button>
