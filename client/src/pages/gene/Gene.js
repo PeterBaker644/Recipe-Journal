@@ -114,23 +114,22 @@ function Genepagetest() {
             
             <h1>Genes testing page</h1>
 
-
-            <button onClick={deleteRecipe} className="btn btn-primary">
+            <button onClick={deleteRecipe} className="btn btn-info">
                 {" "}deleteRecipe Test{" "}
             </button>
 
-            <button onClick={createRecipeSubmit} className="btn btn-primary">
+            <button onClick={createRecipeSubmit} className="btn btn-info">
                 {" "}create Test{" "}
             </button>
 
-            <button onClick={createRecipeUpdateSubmit} className="btn btn-primary">
+            <button onClick={createRecipeUpdateSubmit} className="btn btn-info">
                 {" "}Update Test{" "}
             </button>
 
-            <button onClick={oneRecipe} className="btn btn-primary">
+            <button onClick={oneRecipe} className="btn btn-info">
                 {" "}One recipe{" "}
             </button>
-            <button onClick={recipeSubmit} className="btn btn-primary">
+            <button onClick={recipeSubmit} className="btn btn-info">
                 {" "}RecipeList{" "}
             </button>
             <button onClick={ingredientsSubmit} className="btn btn-primary">
@@ -183,7 +182,6 @@ function Genepagetest() {
                 })}
 
             </UlList>
-
 
             <UlList>
                 {ingredients.map(ingredient => {

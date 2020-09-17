@@ -97,9 +97,9 @@ h2 {
 
 .rb-btn-subtle {
     background: var(--primary-color, white);
-    border: thin solid var(--secondary-border, lightgray);
+    border: thin solid var(--secondary-border, #ced4da);
     color: var(--prime-border);
-    border-radius: 0.4rem;
+    border-radius: 0.2rem;
     padding: 0.5rem 1rem;
 }
 
@@ -107,9 +107,13 @@ h2 {
     box-shadow: -2px 4px 16px 0px var(--card-hover, rgba(0,0,0,0.05));
 }
 
+.rb-btn-subtle:hover .rb-btn-icon{
+    color: #EF2D56;
+}
+
 .rb-btn-icon {
     background: white;
-    color: #ced4da;
+    color: #F78DA4;
     border: none;
     cursor: pointer;
     font: 600 1rem/1.5 var(--sans);
@@ -118,7 +122,7 @@ h2 {
 }
 
 .rb-btn-icon :hover {
-    color: black;
+    color: #EF2D56;
 }
 
 .btn-transparent {
@@ -270,6 +274,11 @@ h2 {
 
 .table-style {
     color: var(--table-style, #363537);
+}
+
+.input-group-text {
+    font-family: var(--book);
+    font-style: italic;
 }
 
 .about-us {

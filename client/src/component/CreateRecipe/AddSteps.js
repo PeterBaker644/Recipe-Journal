@@ -92,12 +92,11 @@ function AddSteps() {
                             placeholder="Instruction"
                             aria-label="Instruction"
                         />
-
-
                         <div className="input-group ml-2">
                             <span class="input-group-text font-book">Timer</span>
                             <input
                                 type="number"
+                                min="1" max="99" step="1"
                                 className="form-control"
                                 name="hours"
                                 value={timer.hours}
@@ -107,6 +106,7 @@ function AddSteps() {
                             />
                             <input
                                 type="number"
+                                min="1" max="59" step="1"
                                 className="form-control"
                                 name="minutes"
                                 value={timer.minutes}
@@ -138,10 +138,10 @@ function AddSteps() {
             </form>
             <div className="mt-4 d-flex justify-content-between">
                 <div className="d-flex justify-content-center">
-                    <Link className="rb-btn btn-primary" to={{ pathname: "/create/ingredients" }}>Back</Link>
+                    <Link className="rb-btn btn-info" to={{ pathname: "/create/ingredients" }}>Back</Link>
                     <button type="button" className="rb-btn btn-danger ml-2" onClick={clearActions}>Clear</button>
                 </div>
-                <button className="rb-btn btn-success" onClick={completeActions}>
+                <button className="rb-btn btn-info" onClick={completeActions}>
                     {editMode ? <span>review changes</span> : <span>complete recipe</span>}
                 </button>
             </div>
