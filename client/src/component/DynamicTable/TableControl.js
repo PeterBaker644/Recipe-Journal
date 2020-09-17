@@ -1,6 +1,7 @@
 import React from "react";
 import TableDeleteBtn from "./TableDeleteBtn";
 import moment from 'moment';
+import timeParser from "../../utils/timeParser"
 
 function TableControl(props) {
 
@@ -11,7 +12,7 @@ function TableControl(props) {
             <thead>
                 <tr>
                     <th scope="col">Ingredient</th>
-                    <th scope="col">Amount</th>
+                    {/* <th scope="col">Amount</th> */}
                     <th scope="col">Measure</th>
                     {props.delete ? <td></td> : null}
                 </tr>
@@ -24,10 +25,10 @@ function TableControl(props) {
                 <tr key={index}>
                     {/* This might need revisiting once details are added to creation */}
                     <th>
-                        {ingredient.name} {ingredients.details ? <span className="font-weight-light">({ingredient.details})</span> : null}
+                        {ingredient.name} {ingredient.details ? <span className="font-weight-light">({ingredient.details})</span> : null}
                     </th>
-                    <td>{ingredient.quantity}</td>
-                    <td>{ingredient.units}</td>
+                    <td>{ingredient.quantity} {ingredient.units}</td>
+                    {/* <td>{ingredient.units || "-"}</td> */}
                     {props.delete ? <TableDeleteBtn onClick={() => props.delete(index)} /> : null}
                 </tr>)}
             </tbody>
@@ -52,8 +53,8 @@ function TableControl(props) {
             <thead>
                 <tr>
                     <th scope="col">Instruction</th>
-                    <th scope="col">Details</th>
-                    <th scope="col">Timer</th>
+                    <th scope="col-6">Details</th>
+                    <th scope="col-1">Time</th>
                     {props.delete ? <td></td> : null}
                 </tr>
             </thead>
@@ -63,9 +64,9 @@ function TableControl(props) {
             <tbody className="table-style">
                 {actions.map((action, index) =>
                 <tr key={index}>
-                    <th>{action.title}</th>
+                    <th className="text-nowrap">{action.title}</th>
                     <td>{action.text}</td>
-                    <td>{action.timer}</td>
+                    <td className="text-nowrap">{timeParser("HMS", action.timer)}</td>
                     {props.delete ? <TableDeleteBtn onClick={() => props.delete(index)} /> : null}
                 </tr>)}
             </tbody>
@@ -88,20 +89,20 @@ function TableControl(props) {
         let tableHeader = (
             <thead>
                 <tr>
-                    <th scope="col">Note</th>
                     <th scope="col">Date</th>
+                    <th scope="col">Note</th>
                 </tr>
             </thead>
         )
 
-        let tableBody = comments.map((comment, index) =>
+        let tableBody = 
             <tbody className="table-style">
-                <tr key={index}>
-                    <td>{moment(comment.dateCreated).format("MMM Do, YYYY")}</td>
+                {comments.map((comment, index) =><tr key={index}>
+                    <td>{moment(comment.dateCreated).format("MMM Do, YYYY ~ ha")}</td>
                     <td>{comment.text}</td>
-                </tr>
+                </tr>)}
             </tbody>
-        )
+        
 
         return (
             comments.length ?
