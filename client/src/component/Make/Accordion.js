@@ -56,9 +56,8 @@ function Accordion(props) {
         console.log(color);
     }
 
-    const noProp = (e, start) => {
+    const noProp = (e) => {
         e.stopPropagation();
-        start();
     }
 
     return (
@@ -87,15 +86,16 @@ function Accordion(props) {
                             >
                                 {({ start, pause, reset }) => (
                                     <div className="d-flex align-items-center">
-                                        <div className="mx-2">
+                                        <div>Timer</div>
+                                        <div className="mx-2 font-weight-light">
                                             <Timer.Hours formatValue={value => `${value.toString().padStart(2, '0')}:`} />
                                             <Timer.Minutes formatValue={value => `${value.toString().padStart(2, '0')}:`} />
                                             <Timer.Seconds formatValue={value => `${value.toString().padStart(2, '0')}`} />
                                         </div>
-                                        <div class="btn-group btn-group-sm" role="group" aria-label="Timer Buttons">
-                                            <button className="btn btn-outline-secondary" onClick={start}>{playIcon()}</button>
-                                            <button className="btn btn-outline-secondary" onClick={pause}>{pauseIcon()}</button>
-                                            <button className="btn btn-outline-secondary" onClick={reset}>{resetIcon()}</button>
+                                        <div className="btn-group btn-group-sm" role="group" onClick={noProp} aria-label="Timer Buttons">
+                                            <button className="rb-btn-icon" onClick={start}>{playIcon()}</button>
+                                            <button className="rb-btn-icon" onClick={pause}>{pauseIcon()}</button>
+                                            <button className="rb-btn-icon" onClick={reset}>{resetIcon()}</button>
                                         </div>
                                     </div>
                                 )}
@@ -105,7 +105,7 @@ function Accordion(props) {
                 </div>
                 <Collapse in={isOpen}>
                     <div id="collapse">
-                        {props.text ? <li className="font-book my-4">{props.text}</li> : ""}
+                        {props.text ? <li className="font-book pt-2 pb-3">{props.text}</li> : ""}
                         {props.children}
                     </div>
                 </Collapse>
