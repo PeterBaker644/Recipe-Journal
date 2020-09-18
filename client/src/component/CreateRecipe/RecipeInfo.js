@@ -66,7 +66,7 @@ function RecipeInfo() {
     return (
         <TestCard>
             <div className="d-flex justify-content-between">
-                <h2 className="font-brand">
+                <h2 className="font-brand display-3">
                     {editMode ? <span>edit recipe:</span> : <span>new recipe:</span>}
                 </h2>
                 <Link className="d-flex btn-delete font-sans" to={{ pathname: "/recipebox" }}>

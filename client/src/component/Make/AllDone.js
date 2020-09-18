@@ -7,7 +7,7 @@ import firebase from 'firebase';
 function AllDone() {
 
     // what about dates? does this page help track dates? 
-    const [selectedFile, setSelectedFile] = useState();
+    const [url, setUrl] = useState();
     const [comment, setComment] = useState("");
     const [recipe, setRecipe] = useState(ls.get("recipe"));
     const history = useHistory();
@@ -23,10 +23,11 @@ function AllDone() {
 
     const submitForms = (route) => {
         let comments = recipe.comments;
+        let urls = recipe.imageUrls;
         comments.push(comment);
-        console.log("Recipe comments as follows:", comments);
+        urls.push(url);
         // setting and uploading the photo logic goes here
-        setRecipe({ ...recipe, comments: comments })
+        setRecipe({ ...recipe, comments: comments, imageUrls: urls});
         switch (route) {
             case "HOME":
                 history.push('/recipebox');
@@ -43,9 +44,6 @@ function AllDone() {
 
     const fileSelectedHandler = event => {
         // console.log("Photo file handler event", event.target.files[0]);
-        setSelectedFile({
-            selectedFile: event.target.files[0]
-        });
         // Points to the root reference
         var storageRef = firebase.storage().ref();
         var file = event.target.files[0];
@@ -90,6 +88,7 @@ function AllDone() {
                 // Upload completed successfully, now we can get the download URL
                 uploadTask.snapshot.ref.getDownloadURL().then(function (downloadURL) {
                     console.log('File available at', downloadURL);
+                    setUrl(downloadURL);
                 });
             });
 
@@ -110,7 +109,7 @@ function AllDone() {
 
     return (
         <>
-            <h1 className="display-2 font-brand-small mb-0">all done!</h1>
+            <h1 className="display-2 font-brand display-3-small mb-0">all done!</h1>
             <span className="divider-color"></span>
 
             <form onSubmit={e => onComplete(e)}>

@@ -8,10 +8,15 @@ import Modal from "../../component/Modal/Modal";
 import API from "../../utils/API";
 import Box from "../../component/RecipeBox/Box"
 import Header from "../../component/RecipeBox/Header"
+import Navbar from "../../component/RecipeBox/Navbar"
 import CardComplete from "../../component/CreateRecipe/CardComplete"
 import '../../component/Modal/Modal.css';
+<<<<<<< HEAD
 import RecipeHistory from "../../component/Make/RecipeHistory";
 
+=======
+import RecipeHistory from "../../component/Make/RecipeHistory"
+>>>>>>> ad1a776fba9eb4d029e54e1b3e93ffcdb1c1e299
 
 const firebase = test.firebase_;
 
@@ -29,7 +34,6 @@ function RecipeBox() {
     const [flip, setFlip] = useState(false);
     const history = useHistory();
 
-
     // Load all recipes and store with setRecipes
     useEffect(() => {
         loadRecipes();
@@ -45,7 +49,7 @@ function RecipeBox() {
             })
             .catch(err => console.log(err));
 
-            
+
     };
 
     function onClick(e) {
@@ -141,6 +145,8 @@ function RecipeBox() {
                 handleFormSubmit={handleFormSubmit}
                 clearForm={clearForm}
             />
+            {/* Top Secret */}
+            {/* <Navbar/> */}
             <section >
                 <div className="row row-cols-md-3 row-cols-lg-4">
                     <AddRecipe />
@@ -161,8 +167,8 @@ function RecipeBox() {
                     }
                     {/* This will have more descriptive recipe content */}
                     {status && (<Modal closeModal={() => setStatus(false)}>
-                        {flip ? <RecipeHistory flipCard={flipCard} recipe={recipes[selected.index]}/> : <CardComplete flipCard={flipCard} recipe={recipes[selected.index]}/>}
-                        <button type="button" onClick={() => selectAndGo("make")}className="rb-btn btn-info mb-3 text-center">Make
+                        {flip ? <RecipeHistory flipCard={flipCard} recipe={recipes[selected.index]} /> : <CardComplete flipCard={flipCard} recipe={recipes[selected.index]} />}
+                        <button type="button" onClick={() => selectAndGo("make")} className="rb-btn btn-info mb-3 text-center">Make
                         </button>
                         <button type="button" onClick={() => selectAndGo("edit")} className="rb-btn btn-secondary text-center">Edit Recipe
                         </button>
