@@ -16,7 +16,7 @@ function AddIngredients() {
         name: "",
         details: "",
         quantity: "",
-        unit: ""
+        units: ""
     })
 
     const [ingredient, setIngredient] = useState(initState);
@@ -57,7 +57,7 @@ function AddIngredients() {
     return (
         <TestCard>
             <div className="d-flex justify-content-between">
-                <h2 className="font-brand">
+                <h2 className="font-brand display-3">
                     {editMode ? <span>edit ingredients:</span> : <span>add ingredients:</span>}
                 </h2>
                 <Link className="d-flex btn-delete font-sans" to={{ pathname: "/recipebox" }}>

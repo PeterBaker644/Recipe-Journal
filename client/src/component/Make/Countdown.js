@@ -72,7 +72,7 @@ class Countdown extends Component {
     return (
       <>
         
-          <h1 className="display-2 font-brand-small mb-0"> Timer</h1>
+          <h1 className="display-2 font-brand display-3-small mb-0"> Timer</h1>
           <div className="Countdown-label">Hours : Minutes : Seconds</div>
           <div className="Countdown-display">
             <button onClick={() => this.adjustTimer("incHours")}>
