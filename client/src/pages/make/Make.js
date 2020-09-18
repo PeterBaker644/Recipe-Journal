@@ -1,36 +1,22 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import TableHeader from "../../component/DynamicTable/TableHeader"
 import ls from "local-storage";
 import TestCard from "../../component/TestCard";
 import TableControl from "../../component/DynamicTable/TableControl";
 import Accordion from "../../component/Make/Accordion";
-import AccordionTest from "../../component/Make/AccordionTest";
 import Modal from "../../component/Modal/Modal";
 import AllDone from "../../component/Make/AllDone";
-import Countdown from "../../component/Make/Countdown";
 import ExitBtn from "../../component/CreateRecipe/ExitBtn"
 
 function Make() {
 
     const [modal, setModal] = useState(false);
-    const [timer, setTimer] = useState(false);
     const recipe = ls.get("recipe")
-
-    // const {
-    //     state: { actions, name },
-    // } = useLocation();
-
-    // useEffect(() => {
-    //     return () => {
-    //         console.log("This needs to save the things.");
-    //     }
-    // }, [])
 
     return (
         <TestCard>
             <header className="d-flex justify-content-between">
-                <h2 className="display-2 font-brand-small">
+                <h2 className="display-2 font-brand display-3-small">
                     {recipe.name}
                 </h2>
                 <Link className="d-flex btn-delete font-sans" to={{ pathname: "/recipebox" }}>
