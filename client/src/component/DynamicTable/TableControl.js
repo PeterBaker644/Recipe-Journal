@@ -9,7 +9,7 @@ function TableControl(props) {
         let ingredients = props.ingredients
         
         let tableHeader = (
-            <thead>
+            <thead className="table-head-style">
                 <tr>
                     <th scope="col">Ingredient</th>
                     {/* <th scope="col">Amount</th> */}
@@ -25,7 +25,7 @@ function TableControl(props) {
                 <tr key={index}>
                     {/* This might need revisiting once details are added to creation */}
                     <th>
-                        {ingredient.name} {(ingredient.details.length > 0) ? <span className="font-weight-light">({ingredient.details})</span> : null}
+                        {ingredient.name} {(ingredient.details === (" " || "") ) ? null : <span className="font-weight-light">({ingredient.details})</span>}
                     </th>
                     <td>{ingredient.quantity} {ingredient.units}</td>
                     {/* <td>{ingredient.units || "-"}</td> */}
@@ -50,7 +50,7 @@ function TableControl(props) {
         let actions = props.actions
 
         let tableHeader = (
-            <thead>
+            <thead className="table-head-style">
                 <tr>
                     <th scope="col">Instruction</th>
                     <th scope="col-6">Details</th>
@@ -87,7 +87,7 @@ function TableControl(props) {
         let comments = props.comments
         console.log("It's history");
         let tableHeader = (
-            <thead>
+            <thead className="table-head-style">
                 <tr>
                     <th scope="col">Date</th>
                     <th scope="col">Note</th>

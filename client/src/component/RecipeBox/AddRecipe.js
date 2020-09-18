@@ -11,8 +11,8 @@ function AddRecipe() {
                         {/* Below link needs to redirect to Chue's page */}
                         <AddBtn/>
                     </div>
-                    <div className="card-footer d-flex bg-white justify-content-center">
-                        <span className="font-book-italic text-black-50 text-truncate">
+                    <div className="card-footer d-flex justify-content-center">
+                        <span className="font-book-italic text-truncate">
                             Add a Recipe!
                         </span>
                     </div>

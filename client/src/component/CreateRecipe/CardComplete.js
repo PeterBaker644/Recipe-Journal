@@ -29,7 +29,7 @@ function CardComplete({ recipe, flipCard }) {
             {/* =============== Option 1 =============== */}
 
             <span className="divider-color"></span>
-            <img src={recipe.imageUrls[0]} className="img-fluid mb-3">
+            <img src={recipe.imageUrls[0]} className="rb-img img-fluid mb-3">
             </img>
             <section className="text-center">
                 <span className="font-book">{recipe.description}</span>

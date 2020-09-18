@@ -143,7 +143,7 @@ function RecipeBox() {
             {/* Top Secret */}
             {/* <Navbar/> */}
             <section >
-                <div className="row row-cols-md-3 row-cols-lg-4">
+                <div className="row row-cols-lg-3 row-cols-xl-4">
                     <AddRecipe />
                     {recipes.length ? (
                         <>

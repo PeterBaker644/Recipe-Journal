@@ -92,7 +92,7 @@ function AddSteps() {
                             aria-label="Instruction"
                         />
                         <div className="input-group ml-2">
-                            <span class="input-group-text font-book">Timer</span>
+                            <span className="input-group-text form-control font-book">Timer</span>
                             <input
                                 type="number"
                                 min="1" max="99" step="1"
