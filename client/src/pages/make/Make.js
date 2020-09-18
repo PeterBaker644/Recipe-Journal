@@ -11,10 +11,6 @@ import ExitBtn from "../../component/CreateRecipe/ExitBtn"
 function Make() {
 
     const [modal, setModal] = useState(false);
-<<<<<<< HEAD
-    //const [timer, setTimer] = useState(false);
-=======
->>>>>>> ad1a776fba9eb4d029e54e1b3e93ffcdb1c1e299
     const recipe = ls.get("recipe")
 
     return (

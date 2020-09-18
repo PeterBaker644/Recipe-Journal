@@ -1,9 +1,5 @@
 import React from "react";
 import TableControl from "../DynamicTable/TableControl";
-<<<<<<< HEAD
-
-=======
->>>>>>> ad1a776fba9eb4d029e54e1b3e93ffcdb1c1e299
 
 function RecipeHistory({ recipe, flipCard }) {
 

@@ -11,12 +11,7 @@ import Header from "../../component/RecipeBox/Header"
 import Navbar from "../../component/RecipeBox/Navbar"
 import CardComplete from "../../component/CreateRecipe/CardComplete"
 import '../../component/Modal/Modal.css';
-<<<<<<< HEAD
-import RecipeHistory from "../../component/Make/RecipeHistory";
-
-=======
 import RecipeHistory from "../../component/Make/RecipeHistory"
->>>>>>> ad1a776fba9eb4d029e54e1b3e93ffcdb1c1e299
 
 const firebase = test.firebase_;
 
