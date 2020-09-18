@@ -4,7 +4,7 @@ function Header(props) {
 
     return (
         <header className="row align-items-center">
-            <h1 className="font-brand col-xl text-center text-left-xxl">My Recipe Box.</h1>
+            <h1 className="font-brand display-3 col-xl text-center text-left-xxl">My Recipe Box.</h1>
             <div className="col-xxl-7 my-2 my-xxl-0">
                 <div className="row g-0">
                     <div className="input-group col-md">

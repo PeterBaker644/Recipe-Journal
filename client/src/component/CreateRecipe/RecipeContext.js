@@ -9,13 +9,6 @@ const firebase = test.firebase_;
 export const RecipeProvider = ({ children }) => {
     const user = firebase.auth().currentUser.uid
 
-    // console.log("trying to find the recipe")
-    // if (ls("recipe")) {
-    //     console.log('there is something', (ls.get("recipe")));
-    // } else {
-    //     console.log("there is nothing")
-    // }
-
     useEffect(() => {
         console.log("context is refreshed");
         return () => {

@@ -11,7 +11,7 @@ function AboutUs() {
         <div className="about-us">
         <Box>
             <section className="text-center">
-                <h1 className="font-brand">About Us.</h1>
+                <h1 className="font-brand display-3">About Us.</h1>
                 <span className="divider-color"></span>
                 <p className="font-book recipe-text">
                     We are a small multi-tasking team in Minnesota, equipped with all

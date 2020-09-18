@@ -25,7 +25,7 @@ function TableControl(props) {
                 <tr key={index}>
                     {/* This might need revisiting once details are added to creation */}
                     <th>
-                        {ingredient.name} {ingredient.details ? <span className="font-weight-light">({ingredient.details})</span> : null}
+                        {ingredient.name} {(ingredient.details === (" " || "") ) ? null : <span className="font-weight-light">({ingredient.details})</span>}
                     </th>
                     <td>{ingredient.quantity} {ingredient.units}</td>
                     {/* <td>{ingredient.units || "-"}</td> */}

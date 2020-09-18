@@ -51,7 +51,7 @@ function Splash({history}) {
         <div>
             <TestCard>
                 <section className="text-center">
-                    <h1 className="font-brand">Recipe Box.</h1>
+                    <h1 className="font-brand display-3">Recipe Box.</h1>
                     <p className="divider font-script">make something better</p>
                     <img className="img-fluid mb-3" src={box} alt="recipe box" />
                 </section>

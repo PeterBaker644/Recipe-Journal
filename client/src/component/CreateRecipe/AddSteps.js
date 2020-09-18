@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { useRecipe } from "../../component/CreateRecipe/RecipeContext";
 import TableControl from "../DynamicTable/TableControl";
-import TableHeader from "../DynamicTable/TableHeader";
 import TableButton from "../DynamicTable/TableButton";
 import TestCard from "../TestCard";
 import ExitBtn from "./ExitBtn";
@@ -70,7 +69,7 @@ function AddSteps() {
     return (
         <TestCard>
             <div className="d-flex justify-content-between">
-                <h2 className="font-brand">
+                <h2 className="font-brand display-3">
                     {editMode ? <span>edit steps:</span> : <span>add steps:</span>}
                 </h2>
                 <Link className="d-flex btn-delete font-sans" to={{ pathname: "/recipebox" }}>

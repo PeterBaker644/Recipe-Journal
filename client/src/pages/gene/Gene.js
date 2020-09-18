@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import API from "../../utils/API";
 import { UlList, RecipeListItem, IngredientsListItem, NestedIngredientsList, NestedTagsList, } from "../../component/RecipeList/index";
-import firebase from 'firebase';
 import WebcamCapture from "../../component/Camera"
 
 
