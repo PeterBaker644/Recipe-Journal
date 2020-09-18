@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import test from '../../firebase';
 import ls from 'local-storage';
 import RecipeCard from "../../component/RecipeBox/RecipeCard";
@@ -10,7 +10,6 @@ import Box from "../../component/RecipeBox/Box"
 import Header from "../../component/RecipeBox/Header"
 import CardComplete from "../../component/CreateRecipe/CardComplete"
 import '../../component/Modal/Modal.css';
-import EditRecipe from "../../component/CreateRecipe/EditRecipe";
 import RecipeHistory from "../../component/Make/RecipeHistory";
 
 

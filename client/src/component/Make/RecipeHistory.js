@@ -1,14 +1,5 @@
-import React, { useState, Fragment } from "react";
-import { Link, useHistory, useLocation } from "react-router-dom";
-import API from "../../utils/API";
-import { useRecipe } from "../CreateRecipe/RecipeContext";
-// import TableBody from "../DynamicTable/TableBody"
-// import TableHeader from "../DynamicTable/TableHeader"
-import CardComplete from "../CreateRecipe/CardComplete";
+import React from "react";
 import TableControl from "../DynamicTable/TableControl";
-import TestCard from "../TestCard";
-import Accordion from "./Accordion";
-import Moment from "react-moment";
 
 
 function RecipeHistory({ recipe, flipCard }) {

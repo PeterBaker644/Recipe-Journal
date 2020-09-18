@@ -1,20 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import TableHeader from "../../component/DynamicTable/TableHeader"
 import ls from "local-storage";
 import TestCard from "../../component/TestCard";
 import TableControl from "../../component/DynamicTable/TableControl";
 import Accordion from "../../component/Make/Accordion";
-import AccordionTest from "../../component/Make/AccordionTest";
 import Modal from "../../component/Modal/Modal";
 import AllDone from "../../component/Make/AllDone";
-import Countdown from "../../component/Make/Countdown";
 import ExitBtn from "../../component/CreateRecipe/ExitBtn"
 
 function Make() {
 
     const [modal, setModal] = useState(false);
-    const [timer, setTimer] = useState(false);
+    //const [timer, setTimer] = useState(false);
     const recipe = ls.get("recipe")
 
     // const {
