@@ -30,10 +30,10 @@ function RecipeCard({ recipe, onClick, deleteRecipe, categorySearch, index }) {
                             </div>}
                     </div>
                 </div>
-                <footer className="card-footer d-flex justify-content-between
-                align-items-center bg-white">
-                    <span className="text-smaller font-book-italic text-black-50 text-truncate">
-                        Tags: <span className="text-muted">{recipe.tags.join(", ")}</span>
+                <div className="card-footer d-flex justify-content-between
+                align-items-center">
+                    <span className="text-smaller font-book-italic text-truncate">
+                        Tags: <span className="recipe-text">{recipe.tags.join(", ")}</span>
                     </span>
                     <button
                         type="button"
@@ -42,7 +42,7 @@ function RecipeCard({ recipe, onClick, deleteRecipe, categorySearch, index }) {
                     >
                         {recipe.category.toUpperCase()}
                     </button>
-                </footer>
+                </div>
             </div>
         </div>
     );
