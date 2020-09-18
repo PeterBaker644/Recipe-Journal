@@ -417,13 +417,13 @@ let recipesSeed = [
         ingredients: [
             {
                 name: "smoky pork seasoning",
-                
+                details: " ",
                 quantity: 1,
                 units: "package",  
             },
             {
                 name: "BBQ sauce",
-             
+                details: " ",
                 quantity: 0,
                 units: "to taste",
             },
