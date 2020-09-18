@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Modal.css';
 import FontAwesome from 'react-fontawesome';
 import styled, { keyframes } from "styled-components";
-import { flipInY, flipInX } from "react-animations";
+import { flipInY } from "react-animations";
 
 const Modal = (props) => {
     

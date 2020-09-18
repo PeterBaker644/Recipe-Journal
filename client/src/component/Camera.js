@@ -62,7 +62,7 @@ function WebcamCapture() {
             <button onClick={capture}>Capture photo</button>
             {imgSrc && (
                 <img
-                    src={imgSrc}
+                    src={imgSrc}  alt="food"         
                 />
             )}
 

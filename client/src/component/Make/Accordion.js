@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Timer from "react-compound-timer";
 import FontAwesome from 'react-fontawesome';
 import Collapse from "react-bootstrap/Collapse";
@@ -7,7 +7,7 @@ function Accordion(props) {
 
     const [isOpen, setIsOpen] = useState(false);
     const [isLocked, setIsLocked] = useState(false);
-    const [color, setColor] = useState("");
+    
 
     const stopClick = (e) => {
         e.stopPropagation();
@@ -53,7 +53,7 @@ function Accordion(props) {
 
     const startColor = () => {
         document.getElementsByClassName('accordion').style.backgroundColor("green");
-        console.log(color);
+        
     }
 
     const noProp = (e) => {
