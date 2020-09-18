@@ -9,7 +9,7 @@ function TableControl(props) {
         let ingredients = props.ingredients
         
         let tableHeader = (
-            <thead>
+            <thead className="table-head-style">
                 <tr>
                     <th scope="col">Ingredient</th>
                     {/* <th scope="col">Amount</th> */}
@@ -50,7 +50,7 @@ function TableControl(props) {
         let actions = props.actions
 
         let tableHeader = (
-            <thead>
+            <thead className="table-head-style">
                 <tr>
                     <th scope="col">Instruction</th>
                     <th scope="col-6">Details</th>
@@ -87,7 +87,7 @@ function TableControl(props) {
         let comments = props.comments
         console.log("It's history");
         let tableHeader = (
-            <thead>
+            <thead className="table-head-style">
                 <tr>
                     <th scope="col">Date</th>
                     <th scope="col">Note</th>
