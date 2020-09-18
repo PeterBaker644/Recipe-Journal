@@ -150,7 +150,7 @@ function RecipeInfo() {
                     <button
                         type="submit"
                         value="create"
-                        className="rb-btn btn-primary"
+                        className="rb-btn btn-info"
                     >
                         {editMode ? <span>edit ingredients</span> : <span>add ingredients</span>}
                     </button>

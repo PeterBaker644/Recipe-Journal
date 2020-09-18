@@ -81,8 +81,8 @@ const recipesSchema = new Schema({
                 type: String,
                 required: true
             },
-            timer:{
-                type:Number, 
+            timer: {
+                type: Number, 
                 required: false
             }
         }

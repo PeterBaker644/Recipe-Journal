@@ -45,6 +45,8 @@ function RecipeBox() {
                 // console.log(res.data);
             })
             .catch(err => console.log(err));
+
+            
     };
 
     function onClick(e) {
@@ -161,7 +163,7 @@ function RecipeBox() {
                     {/* This will have more descriptive recipe content */}
                     {status && (<Modal closeModal={() => setStatus(false)}>
                         {flip ? <RecipeHistory flipCard={flipCard} recipe={recipes[selected.index]}/> : <CardComplete flipCard={flipCard} recipe={recipes[selected.index]}/>}
-                        <button type="button" onClick={() => selectAndGo("make")}className="rb-btn btn-success mb-3 text-center">Make
+                        <button type="button" onClick={() => selectAndGo("make")}className="rb-btn btn-info mb-3 text-center">Make
                         </button>
                         <button type="button" onClick={() => selectAndGo("edit")} className="rb-btn btn-secondary text-center">Edit Recipe
                         </button>

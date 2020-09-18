@@ -1,5 +1,6 @@
 export const lightTheme = {
     border: 'black',
+    secondaryBorder: '#ced4da',
     body: '#FFF',
     text: '#363537',
     toggleBorder: 'black',
@@ -17,6 +18,7 @@ export const lightTheme = {
 
 export const darkTheme = {
     border: '#FFF',
+    secondaryBorder: 'rgba(0, 0, 0, 0.125)',
     body: '#363537',
     text: '#FAFAFA',
     toggleBorder: 'white',

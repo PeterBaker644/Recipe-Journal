@@ -4,6 +4,7 @@ export const GlobalStyles = createGlobalStyle`
     :root {
         --primary-color: ${({ theme }) => theme.background};
         --prime-border: ${({ theme }) => theme.border};
+        --secondary-border: ${({ theme }) => theme.secondaryBorder};
         --card-hover: ${({ theme }) => theme.hover};
         --modal-bgcolor: ${({ theme }) => theme.body};
         --divider-color: ${({ theme }) => theme.divider};

@@ -21,7 +21,7 @@ function TestCard({ handleInputChange, submitSignin, submitSignup }) {
             </div>
             <div className="d-flex justify-content-between">
                 <button type="submit" className="rb-btn btn-secondary flex-fill" name="signin" onClick={submitSignin}>Sign In</button>
-                <button type="submit" className="rb-btn btn-primary flex-fill ml-3" name="signup" onClick={submitSignup}>Sign Up</button>
+                <button type="submit" className="rb-btn btn-info flex-fill ml-3" name="signup" onClick={submitSignup}>Sign Up</button>
             </div>
         </form>
     );

@@ -60,7 +60,7 @@ function Splash({history}) {
                     {!!currentUser ? (
                         <>
                             <Link to="/recipebox" className="btn-secondary rb-btn mr-4">Recipe Box</Link> 
-                            <button className="rb-btn btn-primary" onClick={() => firebase.auth().signOut()}>Sign Out</button>
+                            <button className="rb-btn btn-info" onClick={() => firebase.auth().signOut()}>Sign Out</button>
                         </>
                         ) : (
                             <div className="mx-4">

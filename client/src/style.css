@@ -1,7 +1,6 @@
 /* @import url("https://fonts.googleapis.com/css2?family=Great+Vibes&family=Homemade+Apple&family=Open+Sans:ital@1&display=swap"); */
 
 /* Seriffed Fonts: */
-
 @import url('https://fonts.googleapis.com/css2?family=Prata&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=IM+Fell+Double+Pica:ital@0;1&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
@@ -12,7 +11,6 @@
 
 
 /* Sans Serif: */
-
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&display=swap');
 
 :root {
@@ -99,9 +97,9 @@ h2 {
 
 .rb-btn-subtle {
     background: var(--primary-color, white);
-    border: thin solid var(--prime-border, lightgray);
-    color: var(--prime-border, black);
-    border-radius: 0.4rem;
+    border: thin solid var(--secondary-border, #ced4da);
+    color: var(--prime-border);
+    border-radius: 0.2rem;
     padding: 0.5rem 1rem;
 }
 
@@ -109,9 +107,13 @@ h2 {
     box-shadow: -2px 4px 16px 0px var(--card-hover, rgba(0,0,0,0.05));
 }
 
+.rb-btn-subtle:hover .rb-btn-icon{
+    color: #EF2D56;
+}
+
 .rb-btn-icon {
     background: white;
-    color: #ced4da;
+    color: #F78DA4;
     border: none;
     cursor: pointer;
     font: 600 1rem/1.5 var(--sans);
@@ -120,7 +122,7 @@ h2 {
 }
 
 .rb-btn-icon :hover {
-    color: black;
+    color: #EF2D56;
 }
 
 .btn-outline-secondary {
@@ -282,6 +284,11 @@ h2 {
 
 .table-style {
     color: var(--table-style);
+}
+
+.input-group-text {
+    font-family: var(--book);
+    font-style: italic;
 }
 
 .about-us {

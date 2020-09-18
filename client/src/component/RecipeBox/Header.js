@@ -17,9 +17,9 @@ function Header(props) {
                             value={props.formInput}
                             onChange={props.handleInputChange}
                         ></input>
-                        <button className="rb-btn btn-primary" type="button" id="searchSubmit" onClick={props.handleFormSubmit}>Search</button>
+                        <button className="rb-btn btn-info" type="button" id="searchSubmit" onClick={props.handleFormSubmit}>Search</button>
                     </div>
-                    <button className="rb-btn btn-outline-primary col-sm col-md-2 mx-md-3 mt-3 mt-md-0" type="button" id="clearSubmit" onClick={props.clearForm}>Reset</button>
+                    <button className="rb-btn btn-outline-info col-sm col-md-2 mx-md-3 mt-3 mt-md-0" type="button" id="clearSubmit" onClick={props.clearForm}>Reset</button>
                     <button className="rb-btn btn-outline-warning col-sm col-md-2 ml-sm-3 ml-md-0 mt-3 mt-md-0" type="button" onClick={() => props.firebase.auth().signOut()}>
                         Logout
                     </button>

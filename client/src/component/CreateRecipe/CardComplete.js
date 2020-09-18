@@ -1,7 +1,6 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import TableBody from "../DynamicTable/TableBody"
-import TableHeader from "../DynamicTable/TableHeader"
+import TableControl from "../DynamicTable/TableControl"
 import ExitBtn from "./ExitBtn";
 
 function CardComplete({ recipe, flipCard }) {
@@ -35,18 +34,9 @@ function CardComplete({ recipe, flipCard }) {
                 Tags: {recipe.tags.join(", ")}
             </span>
             <h4 className="rb-btn">Ingredients</h4>
-            <div className="table-responsive">
-                <table className="table font-book">
-                    <TableHeader contents={recipe.ingredients} />
-                    <TableBody tableContents={recipe.ingredients} />
-                </table>
-            </div>
+            <TableControl ingredients={recipe.ingredients} header={true}></TableControl>
             <h4 className="rb-btn">Instructions</h4>
-            <div className="table-responsive">
-                <table className="table font-book">
-                    <TableBody tableContents={recipe.actions} />
-                </table>
-            </div>
+            <TableControl actions={recipe.actions}></TableControl>
         </>
     )
 }
