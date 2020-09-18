@@ -47,6 +47,33 @@ td, th {
 .font-book-italic {
     font-family: var(--book);
     font-style: italic;
+    color: var(--tag-color);
+}
+
+.form-control {
+    border-top-color: var(--form-border);
+    border-right-color: var(--form-border);
+    border-bottom-color: var(--form-border);
+    border-left-color: var(--form-border);
+}
+
+.form-control, .form-control:focus, .form-select {
+    background-color: var(--text-input-color);
+}
+
+input:-webkit-autofill, 
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-outer-spin-button:hover,
+input[type=number]::-webkit-outer-spin-button:focus,
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-inner-spin-button:hover,
+input[type=number]::-webkit-inner-spin-button:focus {
+    -webkit-appearance: none;
 }
 
 .splashName {
@@ -96,8 +123,8 @@ h2 {
 }
 
 .rb-btn-subtle {
-    background: var(--primary-color, white);
-    border: thin solid var(--secondary-border, #ced4da);
+    background: var(--primary-color);
+    border: thin solid var(--secondary-border);
     color: var(--prime-border);
     border-radius: 0.2rem;
     padding: 0.5rem 1rem;
@@ -112,7 +139,7 @@ h2 {
 }
 
 .rb-btn-icon {
-    background: white;
+    background: var(--primary-color);
     color: #F78DA4;
     border: none;
     cursor: pointer;
@@ -227,6 +254,17 @@ h2 {
     padding: 1rem
 }
 
+.recipe-card {
+    border-top-color: var(--card-border);
+    border-right-color: var(--card-border);
+    border-bottom-color: var(--card-border);
+    border-left-color: var(--card-border);
+}
+
+.card-footer {
+    border-top-color: var(--card-border);
+}
+
 .recipe-card:hover {
     box-shadow: -2px 4px 16px 0px var(--card-hover);
     cursor: pointer;
@@ -237,17 +275,22 @@ h2 {
 }
 
 .category-badge {
-    color: var(--bs-secondary);
+    color: var(--badge-text);
     border: thin solid lightgray;
     border-radius: 0.4rem;
     padding: 0.1rem 0.2rem;
-    margin-left: 0.1rem
+    margin-left: 0.1rem;
+    background-color: var(--category-badge);
+    border-top-color: var(--badge-border);
+    border-right-color: var(--badge-border);
+    border-bottom-color: var(--badge-border);
+    border-left-color: var(--badge-border);
 }
 
 .category-badge:hover {
-    color: white;
-    background-color: lightgray;
-    border: thin solid lightgray;
+    color: var(--badge-text-hover);
+    background-color: var(--badge-bg-hover);
+    border: thin solid var(--badge-border-hover);
 }
 
 .tags {
@@ -280,10 +323,12 @@ h2 {
 .table-head-style {
     color: var(--table-style);
     border-bottom-width: 2px;
+    border-bottom-color: var(--table-border-style);
 }
 
 .table-style {
     color: var(--table-style);
+    border-bottom-color: var(--table-border-style);
 }
 
 .input-group-text {
@@ -293,7 +338,7 @@ h2 {
 
 .about-us {
     margin: auto;
-    width: 50%;
+    width: 60%;
 }
 
 /* Media Queries for About Page */
@@ -311,7 +356,7 @@ h2 {
     }
 }
 
-@media (min-width: 767px) and (max-width: 998px) {
+@media (min-width: 767px) and (max-width: 875px) {
     .about-us {
         margin: auto;
         width: 70vw;

@@ -23,21 +23,21 @@ function AboutUs() {
             <div className="row mt-4">
                 <div className="col font-book text-center">
                     <Avatar githubHandle="PeterBaker644" round="15px" size="200" />
-                    <p className="mt-2 mx-4 recipe-text">Github: <a href="https://github.com/PeterBaker644">Peter Baker</a></p> 
+                    <p className="mt-2 mx-4 recipe-text">Peter Baker: <a href="https://github.com/PeterBaker644">Github</a></p> 
                 </div>
                 <div className="col font-book text-center">
                     <Avatar githubHandle="gshaver82" round="15px" size="200" />
-                    <p className="mt-2 mx-4 recipe-text">Github: <a href="https://github.com/gshaver82">Gene Shaver</a></p>
+                    <p className="mt-2 mx-4 recipe-text">Gene Shaver: <a href="https://github.com/gshaver82">Github</a></p>
                 </div>
             </div>
             <div className="row">
                 <div className="col font-book text-center">
                     <Avatar githubHandle="chueny" round="15px" size="200" />
-                    <p className="mt-2 mx-4 recipe-text">Github: <a href="https://github.com/chueny">Chue Yang</a></p>
+                    <p className="mt-2 mx-4 recipe-text">Chue Yang: <a href="https://github.com/chueny">Github</a></p>
                 </div>
                 <div className="col font-book text-center">
                     <Avatar githubHandle="jkthomps21" round="15px" size="200" />
-                    <p className="mt-2 mx-4 recipe-text">Github: <a href="https://github.com/jkthomps21">Jacob Thompson</a></p>
+                    <p className="mt-2 mx-4 recipe-text">Jacob Thompson: <a href="https://github.com/jkthomps21">Github</a></p>
                 </div>
             </div>
         </Box>

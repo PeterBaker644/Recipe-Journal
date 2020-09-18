@@ -25,8 +25,7 @@ function RecipeHistory({ recipe, flipCard }) {
                     </button>
                 </div>
             </div>
-            <span className="divider-color"></span>
-            <div >
+            <div>
                 <h1 className="rb-btn">History</h1>
                 <TableControl comments={recipe.comments} header={true}></TableControl>
             </div>
