@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import test from '../../firebase';
 import ls from 'local-storage';
 import RecipeCard from "../../component/RecipeBox/RecipeCard";
