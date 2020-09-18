@@ -84,11 +84,11 @@ h2 {
 
 .rb-btn {
     background: var(--primary-color, white);
-    border: var(--measurement) solid var(--prime-border, black);
+    border: var(--measurement) solid var(--prime-border);
     cursor: pointer;
     font: 600 1rem/1.5 var(--sans);
     text-decoration: none;
-    color: var(--prime-border, black);
+    color: var(--prime-border);
     letter-spacing: var(--measurement);
     padding: 0.5rem 0.75rem;
     position: relative;
@@ -125,6 +125,16 @@ h2 {
     color: #EF2D56;
 }
 
+.btn-outline-secondary {
+    color: var(--timer-btns);
+    border-color: var(--timer-btns) !important;
+}
+
+.btn-outline-secondary:hover {
+    background: var(--timer-btns-hover);
+    color: white;
+}
+
 .btn-transparent {
     background: transparent !important;
 }
@@ -152,7 +162,7 @@ h2 {
     content: '';
     -webkit-box-flex: 1;
     flex-grow: 1;
-    border-top: 1px solid #ebebeb;
+    border-top: 1px solid var(--divider);
 }
 
 *, ::after, ::before {
@@ -161,7 +171,7 @@ h2 {
 
 .divider-color {
     display: flex;
-    border-top: 1px solid var(--divider-color, #ebebeb);
+    border-top: 1px solid var(--divider-color);
     margin: 16px 8px;
 }
 
@@ -187,7 +197,7 @@ h2 {
 }
 
 .btn-delete {
-    color: var(--close, black);
+    color: var(--close);
     text-decoration: none !important;
 }
 
@@ -204,21 +214,21 @@ h2 {
 }
 
 .recipe-border-1 {
-    border: var(--measurement) solid var(--prime-border, black);
+    border: var(--measurement) solid var(--prime-border);
     border-radius: 1rem;
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
 }
 
 .recipe-border-2 {
-    border: thin solid var(--prime-border, black);
+    border: thin solid var(--prime-border);
     border-radius: 0.8rem;
     margin: 0.2rem;
     padding: 1rem
 }
 
 .recipe-card:hover {
-    box-shadow: -2px 4px 16px 0px var(--card-hover, rgba(0,0,0,0.15));
+    box-shadow: -2px 4px 16px 0px var(--card-hover);
     cursor: pointer;
 }
 
@@ -268,12 +278,12 @@ h2 {
 }
 
 .table-head-style {
-    color: var(--table-style, #363537);
+    color: var(--table-style);
     border-bottom-width: 2px;
 }
 
 .table-style {
-    color: var(--table-style, #363537);
+    color: var(--table-style);
 }
 
 .input-group-text {

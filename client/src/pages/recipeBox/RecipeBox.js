@@ -11,7 +11,8 @@ import Header from "../../component/RecipeBox/Header"
 import CardComplete from "../../component/CreateRecipe/CardComplete"
 import '../../component/Modal/Modal.css';
 import EditRecipe from "../../component/CreateRecipe/EditRecipe";
-import RecipeHistory from "../../component/Make/RecipeHistory"
+import RecipeHistory from "../../component/Make/RecipeHistory";
+
 
 const firebase = test.firebase_;
 
@@ -28,7 +29,8 @@ function RecipeBox() {
     const [selected, setSelected] = useState({ index: "" });
     const [flip, setFlip] = useState(false);
     const history = useHistory();
-    
+
+
     // Load all recipes and store with setRecipes
     useEffect(() => {
         loadRecipes();
@@ -165,7 +167,7 @@ function RecipeBox() {
                         </button>
                         <button type="button" onClick={() => selectAndGo("edit")} className="rb-btn btn-secondary text-center">Edit Recipe
                         </button>
-                    </Modal>)}
+                        </Modal>)}
                 </div>
             </section>
         </Box>
