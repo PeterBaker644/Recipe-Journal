@@ -117,8 +117,8 @@ function AddIngredients() {
                             <input
                                 type="text"
                                 className="form-control"
-                                name="unit"
-                                value={ingredient.unit}
+                                name="units"
+                                value={ingredient.units}
                                 onChange={e => onChange(e)}
                                 placeholder="Measure"
                                 aria-label="Measure"
