@@ -167,7 +167,7 @@ function RecipeBox() {
                         </button>
                         <button type="button" onClick={() => selectAndGo("edit")} className="rb-btn btn-secondary text-center">Edit Recipe
                         </button>
-                    </Modal>)}
+                        </Modal>)}
                 </div>
             </section>
         </Box>

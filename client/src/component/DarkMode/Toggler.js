@@ -8,7 +8,7 @@ const Toggle = ({theme,  toggleTheme }) => {
         
         <div className="form-check form-switch mt-1 ml-2">
             <input 
-                checked={isDark}
+                defaultChecked={isDark}
                 className="form-check-input" 
                 onClick={toggleTheme} 
                 type="checkbox" 

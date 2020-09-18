@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Modal.css';
 import FontAwesome from 'react-fontawesome';
+import styled, { keyframes } from "styled-components";
+import { flipInY, flipInX } from "react-animations";
 
 const Modal = (props) => {
+    
+    const Flip = styled.div`animation: 1s ${keyframes`${flipInY}`}`;
 
     const { closeModal } = props;
 
@@ -25,12 +29,16 @@ const Modal = (props) => {
     );
 
     return (
+        
         <div className="modal-overlay">
+            <Flip>
             <div className="modal-content">
                 {props.noClose ? "" : closeIcon()}
                 {props.children}
             </div>
+            </Flip>
         </div>
+        
     );
 };
 
