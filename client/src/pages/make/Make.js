@@ -23,12 +23,6 @@ function Make() {
                     <ExitBtn />
                 </Link>
             </header>
-            {/* <button onClick={() => setTimer(true)} className="rb-btn btn-info" >Timer</button>
-            {timer && (
-                <Modal closeModal={() => setTimer(false)}>
-                    <Countdown></Countdown>
-                </Modal>
-            )} */}
             <span className="divider-color"></span>
             <section className="text-center">
                 <span className="font-book">{recipe.description}</span>
@@ -36,8 +30,6 @@ function Make() {
             <span className="text-smaller font-book-italic text-truncate divider m-2 mb-3">
                 Tags: {recipe.tags.join(", ")}
             </span>
-
-            {/* <AccordionTest/> */}
 
             <Accordion title={"Ingredients"}>
                 <TableControl ingredients={recipe.ingredients} header={true}></TableControl>

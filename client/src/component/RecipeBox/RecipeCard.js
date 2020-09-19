@@ -6,8 +6,12 @@ function RecipeCard({ recipe, onClick, deleteRecipe, categorySearch, index }) {
     // console.log("Component says:", recipe)
 
     const isUrl = (string) => {
-        let expression = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/
-        return string.match(expression);
+        try {
+            let expression = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/
+            return string.match(expression);
+        } catch {
+            return null;
+        }
     }
 
     return (
