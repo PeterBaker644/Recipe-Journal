@@ -80,17 +80,7 @@ function AddIngredients() {
                 </div>
                 <TableControl ingredients={ingredients} delete={deleteIngredient} header={true}></TableControl>
 
-                {ingredientIconList.map(ingredient => {
-                    return (
-                        <button name={ingredient.name} onClick={ingIconClicked}>
-                            <IconComponent
-                                key={ingredient._id}
-                                iconname={ingredient.name}
-                            />
-                            {ingredient.name}
-                        </button>
-                    );
-                })}
+              
                 <form onSubmit={e => onSubmit(e)} className="">
                     <div className="mb-2 row g-2">
                         <div className="col-8 d-flex align-items-stretch">
@@ -170,3 +160,16 @@ function AddIngredients() {
 }
 
 export default AddIngredients;
+
+
+{ingredientIconList.map(ingredient => {
+    return (
+        <button name={ingredient.name} onClick={ingIconClicked}>
+            <IconComponent
+                key={ingredient._id}
+                iconname={ingredient.name}
+            />
+            {ingredient.name}
+        </button>
+    );
+})}
