@@ -6,4 +6,5 @@ export function mobileCheck() {
         console.log(check);
         return check;
     };
+    return window.mobileCheck();
 }

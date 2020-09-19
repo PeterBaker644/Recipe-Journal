@@ -8,7 +8,7 @@ import { mobileCheck } from "../../utils/mobilePhoneCheck";
 
 function AllDone() {
 
-    const desktop = mobileCheck();
+    const mobile = mobileCheck();
     const webcamRef = React.useRef(null);
     const [imgSrc, setImgSrc] = useState(null);
     const [file, setFile] = useState(null);
@@ -17,6 +17,8 @@ function AllDone() {
     const [comment, setComment] = useState("");
     const [recipe, setRecipe] = useState(ls.get("recipe"));
     const history = useHistory();
+
+    console.log("Is this a mobile?", mobile);
 
     useEffect(() => {
         let comments = recipe.comments;
@@ -143,13 +145,13 @@ function AllDone() {
             <form onSubmit={e => onComplete(e)}>
 
                 {mode === "select" ? <div className="d-flex">
-                    {desktop ?
+                    {mobile ?
                         null
                         : <button className="rb-btn flex-fill" onClick={captureMode}>
                             Use Webcam
                     </button>}
                     {/* Take out flex-fill below for mobile */}
-                    <div className={desktop ? "form-file form-tweak w-50 ml-2" : "form-file form-tweak"}>
+                    <div className={mobile ? "form-file form-tweak w-100" : "form-file form-tweak w-50 ml-2"}>
                         <input
                             type="file"
                             accept=".jpg,.png"
@@ -158,7 +160,7 @@ function AllDone() {
                             onChange={localfileSelectedHandler}
                         />
                         <label className="form-file-label font-book-italic h-100 text-center d-flex align-items-center">
-                            <div className="form-file-text rb-btn-form h-100 form-tweak">{desktop ? "Upload a photo..." : "Take a photo..."}</div>
+                            <div className="form-file-text rb-btn-form h-100 form-tweak">{mobile ? "Take a photo..." : "Upload a photo..."}</div>
                             {/* <span className="form-file-button">Browse</span> */}
                         </label>
                     </div>
