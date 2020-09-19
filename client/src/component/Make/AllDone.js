@@ -7,11 +7,13 @@ import Webcam from "react-webcam";
 
 function AllDone() {
 
-    const desktop = navigator.appVersion.indexOf("Win") ? true :
-        navigator.appVersion.indexOf("Mac") ? true :
-        navigator.appVersion.indexOf("X11") ? true :
-        navigator.appVersion.indexOf("Linux") ? true :
+    const desktop = navigator.appVersion.includes("Win") ? true :
+        navigator.appVersion.includes("Mac") ? true :
+        navigator.appVersion.includes("X11") ? true :
+        navigator.appVersion.includes("Linux") ? true :
         false
+
+    console.log(navigator.appVersion)
 
     const webcamRef = React.useRef(null);
     const [imgSrc, setImgSrc] = useState(null);
@@ -147,7 +149,7 @@ function AllDone() {
             <form onSubmit={e => onComplete(e)}>
 
                 {mode === "select" ? <div className="d-flex">
-                    {desktop ?
+                    {(desktop === true) ?
                         <button className="rb-btn flex-fill" onClick={captureMode}>
                             Use Webcam
                         </button>

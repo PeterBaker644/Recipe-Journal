@@ -18,7 +18,10 @@ const firebase = test.firebase_;
 function RecipeBox() {
 
     const user = firebase.auth().currentUser.uid
-    const [status, setStatus] = useState(false);
+    const [display, setDisplay] = useState({
+        card: false,
+        warning: false
+    });
     // Setting component intial state
     const [recipes, setRecipes] = useState([]);
     const [form, setForm] = useState({
@@ -48,7 +51,7 @@ function RecipeBox() {
         const index = e.currentTarget.dataset.index;
         // console.log("this is a test", index)
         setSelected({ index: index })
-        setStatus(true);
+        setDisplay({...display, card:true});
     }
 
     function selectRecipe(recipe) {
@@ -59,10 +62,15 @@ function RecipeBox() {
         }
     }
 
-    function deleteRecipe(event, id) {
+    function deleteConfirmation (event, id) {
         event.stopPropagation()
-        API.deleteRecipe(id)
+        setDisplay({...display, warning:id })
+    }
+
+    function deleteRecipe() {
+        API.deleteRecipe(display.warning)
             .then(res => loadRecipes())
+            .then(setDisplay({...display, warning:false }))
             .catch(err => console.log(err));
     }
 
@@ -97,10 +105,6 @@ function RecipeBox() {
             // some kind of warning. 
         }
     };
-
-    const handleSearchButton = () => {
-        setForm({filterBy:form.input, })
-    }
 
     function categorySearch(event) {
         event.stopPropagation();
@@ -153,7 +157,7 @@ function RecipeBox() {
                             {filterRecipes(recipes, form.filterBy).map((recipe, index) => {
                                 return (<RecipeCard
                                     recipe={recipe}
-                                    deleteRecipe={deleteRecipe}
+                                    deleteRecipe={deleteConfirmation}
                                     onClick={onClick}
                                     key={(index + 1)}
                                     index={index}
@@ -164,7 +168,7 @@ function RecipeBox() {
                     ) : (<h3>No Recipes to Display</h3>)
                     }
                     {/* This will have more descriptive recipe content */}
-                    {status && (<Modal closeModal={() => setStatus(false)}>
+                    {display.card && (<Modal closeModal={() => setDisplay({...display, card:false})}>
                         {flip ? <RecipeHistory flipCard={flipCard} recipe={recipes[selected.index]} /> : <CardComplete flipCard={flipCard} recipe={recipes[selected.index]} />}
                         <button type="button" onClick={() => selectAndGo("make")} className="rb-btn btn-info mb-3 text-center">Make
                         </button>
@@ -173,6 +177,12 @@ function RecipeBox() {
                         </Modal>)}
                 </div>
             </section>
+            {display.warning && (<Modal closeModal={() => setDisplay({...display, warning:false})}>
+                <span className="divider-color"></span>
+                <h3 className="font-book text-center mb-0">Are you sure you want to delete this recipe?</h3>
+                <span className="font-book-italic text-center divider">This cannot be undone</span>
+                <button className="rb-btn btn-danger" onClick={() => deleteRecipe()}>delete</button>
+            </Modal>)}
         </Box>
     );
 }
