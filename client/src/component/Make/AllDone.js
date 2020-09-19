@@ -4,14 +4,18 @@ import API from "../../utils/API"
 import ls from "local-storage";
 import { genImgFileName, dataURLtoFile, imgUploadHandler } from "../../utils/CameraLogic";
 import Webcam from "react-webcam";
+import { mobileCheck} from "../../utils/mobilePhoneCheck";
 
 function AllDone() {
 
-    const desktop = navigator.appVersion.includes("Win") ? true :
-        navigator.appVersion.includes("Mac") ? true :
-        navigator.appVersion.includes("X11") ? true :
-        navigator.appVersion.includes("Linux") ? true :
-        false
+    // const desktop = navigator.appVersion.includes("Win") ? true :
+    //     navigator.appVersion.includes("Mac") ? true :
+    //     navigator.appVersion.includes("X11") ? true :
+    //     navigator.appVersion.includes("Linux") ? true :
+    //     false
+
+        const desktop =mobileCheck() ;
+
 
     console.log(navigator.appVersion)
 
@@ -150,10 +154,10 @@ function AllDone() {
 
                 {mode === "select" ? <div className="d-flex">
                     {desktop ?
-                        <button className="rb-btn flex-fill" onClick={captureMode}>
-                            Use Webcam
-                        </button>
-                        : null}
+                        null
+                        : <button className="rb-btn flex-fill" onClick={captureMode}>
+                        Use Webcam
+                    </button>}
                     {/* Take out flex-fill below for mobile */}
                     <div className={desktop ? "form-file form-tweak w-50 ml-2" : "form-file form-tweak"}>
                         <input
