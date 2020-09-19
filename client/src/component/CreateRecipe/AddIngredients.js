@@ -5,8 +5,13 @@ import TableControl from "../DynamicTable/TableControl";
 import TableButton from "../DynamicTable/TableButton";
 import TestCard from "../TestCard";
 import ExitBtn from "./ExitBtn";
+import IconComponent from "./Icon";
+import API from "../../utils/API";
+
 
 function AddIngredients() {
+
+    const [ingredientIconList, setIngredientIconList] = useState([]);
 
     const { recipe, setValues } = useRecipe();
     const history = useHistory();
@@ -47,6 +52,19 @@ function AddIngredients() {
         setIngredients([...ingredients, ingredient]);
         setIngredient(initState);
     }
+    useEffect(() => {
+        API.getAllIngredientsLimitTen()
+            .then(res => setIngredientIconList(res.data))
+            .catch(err => console.log(err));
+    }, [])
+
+    const ingIconClicked = event => {
+        event.preventDefault();
+        // console.log("icon button clicked")
+        // console.log(event.currentTarget.name)
+        setIngredient({ ...ingredient, name: event.currentTarget.name })
+
+    };
 
     return (
         <TestCard>
@@ -59,6 +77,17 @@ function AddIngredients() {
                 </Link>
             </div>
             <TableControl ingredients={ingredients} delete={deleteIngredient} header={true}></TableControl>
+            {ingredientIconList.map(ingredient => {
+                return (
+                    <button name={ingredient.name} onClick={ingIconClicked}>
+                        <IconComponent
+                            key={ingredient._id}
+                            iconname={ingredient.name}
+                        />
+                        {ingredient.name}
+                    </button>
+                );
+            })}
             <form onSubmit={e => onSubmit(e)} className="">
                 <div className="row g-2">
                     <div className="col-lg-6 col-xl-8 g-2">
@@ -87,6 +116,7 @@ function AddIngredients() {
                         </div>
 
                     </div>
+
                     <div className="col-lg mt-0 mt-lg-2 g-2 d-flex flex-column-reverse flex-lg-column">
                         <div className="mb-2">
                             <button type="submit" className="btn-block d-flex rb-btn-subtle align-items-center justify-content-center">
@@ -141,3 +171,5 @@ function AddIngredients() {
 }
 
 export default AddIngredients;
+
+

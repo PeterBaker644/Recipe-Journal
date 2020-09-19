@@ -6,11 +6,10 @@ router.route("/")
     .get(ingredientsController.findAll)
     .put(ingredientsController.updateIngredientCount);
 
-// Matches with "/api/ingredients/:id"
-// router
-//     .route("/:id")
-//     .get(ingredientsController.findById)
-//     .put(ingredientsController.update)
-//     .delete(ingredientsController.remove);
+// Matches with "/api/ingredients/limitTen"
+router
+    .route("/limitTen")
+    .get(ingredientsController.findAllLimitTen)
+
 
 module.exports = router;

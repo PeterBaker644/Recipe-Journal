@@ -1226,22 +1226,72 @@ let recipesSeed = [
 //ingredients seed
 let ingredientsSeed = [
     {
-        name:"pasta",
-        ingredientIconLink: "pasta icon link example here",
-        ingredientCategory: "pasta ingredient category here",
+        name:"apple",
+        ingredientIconLink: "apple icon link example here",
+        ingredientCategory: "apple ingredient category here",
         ingredientCategoryIconLink:"ingredient category icon link here",
-        totalUsedCount:15,
+        usedCount:15,
     },
     {
-        name: "flour",
-        totalUsedCount: 1,
+        name: "bacon",
+        usedCount: 91,
         ingredientCategory: "baked goods"
     },
     {
-        name: "eggs",
+        name: "bellpepper",
+        usedCount: 1,
+    },
+    {
+        name: "butter",
+        usedCount: 92,
+    },
+    {
+        name: "cheese",
+        usedCount: 93,
+    },
+    {
+        name: "egg",
+        usedCount: 94,
+    },
+    {
+        name: "garlic",
+        usedCount: 2,
+    },
+    {
+        name: "lemon",
+        usedCount: 3,
+    },
+    {
+        name: "lime",
+        usedCount: 4,
     },
     {
         name: "milk",
+        usedCount: 97,
+    },
+    {
+        name: "pepper",
+        usedCount: 30,
+    },
+    {
+        name: "potato",
+        usedCount: 98,
+    },
+    {
+        name: "salt",
+        usedCount: 99,
+    },
+    {
+        name: "tomato",
+        usedCount: 87,
+    },
+    {
+        name: "radish",
+        usedCount: 88,
+    },
+    {
+        name: "sausages",
+        usedCount: 89,
     },
 ];
 
