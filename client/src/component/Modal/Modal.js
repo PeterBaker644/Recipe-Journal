@@ -6,7 +6,7 @@ import { flipInY } from "react-animations";
 
 const Modal = (props) => {
     
-    const Flip = styled.div`animation: 1s ${keyframes`${flipInY}`}`;
+    const Flip = styled.div`animation: .5s ${keyframes`${flipInY}`}`;
 
     const { closeModal } = props;
 

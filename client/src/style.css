@@ -30,6 +30,10 @@ td, th {
     padding: 0.4rem 0.6rem !important;
 }
 
+video {
+    width: 45vw;
+}
+
 .font-brand {
     font-family: "Prata";
 }
@@ -49,7 +53,7 @@ td, th {
     color: var(--tag-color);
 }
 
-.form-control {
+.form-control, .form-select {
     border-top-color: var(--form-border);
     border-right-color: var(--form-border);
     border-bottom-color: var(--form-border);
@@ -58,6 +62,18 @@ td, th {
 
 .form-control, .form-control:focus, .form-select {
     background-color: var(--text-input-color);
+    color: var(--btn-subtle);
+}
+
+.form-control::-webkit-input-placeholder {
+    color: var(--placeholder);
+}
+
+.input-group-text {
+    font-family: var(--book);
+    font-style: italic;
+    background-color: var(--input-timer-color);
+    color: var(--input-timer-text);
 }
 
 input:-webkit-autofill, 
@@ -75,6 +91,11 @@ input[type=number]::-webkit-inner-spin-button:focus {
     -webkit-appearance: none;
 }
 
+.img-thumbnail {
+    background-color: var(--primary-color);
+    border-color: var(--card-border);
+}
+
 .splashName {
   /* font-family: "Homemade Apple", cursive; */
   font-size: 100px;
@@ -88,11 +109,6 @@ input[type=number]::-webkit-inner-spin-button:focus {
 .font-sans {
     font-family: var(--sans);
     font-weight: 300;
-}
-
-h2 {
-  /* font-family: "Homemade Apple", cursive; */
-  font-size: auto;
 }
 
 .font-sans-500 {
@@ -137,7 +153,7 @@ h2 {
 .rb-btn-subtle {
     background: var(--primary-color);
     border: thin solid var(--secondary-border);
-    color: var(--prime-border);
+    color: var(--btn-subtle);
     border-radius: 0.2rem;
     padding: 0.5rem 1rem;
 }
@@ -162,6 +178,26 @@ h2 {
 
 .rb-btn-icon :hover {
     color: #EF2D56;
+}
+
+.rb-btn-form {
+    border: var(--measurement) solid var(--prime-border);
+    border-radius: 0rem;
+    font: 600 1rem/1.5 var(--sans);
+    letter-spacing: var(--measurement);
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--prime-border);
+    cursor: pointer;
+}
+
+.form-tweak {
+    height: 2.8rem;
+    line-height: 2rem;
+}
+
+.form-tweak-2 {
+    padding: 9px 1rem;
 }
 
 .btn-outline-secondary {
@@ -217,7 +253,6 @@ h2 {
 .divider {
     display: flex;
     align-items: center;
-    color: #8b95a5;
     margin: 1.2rem;
 }
 
@@ -343,12 +378,6 @@ h2 {
     border-bottom-color: var(--table-border-style);
 }
 
-
-.input-group-text {
-    font-family: var(--book);
-    font-style: italic;
-}
-
 .about-us {
     margin: auto;
     width: 60%;
@@ -358,6 +387,7 @@ h2 {
     color: var(--bs-secondary);
     font-family: var(--book);
     font-style: italic;
+    cursor: pointer;
 }
 
 /* Media Queries for About Page */

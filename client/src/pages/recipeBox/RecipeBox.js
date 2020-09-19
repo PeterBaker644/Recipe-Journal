@@ -11,7 +11,7 @@ import Header from "../../component/RecipeBox/Header"
 import Navbar from "../../component/RecipeBox/Navbar"
 import CardComplete from "../../component/CreateRecipe/CardComplete"
 import '../../component/Modal/Modal.css';
-import RecipeHistory from "../../component/Make/RecipeHistory"
+import RecipeHistory from "../../component/Make/RecipeHistory";
 
 const firebase = test.firebase_;
 
@@ -29,23 +29,20 @@ function RecipeBox() {
     const [flip, setFlip] = useState(false);
     const history = useHistory();
 
-    // Load all recipes and store with setRecipes
-    useEffect(() => {
-        loadRecipes();
-        selectRecipe();
-    }, [])
-
     // Loads recipes and set them to recipes
     function loadRecipes() {
         API.getAllRecipes(user)
             .then(res => {
                 setRecipes(res.data);
-                // console.log(res.data);
             })
             .catch(err => console.log(err));
-
-
     };
+
+    // Load all recipes and store with setRecipes
+    useEffect(() => {
+        loadRecipes();
+        selectRecipe();
+    }, [])
 
     function onClick(e) {
         const index = e.currentTarget.dataset.index;
@@ -78,6 +75,8 @@ function RecipeBox() {
             case "edit":
                 history.push('/create/info');
                 return;
+            default:
+                return;
         }
     }
 
@@ -98,6 +97,10 @@ function RecipeBox() {
             // some kind of warning. 
         }
     };
+
+    const handleSearchButton = () => {
+        setForm({filterBy:form.input, })
+    }
 
     function categorySearch(event) {
         event.stopPropagation();
@@ -141,7 +144,7 @@ function RecipeBox() {
                 clearForm={clearForm}
             />
             {/* Top Secret */}
-            {/* <Navbar/> */}
+            <Navbar form={form} setForm={setForm}/>
             <section >
                 <div className="row row-cols-lg-3 row-cols-xl-4">
                     <AddRecipe />

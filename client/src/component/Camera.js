@@ -3,17 +3,9 @@ import Webcam from "react-webcam";
 import firebase from 'firebase';
 
 function WebcamCapture() {
-    
-    const [selectedFile, setSelectedFile] = useState();
 
     const webcamRef = React.useRef(null);
     const [imgSrc, setImgSrc] = React.useState(null);
-
-    const capture = React.useCallback(() => {
-        const imageSrc = webcamRef.current.getScreenshot();
-        setImgSrc(imageSrc);
-        fileSelectedHandler(imageSrc);
-    }, [webcamRef, setImgSrc]);
 
     //once permission has been granted by the user the screenshot is displayed.
     //screenshot constantly updates and looks like video
@@ -29,9 +21,6 @@ function WebcamCapture() {
 
     function fileSelectedHandler(imageSrc) {
         console.log("Photo file handler event", imageSrc);
-        setSelectedFile({
-            selectedFile: imageSrc
-        });
         // Points to the root reference
         var storageRef = firebase.storage().ref();
 
@@ -50,6 +39,12 @@ function WebcamCapture() {
                 });
             });
     }
+
+    const capture = React.useCallback(() => {
+        const imageSrc = webcamRef.current.getScreenshot();
+        setImgSrc(imageSrc);
+        fileSelectedHandler(imageSrc);
+    }, [webcamRef, setImgSrc]);
 
     return (
         <div>

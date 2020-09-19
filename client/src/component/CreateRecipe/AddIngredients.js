@@ -43,12 +43,6 @@ function AddIngredients() {
         setIngredients(array);
     }
 
-    useEffect(() => {
-        API.getAllIngredientsLimitTen()
-            .then(res => setIngredientIconList(res.data))
-            .catch(err => console.log(err));
-    }, [])
-
     const onChange = (e) => {
         setIngredient({ ...ingredient, [e.target.name]: e.target.value.toLowerCase() });
     }
@@ -58,36 +52,50 @@ function AddIngredients() {
         setIngredients([...ingredients, ingredient]);
         setIngredient(initState);
     }
+    useEffect(() => {
+        API.getAllIngredientsLimitTen()
+            .then(res => setIngredientIconList(res.data))
+            .catch(err => console.log(err));
+    }, [])
 
     const ingIconClicked = event => {
         event.preventDefault();
-        console.log("icon button clicked")
-        console.log(event.currentTarget.name)
-        setIngredient({...ingredient, name:event.currentTarget.name})
+        // console.log("icon button clicked")
+        // console.log(event.currentTarget.name)
+        setIngredient({ ...ingredient, name: event.currentTarget.name })
 
     };
 
     return (
-        <div>
-            <TestCard>
-                <div className="d-flex justify-content-between">
-                    <h2 className="font-brand display-3">
-                        {editMode ? <span>edit ingredients:</span> : <span>add ingredients:</span>}
-                    </h2>
-                    <Link className="d-flex btn-delete font-sans" to={{ pathname: "/recipebox" }}>
-                        <ExitBtn />
-                    </Link>
-                </div>
-                <TableControl ingredients={ingredients} delete={deleteIngredient} header={true}></TableControl>
-
-              
-                <form onSubmit={e => onSubmit(e)} className="">
-                    <div className="mb-2 row g-2">
-                        <div className="col-8 d-flex align-items-stretch">
+        <TestCard>
+            <div className="d-flex justify-content-between">
+                <h2 className="font-brand display-3">
+                    {editMode ? <span>edit ingredients:</span> : <span>add ingredients:</span>}
+                </h2>
+                <Link className="d-flex btn-delete font-sans" to={{ pathname: "/recipebox" }}>
+                    <ExitBtn />
+                </Link>
+            </div>
+            <TableControl ingredients={ingredients} delete={deleteIngredient} header={true}></TableControl>
+            {ingredientIconList.map(ingredient => {
+                return (
+                    <button name={ingredient.name} onClick={ingIconClicked}>
+                        <IconComponent
+                            key={ingredient._id}
+                            iconname={ingredient.name}
+                        />
+                        {ingredient.name}
+                    </button>
+                );
+            })}
+            <form onSubmit={e => onSubmit(e)} className="">
+                <div className="row g-2">
+                    <div className="col-lg-6 col-xl-8 g-2">
+                        <div className="d-flex align-items-stretch mb-2">
                             <input
                                 type="text"
                                 required
-                                className="form-control"
+                                className="form-control form-tweak-2"
                                 name="name"
                                 value={ingredient.name}
                                 onChange={e => onChange(e)}
@@ -95,19 +103,7 @@ function AddIngredients() {
                                 aria-label="Ingredient"
                             />
                         </div>
-                        <div className="col">
-                            <button type="submit" className="btn-block d-flex rb-btn-subtle align-items-center justify-content-center">
-                                <span className="text-nowrap text-muted">ADD INGREDIENT</span>
-                                <span
-                                    className="rb-btn-icon btn-transparent ml-2"
-                                >
-                                    <TableButton />
-                                </span>
-                            </button>
-                        </div>
-                    </div>
-                    <div className="row g-2">
-                        <div className="col-8">
+                        <div className="mb-2">
                             <input
                                 type="text"
                                 className="form-control"
@@ -118,7 +114,23 @@ function AddIngredients() {
                                 aria-label="Details"
                             />
                         </div>
-                        <div className="col">
+
+                    </div>
+
+                    <div className="col-lg mt-0 mt-lg-2 g-2 d-flex flex-column-reverse flex-lg-column">
+                        <div className="mb-2">
+                            <button type="submit" className="btn-block d-flex rb-btn-subtle align-items-center justify-content-center">
+                                <span className="text-nowrap">ADD INGREDIENT</span>
+                                <span
+                                    className="rb-btn-icon btn-transparent ml-2"
+                                >
+                                    <TableButton />
+                                </span>
+                            </button>
+                        </div>
+
+                        <div className="mb-2">
+
                             <div className="input-group">
                                 <input
                                     type="number"
@@ -141,35 +153,23 @@ function AddIngredients() {
                                 />
                             </div>
                         </div>
-
                     </div>
-
-                </form>
-                <div className="mt-4 d-flex justify-content-between">
-                    <div className="d-flex justify-content-center">
-                        <Link className="rb-btn btn-info" to={{ pathname: "/create/info" }}>Back</Link>
-                        <button type="button" className="rb-btn btn-danger ml-2" onClick={clearIngredients}>Clear</button>
-                    </div>
-                    <button className="rb-btn btn-info" onClick={completeIngredients}>
-                        {editMode ? <span>edit steps</span> : <span>add steps</span>}
-                    </button>
                 </div>
-            </TestCard>
-        </div>
+
+            </form>
+            <div className="mt-4 d-flex justify-content-between">
+                <div className="d-flex justify-content-center">
+                    <Link className="rb-btn btn-info" to={{ pathname: "/create/info" }}>Back</Link>
+                    <button type="button" className="rb-btn btn-danger ml-2" onClick={clearIngredients}>Clear</button>
+                </div>
+                <button className="rb-btn btn-info" onClick={completeIngredients}>
+                    {editMode ? <span>edit steps</span> : <span>add steps</span>}
+                </button>
+            </div>
+        </TestCard>
     )
 }
 
 export default AddIngredients;
 
 
-{ingredientIconList.map(ingredient => {
-    return (
-        <button name={ingredient.name} onClick={ingIconClicked}>
-            <IconComponent
-                key={ingredient._id}
-                iconname={ingredient.name}
-            />
-            {ingredient.name}
-        </button>
-    );
-})}
