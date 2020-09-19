@@ -147,6 +147,18 @@ input[type=number]::-webkit-inner-spin-button:focus {
     height: 30vw;
 }
 
+.rb-icon {
+    background: var(--primary-color);
+    color: #F78DA4;
+    border: thin solid var(--secondary-border);
+    border-radius:1rem;
+    cursor: pointer;
+    font: 600 1rem/1.5 var(--sans);
+    letter-spacing: var(--measurement);
+    text-transform: uppercase;
+    padding: 0.5rem;
+}
+
 .rb-btn {
     background: var(--primary-color, white);
     border: var(--measurement) solid var(--prime-border);
@@ -375,6 +387,10 @@ input[type=number]::-webkit-inner-spin-button:focus {
 
 .delete:hover {
     color: lightgray;
+}
+
+.error-margin {
+    margin-bottom: 2.1rem !important;
 }
 
 .table-head-style {

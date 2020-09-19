@@ -39,17 +39,26 @@ function AddSteps() {
 
     const completeActions = (e) => {
         e.preventDefault();
-        setValues({ actions: actions });
-        history.push('/create/complete');
+        if (actions.length < 1) {
+            let element = document.getElementById("warning");
+            let margins = document.getElementsByClassName("margin");
+            for (let elem of margins) {
+                elem.classList.add("error-margin");
+            }
+            element.classList.add("is-invalid");
+        } else {
+            setValues({ actions: actions });
+            history.push('/create/complete');
+        }
+
     }
 
     useEffect(() => {
         (timer.hours.length || timer.minutes.length) ?
-        setAction({ ...action, timer: timeParser("SEC", timer.hours, timer.minutes)})
-        : 
-        setAction({...action, timer: ""});
-        console.log("Timer has been set")
-    },[timer])
+            setAction({ ...action, timer: timeParser("SEC", timer.hours, timer.minutes) })
+            :
+            setAction({ ...action, timer: "" });
+    }, [timer])
 
     const onChange = (e) => {
         setAction({ ...action, [e.target.name]: e.target.value });
@@ -60,6 +69,12 @@ function AddSteps() {
     }
 
     const onSubmit = (e) => {
+        let element = document.getElementById("warning");
+        let margins = document.getElementsByClassName("margin");
+        for (let elem of margins) {
+            elem.classList.remove("error-margin");
+        }
+        element.classList.remove("is-invalid");
         e.preventDefault();
         setActions([...actions, action]);
         setAction(initAction);
@@ -80,18 +95,23 @@ function AddSteps() {
             <form onSubmit={e => onSubmit(e)} className="g-2">
                 <div className="form-group">
                     <div className="d-flex mb-2">
-
-                        <input
-                            type="text"
-                            required
-                            className="form-control"
-                            name="title"
-                            value={action.title}
-                            onChange={e => onChange(e)}
-                            placeholder="Instruction"
-                            aria-label="Instruction"
-                        />
-                        <div className="input-group ml-2">
+                        <div className="w-100">
+                            <input
+                                type="text"
+                                required
+                                className="form-control form-tweak"
+                                id="warning"
+                                name="title"
+                                value={action.title}
+                                onChange={e => onChange(e)}
+                                placeholder="Instruction"
+                                aria-label="Instruction"
+                            />  
+                            <div className="invalid-feedback font-book-italic">
+                            Recipe must include at least one step.
+                            </div>
+                        </div>
+                        <div className="input-group ml-2 margin">
                             <span className="input-group-text form-control font-book">Timer</span>
                             <input
                                 type="number"
@@ -114,7 +134,7 @@ function AddSteps() {
                                 aria-label="Minutes"
                             />
                         </div>
-                        <button type="submit" className="rb-btn-subtle d-flex align-items-center ml-2 px-2">
+                        <button type="submit" className="rb-btn-subtle d-flex align-items-center ml-2 px-2 margin">
                             <span className="text-nowrap">ADD STEP</span>
                             <span
                                 className="rb-btn-icon btn-transparent ml-2"
@@ -122,7 +142,9 @@ function AddSteps() {
                                 <TableButton />
                             </span>
                         </button>
+                        
                     </div>
+                    
                     <textarea
                         type="text"
                         required
