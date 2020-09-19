@@ -88,17 +88,19 @@ function AddIngredients() {
                 </Link>
             </div>
             <TableControl ingredients={ingredients} delete={deleteIngredient} header={true}></TableControl>
-            {ingredientIconList.map(ingredient => {
-                return (
-                    <button name={ingredient.name} onClick={ingIconClicked}>
-                        <IconComponent
-                            key={ingredient._id}
-                            iconname={ingredient.name}
-                        />
-                        {ingredient.name}
-                    </button>
-                );
-            })}
+            <div className="d-flex justify-content-around mx-4 mb-3">
+                {ingredientIconList.map(ingredient => {
+                    return (
+                        <button className="rb-icon" name={ingredient.name} onClick={ingIconClicked}>
+                            <IconComponent
+                                key={ingredient._id}
+                                iconname={ingredient.name}
+                            />
+                            {ingredient.name}
+                        </button>
+                    );
+                })}
+            </div>
             <form onSubmit={e => onSubmit(e)} className="" id="form">
                 <div className="row g-2">
                     <div className="col-lg-6 col-xl-8 g-2">
