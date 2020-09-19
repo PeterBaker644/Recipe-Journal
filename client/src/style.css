@@ -367,6 +367,10 @@ input[type=number]::-webkit-inner-spin-button:focus {
     color: lightgray;
 }
 
+.error-margin {
+    margin-bottom: 2.1rem !important;
+}
+
 .table-head-style {
     color: var(--table-style);
     border-bottom-width: 2px;

@@ -20,7 +20,7 @@ function AddIngredients() {
     })
 
     const [ingredient, setIngredient] = useState(initState);
-    const [ingredients, setIngredients] = useState([...recipe.ingredients || ""]);
+    const [ingredients, setIngredients] = useState([...recipe.ingredients || null]);
 
     const clearIngredients = (e) => {
         setIngredients([]);
@@ -28,8 +28,15 @@ function AddIngredients() {
 
     const completeIngredients = (e) => {
         e.preventDefault();
-        setValues({ ingredients: ingredients });
-        history.push('/create/steps');
+        if (ingredients.length < 1) {
+            let element = document.getElementById("warning");
+            let margin = document.getElementById("margin")
+            element.classList.add("is-invalid");
+            margin.classList.add("error-margin");
+        } else {
+            setValues({ ingredients: ingredients });
+            history.push('/create/steps');
+        }
     }
 
     const deleteIngredient = (index) => {
@@ -43,6 +50,10 @@ function AddIngredients() {
     }
 
     const onSubmit = (e) => {
+        let element = document.getElementById("warning");
+        let margin = document.getElementById("margin");
+        margin.classList.remove("error-margin");
+        element.classList.remove("is-invalid");
         e.preventDefault();
         setIngredients([...ingredients, ingredient]);
         setIngredient(initState);
@@ -59,20 +70,24 @@ function AddIngredients() {
                 </Link>
             </div>
             <TableControl ingredients={ingredients} delete={deleteIngredient} header={true}></TableControl>
-            <form onSubmit={e => onSubmit(e)} className="">
+            <form onSubmit={e => onSubmit(e)} className="" id="form">
                 <div className="row g-2">
                     <div className="col-lg-6 col-xl-8 g-2">
-                        <div className="d-flex align-items-stretch mb-2">
+                        <div className="d-flex flex-column align-items-stretch mb-2">
                             <input
                                 type="text"
                                 required
                                 className="form-control form-tweak-2"
                                 name="name"
+                                id="warning"
                                 value={ingredient.name}
                                 onChange={e => onChange(e)}
                                 placeholder="Ingredient"
                                 aria-label="Ingredient"
                             />
+                            <div className="invalid-feedback font-book-italic">
+                                Recipe must include at least one ingredient.
+                            </div>
                         </div>
                         <div className="mb-2">
                             <input
@@ -88,7 +103,7 @@ function AddIngredients() {
 
                     </div>
                     <div className="col-lg mt-0 mt-lg-2 g-2 d-flex flex-column-reverse flex-lg-column">
-                        <div className="mb-2">
+                        <div className="mb-2" id="margin">
                             <button type="submit" className="btn-block d-flex rb-btn-subtle align-items-center justify-content-center">
                                 <span className="text-nowrap">ADD INGREDIENT</span>
                                 <span
