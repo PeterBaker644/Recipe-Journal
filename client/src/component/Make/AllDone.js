@@ -34,14 +34,20 @@ function AllDone() {
         // console.log("webcamCapture");
         setMode("preview")
         const imageSrc = webcamRef.current.getScreenshot();
-        setImgSrc(imageSrc);
-        const filename = genImgFileName(recipe.name);
-        // console.log("webcamCapture filename", filename);
-        const jpgImage = dataURLtoFile(imageSrc, filename);
-        // console.log("webcamCapture jpgImage", jpgImage);
-        const downloadURL = await imgUploadHandler(jpgImage, filename, recipe.userID);
-        // console.log("downloadURL", downloadURL);
-        setUrl(downloadURL);
+        if (!imageSrc) {
+            alert("error using webcam");
+            setMode("select")
+        } else {
+            setImgSrc(imageSrc);
+            const filename = genImgFileName(recipe.name);
+            // console.log("webcamCapture filename", filename);
+            const jpgImage = dataURLtoFile(imageSrc, filename);
+            // console.log("webcamCapture jpgImage", jpgImage);
+            const downloadURL = await imgUploadHandler(jpgImage, filename, recipe.userID);
+            // console.log("downloadURL", downloadURL);
+            setUrl(downloadURL);
+        }
+
     }, [webcamRef, setImgSrc]);
 
     const localfileSelectedHandler = async event => {
