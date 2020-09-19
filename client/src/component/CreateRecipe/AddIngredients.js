@@ -81,7 +81,7 @@ function AddIngredients() {
                     </div>
                     <div className="col">
                         <button type="submit" className="btn-block d-flex rb-btn-subtle align-items-center justify-content-center">
-                            <span className="text-nowrap text-muted">ADD INGREDIENT</span>
+                            <span className="text-nowrap">ADD INGREDIENT</span>
                             <span
                                 className="rb-btn-icon btn-transparent ml-2"
                             >

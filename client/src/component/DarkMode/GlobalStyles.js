@@ -26,6 +26,10 @@ export const GlobalStyles = createGlobalStyle`
         --badge-border-hover: ${({ theme }) => theme.badgeBorderHover};
         --form-border: ${({ theme }) => theme.formBorder};
         --amount-btns: ${({ theme }) => theme.amountBtns};
+        --input-timer-color: ${({ theme }) => theme.inputTimerColor};
+        --input-timer-text: ${({ theme }) => theme.inputTimerText};
+        --btn-subtle: ${({ theme }) => theme.btnSubtle};
+        --placeholder: ${({ theme }) => theme.placeHolder};
         transition: all 0.50s linear;
     }
     body {
