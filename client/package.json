@@ -6,6 +6,7 @@
     "dependencies": {
         "axios": "^0.20.0",
         "firebase": "^7.19.1",
+        "framer-motion": "^2.6.15",
         "local-storage": "^2.0.0",
         "moment": "^2.28.0",
         "react": "^16.13.1",
@@ -20,7 +21,8 @@
         "react-router-dom": "^5.2.0",
         "react-scripts": "^3.4.3",
         "react-webcam": "^5.2.0",
-        "styled-components": "^5.2.0"
+        "styled-components": "^5.2.0",
+        "use-animate-presence": "^0.5.1"
     },
     "scripts": {
         "start": "react-scripts start",

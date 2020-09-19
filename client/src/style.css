@@ -91,6 +91,11 @@ input[type=number]::-webkit-inner-spin-button:focus {
     -webkit-appearance: none;
 }
 
+.img-thumbnail {
+    background-color: var(--primary-color);
+    border-color: var(--card-border);
+}
+
 .splashName {
   /* font-family: "Homemade Apple", cursive; */
   font-size: 100px;

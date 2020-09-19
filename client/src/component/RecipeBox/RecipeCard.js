@@ -1,5 +1,6 @@
 import React from "react";
 import DeleteBtn from "../RecipeBox/DeleteBtn";
+import { motion } from "framer-motion";
 
 function RecipeCard({ recipe, onClick, deleteRecipe, categorySearch, index }) {
 
@@ -16,7 +17,7 @@ function RecipeCard({ recipe, onClick, deleteRecipe, categorySearch, index }) {
 
     return (
         <div className="col my-2 font-book">
-            <div data-index={index} className="card h-100 recipe-card" onClick={(e) => onClick(e)}>
+            <motion.div data-index={index} className="card h-100 recipe-card" onClick={(e) => onClick(e)} whileHover={{ scale: 1.01 }}>
                 <div className="card-body pb-2 d-flex flex-column">
                     <div className="font-fashion d-flex justify-content-between align-items-center">
                     <h5 className="card-title">{recipe.name}</h5>
@@ -47,7 +48,7 @@ function RecipeCard({ recipe, onClick, deleteRecipe, categorySearch, index }) {
                         {recipe.category.toUpperCase()}
                     </button>
                 </div>
-            </div>
+            </motion.div>
         </div>
     );
 }
