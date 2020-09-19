@@ -4,17 +4,11 @@ import API from "../../utils/API"
 import ls from "local-storage";
 import { genImgFileName, dataURLtoFile, imgUploadHandler } from "../../utils/CameraLogic";
 import Webcam from "react-webcam";
+import { mobileCheck } from "../../utils/mobilePhoneCheck";
 
 function AllDone() {
 
-    const desktop = navigator.appVersion.includes("Win") ? true :
-        navigator.appVersion.includes("Mac") ? true :
-        navigator.appVersion.includes("X11") ? true :
-        navigator.appVersion.includes("Linux") ? true :
-        false
-
-    console.log(navigator.appVersion)
-
+    const desktop = mobileCheck();
     const webcamRef = React.useRef(null);
     const [imgSrc, setImgSrc] = useState(null);
     const [file, setFile] = useState(null);
@@ -26,7 +20,7 @@ function AllDone() {
 
     useEffect(() => {
         let comments = recipe.comments;
-        comments.push({text:"Recipe completed!"});
+        comments.push({ text: "Recipe completed!" });
         return () => {
             API.updateRecipe(recipe._id, recipe).then(() => {
                 console.log("recipe successfully written");
@@ -78,15 +72,15 @@ function AllDone() {
         let comments = recipe.comments;
         let urls = recipe.imageUrls;
         if (comment || comment != "") {
-            comments.push({text:comment})
+            comments.push({ text: comment })
         }
         //  urls.push(url);
         if (url) { urls[0] = url };
         // setting and uploading the photo logic goes here
-        setRecipe({ 
-            ...recipe, 
-            comments: comments, 
-            imageUrls: urls 
+        setRecipe({
+            ...recipe,
+            comments: comments,
+            imageUrls: urls
         });
         switch (route) {
             case "HOME":
@@ -139,21 +133,21 @@ function AllDone() {
                             )}
                         </section>
                     </> :
-                mode === "file" ?
-                    <div className="font-sans text-center divider mx-2 my-0">
-                        <span className="font-weight-normal pr-1">File Selected:</span>{file.name}
-                    </div>
-                    : 
-                <span className="divider-color"></span>}
+                    mode === "file" ?
+                        <div className="font-sans text-center divider mx-2 my-0">
+                            <span className="font-weight-normal pr-1">File Selected:</span>{file.name}
+                        </div>
+                        :
+                        <span className="divider-color"></span>}
 
             <form onSubmit={e => onComplete(e)}>
 
                 {mode === "select" ? <div className="d-flex">
-                    {(desktop === true) ?
-                        <button className="rb-btn flex-fill" onClick={captureMode}>
+                    {desktop ?
+                        null
+                        : <button className="rb-btn flex-fill" onClick={captureMode}>
                             Use Webcam
-                        </button>
-                        : null}
+                    </button>}
                     {/* Take out flex-fill below for mobile */}
                     <div className={desktop ? "form-file form-tweak w-50 ml-2" : "form-file form-tweak"}>
                         <input
