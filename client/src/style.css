@@ -49,7 +49,7 @@ td, th {
     color: var(--tag-color);
 }
 
-.form-control {
+.form-control, .form-select {
     border-top-color: var(--form-border);
     border-right-color: var(--form-border);
     border-bottom-color: var(--form-border);
@@ -58,6 +58,18 @@ td, th {
 
 .form-control, .form-control:focus, .form-select {
     background-color: var(--text-input-color);
+    color: var(--btn-subtle);
+}
+
+.form-control::-webkit-input-placeholder {
+    color: var(--placeholder);
+}
+
+.input-group-text {
+    font-family: var(--book);
+    font-style: italic;
+    background-color: var(--input-timer-color);
+    color: var(--input-timer-text);
 }
 
 input:-webkit-autofill, 
@@ -137,7 +149,7 @@ h2 {
 .rb-btn-subtle {
     background: var(--primary-color);
     border: thin solid var(--secondary-border);
-    color: var(--prime-border);
+    color: var(--btn-subtle);
     border-radius: 0.2rem;
     padding: 0.5rem 1rem;
 }
@@ -217,7 +229,6 @@ h2 {
 .divider {
     display: flex;
     align-items: center;
-    color: #8b95a5;
     margin: 1.2rem;
 }
 
@@ -341,12 +352,6 @@ h2 {
 .table-style {
     color: var(--table-style);
     border-bottom-color: var(--table-border-style);
-}
-
-
-.input-group-text {
-    font-family: var(--book);
-    font-style: italic;
 }
 
 .about-us {
