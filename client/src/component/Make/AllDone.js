@@ -17,7 +17,7 @@ function AllDone() {
     const [imgSrc, setImgSrc] = useState(null);
     const [file, setFile] = useState(null);
     const [mode, setMode] = useState("select");
-    const [url, setUrl] = useState();
+    const [url, setUrl] = useState(null);
     const [comment, setComment] = useState("");
     const [recipe, setRecipe] = useState(ls.get("recipe"));
     const history = useHistory();
@@ -79,9 +79,13 @@ function AllDone() {
             comments.push({text:comment})
         }
         //  urls.push(url);
-        urls[0] = url;
+        if (url) { urls[0] = url };
         // setting and uploading the photo logic goes here
-        setRecipe({ ...recipe, comments: comments, imageUrls: urls });
+        setRecipe({ 
+            ...recipe, 
+            comments: comments, 
+            imageUrls: urls 
+        });
         switch (route) {
             case "HOME":
                 history.push('/recipebox');

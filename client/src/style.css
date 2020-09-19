@@ -111,11 +111,6 @@ input[type=number]::-webkit-inner-spin-button:focus {
     font-weight: 300;
 }
 
-h2 {
-  /* font-family: "Homemade Apple", cursive; */
-  font-size: auto;
-}
-
 .font-sans-500 {
     font-family: var(--sans);
     font-weight: 500;
@@ -199,6 +194,10 @@ h2 {
 .form-tweak {
     height: 2.8rem;
     line-height: 2rem;
+}
+
+.form-tweak-2 {
+    padding: 9px 1rem;
 }
 
 .btn-outline-secondary {
@@ -388,6 +387,7 @@ h2 {
     color: var(--bs-secondary);
     font-family: var(--book);
     font-style: italic;
+    cursor: pointer;
 }
 
 /* Media Queries for About Page */

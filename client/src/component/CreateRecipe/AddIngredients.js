@@ -38,12 +38,6 @@ function AddIngredients() {
         setIngredients(array);
     }
 
-    useEffect(() => {
-        console.log("Recipe is:", recipe);
-        console.log("Ingredients list is:", ingredients);
-        console.log("Recipe contains the following ingredients:", recipe.recipeIngredients);
-    })
-
     const onChange = (e) => {
         setIngredient({ ...ingredient, [e.target.name]: e.target.value.toLowerCase() });
     }
@@ -66,66 +60,70 @@ function AddIngredients() {
             </div>
             <TableControl ingredients={ingredients} delete={deleteIngredient} header={true}></TableControl>
             <form onSubmit={e => onSubmit(e)} className="">
-                <div className="mb-2 row g-2">
-                    <div className="col-8 d-flex align-items-stretch">
-                        <input
-                            type="text"
-                            required
-                            className="form-control"
-                            name="name"
-                            value={ingredient.name}
-                            onChange={e => onChange(e)}
-                            placeholder="Ingredient"
-                            aria-label="Ingredient"
-                        />
-                    </div>
-                    <div className="col">
-                        <button type="submit" className="btn-block d-flex rb-btn-subtle align-items-center justify-content-center">
-                            <span className="text-nowrap">ADD INGREDIENT</span>
-                            <span
-                                className="rb-btn-icon btn-transparent ml-2"
-                            >
-                                <TableButton />
-                            </span>
-                        </button>
-                    </div>
-                </div>
                 <div className="row g-2">
-                    <div className="col-8">
-                        <input
-                            type="text"
-                            className="form-control"
-                            name="details"
-                            value={ingredient.details}
-                            onChange={e => onChange(e)}
-                            placeholder="(details)"
-                            aria-label="Details"
-                        />
-                    </div>
-                    <div className="col">
-                        <div className="input-group">
+                    <div className="col-lg-6 col-xl-8 g-2">
+                        <div className="d-flex align-items-stretch mb-2">
                             <input
-                                type="number"
+                                type="text"
                                 required
-                                className="form-control"
-                                name="quantity"
-                                value={ingredient.quantity}
+                                className="form-control form-tweak-2"
+                                name="name"
+                                value={ingredient.name}
                                 onChange={e => onChange(e)}
-                                placeholder="Amount"
-                                aria-label="Amount"
+                                placeholder="Ingredient"
+                                aria-label="Ingredient"
                             />
+                        </div>
+                        <div className="mb-2">
                             <input
                                 type="text"
                                 className="form-control"
-                                name="units"
-                                value={ingredient.units}
+                                name="details"
+                                value={ingredient.details}
                                 onChange={e => onChange(e)}
-                                placeholder="Measure"
-                                aria-label="Measure"
+                                placeholder="(details)"
+                                aria-label="Details"
                             />
                         </div>
-                    </div>
 
+                    </div>
+                    <div className="col-lg mt-0 mt-lg-2 g-2 d-flex flex-column-reverse flex-lg-column">
+                        <div className="mb-2">
+                            <button type="submit" className="btn-block d-flex rb-btn-subtle align-items-center justify-content-center">
+                                <span className="text-nowrap">ADD INGREDIENT</span>
+                                <span
+                                    className="rb-btn-icon btn-transparent ml-2"
+                                >
+                                    <TableButton />
+                                </span>
+                            </button>
+                        </div>
+
+                        <div className="mb-2">
+
+                            <div className="input-group">
+                                <input
+                                    type="number"
+                                    required
+                                    className="form-control"
+                                    name="quantity"
+                                    value={ingredient.quantity}
+                                    onChange={e => onChange(e)}
+                                    placeholder="Amount"
+                                    aria-label="Amount"
+                                />
+                                <input
+                                    type="text"
+                                    className="form-control"
+                                    name="units"
+                                    value={ingredient.units}
+                                    onChange={e => onChange(e)}
+                                    placeholder="Measure"
+                                    aria-label="Measure"
+                                />
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
             </form>

@@ -4,7 +4,7 @@ import TableControl from "../DynamicTable/TableControl"
 import ExitBtn from "./ExitBtn";
 
 function CardComplete({ recipe, flipCard }) {
-
+    
     const { pathname } = useLocation();
 
     return (

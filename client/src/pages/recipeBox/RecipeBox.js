@@ -98,6 +98,10 @@ function RecipeBox() {
         }
     };
 
+    const handleSearchButton = () => {
+        setForm({filterBy:form.input, })
+    }
+
     function categorySearch(event) {
         event.stopPropagation();
         event.preventDefault();
@@ -140,7 +144,7 @@ function RecipeBox() {
                 clearForm={clearForm}
             />
             {/* Top Secret */}
-            {/* <Navbar/> */}
+            <Navbar form={form} setForm={setForm}/>
             <section >
                 <div className="row row-cols-lg-3 row-cols-xl-4">
                     <AddRecipe />
