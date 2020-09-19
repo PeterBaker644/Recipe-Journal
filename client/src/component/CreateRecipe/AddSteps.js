@@ -115,7 +115,7 @@ function AddSteps() {
                             />
                         </div>
                         <button type="submit" className="rb-btn-subtle d-flex align-items-center ml-2 px-2">
-                            <span className="text-nowrap text-muted">ADD STEP</span>
+                            <span className="text-nowrap">ADD STEP</span>
                             <span
                                 className="rb-btn-icon btn-transparent ml-2"
                             >
