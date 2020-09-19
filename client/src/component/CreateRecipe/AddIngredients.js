@@ -5,8 +5,13 @@ import TableControl from "../DynamicTable/TableControl";
 import TableButton from "../DynamicTable/TableButton";
 import TestCard from "../TestCard";
 import ExitBtn from "./ExitBtn";
+import IconComponent from "./Icon";
+import API from "../../utils/API";
+
 
 function AddIngredients() {
+
+    const [ingredientIconList, setIngredientIconList] = useState([]);
 
     const { recipe, setValues } = useRecipe();
     const history = useHistory();
@@ -39,10 +44,10 @@ function AddIngredients() {
     }
 
     useEffect(() => {
-        console.log("Recipe is:", recipe);
-        console.log("Ingredients list is:", ingredients);
-        console.log("Recipe contains the following ingredients:", recipe.recipeIngredients);
-    })
+        API.getAllIngredientsLimitTen()
+            .then(res => setIngredientIconList(res.data))
+            .catch(err => console.log(err));
+    }, [])
 
     const onChange = (e) => {
         setIngredient({ ...ingredient, [e.target.name]: e.target.value.toLowerCase() });
@@ -54,91 +59,113 @@ function AddIngredients() {
         setIngredient(initState);
     }
 
+    const ingIconClicked = event => {
+        event.preventDefault();
+        console.log("icon button clicked")
+        console.log(event.currentTarget.name)
+        setIngredient({...ingredient, name:event.currentTarget.name})
+
+    };
+
     return (
-        <TestCard>
-            <div className="d-flex justify-content-between">
-                <h2 className="font-brand display-3">
-                    {editMode ? <span>edit ingredients:</span> : <span>add ingredients:</span>}
-                </h2>
-                <Link className="d-flex btn-delete font-sans" to={{ pathname: "/recipebox" }}>
-                    <ExitBtn />
-                </Link>
-            </div>
-            <TableControl ingredients={ingredients} delete={deleteIngredient} header={true}></TableControl>
-            <form onSubmit={e => onSubmit(e)} className="">
-                <div className="mb-2 row g-2">
-                    <div className="col-8 d-flex align-items-stretch">
-                        <input
-                            type="text"
-                            required
-                            className="form-control"
-                            name="name"
-                            value={ingredient.name}
-                            onChange={e => onChange(e)}
-                            placeholder="Ingredient"
-                            aria-label="Ingredient"
-                        />
-                    </div>
-                    <div className="col">
-                        <button type="submit" className="btn-block d-flex rb-btn-subtle align-items-center justify-content-center">
-                            <span className="text-nowrap text-muted">ADD INGREDIENT</span>
-                            <span
-                                className="rb-btn-icon btn-transparent ml-2"
-                            >
-                                <TableButton />
-                            </span>
-                        </button>
-                    </div>
+        <div>
+            <TestCard>
+                <div className="d-flex justify-content-between">
+                    <h2 className="font-brand display-3">
+                        {editMode ? <span>edit ingredients:</span> : <span>add ingredients:</span>}
+                    </h2>
+                    <Link className="d-flex btn-delete font-sans" to={{ pathname: "/recipebox" }}>
+                        <ExitBtn />
+                    </Link>
                 </div>
-                <div className="row g-2">
-                    <div className="col-8">
-                        <input
-                            type="text"
-                            className="form-control"
-                            name="details"
-                            value={ingredient.details}
-                            onChange={e => onChange(e)}
-                            placeholder="(details)"
-                            aria-label="Details"
-                        />
-                    </div>
-                    <div className="col">
-                        <div className="input-group">
+                <TableControl ingredients={ingredients} delete={deleteIngredient} header={true}></TableControl>
+
+                {ingredientIconList.map(ingredient => {
+                    return (
+                        <button name={ingredient.name} onClick={ingIconClicked}>
+                            <IconComponent
+                                key={ingredient._id}
+                                iconname={ingredient.name}
+                            />
+                            {ingredient.name}
+                        </button>
+                    );
+                })}
+                <form onSubmit={e => onSubmit(e)} className="">
+                    <div className="mb-2 row g-2">
+                        <div className="col-8 d-flex align-items-stretch">
                             <input
-                                type="number"
+                                type="text"
                                 required
                                 className="form-control"
-                                name="quantity"
-                                value={ingredient.quantity}
+                                name="name"
+                                value={ingredient.name}
                                 onChange={e => onChange(e)}
-                                placeholder="Amount"
-                                aria-label="Amount"
+                                placeholder="Ingredient"
+                                aria-label="Ingredient"
                             />
+                        </div>
+                        <div className="col">
+                            <button type="submit" className="btn-block d-flex rb-btn-subtle align-items-center justify-content-center">
+                                <span className="text-nowrap text-muted">ADD INGREDIENT</span>
+                                <span
+                                    className="rb-btn-icon btn-transparent ml-2"
+                                >
+                                    <TableButton />
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                    <div className="row g-2">
+                        <div className="col-8">
                             <input
                                 type="text"
                                 className="form-control"
-                                name="units"
-                                value={ingredient.units}
+                                name="details"
+                                value={ingredient.details}
                                 onChange={e => onChange(e)}
-                                placeholder="Measure"
-                                aria-label="Measure"
+                                placeholder="(details)"
+                                aria-label="Details"
                             />
                         </div>
+                        <div className="col">
+                            <div className="input-group">
+                                <input
+                                    type="number"
+                                    required
+                                    className="form-control"
+                                    name="quantity"
+                                    value={ingredient.quantity}
+                                    onChange={e => onChange(e)}
+                                    placeholder="Amount"
+                                    aria-label="Amount"
+                                />
+                                <input
+                                    type="text"
+                                    className="form-control"
+                                    name="units"
+                                    value={ingredient.units}
+                                    onChange={e => onChange(e)}
+                                    placeholder="Measure"
+                                    aria-label="Measure"
+                                />
+                            </div>
+                        </div>
+
                     </div>
 
+                </form>
+                <div className="mt-4 d-flex justify-content-between">
+                    <div className="d-flex justify-content-center">
+                        <Link className="rb-btn btn-info" to={{ pathname: "/create/info" }}>Back</Link>
+                        <button type="button" className="rb-btn btn-danger ml-2" onClick={clearIngredients}>Clear</button>
+                    </div>
+                    <button className="rb-btn btn-info" onClick={completeIngredients}>
+                        {editMode ? <span>edit steps</span> : <span>add steps</span>}
+                    </button>
                 </div>
-
-            </form>
-            <div className="mt-4 d-flex justify-content-between">
-                <div className="d-flex justify-content-center">
-                    <Link className="rb-btn btn-info" to={{ pathname: "/create/info" }}>Back</Link>
-                    <button type="button" className="rb-btn btn-danger ml-2" onClick={clearIngredients}>Clear</button>
-                </div>
-                <button className="rb-btn btn-info" onClick={completeIngredients}>
-                    {editMode ? <span>edit steps</span> : <span>add steps</span>}
-                </button>
-            </div>
-        </TestCard>
+            </TestCard>
+        </div>
     )
 }
 

@@ -5,11 +5,21 @@ module.exports = {
     findAll: function (req, res) {
         db.IngredientsModel
             .find()
-            .sort({ usedCount })
+            // .sort( { usedCount: -1 } )
+            // .sort({ usedCount })
             .then(dbModelDataResult => res.json(dbModelDataResult))
             .catch(err => res.status(422).json(err));
     },
-
+    
+    findAllLimitTen: function (req, res) {
+        db.IngredientsModel
+            .find()
+            .limit( 10 )
+            .sort( { usedCount: -1 } )
+            // .sort({ usedCount })
+            .then(dbModelDataResult => res.json(dbModelDataResult))
+            .catch(err => res.status(422).json(err));
+    },
     updateIngredientCount: function (req, res) {
 
         // console.log("[addingredients page] sending ingredients list API",ingredients );

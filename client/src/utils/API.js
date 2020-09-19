@@ -51,8 +51,12 @@ export default {
     getAllIngredients: function () {
         return authorize.get("/api/Ingredients");
     },
+    getAllIngredientsLimitTen: function () {
+        return authorize.get("/api/Ingredients/limitTen");
+    },
     updateIngredientCount: function (Ingredientlist) {
         console.log("[API] updating ingredient count:", Ingredientlist);
         return authorize.put("/api/Ingredients", Ingredientlist);
     },
+    
 };
