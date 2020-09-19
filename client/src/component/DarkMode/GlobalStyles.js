@@ -30,6 +30,7 @@ export const GlobalStyles = createGlobalStyle`
         --input-timer-text: ${({ theme }) => theme.inputTimerText};
         --btn-subtle: ${({ theme }) => theme.btnSubtle};
         --placeholder: ${({ theme }) => theme.placeHolder};
+        --nav-border: ${({ theme }) => theme.navBorder};
         transition: all 0.50s linear;
     }
     body {
