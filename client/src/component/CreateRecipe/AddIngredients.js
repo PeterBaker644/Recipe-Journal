@@ -38,12 +38,6 @@ function AddIngredients() {
         setIngredients(array);
     }
 
-    useEffect(() => {
-        console.log("Recipe is:", recipe);
-        console.log("Ingredients list is:", ingredients);
-        console.log("Recipe contains the following ingredients:", recipe.recipeIngredients);
-    })
-
     const onChange = (e) => {
         setIngredient({ ...ingredient, [e.target.name]: e.target.value.toLowerCase() });
     }
@@ -66,7 +60,7 @@ function AddIngredients() {
             </div>
             <TableControl ingredients={ingredients} delete={deleteIngredient} header={true}></TableControl>
             <form onSubmit={e => onSubmit(e)} className="">
-                <div className="row">
+                <div className="row g-2">
                     <div className="col-lg-6 col-xl-8 g-2">
                         <div className="d-flex align-items-stretch mb-2">
                             <input
