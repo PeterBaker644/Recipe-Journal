@@ -1,5 +1,3 @@
-
-
 export function mobileCheck() {
     window.mobileCheck = function () {
         let check = false;
