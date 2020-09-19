@@ -2,9 +2,12 @@ import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import API from "../../utils/API"
 import ls from "local-storage";
-import firebase from 'firebase';
+import { genImgFileName, dataURLtoFile, imgUploadHandler} from "../../utils/CameraLogic";
+import Webcam from "react-webcam";
 
 function AllDone() {
+    const webcamRef = React.useRef(null);
+    const [imgSrc, setImgSrc] = React.useState(null);
 
     // what about dates? does this page help track dates? 
     const [url, setUrl] = useState();
@@ -21,13 +24,38 @@ function AllDone() {
         }
     }, [])
 
+    const webcamCapture = React.useCallback(async () => {
+        // console.log("webcamCapture");
+        const imageSrc = webcamRef.current.getScreenshot();
+        setImgSrc(imageSrc);
+        const filename = genImgFileName(recipe.name);
+        // console.log("webcamCapture filename", filename);
+        const jpgImage = dataURLtoFile(imageSrc, filename);
+        // console.log("webcamCapture jpgImage", jpgImage);
+        const downloadURL = await imgUploadHandler(jpgImage, filename, recipe.userID);
+        // console.log("downloadURL", downloadURL);
+        setUrl(downloadURL);
+    }, [webcamRef, setImgSrc]);
+
+    const localfileSelectedHandler = async event => {
+        const jpgImage = event.target.files[0];
+        //validate jpg png etc
+        //bootstrap popdown validator
+        const filename = genImgFileName(recipe.name);
+        //needs validation logic to ensure a picture file is selected
+        const downloadURL = await imgUploadHandler(jpgImage, filename, recipe.userID);
+        // console.log("downloadURL", downloadURL);
+        setUrl(downloadURL);
+    }
+
     const submitForms = (route) => {
         let comments = recipe.comments;
         let urls = recipe.imageUrls;
         comments.push(comment);
-        urls.push(url);
+        //  urls.push(url);
+        urls[0]=url;
         // setting and uploading the photo logic goes here
-        setRecipe({ ...recipe, comments: comments, imageUrls: urls});
+        setRecipe({ ...recipe, comments: comments, imageUrls: urls });
         switch (route) {
             case "HOME":
                 history.push('/recipebox');
@@ -40,58 +68,6 @@ function AllDone() {
 
     const onChange = (e) => {
         setComment({ ...comment, text: e.target.value });
-    }
-
-    const fileSelectedHandler = event => {
-        // console.log("Photo file handler event", event.target.files[0]);
-        // Points to the root reference
-        var storageRef = firebase.storage().ref();
-        var file = event.target.files[0];
-        // console.log("stored file is ..", file);
-        var metadata = {
-            contentType: 'image/jpeg'
-        };
-        // Upload file and metadata to the object 
-        //SHOULD we do userID/ + file.name ? to store users photos in thier own folder. 
-        //would make for easier database maint. or things like local storage caching only photos from this folder?
-        var uploadTask = storageRef.child('images/' + file.name).put(file, metadata);
-
-        // the below code is not neccesary, it just monitors the upload, the last function is what pulls the download URL for you
-        uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, // or 'state_changed'
-            function (snapshot) {
-                // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
-                var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-                console.log('Upload is ' + progress + '% done');
-                switch (snapshot.state) {
-                    case firebase.storage.TaskState.PAUSED: // or 'paused'
-                        console.log('Upload is paused');
-                        break;
-                    case firebase.storage.TaskState.RUNNING: // or 'running'
-                        console.log('Upload is running');
-                        break;
-                }
-            }, function (error) {
-                // A full list of error codes is available at
-                // https://firebase.google.com/docs/storage/web/handle-errors
-                switch (error.code) {
-                    case 'storage/unauthorized':
-                        // User doesn't have permission to access the object
-                        break;
-                    case 'storage/canceled':
-                        // User canceled the upload
-                        break;
-                    case 'storage/unknown':
-                        // Unknown error occurred, inspect error.serverResponse
-                        break;
-                }
-            }, function () {
-                // Upload completed successfully, now we can get the download URL
-                uploadTask.snapshot.ref.getDownloadURL().then(function (downloadURL) {
-                    console.log('File available at', downloadURL);
-                    setUrl(downloadURL);
-                });
-            });
-
     }
 
     const onComplete = (e) => {
@@ -113,12 +89,31 @@ function AllDone() {
             <span className="divider-color"></span>
 
             <form onSubmit={e => onComplete(e)}>
-                <div className="form-file">
+                
+                
+                    <p>this is camera component</p>
+                    <div className="geneStupidBox" >
+                        <Webcam
+                            audio={false}
+                            ref={webcamRef}
+                            screenshotFormat="image/jpeg"
+                        />
+                    </div>
+
+                    <button type="button" onClick={webcamCapture}>Capture photo</button>
+                    <div className="geneStupidBox" >
+                        {imgSrc && (
+                            <img
+                                src={imgSrc} alt="webcam screenshot"
+                            />
+                        )}
+                    </div>
+                    <div className="form-file">
                     <input
                         type="file"
                         className="form-file-input"
                         id="filePhoto"
-                        onChange={fileSelectedHandler}
+                        onChange={localfileSelectedHandler}
                     />
                     <label className="form-file-label font-book-italic mb-2">
                         <span className="form-file-text">Upload a photo...</span>
