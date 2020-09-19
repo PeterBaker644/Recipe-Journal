@@ -18,22 +18,17 @@ function TableControl(props) {
                 </tr>
             </thead>
         )
-
         let tableBody = 
             <tbody className="table-style">
                 {ingredients.map((ingredient, index) =>
                 <tr key={index}>
-                    {/* This might need revisiting once details are added to creation */}
                     <th>
-                        {ingredient.name} {(ingredient.details === (" ") || ("")) ? null : <span className="font-weight-light">({ingredient.details})</span>}
+                        {ingredient.name} {(ingredient.details === ("") || ingredient.details === (" ")) ? null : <span className="font-weight-light">({ingredient.details})</span>}
                     </th>
                     <td>{ingredient.quantity} {ingredient.units}</td>
-                    {/* <td>{ingredient.units || "-"}</td> */}
                     {props.delete ? <TableDeleteBtn onClick={() => props.delete(index)} /> : null}
                 </tr>)}
             </tbody>
-        
-
         return (
             ingredients.length ?
             <div className="table-responsive">

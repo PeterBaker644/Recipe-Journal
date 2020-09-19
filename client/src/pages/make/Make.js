@@ -23,12 +23,6 @@ function Make() {
                     <ExitBtn />
                 </Link>
             </header>
-            {/* <button onClick={() => setTimer(true)} className="rb-btn btn-info" >Timer</button>
-            {timer && (
-                <Modal closeModal={() => setTimer(false)}>
-                    <Countdown></Countdown>
-                </Modal>
-            )} */}
             <span className="divider-color"></span>
             <section className="text-center">
                 <span className="font-book">{recipe.description}</span>
@@ -37,8 +31,6 @@ function Make() {
                 Tags: {recipe.tags.join(", ")}
             </span>
 
-            {/* <AccordionTest/> */}
-
             <Accordion title={"Ingredients"}>
                 <TableControl ingredients={recipe.ingredients} header={true}></TableControl>
             </Accordion>
@@ -46,7 +38,6 @@ function Make() {
                 return <Accordion key={obj.title} title={obj.title} text={obj.text} check={true} timer={obj.timer}/>;
             })}
 
-            
             <div className="d-flex justify-content-between pt-2">
                 <Link
                     to={{ pathname: "/recipebox" }}

@@ -7,7 +7,7 @@ function RecipeCard({ recipe, onClick, deleteRecipe, categorySearch, index }) {
 
     const isUrl = (string) => {
         try {
-            let expression = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/
+            let expression = /[-a-zA-Z0-9@:%_+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_+.~#?&//=]*)?/
             return string.match(expression);
         } catch {
             return null;
@@ -25,7 +25,7 @@ function RecipeCard({ recipe, onClick, deleteRecipe, categorySearch, index }) {
                     <span className="divider-color my-2"></span>
                     <div className="flex-fill d-flex flex-column justify-content-center">
                         {isUrl(recipe.imageUrls[0]) ? 
-                            <img className="img-fluid card-img img-thumbnail my-2" src={recipe.imageUrls[0]}/>
+                            <img className="img-fluid card-img img-thumbnail my-2" alt="Recipe Thumbnail" src={recipe.imageUrls[0]}/>
                             :
                             <div className="recipe-text text-center py-3">
                                 

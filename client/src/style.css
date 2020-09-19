@@ -30,6 +30,10 @@ td, th {
     padding: 0.4rem 0.6rem !important;
 }
 
+video {
+    width: 45vw;
+}
+
 .font-brand {
     font-family: "Prata";
 }
@@ -174,6 +178,22 @@ h2 {
 
 .rb-btn-icon :hover {
     color: #EF2D56;
+}
+
+.rb-btn-form {
+    border: var(--measurement) solid var(--prime-border);
+    border-radius: 0rem;
+    font: 600 1rem/1.5 var(--sans);
+    letter-spacing: var(--measurement);
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--prime-border);
+    cursor: pointer;
+}
+
+.form-tweak {
+    height: 2.8rem;
+    line-height: 2rem;
 }
 
 .btn-outline-secondary {
