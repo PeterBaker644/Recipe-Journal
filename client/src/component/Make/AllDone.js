@@ -9,13 +9,11 @@ function AllDone() {
 
     const desktop = navigator.appVersion.indexOf("Win") ? true :
         navigator.appVersion.indexOf("Mac") ? true :
-            navigator.appVersion.indexOf("X11") ? true :
-                navigator.appVersion.indexOf("Linux") ? true :
-                    false
+        navigator.appVersion.indexOf("X11") ? true :
+        navigator.appVersion.indexOf("Linux") ? true :
+        false
 
     const webcamRef = React.useRef(null);
-
-    // what about dates? does this page help track dates?
     const [imgSrc, setImgSrc] = useState(null);
     const [file, setFile] = useState(null);
     const [mode, setMode] = useState("select");
@@ -25,7 +23,8 @@ function AllDone() {
     const history = useHistory();
 
     useEffect(() => {
-        console.log(comment);
+        let comments = recipe.comments;
+        comments.push({text:"Recipe completed!"});
         return () => {
             API.updateRecipe(recipe._id, recipe).then(() => {
                 console.log("recipe successfully written");
@@ -68,13 +67,17 @@ function AllDone() {
             case "capture":
                 setMode("preview");
                 return;
+            default:
+                return;
         }
     }
 
     const submitForms = (route) => {
         let comments = recipe.comments;
         let urls = recipe.imageUrls;
-        comments.push(comment);
+        if (comment || comment != "") {
+            comments.push({text:comment})
+        }
         //  urls.push(url);
         urls[0] = url;
         // setting and uploading the photo logic goes here
@@ -86,11 +89,14 @@ function AllDone() {
             case "EDIT":
                 history.push('/create/info');
                 return;
+            default:
+                console.log("error");
+                return;
         }
     }
 
     const onChange = (e) => {
-        setComment({ ...comment, text: e.target.value });
+        setComment({ ...comment, text: e.target.value.trim() });
     }
 
     const onComplete = (e) => {
@@ -140,10 +146,10 @@ function AllDone() {
                     {desktop ?
                         <button className="rb-btn flex-fill" onClick={captureMode}>
                             Use Webcam
-                    </button>
+                        </button>
                         : null}
                     {/* Take out flex-fill below for mobile */}
-                    <div className={desktop ? "form-file form-tweak ml-2" : "form-file form-tweak flex-fill"}>
+                    <div className={desktop ? "form-file form-tweak w-50 ml-2" : "form-file form-tweak"}>
                         <input
                             type="file"
                             accept=".jpg,.png"

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useRecipe } from "../../component/CreateRecipe/RecipeContext";
 import { useHistory, Link } from "react-router-dom";
 import TestCard from "../TestCard";
@@ -21,13 +21,6 @@ function RecipeInfo() {
     const [info, setInfo] = useState(initState);
     const [tag, setTag] = useState("");
     const [tags, setTags] = useState([...recipe.tags || ""]);
-
-    useEffect(() => {
-        return () => {
-            console.log("Completed recipe info is:", recipe)
-            console.log("This component has unmounted");
-        }
-    }, [])
 
     const onChange = (e) => {
         setInfo({ ...info, [e.target.name]: e.target.value });

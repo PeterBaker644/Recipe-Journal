@@ -38,7 +38,6 @@ function Make() {
                 return <Accordion key={obj.title} title={obj.title} text={obj.text} check={true} timer={obj.timer}/>;
             })}
 
-            
             <div className="d-flex justify-content-between pt-2">
                 <Link
                     to={{ pathname: "/recipebox" }}

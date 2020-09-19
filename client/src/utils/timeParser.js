@@ -13,6 +13,8 @@ export default function timeParser(mode, t1, t2) {
         case "SEC":
             const seconds = (Number(t1) * 3600) + (Number(t2) * 60);
             return seconds;
+        default:
+            return;
     }
 
 }

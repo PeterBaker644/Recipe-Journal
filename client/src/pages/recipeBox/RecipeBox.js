@@ -29,23 +29,20 @@ function RecipeBox() {
     const [flip, setFlip] = useState(false);
     const history = useHistory();
 
-    // Load all recipes and store with setRecipes
-    useEffect(() => {
-        loadRecipes();
-        selectRecipe();
-    }, [])
-
     // Loads recipes and set them to recipes
     function loadRecipes() {
         API.getAllRecipes(user)
             .then(res => {
                 setRecipes(res.data);
-                // console.log(res.data);
             })
             .catch(err => console.log(err));
-
-
     };
+
+    // Load all recipes and store with setRecipes
+    useEffect(() => {
+        loadRecipes();
+        selectRecipe();
+    }, [])
 
     function onClick(e) {
         const index = e.currentTarget.dataset.index;
@@ -77,6 +74,8 @@ function RecipeBox() {
                 return;
             case "edit":
                 history.push('/create/info');
+                return;
+            default:
                 return;
         }
     }
