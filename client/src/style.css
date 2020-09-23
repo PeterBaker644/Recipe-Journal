@@ -143,16 +143,32 @@ input[type=number]::-webkit-inner-spin-button:focus {
     border: thin solid var(--secondary-border);
     border-radius:1rem;
     cursor: pointer;
-    font: 600 1rem/1.5 var(--sans);
-    letter-spacing: var(--measurement);
-    text-transform: uppercase;
+    font-family: var(--book);
+    /* letter-spacing: var(--measurement); */
+    text-transform: capitalize;
     padding: 0.5rem;
+}
+
+.rb-icon:hover {
+    color: #EF2D56;
 }
 
 .rb-btn {
     background: var(--primary-color, white);
     border: var(--measurement) solid var(--prime-border);
     cursor: pointer;
+    font: 600 1rem/1.5 var(--sans);
+    text-decoration: none;
+    color: var(--prime-border);
+    letter-spacing: var(--measurement);
+    padding: 0.5rem 0.75rem;
+    position: relative;
+    text-transform: uppercase;
+}
+
+.rb-header {
+    background: var(--primary-color, white);
+    border: var(--measurement) solid var(--prime-border);
     font: 600 1rem/1.5 var(--sans);
     text-decoration: none;
     color: var(--prime-border);
@@ -404,6 +420,10 @@ input[type=number]::-webkit-inner-spin-button:focus {
     font-family: var(--book);
     font-style: italic;
     cursor: pointer;
+}
+
+:focus {
+    outline: none !important;
 }
 
 /* Media Queries for About Page */

@@ -112,7 +112,7 @@ function AddSteps() {
                             </div>
                         </div>
                         <div className="input-group ml-2 margin">
-                            <span className="input-group-text form-control font-book">Timer</span>
+                            <span className="input-group-text form-control font-book">Create Timer:</span>
                             <input
                                 type="number"
                                 min="1" max="99" step="1"
