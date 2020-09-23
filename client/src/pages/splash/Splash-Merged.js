@@ -9,6 +9,7 @@ import { AuthContext } from "../../component/Auth";
 import Modal from "../../component/Modal/Modal";
 import PrivacyPolicyText from "../../component/PrivacyPolicy/PrivacyPolicyText";
 import Countdown from "../../component/Make/Countdown";
+import Sparkles from "../../component/Sparkle/Sparkles";
 
 function Splash({history}) {
     const firebase = test.firebase_;
@@ -51,7 +52,7 @@ function Splash({history}) {
         <div>
             <TestCard>
                 <section className="text-center">
-                    <h1 className="font-brand display-3">Recipe Box.</h1>
+                    <h1 className="font-brand display-3"><Sparkles>Recipe Box.</Sparkles></h1>
                     <p className="divider font-script">make something better</p>
                     <img className="img-fluid mb-3" src={box} alt="recipe box" />
                 </section>

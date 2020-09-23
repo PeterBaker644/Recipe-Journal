@@ -3,16 +3,13 @@ import { createGlobalStyle } from "styled-components";
 export const GlobalStyles = createGlobalStyle`
     :root {
         --primary-color: ${({ theme }) => theme.background};
-        --prime-border: ${({ theme }) => theme.border};
+        --prime-border: ${({ theme }) => theme.blackLightgray};
         --secondary-border: ${({ theme }) => theme.secondaryBorder};
         --card-hover: ${({ theme }) => theme.hover};
         --modal-bgcolor: ${({ theme }) => theme.body};
-        --divider-color: ${({ theme }) => theme.divider};
         --divider: ${({ theme }) => theme.divide};
-        --close-modal: ${({ theme }) => theme.closeModal};
         --table-style: ${({ theme }) => theme.tableStyle};
         --table-border-style: ${({ theme }) => theme.borderStyle};
-        --close: ${({ theme }) => theme.close};
         --timer-btns: ${({ theme }) => theme.timerBtns1};
         --timer-btns-hover: ${({ theme }) => theme.timerBtns2};
         --card-border: ${({ theme }) => theme.cardBorder};
@@ -31,6 +28,9 @@ export const GlobalStyles = createGlobalStyle`
         --btn-subtle: ${({ theme }) => theme.btnSubtle};
         --placeholder: ${({ theme }) => theme.placeHolder};
         --nav-border: ${({ theme }) => theme.navBorder};
+        --text-fill: ${({ theme }) => theme.textFill};
+        --google-color: ${({ theme }) => theme.googleColor};
+        --google-text: ${({ theme }) => theme.googleText};
         transition: all 0.50s linear;
     }
     body {

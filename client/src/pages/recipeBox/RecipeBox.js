@@ -12,6 +12,7 @@ import Navbar from "../../component/RecipeBox/Navbar"
 import CardComplete from "../../component/CreateRecipe/CardComplete"
 import '../../component/Modal/Modal.css';
 import RecipeHistory from "../../component/Make/RecipeHistory";
+import { Bounce, Zoom } from "react-awesome-reveal";
 
 const firebase = test.firebase_;
 
