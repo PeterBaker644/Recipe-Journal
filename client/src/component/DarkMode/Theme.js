@@ -32,6 +32,7 @@ export const lightTheme = {
     btnSubtle: '#555',
     placeHolder: '#888',
     tagColor: '#888',
+    navBorder: '#dee2e6',
 }
 
 export const darkTheme = {
@@ -68,4 +69,5 @@ export const darkTheme = {
     btnSubtle: '#CCC',
     placeHolder: '#999',
     tagColor: 'darkgray',
+    navBorder: 'lightgray',
 }
