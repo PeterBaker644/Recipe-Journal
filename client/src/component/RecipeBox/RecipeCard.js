@@ -17,7 +17,7 @@ function RecipeCard({ recipe, onClick, deleteRecipe, categorySearch, index }) {
 
     return (
         <div className="col my-2 font-book">
-            <motion.div data-index={index} className="card h-100 recipe-card" onClick={(e) => onClick(e)} whileHover={{ scale: 1.01 }}>
+            <motion.div data-index={index} className="card recipe-card" onClick={(e) => onClick(e)} whileHover={{ scale: 1.01 }}>
                 <div className="card-body pb-2 d-flex flex-column">
                     <div className="font-fashion d-flex justify-content-between align-items-center">
                     <h5 className="card-title">{recipe.name}</h5>

@@ -12,6 +12,7 @@ import Navbar from "../../component/RecipeBox/Navbar"
 import CardComplete from "../../component/CreateRecipe/CardComplete"
 import '../../component/Modal/Modal.css';
 import RecipeHistory from "../../component/Make/RecipeHistory";
+import { Bounce, Zoom } from "react-awesome-reveal";
 
 const firebase = test.firebase_;
 
@@ -155,14 +156,14 @@ function RecipeBox() {
                     {recipes.length ? (
                         <>
                             {filterRecipes(recipes, form.filterBy).map((recipe, index) => {
-                                return (<RecipeCard
+                                return (<Zoom><RecipeCard
                                     recipe={recipe}
                                     deleteRecipe={deleteConfirmation}
                                     onClick={onClick}
                                     key={(index + 1)}
                                     index={index}
                                     categorySearch={categorySearch}
-                                />)
+                                /></Zoom>)
                             })}
                         </>
                     ) : (<h3>No Recipes to Display</h3>)
