@@ -22,7 +22,7 @@ export function dataURLtoFile(dataurl, filename) {
     return (file);
 }
 
-export async function imgUploadHandler(jpgImage, filename, userID) {
+export async function imgUploadHandler(jpgImage, filename) {
     try {
         console.log("imgHandler");
         // Points to the root reference
@@ -30,11 +30,24 @@ export async function imgUploadHandler(jpgImage, filename, userID) {
         var metadata = {
             contentType: 'image/jpeg'
         };
-        var uploadTask = await storageRef.child(userID + '/' + filename).put(jpgImage, metadata);
-        const downloadURL = await uploadTask.ref.getDownloadURL();
-        return (downloadURL);
+
+        var user = await firebase.auth().currentUser;
+
+        if (user) {
+            console.log("user.uid", user.uid);
+            var uploadTask = await storageRef.child(user.uid + '/' + filename).put(jpgImage, metadata);
+            const downloadURL = await uploadTask.ref.getDownloadURL();
+            console.log("nested downloadURL", downloadURL);
+
+
+            return (downloadURL);
+        } else {
+            console.log("error no user id found");
+        }
+
+
     } catch (error) {
         console.log("ERR ===", error);
         // alert("Image uploading failed!");
-    }    
+    }
 }
