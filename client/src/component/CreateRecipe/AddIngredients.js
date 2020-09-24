@@ -88,16 +88,15 @@ function AddIngredients() {
                 </Link>
             </div>
             <TableControl ingredients={ingredients} delete={deleteIngredient} header={true}></TableControl>
-            <div className="d-flex justify-content-around flex-wrap mx-4 mb-3">
+            <div className="d-flex justify-content-start align-items-center flex-wrap mb-3">
+                <h4 className="rb-header w-100 mb-3">Popular Ingredients:</h4>
                 {ingredientIconList.map(ingredient => {
                     return (
-                        <button className="rb-icon my-2" name={ingredient.name} onClick={ingIconClicked}>
-                            <IconComponent
-                                key={ingredient._id}
-                                iconname={ingredient.name}
-                            />
-                            {ingredient.name}
-                        </button>
+                        <IconComponent
+                            key={ingredient._id}
+                            iconname={ingredient.name}
+                            onClick={ingIconClicked}
+                        />
                     );
                 })}
             </div>
