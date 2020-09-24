@@ -156,14 +156,14 @@ function RecipeBox() {
                     {recipes.length ? (
                         <>
                             {filterRecipes(recipes, form.filterBy).map((recipe, index) => {
-                                return (<RecipeCard
+                                return (<Zoom><RecipeCard
                                     recipe={recipe}
                                     deleteRecipe={deleteConfirmation}
                                     onClick={onClick}
                                     key={(index + 1)}
                                     index={index}
                                     categorySearch={categorySearch}
-                                />)
+                                /></Zoom>)
                             })}
                         </>
                     ) : (<h3>No Recipes to Display</h3>)
