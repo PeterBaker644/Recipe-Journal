@@ -6,6 +6,7 @@ import { genImgFileName, dataURLtoFile, imgUploadHandler } from "../../utils/Cam
 import Webcam from "react-webcam";
 import { mobileCheck } from "../../utils/mobilePhoneCheck";
 
+
 function AllDone() {
 
     const mobile = mobileCheck();
@@ -43,8 +44,8 @@ function AllDone() {
             // console.log("webcamCapture filename", filename);
             const jpgImage = dataURLtoFile(imageSrc, filename);
             // console.log("webcamCapture jpgImage", jpgImage);
-            const downloadURL = await imgUploadHandler(jpgImage, filename, recipe.userID);
-            // console.log("downloadURL", downloadURL);
+            const downloadURL = await imgUploadHandler(jpgImage, filename);
+            console.log("downloadURL", downloadURL);
             setUrl(downloadURL);
         }
 
@@ -58,7 +59,7 @@ function AllDone() {
         //bootstrap popdown validator
         const filename = genImgFileName(recipe.name);
         //needs validation logic to ensure a picture file is selected
-        const downloadURL = await imgUploadHandler(jpgImage, filename, recipe.userID);
+        const downloadURL = await imgUploadHandler(jpgImage, filename);
         // console.log("downloadURL", downloadURL);
         setUrl(downloadURL);
     }
@@ -83,7 +84,11 @@ function AllDone() {
             comments.push({ text: comment })
         }
         //  urls.push(url);
-        if (url) { urls[0] = url };
+        if (url) { 
+            urls[0] = url 
+            // console.log("url");
+            // console.log(url);
+        };
         // setting and uploading the photo logic goes here
         setRecipe({
             ...recipe,
