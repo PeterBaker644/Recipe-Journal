@@ -37,9 +37,9 @@ function CardComplete({ recipe, flipCard }) {
                 Tags: {recipe.tags.join(", ")}
             </span>
 
-            <h4 className="rb-btn">Ingredients</h4>
+            <h4 className="rb-header">Ingredients</h4>
             <TableControl ingredients={recipe.ingredients} header={true}></TableControl>
-            <h4 className="rb-btn">Instructions</h4>
+            <h4 className="rb-header">Instructions</h4>
             <TableControl actions={recipe.actions}></TableControl>
         </>
     )
