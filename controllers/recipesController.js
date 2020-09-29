@@ -33,6 +33,12 @@ module.exports = {
             .then(dbModelDataResult => res.json(dbModelDataResult))
             .catch(err => res.status(422).json(err));
     },
+    findByNotuserId: function (req, res) {
+        db.RecipesModel
+            .find({ userID: { $ne:  req.params.userID  } })
+            .then(dbModelDataResult => res.json(dbModelDataResult))
+            .catch(err => res.status(422).json(err));
+    },
 
     update: function (req, res) {
         db.RecipesModel

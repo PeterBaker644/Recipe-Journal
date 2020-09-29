@@ -6,6 +6,7 @@ import CreateRecipe from "./pages/createRecipe/createRecipe";
 import { AuthProvider } from "./component/Auth";
 import PrivateRoute from "./component/PrivateRoute";
 import Gene from "./pages/gene/Gene";
+import Gene2 from "./pages/gene/Gene2";
 import Privacy from "./pages/privacyPolicy/privacyPolicy";
 import RecipeBox from "./pages/recipeBox/RecipeBox";
 import AboutUs from "./pages/aboutUs/aboutUs";
@@ -39,6 +40,7 @@ function App() {
                 <Switch>
                     <PrivateRoute exact path="/recipebox" component={RecipeBox} />
                     <Route exact path="/gene" component={Gene} />
+                    <Route exact path="/gene2" component={Gene2} />
                     <Route exact path="/" component={Splash} />
                     <Route exact path="/login" component={Login} />
                     <PrivateRoute path="/create" component={CreateRecipe} />
