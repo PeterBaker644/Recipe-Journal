@@ -148,7 +148,6 @@ function RecipeBox() {
                 handleFormSubmit={handleFormSubmit}
                 clearForm={clearForm}
             />
-            {/* Top Secret */}
             <Navbar form={form} setForm={setForm}/>
             <section >
                 <div className="row row-cols-lg-3 row-cols-xl-4">
