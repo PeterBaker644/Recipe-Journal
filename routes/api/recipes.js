@@ -6,6 +6,12 @@ router.route("/")
     .get(recipesController.findAll)
     .post(recipesController.create);
 
+// Matches with "/api/recipes/public/:userID"
+router
+    .route("/public/:userID")
+    .get(recipesController.findByNotuserId)
+    
+
 // Matches with "/api/recipes/:_id"
 router
     .route("/:_id")

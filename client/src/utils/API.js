@@ -29,9 +29,13 @@ firebase.auth().onAuthStateChanged(function (user) {
 export default {
     getAllRecipes: function () {
         return authorize.get("/api/recipes");
+    },    
+    getPublicRecipes: function (userID) {
+        // console.log("[API] getting all recipes EXCEPT those by ", userID);
+        return authorize.get("/api/recipes/public/" + userID);
     },
     createRecipe: function (newRecipe) {
-        console.log("[API] New recipe created:", newRecipe);
+        // console.log("[API] New recipe created:", newRecipe);
         return authorize.post("/api/recipes", newRecipe);
     },
     updateRecipe: function (_id, recipe) {
@@ -41,7 +45,7 @@ export default {
         return authorize.get("/api/recipes/" + _id);
     },
     getUserRecipes: function (userID) {
-        console.log("[API] getting all recipes by specified user", userID);
+        // console.log("[API] getting all recipes by specified user", userID);
         return authorize.get("/api/recipes/user/" + userID);
     },
     deleteRecipe: function (_id) {
@@ -55,7 +59,7 @@ export default {
         return authorize.get("/api/Ingredients/limitTen");
     },
     updateIngredientCount: function (Ingredientlist) {
-        console.log("[API] updating ingredient count:", Ingredientlist);
+        // console.log("[API] updating ingredient count:", Ingredientlist);
         return authorize.put("/api/Ingredients", Ingredientlist);
     },
     
